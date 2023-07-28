@@ -310,7 +310,7 @@ class SuggestPricesRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets offers
      *
-     * @param \YandexMarketApi\Model\SuggestOfferPriceDTO[] $offers Список товаров
+     * @param \YandexMarketApi\Model\SuggestOfferPriceDTO[] $offers Список товаров.
      *
      * @return self
      */

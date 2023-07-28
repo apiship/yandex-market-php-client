@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderDeliveryOptionDTO Class Doc Comment
  *
  * @category Class
- * @description Опции доставки
+ * @description Опции доставки.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

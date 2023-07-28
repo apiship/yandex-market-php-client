@@ -72,6 +72,30 @@ class BidsApiTest extends TestCase
     }
 
     /**
+     * Test case for getBidsInfoForBusiness
+     *
+     * Информация об установленных ставках.
+     *
+     */
+    public function testGetBidsInfoForBusiness()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getBidsRecommendations
+     *
+     * Рекомендованные ставки для заданных товаров.
+     *
+     */
+    public function testGetBidsRecommendations()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for putBidsForBusiness
      *
      * Включение буста продаж и установка ставок.
@@ -86,7 +110,7 @@ class BidsApiTest extends TestCase
     /**
      * Test case for putBidsForCampaign
      *
-     * description.
+     * Включение буста продаж и установка ставок для магазина.
      *
      */
     public function testPutBidsForCampaign()

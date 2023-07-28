@@ -130,7 +130,7 @@ class StocksApi
      *
      * Запрос информации об остатках
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $warehouse_id Идентификатор склада. (required)
      * @param  string[] $sku Фильтр по SKU (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActualStocks'] to see the possible values for this operation
@@ -150,7 +150,7 @@ class StocksApi
      *
      * Запрос информации об остатках
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $warehouse_id Идентификатор склада. (required)
      * @param  string[] $sku Фильтр по SKU (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActualStocks'] to see the possible values for this operation
@@ -390,7 +390,7 @@ class StocksApi
      *
      * Запрос информации об остатках
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $warehouse_id Идентификатор склада. (required)
      * @param  string[] $sku Фильтр по SKU (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActualStocks'] to see the possible values for this operation
@@ -413,7 +413,7 @@ class StocksApi
      *
      * Запрос информации об остатках
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $warehouse_id Идентификатор склада. (required)
      * @param  string[] $sku Фильтр по SKU (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActualStocks'] to see the possible values for this operation
@@ -465,7 +465,7 @@ class StocksApi
     /**
      * Create request for operation 'getActualStocks'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $warehouse_id Идентификатор склада. (required)
      * @param  string[] $sku Фильтр по SKU (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getActualStocks'] to see the possible values for this operation
@@ -590,7 +590,7 @@ class StocksApi
      *
      * Передача информации об остатках
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\UpdateStocksRequest $update_stocks_request update_stocks_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStocks'] to see the possible values for this operation
      *
@@ -609,7 +609,7 @@ class StocksApi
      *
      * Передача информации об остатках
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\UpdateStocksRequest $update_stocks_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStocks'] to see the possible values for this operation
      *
@@ -848,7 +848,7 @@ class StocksApi
      *
      * Передача информации об остатках
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\UpdateStocksRequest $update_stocks_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStocks'] to see the possible values for this operation
      *
@@ -870,7 +870,7 @@ class StocksApi
      *
      * Передача информации об остатках
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\UpdateStocksRequest $update_stocks_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStocks'] to see the possible values for this operation
      *
@@ -921,7 +921,7 @@ class StocksApi
     /**
      * Create request for operation 'updateStocks'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\UpdateStocksRequest $update_stocks_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStocks'] to see the possible values for this operation
      *

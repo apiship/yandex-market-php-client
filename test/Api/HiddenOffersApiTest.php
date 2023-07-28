@@ -98,7 +98,7 @@ class HiddenOffersApiTest extends TestCase
     /**
      * Test case for getHiddenOffers
      *
-     * Информация о скрытых товарах.
+     * Информация о скрытых вами товарах.
      *
      */
     public function testGetHiddenOffers()

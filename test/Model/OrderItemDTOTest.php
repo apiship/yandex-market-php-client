@@ -152,6 +152,15 @@ class OrderItemDTOTest extends TestCase
     }
 
     /**
+     * Test attribute "price_before_discount"
+     */
+    public function testPropertyPriceBeforeDiscount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "count"
      */
     public function testPropertyCount()

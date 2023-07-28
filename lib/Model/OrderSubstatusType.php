@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderSubstatusType Class Doc Comment
  *
  * @category Class
- * @description Этап обработки заказа (если он имеет статус &#x60;PROCESSING&#x60;) или причина отмены заказа (если он имеет статус &#x60;CANCELLED&#x60;).  Возможные значения для заказа в статусе &#x60;PROCESSING&#x60;:  * &#x60;STARTED&#x60; — заказ подтвержден, его можно начать обрабатывать. * &#x60;READY_TO_SHIP&#x60; — заказ собран и готов к отправке.  Возможные значения для заказа в статусе &#x60;CANCELLED&#x60;:  * &#x60;PROCESSING_EXPIRED&#x60; — магазин не обработал заказ в течение семи дней.  * &#x60;REPLACING_ORDER&#x60; — покупатель решил заменить товар другим по собственной инициативе.  * &#x60;RESERVATION_EXPIRED&#x60; — покупатель не завершил оформление зарезервированного заказа в течение 10 минут.  * &#x60;SHOP_FAILED&#x60; — магазин не может выполнить заказ.  * &#x60;USER_CHANGED_MIND&#x60; — покупатель отменил заказ по личным причинам.  * &#x60;USER_NOT_PAID&#x60; — покупатель не оплатил заказ (для типа оплаты &#x60;PREPAID&#x60;) в течение 30 минут.  * &#x60;USER_REFUSED_DELIVERY&#x60; — покупателя не устроили условия доставки.  * &#x60;USER_REFUSED_PRODUCT&#x60; — покупателю не подошел товар.  * &#x60;USER_REFUSED_QUALITY&#x60; — покупателя не устроило качество товара.  * &#x60;USER_UNREACHABLE&#x60; — не удалось связаться с покупателем.  Также могут возвращаться другие значения. Обрабатывать их не требуется.
+ * @description Этап обработки заказа (если он имеет статус &#x60;PROCESSING&#x60;) или причина отмены заказа (если он имеет статус &#x60;CANCELLED&#x60;).  Возможные значения для заказа в статусе &#x60;PROCESSING&#x60;:  * &#x60;STARTED&#x60; — заказ подтвержден, его можно начать обрабатывать. * &#x60;READY_TO_SHIP&#x60; — заказ собран и готов к отправке.  Возможные значения для заказа в статусе &#x60;CANCELLED&#x60;:  * &#x60;PROCESSING_EXPIRED&#x60; — значение более не используется.  * &#x60;REPLACING_ORDER&#x60; — покупатель решил заменить товар другим по собственной инициативе.  * &#x60;RESERVATION_EXPIRED&#x60; — покупатель не завершил оформление зарезервированного заказа в течение 10 минут.  * &#x60;SHOP_FAILED&#x60; — магазин не может выполнить заказ.  * &#x60;USER_CHANGED_MIND&#x60; — покупатель отменил заказ по личным причинам.  * &#x60;USER_NOT_PAID&#x60; — покупатель не оплатил заказ (для типа оплаты &#x60;PREPAID&#x60;) в течение 30 минут.  * &#x60;USER_REFUSED_DELIVERY&#x60; — покупателя не устроили условия доставки.  * &#x60;USER_REFUSED_PRODUCT&#x60; — покупателю не подошел товар.  * &#x60;USER_REFUSED_QUALITY&#x60; — покупателя не устроило качество товара.  * &#x60;USER_UNREACHABLE&#x60; — не удалось связаться с покупателем.  Также могут возвращаться другие значения. Обрабатывать их не требуется.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -253,6 +253,12 @@ class OrderSubstatusType
 
     public const AWAIT_USER_PERSONAL_DATA = 'AWAIT_USER_PERSONAL_DATA';
 
+    public const NO_PERSONAL_DATA_EXPIRED = 'NO_PERSONAL_DATA_EXPIRED';
+
+    public const CUSTOMS_PROBLEMS = 'CUSTOMS_PROBLEMS';
+
+    public const AWAIT_CASHIER = 'AWAIT_CASHIER';
+
     public const UNKNOWN = 'UNKNOWN';
 
     /**
@@ -367,6 +373,9 @@ class OrderSubstatusType
             self::FIRST_MILE_DELIVERY_SERVICE_RECEIVED,
             self::AWAIT_AUTO_DELIVERY_DATES,
             self::AWAIT_USER_PERSONAL_DATA,
+            self::NO_PERSONAL_DATA_EXPIRED,
+            self::CUSTOMS_PROBLEMS,
+            self::AWAIT_CASHIER,
             self::UNKNOWN
         ];
     }

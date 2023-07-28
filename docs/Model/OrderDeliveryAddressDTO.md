@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **apartment** | **string** | Квартира или офис. | [optional]
 **phone** | **string** | Телефон получателя заказа.  Обязательный параметр. | [optional]
 **recipient** | **string** | Фамилия, имя и отчество получателя заказа.  Обязательный параметр. | [optional]
+**gps** | [**\YandexMarketApi\Model\GpsDTO**](GpsDTO.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

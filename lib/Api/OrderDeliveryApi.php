@@ -142,7 +142,7 @@ class OrderDeliveryApi
      *
      * Информация о покупателе
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderBuyerInfo'] to see the possible values for this operation
      *
@@ -161,7 +161,7 @@ class OrderDeliveryApi
      *
      * Информация о покупателе
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderBuyerInfo'] to see the possible values for this operation
      *
@@ -400,7 +400,7 @@ class OrderDeliveryApi
      *
      * Информация о покупателе
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderBuyerInfo'] to see the possible values for this operation
      *
@@ -422,7 +422,7 @@ class OrderDeliveryApi
      *
      * Информация о покупателе
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderBuyerInfo'] to see the possible values for this operation
      *
@@ -473,7 +473,7 @@ class OrderDeliveryApi
     /**
      * Create request for operation 'getOrderBuyerInfo'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderBuyerInfo'] to see the possible values for this operation
      *
@@ -587,7 +587,7 @@ class OrderDeliveryApi
      *
      * Метод для получения слотов доставки по адресу и товарным позициям для создания FaaS-заказа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\GetOrderDeliveryOptionsRequest $get_order_delivery_options_request get_order_delivery_options_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderDeliveryOptions'] to see the possible values for this operation
      *
@@ -606,7 +606,7 @@ class OrderDeliveryApi
      *
      * Метод для получения слотов доставки по адресу и товарным позициям для создания FaaS-заказа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\GetOrderDeliveryOptionsRequest $get_order_delivery_options_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderDeliveryOptions'] to see the possible values for this operation
      *
@@ -845,7 +845,7 @@ class OrderDeliveryApi
      *
      * Метод для получения слотов доставки по адресу и товарным позициям для создания FaaS-заказа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\GetOrderDeliveryOptionsRequest $get_order_delivery_options_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderDeliveryOptions'] to see the possible values for this operation
      *
@@ -867,7 +867,7 @@ class OrderDeliveryApi
      *
      * Метод для получения слотов доставки по адресу и товарным позициям для создания FaaS-заказа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\GetOrderDeliveryOptionsRequest $get_order_delivery_options_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderDeliveryOptions'] to see the possible values for this operation
      *
@@ -918,7 +918,7 @@ class OrderDeliveryApi
     /**
      * Create request for operation 'getOrderDeliveryOptions'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\GetOrderDeliveryOptionsRequest $get_order_delivery_options_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrderDeliveryOptions'] to see the possible values for this operation
      *
@@ -1031,7 +1031,7 @@ class OrderDeliveryApi
      *
      * Изменение даты доставки заказа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\SetOrderDeliveryDateRequest $set_order_delivery_date_request set_order_delivery_date_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setOrderDeliveryDate'] to see the possible values for this operation
@@ -1051,7 +1051,7 @@ class OrderDeliveryApi
      *
      * Изменение даты доставки заказа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\SetOrderDeliveryDateRequest $set_order_delivery_date_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setOrderDeliveryDate'] to see the possible values for this operation
@@ -1291,7 +1291,7 @@ class OrderDeliveryApi
      *
      * Изменение даты доставки заказа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\SetOrderDeliveryDateRequest $set_order_delivery_date_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setOrderDeliveryDate'] to see the possible values for this operation
@@ -1314,7 +1314,7 @@ class OrderDeliveryApi
      *
      * Изменение даты доставки заказа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\SetOrderDeliveryDateRequest $set_order_delivery_date_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setOrderDeliveryDate'] to see the possible values for this operation
@@ -1366,7 +1366,7 @@ class OrderDeliveryApi
     /**
      * Create request for operation 'setOrderDeliveryDate'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\SetOrderDeliveryDateRequest $set_order_delivery_date_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setOrderDeliveryDate'] to see the possible values for this operation
@@ -1495,7 +1495,7 @@ class OrderDeliveryApi
      *
      * Передача трек‑номера посылки
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\SetOrderDeliveryTrackCodeRequest $set_order_delivery_track_code_request set_order_delivery_track_code_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setOrderDeliveryTrackCode'] to see the possible values for this operation
@@ -1515,7 +1515,7 @@ class OrderDeliveryApi
      *
      * Передача трек‑номера посылки
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\SetOrderDeliveryTrackCodeRequest $set_order_delivery_track_code_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setOrderDeliveryTrackCode'] to see the possible values for this operation
@@ -1755,7 +1755,7 @@ class OrderDeliveryApi
      *
      * Передача трек‑номера посылки
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\SetOrderDeliveryTrackCodeRequest $set_order_delivery_track_code_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setOrderDeliveryTrackCode'] to see the possible values for this operation
@@ -1778,7 +1778,7 @@ class OrderDeliveryApi
      *
      * Передача трек‑номера посылки
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\SetOrderDeliveryTrackCodeRequest $set_order_delivery_track_code_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setOrderDeliveryTrackCode'] to see the possible values for this operation
@@ -1830,7 +1830,7 @@ class OrderDeliveryApi
     /**
      * Create request for operation 'setOrderDeliveryTrackCode'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\SetOrderDeliveryTrackCodeRequest $set_order_delivery_track_code_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setOrderDeliveryTrackCode'] to see the possible values for this operation
@@ -1959,7 +1959,7 @@ class OrderDeliveryApi
      *
      * Продление срока хранения заказа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\UpdateOrderStorageLimitRequest $update_order_storage_limit_request update_order_storage_limit_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOrderStorageLimit'] to see the possible values for this operation
@@ -1979,7 +1979,7 @@ class OrderDeliveryApi
      *
      * Продление срока хранения заказа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\UpdateOrderStorageLimitRequest $update_order_storage_limit_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOrderStorageLimit'] to see the possible values for this operation
@@ -2219,7 +2219,7 @@ class OrderDeliveryApi
      *
      * Продление срока хранения заказа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\UpdateOrderStorageLimitRequest $update_order_storage_limit_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOrderStorageLimit'] to see the possible values for this operation
@@ -2242,7 +2242,7 @@ class OrderDeliveryApi
      *
      * Продление срока хранения заказа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\UpdateOrderStorageLimitRequest $update_order_storage_limit_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOrderStorageLimit'] to see the possible values for this operation
@@ -2294,7 +2294,7 @@ class OrderDeliveryApi
     /**
      * Create request for operation 'updateOrderStorageLimit'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\UpdateOrderStorageLimitRequest $update_order_storage_limit_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOrderStorageLimit'] to see the possible values for this operation
@@ -2423,7 +2423,7 @@ class OrderDeliveryApi
      *
      * Передача кода проверки
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\VerifyOrderEacRequest $verify_order_eac_request verify_order_eac_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyOrderEac'] to see the possible values for this operation
@@ -2443,7 +2443,7 @@ class OrderDeliveryApi
      *
      * Передача кода проверки
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\VerifyOrderEacRequest $verify_order_eac_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyOrderEac'] to see the possible values for this operation
@@ -2683,7 +2683,7 @@ class OrderDeliveryApi
      *
      * Передача кода проверки
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\VerifyOrderEacRequest $verify_order_eac_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyOrderEac'] to see the possible values for this operation
@@ -2706,7 +2706,7 @@ class OrderDeliveryApi
      *
      * Передача кода проверки
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\VerifyOrderEacRequest $verify_order_eac_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyOrderEac'] to see the possible values for this operation
@@ -2758,7 +2758,7 @@ class OrderDeliveryApi
     /**
      * Create request for operation 'verifyOrderEac'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $order_id Идентификатор заказа. (required)
      * @param  \YandexMarketApi\Model\VerifyOrderEacRequest $verify_order_eac_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyOrderEac'] to see the possible values for this operation

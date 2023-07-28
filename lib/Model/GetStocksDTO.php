@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * GetStocksDTO Class Doc Comment
  *
  * @category Class
- * @description Информация по актуальным стокам
+ * @description Информация по актуальным стокам.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -303,7 +303,7 @@ class GetStocksDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets skus
      *
-     * @param \YandexMarketApi\Model\StockDTO[]|null $skus Информация о стоках
+     * @param \YandexMarketApi\Model\StockDTO[]|null $skus Информация о стоках.
      *
      * @return self
      */

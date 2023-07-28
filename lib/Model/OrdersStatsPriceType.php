@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrdersStatsPriceType Class Doc Comment
  *
  * @category Class
- * @description Тип скидки или цена на товар: - &#x60;BUYER&#x60; — цена на товар с учетом скидок, в том числе купонов. - &#x60;CASHBACK&#x60; — баллы кешбэка по подписке Яндекс Плюс. - &#x60;MARKETPLACE&#x60; — купоны. - &#x60;SPASIBO&#x60; — бонусы СберСпасибо.
+ * @description Тип скидки или цена на товар: - &#x60;BUYER&#x60; — цена на товар с учетом скидок, в том числе купонов; - &#x60;CASHBACK&#x60; — баллы кешбэка по подписке Яндекс Плюс; - &#x60;MARKETPLACE&#x60; — купоны; - &#x60;SPASIBO&#x60; — бонусы СберСпасибо.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

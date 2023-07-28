@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * UpdateOrderStatusesDTO Class Doc Comment
  *
  * @category Class
- * @description Список заказов, статус которых обновился
+ * @description Список заказов, статус которых обновился.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -303,7 +303,7 @@ class UpdateOrderStatusesDTO implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets orders
      *
-     * @param \YandexMarketApi\Model\UpdateOrderStatusDTO[]|null $orders Список с обновленными заказами
+     * @param \YandexMarketApi\Model\UpdateOrderStatusDTO[]|null $orders Список с обновленными заказами.
      *
      * @return self
      */

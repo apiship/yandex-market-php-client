@@ -72,6 +72,54 @@ class ExpressApiTest extends TestCase
     }
 
     /**
+     * Test case for confirmBusinessPrices
+     *
+     * Подтверждение цены товара, попавшего в карантин (основная цена).
+     *
+     */
+    public function testConfirmBusinessPrices()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for confirmCampaignPrices
+     *
+     * Подтверждение цены товара, попавшего в карантин (цена в магазине).
+     *
+     */
+    public function testConfirmCampaignPrices()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for deleteCampaignOffers
+     *
+     * Удаление товаров из ассортимента магазина.
+     *
+     */
+    public function testDeleteCampaignOffers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for deleteOffers
+     *
+     * Удаление товаров из каталога.
+     *
+     */
+    public function testDeleteOffers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for generateOrderLabel
      *
      * Ярлык‑наклейка на отдельное грузовое место в заказе.
@@ -96,6 +144,42 @@ class ExpressApiTest extends TestCase
     }
 
     /**
+     * Test case for getBidsInfoForBusiness
+     *
+     * Информация об установленных ставках.
+     *
+     */
+    public function testGetBidsInfoForBusiness()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getBidsRecommendations
+     *
+     * Рекомендованные ставки для заданных товаров.
+     *
+     */
+    public function testGetBidsRecommendations()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getBusinessQuarantineOffers
+     *
+     * Список товаров, находящихся в карантине (основная цена).
+     *
+     */
+    public function testGetBusinessQuarantineOffers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getCampaign
      *
      * Информация о магазине.
@@ -114,6 +198,30 @@ class ExpressApiTest extends TestCase
      *
      */
     public function testGetCampaignLogins()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getCampaignOffers
+     *
+     * Список товаров, размещенных в заданном магазине, с параметрами размещения.
+     *
+     */
+    public function testGetCampaignOffers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getCampaignQuarantineOffers
+     *
+     * Список товаров, находящихся в карантине (цена в магазине).
+     *
+     */
+    public function testGetCampaignQuarantineOffers()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -180,6 +288,18 @@ class ExpressApiTest extends TestCase
     }
 
     /**
+     * Test case for getOfferMappings
+     *
+     * Информация о товарах в каталоге.
+     *
+     */
+    public function testGetOfferMappings()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getOrder
      *
      * Информация о заказе.
@@ -234,6 +354,18 @@ class ExpressApiTest extends TestCase
      *
      */
     public function testGetPrices()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getPricesByOfferIds
+     *
+     * Просмотр установленных в магазине цен.
+     *
+     */
+    public function testGetPricesByOfferIds()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -300,6 +432,18 @@ class ExpressApiTest extends TestCase
     }
 
     /**
+     * Test case for getSuggestedOfferMappings
+     *
+     * Предварительный просмотр карточек на Маркете, соответствующих вашим товарам.
+     *
+     */
+    public function testGetSuggestedOfferMappings()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getSuggestedPrices
      *
      * Цены для продвижения товаров.
@@ -312,12 +456,12 @@ class ExpressApiTest extends TestCase
     }
 
     /**
-     * Test case for provideOrderItemCis
+     * Test case for getWarehouses
      *
-     * Передача кодов «Честного знака».
+     * Список складов и групп складов.
      *
      */
-    public function testProvideOrderItemCis()
+    public function testGetWarehouses()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -360,12 +504,48 @@ class ExpressApiTest extends TestCase
     }
 
     /**
+     * Test case for updateBusinessPrices
+     *
+     * Установка цен.
+     *
+     */
+    public function testUpdateBusinessPrices()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for updateCampaignOffers
+     *
+     * Настройка размещения товаров в магазине.
+     *
+     */
+    public function testUpdateCampaignOffers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for updateOfferMappingEntries
      *
      * Добавление и редактирование товаров в каталоге.
      *
      */
     public function testUpdateOfferMappingEntries()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for updateOfferMappings
+     *
+     * Добавление товаров в каталог и редактирование информации о них.
+     *
+     */
+    public function testUpdateOfferMappings()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -410,7 +590,7 @@ class ExpressApiTest extends TestCase
     /**
      * Test case for updatePrices
      *
-     * Установка цен на товары.
+     * Установка цен на товары в конкретном магазине..
      *
      */
     public function testUpdatePrices()

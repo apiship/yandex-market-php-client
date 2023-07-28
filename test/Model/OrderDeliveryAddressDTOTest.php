@@ -195,4 +195,13 @@ class OrderDeliveryAddressDTOTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "gps"
+     */
+    public function testPropertyGps()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

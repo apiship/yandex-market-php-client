@@ -84,6 +84,18 @@ class PricesApiTest extends TestCase
     }
 
     /**
+     * Test case for getPricesByOfferIds
+     *
+     * Просмотр установленных в магазине цен.
+     *
+     */
+    public function testGetPricesByOfferIds()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getSuggestedPrices
      *
      * Цены для продвижения товаров.
@@ -96,9 +108,21 @@ class PricesApiTest extends TestCase
     }
 
     /**
+     * Test case for updateBusinessPrices
+     *
+     * Установка цен.
+     *
+     */
+    public function testUpdateBusinessPrices()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for updatePrices
      *
-     * Установка цен на товары.
+     * Установка цен на товары в конкретном магазине..
      *
      */
     public function testUpdatePrices()

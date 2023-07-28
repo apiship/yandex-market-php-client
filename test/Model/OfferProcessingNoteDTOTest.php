@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OfferProcessingNoteDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Причины, по которым товар не прошел модерацию
+ * @description Причины, по которым товар не прошел модерацию.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

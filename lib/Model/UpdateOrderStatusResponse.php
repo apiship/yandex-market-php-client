@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * UpdateOrderStatusResponse Class Doc Comment
  *
  * @category Class
- * @description Информация об изменении статуса заказа
+ * @description Информация об изменении статуса заказа.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * EacVerificationResultDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Результат выполнения запроса
+ * @description Результат выполнения запроса.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

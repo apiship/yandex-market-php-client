@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OrdersStatsCommissionTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Тип комиссии:  * &#x60;AGENCY&#x60; — прием и перечисление денег от покупателя (агентское вознаграждение).  * &#x60;FEE&#x60; — комиссия за размещение товара на Маркете.  * &#x60;FULFILLMENT&#x60; — комиссия за хранение товара на складе Маркета.
+ * @description Услуга:  * &#x60;FEE&#x60; — размещение товара на Маркете; * &#x60;FULFILLMENT&#x60; — складская обработка; * &#x60;LOYALTY_PARTICIPATION_FEE&#x60; — участие в программе лояльности и отзывы за баллы, если они подключены; * &#x60;AUCTION_PROMOTION&#x60; — буст продаж; * &#x60;INSTALLMENT&#x60; — рассрочка; * &#x60;DELIVERY_TO_CUSTOMER&#x60; — доставка покупателю; * &#x60;EXPRESS_DELIVERY_TO_CUSTOMER&#x60; — экспресс-доставка покупателю; * &#x60;AGENCY&#x60; — прием платежа покупателя; * &#x60;PAYMENT_TRANSFER&#x60; — перевод платежа покупателя; * &#x60;RETURNED_ORDERS_STORAGE&#x60; — хранение невыкупов и возвратов; * &#x60;SORTING&#x60; — обработка заказа.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OrderLabelDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Данные для печати ярлыка
+ * @description Данные для печати ярлыка.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * GetOrderLabelsDataResponse Class Doc Comment
  *
  * @category Class
- * @description Ответ с информацией для печати ярлыков
+ * @description Ответ с информацией для печати ярлыков.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

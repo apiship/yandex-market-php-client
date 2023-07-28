@@ -143,15 +143,6 @@ class GoodsStatsGoodsDTOTest extends TestCase
     }
 
     /**
-     * Test attribute "hiding_reasons"
-     */
-    public function testPropertyHidingReasons()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "warehouses"
      */
     public function testPropertyWarehouses()

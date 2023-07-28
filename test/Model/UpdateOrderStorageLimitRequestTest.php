@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * UpdateOrderStorageLimitRequestTest Class Doc Comment
  *
  * @category    Class
- * @description Запрос на обновление срока хранения заказа в ПВЗ
+ * @description Запрос на обновление срока хранения заказа в ПВЗ.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

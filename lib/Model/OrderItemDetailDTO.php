@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderItemDetailDTO Class Doc Comment
  *
  * @category Class
- * @description Детали по товару в заказе
+ * @description Детали по товару в заказе.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -317,7 +317,7 @@ class OrderItemDetailDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets item_count
      *
-     * @param int|null $item_count Количество единиц товара
+     * @param int|null $item_count Количество единиц товара.
      *
      * @return self
      */

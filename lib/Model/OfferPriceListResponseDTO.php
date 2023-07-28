@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OfferPriceListResponseDTO Class Doc Comment
  *
  * @category Class
- * @description Результат работы метода получения списка цен.
+ * @description Список цен на товары.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -317,7 +317,7 @@ class OfferPriceListResponseDTO implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets offers
      *
-     * @param \YandexMarketApi\Model\OfferPriceResponseDTO[]|null $offers Список товаров.
+     * @param \YandexMarketApi\Model\OfferPriceResponseDTO[]|null $offers Страница списка.
      *
      * @return self
      */

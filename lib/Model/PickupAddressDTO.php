@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * PickupAddressDTO Class Doc Comment
  *
  * @category Class
- * @description Информация об адресе доставки
+ * @description Информация об адресе доставки.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -331,7 +331,7 @@ class PickupAddressDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets country
      *
-     * @param string|null $country Страна
+     * @param string|null $country Страна.
      *
      * @return self
      */
@@ -358,7 +358,7 @@ class PickupAddressDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets city
      *
-     * @param string|null $city Город
+     * @param string|null $city Город.
      *
      * @return self
      */
@@ -385,7 +385,7 @@ class PickupAddressDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets street
      *
-     * @param string|null $street Улица
+     * @param string|null $street Улица.
      *
      * @return self
      */
@@ -412,7 +412,7 @@ class PickupAddressDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets house
      *
-     * @param string|null $house Номер дома
+     * @param string|null $house Номер дома.
      *
      * @return self
      */
@@ -439,7 +439,7 @@ class PickupAddressDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets postcode
      *
-     * @param string|null $postcode Почтовый индекс
+     * @param string|null $postcode Почтовый индекс.
      *
      * @return self
      */

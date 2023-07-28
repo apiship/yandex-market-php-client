@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * ReturnInstanceStockType Class Doc Comment
  *
  * @category Class
- * @description Тип остатка на складе
+ * @description Тип остатка на складе.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

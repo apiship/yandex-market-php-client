@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * SuggestPricesResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Ответ на запрос списка цен для продвижения
+ * @description Ответ на запрос списка цен для продвижения.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

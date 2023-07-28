@@ -133,7 +133,7 @@ class OfferMappingsApi
      *
      * Список товаров в каталоге
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  string[] $offer_id Идентификатор товара в каталоге. (optional)
      * @param  string[] $shop_sku Ваш SKU товара.  Параметр может быть указан несколько раз, например:  &#x60;&#x60;&#x60; ...shop_sku&#x3D;123&amp;shop_sku&#x3D;129&amp;shop_sku&#x3D;141... &#x60;&#x60;&#x60;  В запросе можно указать либо параметр &#x60;shopSku&#x60;, либо любые параметры для фильтрации товаров. Совместное использование параметра &#x60;shopSku&#x60; и параметров для фильтрации приведет к ошибке. (optional)
      * @param  OfferMappingKindType $mapping_kind Тип маппинга. (optional)
@@ -148,6 +148,7 @@ class OfferMappingsApi
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \YandexMarketApi\Model\GetOfferMappingEntriesResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
+     * @deprecated
      */
     public function getOfferMappingEntries($campaign_id, $offer_id = null, $shop_sku = null, $mapping_kind = null, $status = null, $availability = null, $category_id = null, $vendor = null, $page_token = null, $limit = null, string $contentType = self::contentTypes['getOfferMappingEntries'][0])
     {
@@ -160,7 +161,7 @@ class OfferMappingsApi
      *
      * Список товаров в каталоге
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  string[] $offer_id Идентификатор товара в каталоге. (optional)
      * @param  string[] $shop_sku Ваш SKU товара.  Параметр может быть указан несколько раз, например:  &#x60;&#x60;&#x60; ...shop_sku&#x3D;123&amp;shop_sku&#x3D;129&amp;shop_sku&#x3D;141... &#x60;&#x60;&#x60;  В запросе можно указать либо параметр &#x60;shopSku&#x60;, либо любые параметры для фильтрации товаров. Совместное использование параметра &#x60;shopSku&#x60; и параметров для фильтрации приведет к ошибке. (optional)
      * @param  OfferMappingKindType $mapping_kind Тип маппинга. (optional)
@@ -175,6 +176,7 @@ class OfferMappingsApi
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \YandexMarketApi\Model\GetOfferMappingEntriesResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getOfferMappingEntriesWithHttpInfo($campaign_id, $offer_id = null, $shop_sku = null, $mapping_kind = null, $status = null, $availability = null, $category_id = null, $vendor = null, $page_token = null, $limit = null, string $contentType = self::contentTypes['getOfferMappingEntries'][0])
     {
@@ -407,7 +409,7 @@ class OfferMappingsApi
      *
      * Список товаров в каталоге
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  string[] $offer_id Идентификатор товара в каталоге. (optional)
      * @param  string[] $shop_sku Ваш SKU товара.  Параметр может быть указан несколько раз, например:  &#x60;&#x60;&#x60; ...shop_sku&#x3D;123&amp;shop_sku&#x3D;129&amp;shop_sku&#x3D;141... &#x60;&#x60;&#x60;  В запросе можно указать либо параметр &#x60;shopSku&#x60;, либо любые параметры для фильтрации товаров. Совместное использование параметра &#x60;shopSku&#x60; и параметров для фильтрации приведет к ошибке. (optional)
      * @param  OfferMappingKindType $mapping_kind Тип маппинга. (optional)
@@ -421,6 +423,7 @@ class OfferMappingsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getOfferMappingEntriesAsync($campaign_id, $offer_id = null, $shop_sku = null, $mapping_kind = null, $status = null, $availability = null, $category_id = null, $vendor = null, $page_token = null, $limit = null, string $contentType = self::contentTypes['getOfferMappingEntries'][0])
     {
@@ -437,7 +440,7 @@ class OfferMappingsApi
      *
      * Список товаров в каталоге
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  string[] $offer_id Идентификатор товара в каталоге. (optional)
      * @param  string[] $shop_sku Ваш SKU товара.  Параметр может быть указан несколько раз, например:  &#x60;&#x60;&#x60; ...shop_sku&#x3D;123&amp;shop_sku&#x3D;129&amp;shop_sku&#x3D;141... &#x60;&#x60;&#x60;  В запросе можно указать либо параметр &#x60;shopSku&#x60;, либо любые параметры для фильтрации товаров. Совместное использование параметра &#x60;shopSku&#x60; и параметров для фильтрации приведет к ошибке. (optional)
      * @param  OfferMappingKindType $mapping_kind Тип маппинга. (optional)
@@ -451,6 +454,7 @@ class OfferMappingsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getOfferMappingEntriesAsyncWithHttpInfo($campaign_id, $offer_id = null, $shop_sku = null, $mapping_kind = null, $status = null, $availability = null, $category_id = null, $vendor = null, $page_token = null, $limit = null, string $contentType = self::contentTypes['getOfferMappingEntries'][0])
     {
@@ -496,7 +500,7 @@ class OfferMappingsApi
     /**
      * Create request for operation 'getOfferMappingEntries'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  string[] $offer_id Идентификатор товара в каталоге. (optional)
      * @param  string[] $shop_sku Ваш SKU товара.  Параметр может быть указан несколько раз, например:  &#x60;&#x60;&#x60; ...shop_sku&#x3D;123&amp;shop_sku&#x3D;129&amp;shop_sku&#x3D;141... &#x60;&#x60;&#x60;  В запросе можно указать либо параметр &#x60;shopSku&#x60;, либо любые параметры для фильтрации товаров. Совместное использование параметра &#x60;shopSku&#x60; и параметров для фильтрации приведет к ошибке. (optional)
      * @param  OfferMappingKindType $mapping_kind Тип маппинга. (optional)
@@ -510,6 +514,7 @@ class OfferMappingsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getOfferMappingEntriesRequest($campaign_id, $offer_id = null, $shop_sku = null, $mapping_kind = null, $status = null, $availability = null, $category_id = null, $vendor = null, $page_token = null, $limit = null, string $contentType = self::contentTypes['getOfferMappingEntries'][0])
     {
@@ -693,13 +698,14 @@ class OfferMappingsApi
      *
      * Рекомендованные карточки для ваших товаров
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\GetSuggestedOfferMappingEntriesRequest $get_suggested_offer_mapping_entries_request get_suggested_offer_mapping_entries_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedOfferMappingEntries'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \YandexMarketApi\Model\GetSuggestedOfferMappingEntriesResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
+     * @deprecated
      */
     public function getSuggestedOfferMappingEntries($campaign_id, $get_suggested_offer_mapping_entries_request, string $contentType = self::contentTypes['getSuggestedOfferMappingEntries'][0])
     {
@@ -712,13 +718,14 @@ class OfferMappingsApi
      *
      * Рекомендованные карточки для ваших товаров
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\GetSuggestedOfferMappingEntriesRequest $get_suggested_offer_mapping_entries_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedOfferMappingEntries'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \YandexMarketApi\Model\GetSuggestedOfferMappingEntriesResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getSuggestedOfferMappingEntriesWithHttpInfo($campaign_id, $get_suggested_offer_mapping_entries_request, string $contentType = self::contentTypes['getSuggestedOfferMappingEntries'][0])
     {
@@ -951,12 +958,13 @@ class OfferMappingsApi
      *
      * Рекомендованные карточки для ваших товаров
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\GetSuggestedOfferMappingEntriesRequest $get_suggested_offer_mapping_entries_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedOfferMappingEntries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getSuggestedOfferMappingEntriesAsync($campaign_id, $get_suggested_offer_mapping_entries_request, string $contentType = self::contentTypes['getSuggestedOfferMappingEntries'][0])
     {
@@ -973,12 +981,13 @@ class OfferMappingsApi
      *
      * Рекомендованные карточки для ваших товаров
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\GetSuggestedOfferMappingEntriesRequest $get_suggested_offer_mapping_entries_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedOfferMappingEntries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getSuggestedOfferMappingEntriesAsyncWithHttpInfo($campaign_id, $get_suggested_offer_mapping_entries_request, string $contentType = self::contentTypes['getSuggestedOfferMappingEntries'][0])
     {
@@ -1024,12 +1033,13 @@ class OfferMappingsApi
     /**
      * Create request for operation 'getSuggestedOfferMappingEntries'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\GetSuggestedOfferMappingEntriesRequest $get_suggested_offer_mapping_entries_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedOfferMappingEntries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getSuggestedOfferMappingEntriesRequest($campaign_id, $get_suggested_offer_mapping_entries_request, string $contentType = self::contentTypes['getSuggestedOfferMappingEntries'][0])
     {
@@ -1137,13 +1147,14 @@ class OfferMappingsApi
      *
      * Добавление и редактирование товаров в каталоге
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\UpdateOfferMappingEntryRequest $update_offer_mapping_entry_request update_offer_mapping_entry_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOfferMappingEntries'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \YandexMarketApi\Model\EmptyApiResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiLockedErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
+     * @deprecated
      */
     public function updateOfferMappingEntries($campaign_id, $update_offer_mapping_entry_request, string $contentType = self::contentTypes['updateOfferMappingEntries'][0])
     {
@@ -1156,13 +1167,14 @@ class OfferMappingsApi
      *
      * Добавление и редактирование товаров в каталоге
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\UpdateOfferMappingEntryRequest $update_offer_mapping_entry_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOfferMappingEntries'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \YandexMarketApi\Model\EmptyApiResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiLockedErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function updateOfferMappingEntriesWithHttpInfo($campaign_id, $update_offer_mapping_entry_request, string $contentType = self::contentTypes['updateOfferMappingEntries'][0])
     {
@@ -1418,12 +1430,13 @@ class OfferMappingsApi
      *
      * Добавление и редактирование товаров в каталоге
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\UpdateOfferMappingEntryRequest $update_offer_mapping_entry_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOfferMappingEntries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function updateOfferMappingEntriesAsync($campaign_id, $update_offer_mapping_entry_request, string $contentType = self::contentTypes['updateOfferMappingEntries'][0])
     {
@@ -1440,12 +1453,13 @@ class OfferMappingsApi
      *
      * Добавление и редактирование товаров в каталоге
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\UpdateOfferMappingEntryRequest $update_offer_mapping_entry_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOfferMappingEntries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function updateOfferMappingEntriesAsyncWithHttpInfo($campaign_id, $update_offer_mapping_entry_request, string $contentType = self::contentTypes['updateOfferMappingEntries'][0])
     {
@@ -1491,12 +1505,13 @@ class OfferMappingsApi
     /**
      * Create request for operation 'updateOfferMappingEntries'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\UpdateOfferMappingEntryRequest $update_offer_mapping_entry_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOfferMappingEntries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function updateOfferMappingEntriesRequest($campaign_id, $update_offer_mapping_entry_request, string $contentType = self::contentTypes['updateOfferMappingEntries'][0])
     {

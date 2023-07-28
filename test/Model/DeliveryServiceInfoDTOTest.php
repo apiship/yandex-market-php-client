@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * DeliveryServiceInfoDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Информация о службе доставки
+ * @description Информация о службе доставки.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

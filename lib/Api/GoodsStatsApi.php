@@ -127,7 +127,7 @@ class GoodsStatsApi
      *
      * Отчет по товарам
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\GetGoodsStatsRequest $get_goods_stats_request get_goods_stats_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoodsStats'] to see the possible values for this operation
      *
@@ -146,7 +146,7 @@ class GoodsStatsApi
      *
      * Отчет по товарам
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\GetGoodsStatsRequest $get_goods_stats_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoodsStats'] to see the possible values for this operation
      *
@@ -385,7 +385,7 @@ class GoodsStatsApi
      *
      * Отчет по товарам
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\GetGoodsStatsRequest $get_goods_stats_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoodsStats'] to see the possible values for this operation
      *
@@ -407,7 +407,7 @@ class GoodsStatsApi
      *
      * Отчет по товарам
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\GetGoodsStatsRequest $get_goods_stats_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoodsStats'] to see the possible values for this operation
      *
@@ -458,7 +458,7 @@ class GoodsStatsApi
     /**
      * Create request for operation 'getGoodsStats'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\GetGoodsStatsRequest $get_goods_stats_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGoodsStats'] to see the possible values for this operation
      *

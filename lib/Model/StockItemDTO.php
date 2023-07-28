@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * StockItemDTO Class Doc Comment
  *
  * @category Class
- * @description Информация об остатке товара.
+ * @description Информация об остатках товара.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

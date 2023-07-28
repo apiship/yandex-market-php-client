@@ -446,7 +446,7 @@ class OrderShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tracks
      *
-     * @param \YandexMarketApi\Model\OrderTrackDTO[]|null $tracks Информация для отслеживания перемещений посылки
+     * @param \YandexMarketApi\Model\OrderTrackDTO[]|null $tracks Информация для отслеживания перемещений посылки.
      *
      * @return self
      */

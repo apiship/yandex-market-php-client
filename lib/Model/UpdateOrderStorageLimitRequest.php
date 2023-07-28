@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * UpdateOrderStorageLimitRequest Class Doc Comment
  *
  * @category Class
- * @description Запрос на обновление срока хранения заказа в ПВЗ
+ * @description Запрос на обновление срока хранения заказа в ПВЗ.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -306,7 +306,7 @@ class UpdateOrderStorageLimitRequest implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets new_date
      *
-     * @param \DateTime $new_date Новый срок хранения в ПВЗ для заказа
+     * @param \DateTime $new_date Новая дата, до которой заказ будет храниться в пункте выдачи.  Срок хранения можно увеличить не больше, чем на 30 дней.  Формат даты: `ГГГГ-ММ-ДД`.
      *
      * @return self
      */

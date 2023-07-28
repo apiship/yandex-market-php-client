@@ -151,7 +151,7 @@ class ShipmentsApi
      *
      * Подтверждение отгрузки
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  \YandexMarketApi\Model\ConfirmShipmentRequest $confirm_shipment_request confirm_shipment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmShipment'] to see the possible values for this operation
@@ -171,7 +171,7 @@ class ShipmentsApi
      *
      * Подтверждение отгрузки
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  \YandexMarketApi\Model\ConfirmShipmentRequest $confirm_shipment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmShipment'] to see the possible values for this operation
@@ -411,7 +411,7 @@ class ShipmentsApi
      *
      * Подтверждение отгрузки
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  \YandexMarketApi\Model\ConfirmShipmentRequest $confirm_shipment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmShipment'] to see the possible values for this operation
@@ -434,7 +434,7 @@ class ShipmentsApi
      *
      * Подтверждение отгрузки
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  \YandexMarketApi\Model\ConfirmShipmentRequest $confirm_shipment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmShipment'] to see the possible values for this operation
@@ -486,7 +486,7 @@ class ShipmentsApi
     /**
      * Create request for operation 'confirmShipment'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  \YandexMarketApi\Model\ConfirmShipmentRequest $confirm_shipment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmShipment'] to see the possible values for this operation
@@ -615,7 +615,7 @@ class ShipmentsApi
      *
      * Получение акта приема-передачи
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentAct'] to see the possible values for this operation
      *
@@ -634,7 +634,7 @@ class ShipmentsApi
      *
      * Получение акта приема-передачи
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentAct'] to see the possible values for this operation
      *
@@ -873,7 +873,7 @@ class ShipmentsApi
      *
      * Получение акта приема-передачи
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentAct'] to see the possible values for this operation
      *
@@ -895,7 +895,7 @@ class ShipmentsApi
      *
      * Получение акта приема-передачи
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentAct'] to see the possible values for this operation
      *
@@ -946,7 +946,7 @@ class ShipmentsApi
     /**
      * Create request for operation 'downloadShipmentAct'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentAct'] to see the possible values for this operation
      *
@@ -1060,7 +1060,7 @@ class ShipmentsApi
      *
      * Скачать акт расхождений
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentDiscrepancyAct'] to see the possible values for this operation
      *
@@ -1079,7 +1079,7 @@ class ShipmentsApi
      *
      * Скачать акт расхождений
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentDiscrepancyAct'] to see the possible values for this operation
      *
@@ -1318,7 +1318,7 @@ class ShipmentsApi
      *
      * Скачать акт расхождений
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentDiscrepancyAct'] to see the possible values for this operation
      *
@@ -1340,7 +1340,7 @@ class ShipmentsApi
      *
      * Скачать акт расхождений
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentDiscrepancyAct'] to see the possible values for this operation
      *
@@ -1391,7 +1391,7 @@ class ShipmentsApi
     /**
      * Create request for operation 'downloadShipmentDiscrepancyAct'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentDiscrepancyAct'] to see the possible values for this operation
      *
@@ -1505,7 +1505,7 @@ class ShipmentsApi
      *
      * Скачать фактический акт приема-передачи для отгрузки
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentInboundAct'] to see the possible values for this operation
      *
@@ -1524,7 +1524,7 @@ class ShipmentsApi
      *
      * Скачать фактический акт приема-передачи для отгрузки
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentInboundAct'] to see the possible values for this operation
      *
@@ -1763,7 +1763,7 @@ class ShipmentsApi
      *
      * Скачать фактический акт приема-передачи для отгрузки
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentInboundAct'] to see the possible values for this operation
      *
@@ -1785,7 +1785,7 @@ class ShipmentsApi
      *
      * Скачать фактический акт приема-передачи для отгрузки
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentInboundAct'] to see the possible values for this operation
      *
@@ -1836,7 +1836,7 @@ class ShipmentsApi
     /**
      * Create request for operation 'downloadShipmentInboundAct'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentInboundAct'] to see the possible values for this operation
      *
@@ -1950,7 +1950,7 @@ class ShipmentsApi
      *
      * Подтверждение ближайшей отгрузки и получение акта приема-передачи для нее
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $warehouse_id Идентификатор склада (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentReceptionTransferAct'] to see the possible values for this operation
      *
@@ -1969,7 +1969,7 @@ class ShipmentsApi
      *
      * Подтверждение ближайшей отгрузки и получение акта приема-передачи для нее
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $warehouse_id Идентификатор склада (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentReceptionTransferAct'] to see the possible values for this operation
      *
@@ -2208,7 +2208,7 @@ class ShipmentsApi
      *
      * Подтверждение ближайшей отгрузки и получение акта приема-передачи для нее
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $warehouse_id Идентификатор склада (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentReceptionTransferAct'] to see the possible values for this operation
      *
@@ -2230,7 +2230,7 @@ class ShipmentsApi
      *
      * Подтверждение ближайшей отгрузки и получение акта приема-передачи для нее
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $warehouse_id Идентификатор склада (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentReceptionTransferAct'] to see the possible values for this operation
      *
@@ -2281,7 +2281,7 @@ class ShipmentsApi
     /**
      * Create request for operation 'downloadShipmentReceptionTransferAct'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $warehouse_id Идентификатор склада (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentReceptionTransferAct'] to see the possible values for this operation
      *
@@ -2390,7 +2390,7 @@ class ShipmentsApi
      *
      * Скачать транспортную накладную
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentTransportationWaybill'] to see the possible values for this operation
      *
@@ -2409,7 +2409,7 @@ class ShipmentsApi
      *
      * Скачать транспортную накладную
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentTransportationWaybill'] to see the possible values for this operation
      *
@@ -2648,7 +2648,7 @@ class ShipmentsApi
      *
      * Скачать транспортную накладную
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentTransportationWaybill'] to see the possible values for this operation
      *
@@ -2670,7 +2670,7 @@ class ShipmentsApi
      *
      * Скачать транспортную накладную
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentTransportationWaybill'] to see the possible values for this operation
      *
@@ -2721,7 +2721,7 @@ class ShipmentsApi
     /**
      * Create request for operation 'downloadShipmentTransportationWaybill'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentTransportationWaybill'] to see the possible values for this operation
      *
@@ -2835,7 +2835,7 @@ class ShipmentsApi
      *
      * Получение информации об отгрузке
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
@@ -2854,7 +2854,7 @@ class ShipmentsApi
      *
      * Получение информации об отгрузке
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
@@ -3093,7 +3093,7 @@ class ShipmentsApi
      *
      * Получение информации об отгрузке
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
@@ -3115,7 +3115,7 @@ class ShipmentsApi
      *
      * Получение информации об отгрузке
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
@@ -3166,7 +3166,7 @@ class ShipmentsApi
     /**
      * Create request for operation 'getShipment'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
@@ -3280,7 +3280,7 @@ class ShipmentsApi
      *
      * Получение информации о ярлыках
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentOrdersInfo'] to see the possible values for this operation
      *
@@ -3299,7 +3299,7 @@ class ShipmentsApi
      *
      * Получение информации о ярлыках
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentOrdersInfo'] to see the possible values for this operation
      *
@@ -3538,7 +3538,7 @@ class ShipmentsApi
      *
      * Получение информации о ярлыках
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentOrdersInfo'] to see the possible values for this operation
      *
@@ -3560,7 +3560,7 @@ class ShipmentsApi
      *
      * Получение информации о ярлыках
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentOrdersInfo'] to see the possible values for this operation
      *
@@ -3611,7 +3611,7 @@ class ShipmentsApi
     /**
      * Create request for operation 'getShipmentOrdersInfo'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentOrdersInfo'] to see the possible values for this operation
      *
@@ -3725,7 +3725,7 @@ class ShipmentsApi
      *
      * Получение информации об отгрузках
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\SearchShipmentsRequest $search_shipments_request search_shipments_request (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
      * @param  int $limit Количество товаров в выходных данных. (optional)
@@ -3746,7 +3746,7 @@ class ShipmentsApi
      *
      * Получение информации об отгрузках
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\SearchShipmentsRequest $search_shipments_request (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
      * @param  int $limit Количество товаров в выходных данных. (optional)
@@ -3987,7 +3987,7 @@ class ShipmentsApi
      *
      * Получение информации об отгрузках
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\SearchShipmentsRequest $search_shipments_request (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
      * @param  int $limit Количество товаров в выходных данных. (optional)
@@ -4011,7 +4011,7 @@ class ShipmentsApi
      *
      * Получение информации об отгрузках
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\SearchShipmentsRequest $search_shipments_request (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
      * @param  int $limit Количество товаров в выходных данных. (optional)
@@ -4064,7 +4064,7 @@ class ShipmentsApi
     /**
      * Create request for operation 'searchShipments'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\SearchShipmentsRequest $search_shipments_request (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
      * @param  int $limit Количество товаров в выходных данных. (optional)

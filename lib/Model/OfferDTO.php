@@ -735,7 +735,7 @@ class OfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets bid
      *
-     * @param float|null $bid Ставка на клик. deprecated
+     * @param float|null $bid Ставка на клик. deprecated.
      *
      * @return self
      */
@@ -762,7 +762,7 @@ class OfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cbid
      *
-     * @param float|null $cbid Ставка на клик. deprecated
+     * @param float|null $cbid Ставка на клик. deprecated.
      *
      * @return self
      */
@@ -789,7 +789,7 @@ class OfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fee
      *
-     * @param float|null $fee Процент комиссии на товар при продаже по CPA. deprecated
+     * @param float|null $fee Процент комиссии на товар при продаже по CPA. deprecated.
      *
      * @return self
      */

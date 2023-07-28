@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OrdersStatsItemStatusTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Статус товара:  * &#x60;REJECTED&#x60; — товар был добавлен в созданный заказ, но не был оплачен.  * &#x60;RETURNED&#x60; — товар вернули.
+ * @description Статус товара:  * &#x60;REJECTED&#x60; — товар был добавлен в созданный заказ, но не был оплачен; * &#x60;RETURNED&#x60; — товар вернули.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

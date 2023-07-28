@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OrderParcelStatusTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Статус заказа в партнерской службе доставки
+ * @description Статус заказа в партнерской службе доставки.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

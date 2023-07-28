@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * LogisticPickupPointDTO Class Doc Comment
  *
  * @category Class
- * @description Описание пункта вывоза для возврата
+ * @description Описание пункта вывоза для возврата.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -338,7 +338,7 @@ class LogisticPickupPointDTO implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets id
      *
-     * @param int|null $id Идентификатор пункта вывоза
+     * @param int|null $id Идентификатор пункта вывоза.
      *
      * @return self
      */
@@ -365,7 +365,7 @@ class LogisticPickupPointDTO implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets name
      *
-     * @param string|null $name Название пункта вывоза
+     * @param string|null $name Название пункта вывоза.
      *
      * @return self
      */
@@ -419,7 +419,7 @@ class LogisticPickupPointDTO implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets instruction
      *
-     * @param string|null $instruction Дополнительные инструкции к вывозу
+     * @param string|null $instruction Дополнительные инструкции к вывозу.
      *
      * @return self
      */
@@ -473,7 +473,7 @@ class LogisticPickupPointDTO implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets logistic_partner_id
      *
-     * @param int|null $logistic_partner_id Идентификатор логистического партнера, к которому относится логистическая точка
+     * @param int|null $logistic_partner_id Идентификатор логистического партнера, к которому относится логистическая точка.
      *
      * @return self
      */

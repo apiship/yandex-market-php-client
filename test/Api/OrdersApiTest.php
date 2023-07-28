@@ -132,18 +132,6 @@ class OrdersApiTest extends TestCase
     }
 
     /**
-     * Test case for provideOrderItemCis
-     *
-     * Передача кодов «Честного знака».
-     *
-     */
-    public function testProvideOrderItemCis()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for provideOrderItemIdentifiers
      *
      * Передача уникальных кодов маркировки единиц товара.

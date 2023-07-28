@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderParcelBoxDTO Class Doc Comment
  *
  * @category Class
- * @description Информация о грузоместе
+ * @description Информация о грузоместе.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -310,7 +310,7 @@ class OrderParcelBoxDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets id
      *
-     * @param int|null $id Идентификатор грузоместа
+     * @param int|null $id Идентификатор грузоместа.
      *
      * @return self
      */
@@ -337,7 +337,7 @@ class OrderParcelBoxDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets fulfilment_id
      *
-     * @param string|null $fulfilment_id Идентификатор грузового места в информационной системе магазина
+     * @param string|null $fulfilment_id Идентификатор грузового места в информационной системе магазина.
      *
      * @return self
      */

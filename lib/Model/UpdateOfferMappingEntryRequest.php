@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * UpdateOfferMappingEntryRequest Class Doc Comment
  *
  * @category Class
- * @description Запрос на обновление товаров
+ * @description Запрос на обновление товаров.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -314,7 +314,7 @@ class UpdateOfferMappingEntryRequest implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets offer_mapping_entries
      *
-     * @param \YandexMarketApi\Model\OfferMappingEntryDTO[] $offer_mapping_entries Информация о товарах в каталоге
+     * @param \YandexMarketApi\Model\OfferMappingEntryDTO[] $offer_mapping_entries Информация о товарах в каталоге.
      *
      * @return self
      */

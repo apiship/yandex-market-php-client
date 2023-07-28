@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * GetCampaignCategoriesResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Ответ на запрос списка категорий магазина
+ * @description Ответ на запрос списка категорий магазина.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

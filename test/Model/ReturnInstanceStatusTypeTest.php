@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * ReturnInstanceStatusTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Логистический статус конкретного товара
+ * @description Логистический статус конкретного товара.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * ParcelBoxLabelDTO Class Doc Comment
  *
  * @category Class
- * @description Информация о ярлыке для грузового места
+ * @description Информация о ярлыке для грузового места.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

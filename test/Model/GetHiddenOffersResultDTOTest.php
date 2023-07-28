@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * GetHiddenOffersResultDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Результат работы метода.  Возвращается, если параметр &#x60;status&#x3D;\&quot;OK\&quot;&#x60;.
+ * @description Список скрытых вами товаров.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

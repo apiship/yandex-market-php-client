@@ -66,6 +66,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'price' => 'float',
         'buyer_price' => 'float',
         'buyer_price_before_discount' => 'float',
+        'price_before_discount' => 'float',
         'count' => 'int',
         'vat' => '\YandexMarketApi\Model\OrderVatType',
         'shop_sku' => 'string',
@@ -93,6 +94,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'price' => 'decimal',
         'buyer_price' => 'decimal',
         'buyer_price_before_discount' => 'decimal',
+        'price_before_discount' => 'decimal',
         'count' => null,
         'vat' => null,
         'shop_sku' => null,
@@ -118,6 +120,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
 		'price' => false,
 		'buyer_price' => false,
 		'buyer_price_before_discount' => false,
+		'price_before_discount' => false,
 		'count' => false,
 		'vat' => false,
 		'shop_sku' => false,
@@ -223,6 +226,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'price' => 'price',
         'buyer_price' => 'buyerPrice',
         'buyer_price_before_discount' => 'buyerPriceBeforeDiscount',
+        'price_before_discount' => 'priceBeforeDiscount',
         'count' => 'count',
         'vat' => 'vat',
         'shop_sku' => 'shopSku',
@@ -248,6 +252,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'price' => 'setPrice',
         'buyer_price' => 'setBuyerPrice',
         'buyer_price_before_discount' => 'setBuyerPriceBeforeDiscount',
+        'price_before_discount' => 'setPriceBeforeDiscount',
         'count' => 'setCount',
         'vat' => 'setVat',
         'shop_sku' => 'setShopSku',
@@ -273,6 +278,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'price' => 'getPrice',
         'buyer_price' => 'getBuyerPrice',
         'buyer_price_before_discount' => 'getBuyerPriceBeforeDiscount',
+        'price_before_discount' => 'getPriceBeforeDiscount',
         'count' => 'getCount',
         'vat' => 'getVat',
         'shop_sku' => 'getShopSku',
@@ -349,6 +355,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('price', $data ?? [], null);
         $this->setIfExists('buyer_price', $data ?? [], null);
         $this->setIfExists('buyer_price_before_discount', $data ?? [], null);
+        $this->setIfExists('price_before_discount', $data ?? [], null);
         $this->setIfExists('count', $data ?? [], null);
         $this->setIfExists('vat', $data ?? [], null);
         $this->setIfExists('shop_sku', $data ?? [], null);
@@ -653,6 +660,33 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets price_before_discount
+     *
+     * @return float|null
+     */
+    public function getPriceBeforeDiscount()
+    {
+        return $this->container['price_before_discount'];
+    }
+
+    /**
+     * Sets price_before_discount
+     *
+     * @param float|null $price_before_discount Стоимость товара в валюте магазина до применения скидок.  Для отделения целой части от дробной используется точка.
+     *
+     * @return self
+     */
+    public function setPriceBeforeDiscount($price_before_discount)
+    {
+        if (is_null($price_before_discount)) {
+            throw new \InvalidArgumentException('non-nullable price_before_discount cannot be null');
+        }
+        $this->container['price_before_discount'] = $price_before_discount;
+
+        return $this;
+    }
+
+    /**
      * Gets count
      *
      * @return int|null
@@ -891,7 +925,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets subsidies
      *
-     * @param \YandexMarketApi\Model\OrderItemSubsidyDTO[]|null $subsidies Список субсидий по типам
+     * @param \YandexMarketApi\Model\OrderItemSubsidyDTO[]|null $subsidies Список субсидий по типам.
      *
      * @return self
      */

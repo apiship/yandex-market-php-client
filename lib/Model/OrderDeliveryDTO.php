@@ -713,7 +713,7 @@ class OrderDeliveryDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets delivery_service_id
      *
-     * @param int|null $delivery_service_id Идентификатор службы доставки
+     * @param int|null $delivery_service_id Идентификатор службы доставки.
      *
      * @return self
      */
@@ -767,7 +767,7 @@ class OrderDeliveryDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets lift_price
      *
-     * @param float|null $lift_price Стоимость подъема на этаж
+     * @param float|null $lift_price Стоимость подъема на этаж.
      *
      * @return self
      */
@@ -875,7 +875,7 @@ class OrderDeliveryDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tracks
      *
-     * @param \YandexMarketApi\Model\OrderTrackDTO[]|null $tracks Информация для отслеживания перемещений посылки
+     * @param \YandexMarketApi\Model\OrderTrackDTO[]|null $tracks Информация для отслеживания перемещений посылки.
      *
      * @return self
      */
@@ -902,7 +902,7 @@ class OrderDeliveryDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets shipments
      *
-     * @param \YandexMarketApi\Model\OrderShipmentDTO[]|null $shipments Информация о посылках
+     * @param \YandexMarketApi\Model\OrderShipmentDTO[]|null $shipments Информация о посылках.
      *
      * @return self
      */
@@ -929,7 +929,7 @@ class OrderDeliveryDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets estimated
      *
-     * @param bool|null $estimated Приблизительная ли дата доставки
+     * @param bool|null $estimated Приблизительная ли дата доставки.
      *
      * @return self
      */
@@ -983,7 +983,7 @@ class OrderDeliveryDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets eac_code
      *
-     * @param string|null $eac_code Код подтверждения ЭАПП (для типа MERCHANT_TO_COURIER)
+     * @param string|null $eac_code Код подтверждения ЭАПП (для типа MERCHANT_TO_COURIER).
      *
      * @return self
      */

@@ -373,7 +373,7 @@ class SkuBidItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets bid
      *
-     * @param int $bid Значение ставки для товара из параметра `sku`, от 50 до 9999.  Указывается в процентах от стоимости товара и умножается на 100. Например, ставка 5% обозначается как 500.
+     * @param int $bid Значение ставки.
      *
      * @return self
      */

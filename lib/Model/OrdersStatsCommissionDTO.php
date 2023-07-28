@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrdersStatsCommissionDTO Class Doc Comment
  *
  * @category Class
- * @description Информация о комиссиях за заказ.
+ * @description Информация о стоимости услуг.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -344,7 +344,7 @@ class OrdersStatsCommissionDTO implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets actual
      *
-     * @param float|null $actual Сумма комиссии в рублях, которая была выставлена в момент создания заказа и которую нужно оплатить. Точность — два знака после запятой.
+     * @param float|null $actual Сумма в рублях, которая была выставлена в момент создания заказа и которую нужно оплатить. Точность — два знака после запятой.
      *
      * @return self
      */
@@ -371,7 +371,7 @@ class OrdersStatsCommissionDTO implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets predicted
      *
-     * @param float|null $predicted Сумма комиссии в рублях, которая была бы выставлена, если бы заказ был создан в момент формирования отчета по заказам. Точность — два знака после запятой.
+     * @param float|null $predicted Сумма в рублях, которая была бы выставлена, если бы заказ был создан в момент формирования отчета по заказам. Точность — два знака после запятой.
      *
      * @return self
      */

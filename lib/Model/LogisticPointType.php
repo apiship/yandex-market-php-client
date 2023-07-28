@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * LogisticPointType Class Doc Comment
  *
  * @category Class
- * @description Тип логистической точки:   * WAREHOUSE — склад   * PICKUP_POINT — обычная точка выдачи заказов (ПВЗ)   * PICKUP_TERMINAL — постамат   * PICKUP_POST_OFFICE — отделение почтовой связи (ОПС)   * PICKUP_MIXED — торговый зал и пункт выдачи заказов   * PICKUP_RETAIL — торговый зал
+ * @description Тип логистической точки:   * WAREHOUSE — склад;   * PICKUP_POINT — обычная точка выдачи заказов (ПВЗ);   * PICKUP_TERMINAL — постамат;   * PICKUP_POST_OFFICE — отделение почтовой связи (ОПС);   * PICKUP_MIXED — торговый зал и пункт выдачи заказов;   * PICKUP_RETAIL — торговый зал.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

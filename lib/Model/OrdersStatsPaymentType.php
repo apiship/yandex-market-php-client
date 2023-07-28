@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrdersStatsPaymentType Class Doc Comment
  *
  * @category Class
- * @description Тип денежного перевода: - &#x60;PAYMENT&#x60; — оплата. - &#x60;REFUND&#x60; — возврат.
+ * @description Тип денежного перевода: - &#x60;PAYMENT&#x60; — оплата; - &#x60;REFUND&#x60; — возврат.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

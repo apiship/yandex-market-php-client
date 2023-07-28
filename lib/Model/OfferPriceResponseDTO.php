@@ -439,7 +439,7 @@ class OfferPriceResponseDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets updated_at
      *
-     * @param \DateTime|null $updated_at Дата и время последнего обновления цены на товар
+     * @param \DateTime|null $updated_at Дата и время последнего обновления цены на товар.
      *
      * @return self
      */

@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OfferPriceFeedDTO Class Doc Comment
  *
  * @category Class
- * @description Информация о прайс-листе, содержащем предложение. Обязательный параметр для модели DBS.
+ * @description Информация о прайс-листе, содержащем предложение.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

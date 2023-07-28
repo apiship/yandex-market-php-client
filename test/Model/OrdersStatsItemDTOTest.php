@@ -168,4 +168,22 @@ class OrdersStatsItemDTOTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "cofinance_threshold"
+     */
+    public function testPropertyCofinanceThreshold()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "cofinance_value"
+     */
+    public function testPropertyCofinanceValue()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

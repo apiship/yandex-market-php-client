@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * GetSuggestedOfferMappingEntriesRequestTest Class Doc Comment
  *
  * @category    Class
- * @description Запрос рекомендованных карточек товара
+ * @description Запрос рекомендованных карточек товара.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
