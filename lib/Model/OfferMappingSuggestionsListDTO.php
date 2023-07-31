@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OfferMappingSuggestionsListDTO Class Doc Comment
  *
  * @category Class
- * @description Список рекомендованных карточек товара
+ * @description Список рекомендованных карточек товара.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -303,7 +303,7 @@ class OfferMappingSuggestionsListDTO implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets offers
      *
-     * @param \YandexMarketApi\Model\EnrichedMappingsOfferDTO[]|null $offers Список товаров
+     * @param \YandexMarketApi\Model\EnrichedMappingsOfferDTO[]|null $offers Список товаров.
      *
      * @return self
      */

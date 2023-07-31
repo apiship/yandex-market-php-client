@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OrderItemStatusTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Возвращенный или невыкупленный товар
+ * @description Возвращенный или невыкупленный товар.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

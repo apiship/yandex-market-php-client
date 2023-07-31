@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderCourierDTO Class Doc Comment
  *
  * @category Class
- * @description Информация о курьере
+ * @description Информация о курьере.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -331,7 +331,7 @@ class OrderCourierDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets full_name
      *
-     * @param string|null $full_name Полное имя курьера
+     * @param string|null $full_name Полное имя курьера.
      *
      * @return self
      */
@@ -358,7 +358,7 @@ class OrderCourierDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets phone
      *
-     * @param string|null $phone Номер телефона курьера
+     * @param string|null $phone Номер телефона курьера.
      *
      * @return self
      */
@@ -385,7 +385,7 @@ class OrderCourierDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets phone_extension
      *
-     * @param string|null $phone_extension Добавочный номер телефона
+     * @param string|null $phone_extension Добавочный номер телефона.
      *
      * @return self
      */
@@ -412,7 +412,7 @@ class OrderCourierDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets vehicle_number
      *
-     * @param string|null $vehicle_number Номер транспортного средства
+     * @param string|null $vehicle_number Номер транспортного средства.
      *
      * @return self
      */
@@ -439,7 +439,7 @@ class OrderCourierDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets vehicle_description
      *
-     * @param string|null $vehicle_description Полное имя курьера
+     * @param string|null $vehicle_description Полное имя курьера.
      *
      * @return self
      */

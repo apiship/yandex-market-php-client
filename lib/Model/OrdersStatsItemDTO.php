@@ -67,7 +67,9 @@ class OrdersStatsItemDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         'details' => '\YandexMarketApi\Model\OrdersStatsDetailsDTO[]',
         'cis_list' => 'string[]',
         'initial_count' => 'int',
-        'bid_fee' => 'int'
+        'bid_fee' => 'int',
+        'cofinance_threshold' => 'float',
+        'cofinance_value' => 'float'
     ];
 
     /**
@@ -87,7 +89,9 @@ class OrdersStatsItemDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         'details' => null,
         'cis_list' => null,
         'initial_count' => 'int32',
-        'bid_fee' => 'int32'
+        'bid_fee' => 'int32',
+        'cofinance_threshold' => null,
+        'cofinance_value' => null
     ];
 
     /**
@@ -105,7 +109,9 @@ class OrdersStatsItemDTO implements ModelInterface, ArrayAccess, \JsonSerializab
 		'details' => false,
 		'cis_list' => false,
 		'initial_count' => false,
-		'bid_fee' => false
+		'bid_fee' => false,
+		'cofinance_threshold' => false,
+		'cofinance_value' => false
     ];
 
     /**
@@ -203,7 +209,9 @@ class OrdersStatsItemDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         'details' => 'details',
         'cis_list' => 'cisList',
         'initial_count' => 'initialCount',
-        'bid_fee' => 'bidFee'
+        'bid_fee' => 'bidFee',
+        'cofinance_threshold' => 'cofinanceThreshold',
+        'cofinance_value' => 'cofinanceValue'
     ];
 
     /**
@@ -221,7 +229,9 @@ class OrdersStatsItemDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         'details' => 'setDetails',
         'cis_list' => 'setCisList',
         'initial_count' => 'setInitialCount',
-        'bid_fee' => 'setBidFee'
+        'bid_fee' => 'setBidFee',
+        'cofinance_threshold' => 'setCofinanceThreshold',
+        'cofinance_value' => 'setCofinanceValue'
     ];
 
     /**
@@ -239,7 +249,9 @@ class OrdersStatsItemDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         'details' => 'getDetails',
         'cis_list' => 'getCisList',
         'initial_count' => 'getInitialCount',
-        'bid_fee' => 'getBidFee'
+        'bid_fee' => 'getBidFee',
+        'cofinance_threshold' => 'getCofinanceThreshold',
+        'cofinance_value' => 'getCofinanceValue'
     ];
 
     /**
@@ -309,6 +321,8 @@ class OrdersStatsItemDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('cis_list', $data ?? [], null);
         $this->setIfExists('initial_count', $data ?? [], null);
         $this->setIfExists('bid_fee', $data ?? [], null);
+        $this->setIfExists('cofinance_threshold', $data ?? [], null);
+        $this->setIfExists('cofinance_value', $data ?? [], null);
     }
 
     /**
@@ -657,6 +671,60 @@ class OrdersStatsItemDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         }
 
         $this->container['bid_fee'] = $bid_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets cofinance_threshold
+     *
+     * @return float|null
+     */
+    public function getCofinanceThreshold()
+    {
+        return $this->container['cofinance_threshold'];
+    }
+
+    /**
+     * Sets cofinance_threshold
+     *
+     * @param float|null $cofinance_threshold Порог для скидок с Маркетом на момент оформления заказа. [Что это такое?](https://yandex.ru/support/marketplace/marketing/smart-pricing.html#sponsored-discounts)  Указан в рублях. Точность — два знака после запятой.
+     *
+     * @return self
+     */
+    public function setCofinanceThreshold($cofinance_threshold)
+    {
+        if (is_null($cofinance_threshold)) {
+            throw new \InvalidArgumentException('non-nullable cofinance_threshold cannot be null');
+        }
+        $this->container['cofinance_threshold'] = $cofinance_threshold;
+
+        return $this;
+    }
+
+    /**
+     * Gets cofinance_value
+     *
+     * @return float|null
+     */
+    public function getCofinanceValue()
+    {
+        return $this->container['cofinance_value'];
+    }
+
+    /**
+     * Sets cofinance_value
+     *
+     * @param float|null $cofinance_value Скидка с Маркетом. [Что это такое?](https://yandex.ru/support/marketplace/marketing/smart-pricing.html#sponsored-discounts)  Указана в рублях. Точность — два знака после запятой.
+     *
+     * @return self
+     */
+    public function setCofinanceValue($cofinance_value)
+    {
+        if (is_null($cofinance_value)) {
+            throw new \InvalidArgumentException('non-nullable cofinance_value cannot be null');
+        }
+        $this->container['cofinance_value'] = $cofinance_value;
 
         return $this;
     }

@@ -139,7 +139,7 @@ class OutletsApi
      *
      * Создание точки продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\ChangeOutletRequest $change_outlet_request change_outlet_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOutlet'] to see the possible values for this operation
      *
@@ -158,7 +158,7 @@ class OutletsApi
      *
      * Создание точки продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\ChangeOutletRequest $change_outlet_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOutlet'] to see the possible values for this operation
      *
@@ -397,7 +397,7 @@ class OutletsApi
      *
      * Создание точки продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\ChangeOutletRequest $change_outlet_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOutlet'] to see the possible values for this operation
      *
@@ -419,7 +419,7 @@ class OutletsApi
      *
      * Создание точки продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\ChangeOutletRequest $change_outlet_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOutlet'] to see the possible values for this operation
      *
@@ -470,7 +470,7 @@ class OutletsApi
     /**
      * Create request for operation 'createOutlet'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  \YandexMarketApi\Model\ChangeOutletRequest $change_outlet_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOutlet'] to see the possible values for this operation
      *
@@ -583,7 +583,7 @@ class OutletsApi
      *
      * Удаление точки продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $outlet_id Идентификатор точки продаж (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutlet'] to see the possible values for this operation
      *
@@ -602,7 +602,7 @@ class OutletsApi
      *
      * Удаление точки продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $outlet_id Идентификатор точки продаж (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutlet'] to see the possible values for this operation
      *
@@ -841,7 +841,7 @@ class OutletsApi
      *
      * Удаление точки продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $outlet_id Идентификатор точки продаж (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutlet'] to see the possible values for this operation
      *
@@ -863,7 +863,7 @@ class OutletsApi
      *
      * Удаление точки продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $outlet_id Идентификатор точки продаж (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutlet'] to see the possible values for this operation
      *
@@ -914,7 +914,7 @@ class OutletsApi
     /**
      * Create request for operation 'deleteOutlet'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $outlet_id Идентификатор точки продаж (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutlet'] to see the possible values for this operation
      *
@@ -1028,7 +1028,7 @@ class OutletsApi
      *
      * Информация о точке продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $outlet_id Идентификатор точки продаж (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlet'] to see the possible values for this operation
      *
@@ -1047,7 +1047,7 @@ class OutletsApi
      *
      * Информация о точке продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $outlet_id Идентификатор точки продаж (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlet'] to see the possible values for this operation
      *
@@ -1286,7 +1286,7 @@ class OutletsApi
      *
      * Информация о точке продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $outlet_id Идентификатор точки продаж (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlet'] to see the possible values for this operation
      *
@@ -1308,7 +1308,7 @@ class OutletsApi
      *
      * Информация о точке продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $outlet_id Идентификатор точки продаж (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlet'] to see the possible values for this operation
      *
@@ -1359,7 +1359,7 @@ class OutletsApi
     /**
      * Create request for operation 'getOutlet'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $outlet_id Идентификатор точки продаж (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlet'] to see the possible values for this operation
      *
@@ -1473,7 +1473,7 @@ class OutletsApi
      *
      * Информация о точках продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
      * @param  int $region_id Идентификатор региона. Если задать идентификатор родительского региона любого уровня, в выходных данных будут отображены точки продаж всех дочерних регионов. Идентификатор региона можно получить c помощью метода &#x60;GET /regions&#x60;. (optional)
      * @param  string $shop_outlet_code Идентификатор точки продаж, присвоенный магазином. (optional)
@@ -1495,7 +1495,7 @@ class OutletsApi
      *
      * Информация о точках продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
      * @param  int $region_id Идентификатор региона. Если задать идентификатор родительского региона любого уровня, в выходных данных будут отображены точки продаж всех дочерних регионов. Идентификатор региона можно получить c помощью метода &#x60;GET /regions&#x60;. (optional)
      * @param  string $shop_outlet_code Идентификатор точки продаж, присвоенный магазином. (optional)
@@ -1737,7 +1737,7 @@ class OutletsApi
      *
      * Информация о точках продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
      * @param  int $region_id Идентификатор региона. Если задать идентификатор родительского региона любого уровня, в выходных данных будут отображены точки продаж всех дочерних регионов. Идентификатор региона можно получить c помощью метода &#x60;GET /regions&#x60;. (optional)
      * @param  string $shop_outlet_code Идентификатор точки продаж, присвоенный магазином. (optional)
@@ -1762,7 +1762,7 @@ class OutletsApi
      *
      * Информация о точках продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
      * @param  int $region_id Идентификатор региона. Если задать идентификатор родительского региона любого уровня, в выходных данных будут отображены точки продаж всех дочерних регионов. Идентификатор региона можно получить c помощью метода &#x60;GET /regions&#x60;. (optional)
      * @param  string $shop_outlet_code Идентификатор точки продаж, присвоенный магазином. (optional)
@@ -1816,7 +1816,7 @@ class OutletsApi
     /**
      * Create request for operation 'getOutlets'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
      * @param  int $region_id Идентификатор региона. Если задать идентификатор родительского региона любого уровня, в выходных данных будут отображены точки продаж всех дочерних регионов. Идентификатор региона можно получить c помощью метода &#x60;GET /regions&#x60;. (optional)
      * @param  string $shop_outlet_code Идентификатор точки продаж, присвоенный магазином. (optional)
@@ -1958,7 +1958,7 @@ class OutletsApi
      *
      * Изменение информации о точке продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $outlet_id Идентификатор точки продаж (required)
      * @param  \YandexMarketApi\Model\ChangeOutletRequest $change_outlet_request change_outlet_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOutlet'] to see the possible values for this operation
@@ -1978,7 +1978,7 @@ class OutletsApi
      *
      * Изменение информации о точке продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $outlet_id Идентификатор точки продаж (required)
      * @param  \YandexMarketApi\Model\ChangeOutletRequest $change_outlet_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOutlet'] to see the possible values for this operation
@@ -2218,7 +2218,7 @@ class OutletsApi
      *
      * Изменение информации о точке продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $outlet_id Идентификатор точки продаж (required)
      * @param  \YandexMarketApi\Model\ChangeOutletRequest $change_outlet_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOutlet'] to see the possible values for this operation
@@ -2241,7 +2241,7 @@ class OutletsApi
      *
      * Изменение информации о точке продаж
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $outlet_id Идентификатор точки продаж (required)
      * @param  \YandexMarketApi\Model\ChangeOutletRequest $change_outlet_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOutlet'] to see the possible values for this operation
@@ -2293,7 +2293,7 @@ class OutletsApi
     /**
      * Create request for operation 'updateOutlet'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $outlet_id Идентификатор точки продаж (required)
      * @param  \YandexMarketApi\Model\ChangeOutletRequest $change_outlet_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOutlet'] to see the possible values for this operation

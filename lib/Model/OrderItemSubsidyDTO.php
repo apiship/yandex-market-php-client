@@ -337,7 +337,7 @@ class OrderItemSubsidyDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets amount
      *
-     * @param float|null $amount Сумма субсидии
+     * @param float|null $amount Сумма субсидии.
      *
      * @return self
      */

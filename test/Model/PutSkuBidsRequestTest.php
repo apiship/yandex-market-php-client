@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * PutSkuBidsRequestTest Class Doc Comment
  *
  * @category    Class
- * @description description
+ * @description description.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

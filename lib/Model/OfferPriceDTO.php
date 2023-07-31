@@ -400,7 +400,7 @@ class OfferPriceDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id Идентификатор предложения из прайс-листа. Поле устарело, временно поддерживается, но в будущем будет отключено.
+     * @param string|null $id {% note alert \"Это поле устарело\" %}  Не используйте его — это может привести к ошибкам.  {% endnote %}  Идентификатор предложения из прайс-листа.
      *
      * @return self
      * @deprecated

@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * GetSuggestedOfferMappingEntriesResponse Class Doc Comment
  *
  * @category Class
- * @description Ответ со списком рекомендованных карточек товара
+ * @description Ответ со списком рекомендованных карточек товара.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

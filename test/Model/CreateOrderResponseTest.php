@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * CreateOrderResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Модель для ответа API создания FaaS заказа
+ * @description Модель для ответа API создания FaaS заказа.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

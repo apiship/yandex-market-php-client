@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * PagedReturnsDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Возвраты
+ * @description Возвраты.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

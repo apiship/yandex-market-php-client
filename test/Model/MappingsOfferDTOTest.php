@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * MappingsOfferDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Информация о товарах в каталоге
+ * @description Информация о товарах в каталоге.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

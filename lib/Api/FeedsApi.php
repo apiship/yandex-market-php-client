@@ -139,13 +139,14 @@ class FeedsApi
      *
      * Информация о прайс-листе
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeed'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \YandexMarketApi\Model\GetFeedResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
+     * @deprecated
      */
     public function getFeed($campaign_id, $feed_id, string $contentType = self::contentTypes['getFeed'][0])
     {
@@ -158,13 +159,14 @@ class FeedsApi
      *
      * Информация о прайс-листе
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeed'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \YandexMarketApi\Model\GetFeedResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getFeedWithHttpInfo($campaign_id, $feed_id, string $contentType = self::contentTypes['getFeed'][0])
     {
@@ -397,12 +399,13 @@ class FeedsApi
      *
      * Информация о прайс-листе
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getFeedAsync($campaign_id, $feed_id, string $contentType = self::contentTypes['getFeed'][0])
     {
@@ -419,12 +422,13 @@ class FeedsApi
      *
      * Информация о прайс-листе
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getFeedAsyncWithHttpInfo($campaign_id, $feed_id, string $contentType = self::contentTypes['getFeed'][0])
     {
@@ -470,12 +474,13 @@ class FeedsApi
     /**
      * Create request for operation 'getFeed'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getFeedRequest($campaign_id, $feed_id, string $contentType = self::contentTypes['getFeed'][0])
     {
@@ -584,7 +589,7 @@ class FeedsApi
      *
      * Отчет по индексации прайс-листа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  int $limit Количество товаров в выходных данных. (optional)
      * @param  \DateTime $published_time_from Начальная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Значение по умолчанию: последние восемь дней со времени отправки запроса. (optional)
@@ -595,6 +600,7 @@ class FeedsApi
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \YandexMarketApi\Model\GetFeedIndexLogsResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
+     * @deprecated
      */
     public function getFeedIndexLogs($campaign_id, $feed_id, $limit = null, $published_time_from = null, $published_time_to = null, $status = null, string $contentType = self::contentTypes['getFeedIndexLogs'][0])
     {
@@ -607,7 +613,7 @@ class FeedsApi
      *
      * Отчет по индексации прайс-листа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  int $limit Количество товаров в выходных данных. (optional)
      * @param  \DateTime $published_time_from Начальная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Значение по умолчанию: последние восемь дней со времени отправки запроса. (optional)
@@ -618,6 +624,7 @@ class FeedsApi
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \YandexMarketApi\Model\GetFeedIndexLogsResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getFeedIndexLogsWithHttpInfo($campaign_id, $feed_id, $limit = null, $published_time_from = null, $published_time_to = null, $status = null, string $contentType = self::contentTypes['getFeedIndexLogs'][0])
     {
@@ -850,7 +857,7 @@ class FeedsApi
      *
      * Отчет по индексации прайс-листа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  int $limit Количество товаров в выходных данных. (optional)
      * @param  \DateTime $published_time_from Начальная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Значение по умолчанию: последние восемь дней со времени отправки запроса. (optional)
@@ -860,6 +867,7 @@ class FeedsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getFeedIndexLogsAsync($campaign_id, $feed_id, $limit = null, $published_time_from = null, $published_time_to = null, $status = null, string $contentType = self::contentTypes['getFeedIndexLogs'][0])
     {
@@ -876,7 +884,7 @@ class FeedsApi
      *
      * Отчет по индексации прайс-листа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  int $limit Количество товаров в выходных данных. (optional)
      * @param  \DateTime $published_time_from Начальная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Значение по умолчанию: последние восемь дней со времени отправки запроса. (optional)
@@ -886,6 +894,7 @@ class FeedsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getFeedIndexLogsAsyncWithHttpInfo($campaign_id, $feed_id, $limit = null, $published_time_from = null, $published_time_to = null, $status = null, string $contentType = self::contentTypes['getFeedIndexLogs'][0])
     {
@@ -931,7 +940,7 @@ class FeedsApi
     /**
      * Create request for operation 'getFeedIndexLogs'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  int $limit Количество товаров в выходных данных. (optional)
      * @param  \DateTime $published_time_from Начальная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Значение по умолчанию: последние восемь дней со времени отправки запроса. (optional)
@@ -941,6 +950,7 @@ class FeedsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getFeedIndexLogsRequest($campaign_id, $feed_id, $limit = null, $published_time_from = null, $published_time_to = null, $status = null, string $contentType = self::contentTypes['getFeedIndexLogs'][0])
     {
@@ -1089,12 +1099,13 @@ class FeedsApi
      *
      * Список прайс-листов магазина
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeeds'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \YandexMarketApi\Model\GetFeedsResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
+     * @deprecated
      */
     public function getFeeds($campaign_id, string $contentType = self::contentTypes['getFeeds'][0])
     {
@@ -1107,12 +1118,13 @@ class FeedsApi
      *
      * Список прайс-листов магазина
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeeds'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \YandexMarketApi\Model\GetFeedsResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getFeedsWithHttpInfo($campaign_id, string $contentType = self::contentTypes['getFeeds'][0])
     {
@@ -1345,11 +1357,12 @@ class FeedsApi
      *
      * Список прайс-листов магазина
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeeds'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getFeedsAsync($campaign_id, string $contentType = self::contentTypes['getFeeds'][0])
     {
@@ -1366,11 +1379,12 @@ class FeedsApi
      *
      * Список прайс-листов магазина
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeeds'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getFeedsAsyncWithHttpInfo($campaign_id, string $contentType = self::contentTypes['getFeeds'][0])
     {
@@ -1416,11 +1430,12 @@ class FeedsApi
     /**
      * Create request for operation 'getFeeds'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeeds'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getFeedsRequest($campaign_id, string $contentType = self::contentTypes['getFeeds'][0])
     {
@@ -1514,13 +1529,14 @@ class FeedsApi
      *
      * Сообщить, что прайс-лист обновился
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshFeed'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \YandexMarketApi\Model\EmptyApiResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
+     * @deprecated
      */
     public function refreshFeed($campaign_id, $feed_id, string $contentType = self::contentTypes['refreshFeed'][0])
     {
@@ -1533,13 +1549,14 @@ class FeedsApi
      *
      * Сообщить, что прайс-лист обновился
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshFeed'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \YandexMarketApi\Model\EmptyApiResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function refreshFeedWithHttpInfo($campaign_id, $feed_id, string $contentType = self::contentTypes['refreshFeed'][0])
     {
@@ -1772,12 +1789,13 @@ class FeedsApi
      *
      * Сообщить, что прайс-лист обновился
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function refreshFeedAsync($campaign_id, $feed_id, string $contentType = self::contentTypes['refreshFeed'][0])
     {
@@ -1794,12 +1812,13 @@ class FeedsApi
      *
      * Сообщить, что прайс-лист обновился
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function refreshFeedAsyncWithHttpInfo($campaign_id, $feed_id, string $contentType = self::contentTypes['refreshFeed'][0])
     {
@@ -1845,12 +1864,13 @@ class FeedsApi
     /**
      * Create request for operation 'refreshFeed'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function refreshFeedRequest($campaign_id, $feed_id, string $contentType = self::contentTypes['refreshFeed'][0])
     {
@@ -1959,7 +1979,7 @@ class FeedsApi
      *
      * Изменение параметров прайс-листа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  \YandexMarketApi\Model\SetFeedParamsRequest $set_feed_params_request set_feed_params_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setFeedParams'] to see the possible values for this operation
@@ -1967,6 +1987,7 @@ class FeedsApi
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \YandexMarketApi\Model\EmptyApiResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiLockedErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
+     * @deprecated
      */
     public function setFeedParams($campaign_id, $feed_id, $set_feed_params_request, string $contentType = self::contentTypes['setFeedParams'][0])
     {
@@ -1979,7 +2000,7 @@ class FeedsApi
      *
      * Изменение параметров прайс-листа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  \YandexMarketApi\Model\SetFeedParamsRequest $set_feed_params_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setFeedParams'] to see the possible values for this operation
@@ -1987,6 +2008,7 @@ class FeedsApi
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \YandexMarketApi\Model\EmptyApiResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiLockedErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function setFeedParamsWithHttpInfo($campaign_id, $feed_id, $set_feed_params_request, string $contentType = self::contentTypes['setFeedParams'][0])
     {
@@ -2242,13 +2264,14 @@ class FeedsApi
      *
      * Изменение параметров прайс-листа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  \YandexMarketApi\Model\SetFeedParamsRequest $set_feed_params_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setFeedParams'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function setFeedParamsAsync($campaign_id, $feed_id, $set_feed_params_request, string $contentType = self::contentTypes['setFeedParams'][0])
     {
@@ -2265,13 +2288,14 @@ class FeedsApi
      *
      * Изменение параметров прайс-листа
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  \YandexMarketApi\Model\SetFeedParamsRequest $set_feed_params_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setFeedParams'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function setFeedParamsAsyncWithHttpInfo($campaign_id, $feed_id, $set_feed_params_request, string $contentType = self::contentTypes['setFeedParams'][0])
     {
@@ -2317,13 +2341,14 @@ class FeedsApi
     /**
      * Create request for operation 'setFeedParams'
      *
-     * @param  int $campaign_id Идентификатор кампании.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
      * @param  \YandexMarketApi\Model\SetFeedParamsRequest $set_feed_params_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setFeedParams'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function setFeedParamsRequest($campaign_id, $feed_id, $set_feed_params_request, string $contentType = self::contentTypes['setFeedParams'][0])
     {

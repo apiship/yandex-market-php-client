@@ -65,7 +65,6 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         'category_id' => 'int',
         'category_name' => 'string',
         'weight_dimensions' => '\YandexMarketApi\Model\GoodsStatsWeightDimensionsDTO',
-        'hiding_reasons' => '\YandexMarketApi\Model\GoodsStatsHidingDTO[]',
         'warehouses' => '\YandexMarketApi\Model\GoodsStatsWarehouseDTO[]',
         'storage' => '\YandexMarketApi\Model\GoodsStatsStorageDTO[]',
         'tariffs' => '\YandexMarketApi\Model\GoodsStatsTariffDTO[]',
@@ -87,7 +86,6 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         'category_id' => 'int64',
         'category_name' => null,
         'weight_dimensions' => null,
-        'hiding_reasons' => null,
         'warehouses' => null,
         'storage' => null,
         'tariffs' => null,
@@ -107,7 +105,6 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
 		'category_id' => false,
 		'category_name' => false,
 		'weight_dimensions' => false,
-		'hiding_reasons' => false,
 		'warehouses' => false,
 		'storage' => false,
 		'tariffs' => false,
@@ -207,7 +204,6 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         'category_id' => 'categoryId',
         'category_name' => 'categoryName',
         'weight_dimensions' => 'weightDimensions',
-        'hiding_reasons' => 'hidingReasons',
         'warehouses' => 'warehouses',
         'storage' => 'storage',
         'tariffs' => 'tariffs',
@@ -227,7 +223,6 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         'category_id' => 'setCategoryId',
         'category_name' => 'setCategoryName',
         'weight_dimensions' => 'setWeightDimensions',
-        'hiding_reasons' => 'setHidingReasons',
         'warehouses' => 'setWarehouses',
         'storage' => 'setStorage',
         'tariffs' => 'setTariffs',
@@ -247,7 +242,6 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         'category_id' => 'getCategoryId',
         'category_name' => 'getCategoryName',
         'weight_dimensions' => 'getWeightDimensions',
-        'hiding_reasons' => 'getHidingReasons',
         'warehouses' => 'getWarehouses',
         'storage' => 'getStorage',
         'tariffs' => 'getTariffs',
@@ -318,7 +312,6 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('category_id', $data ?? [], null);
         $this->setIfExists('category_name', $data ?? [], null);
         $this->setIfExists('weight_dimensions', $data ?? [], null);
-        $this->setIfExists('hiding_reasons', $data ?? [], null);
         $this->setIfExists('warehouses', $data ?? [], null);
         $this->setIfExists('storage', $data ?? [], null);
         $this->setIfExists('tariffs', $data ?? [], null);
@@ -574,33 +567,6 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable weight_dimensions cannot be null');
         }
         $this->container['weight_dimensions'] = $weight_dimensions;
-
-        return $this;
-    }
-
-    /**
-     * Gets hiding_reasons
-     *
-     * @return \YandexMarketApi\Model\GoodsStatsHidingDTO[]|null
-     */
-    public function getHidingReasons()
-    {
-        return $this->container['hiding_reasons'];
-    }
-
-    /**
-     * Sets hiding_reasons
-     *
-     * @param \YandexMarketApi\Model\GoodsStatsHidingDTO[]|null $hiding_reasons Информация о скрытии вашего предложения на Маркете. Если ваше предложение не скрыто, параметр не будет возвращаться. Вы можете скрыть ваш товар на Маркете через партнерский API с помощью запроса `POST /campaigns/{campaignId}/hidden-offers` или через каталог товаров. Также ваш товар может быть скрыт из‑за нарушения правил размещения, ошибок в описании предложения партнера и т. д.
-     *
-     * @return self
-     */
-    public function setHidingReasons($hiding_reasons)
-    {
-        if (is_null($hiding_reasons)) {
-            throw new \InvalidArgumentException('non-nullable hiding_reasons cannot be null');
-        }
-        $this->container['hiding_reasons'] = $hiding_reasons;
 
         return $this;
     }

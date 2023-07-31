@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OfferPriceListResponseDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Результат работы метода получения списка цен.
+ * @description Список цен на товары.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

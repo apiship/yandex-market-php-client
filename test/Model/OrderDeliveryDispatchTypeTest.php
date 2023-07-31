@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OrderDeliveryDispatchTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Способ отгрузки
+ * @description Способ отгрузки.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

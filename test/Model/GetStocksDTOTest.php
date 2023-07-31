@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * GetStocksDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Информация по актуальным стокам
+ * @description Информация по актуальным стокам.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -383,7 +383,7 @@ class StockDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets warehouse_id
      *
-     * @param int $warehouse_id Идентификатор склада.  Узнать идентификатор склада вы можете в личном кабинете в разделе **Логистика → Склады**. Он указан в поле ID склада.  Если вы работаете с общими остатками, вы можете посмотреть идентификатор склада в личном кабинете в разделе **Настройки → Настройки API** в блоке **Вы работаете с общими остатками**.
+     * @param int $warehouse_id Идентификатор склада.  Узнать идентификатор склада вы можете в личном кабинете в разделе **Логистика → Склады**. Он указан в поле ID склада.  Если вы работаете с общими остатками, вы можете посмотреть идентификатор склада в личном кабинете в разделе **Настройки → Настройки API** в блоке **Обновление данных об остатках товаров** или с помощью запроса [GET businesses/{businessId}/warehouses](../../reference/warehouses/getWarehouses.md).  Если вы отвечаете на запрос Маркета, указывайте тот идентификатор, что пришел в запросе.
      *
      * @return self
      */
@@ -410,7 +410,7 @@ class StockDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets items
      *
-     * @param \YandexMarketApi\Model\StockItemDTO[] $items Информация об остатке товара на данном складе.
+     * @param \YandexMarketApi\Model\StockItemDTO[] $items Информация об остатках товара на данном складе.
      *
      * @return self
      */

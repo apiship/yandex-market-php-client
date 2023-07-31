@@ -417,7 +417,7 @@ class OrderDigitalItemDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets activate_till
      *
-     * @param \DateTime $activate_till Дата, до которой нужно активировать ключ. Если ключ действует бессрочно, укажите любую дату в отдаленном будущем.
+     * @param \DateTime $activate_till Дата, до которой нужно активировать ключ. Если ключ действует бессрочно, укажите любую дату в отдаленном будущем.  Формат даты: `ГГГГ-ММ-ДД`.
      *
      * @return self
      */

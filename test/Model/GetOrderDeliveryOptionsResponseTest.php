@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * GetOrderDeliveryOptionsResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Ответ на запрос опций доставки
+ * @description Ответ на запрос опций доставки.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

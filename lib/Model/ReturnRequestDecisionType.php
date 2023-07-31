@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * ReturnRequestDecisionType Class Doc Comment
  *
  * @category Class
- * @description Решение по возврату
+ * @description Решение по возврату.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

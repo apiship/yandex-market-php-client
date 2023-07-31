@@ -70,7 +70,8 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
         'floor' => 'string',
         'apartment' => 'string',
         'phone' => 'string',
-        'recipient' => 'string'
+        'recipient' => 'string',
+        'gps' => '\YandexMarketApi\Model\GpsDTO'
     ];
 
     /**
@@ -93,7 +94,8 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
         'floor' => null,
         'apartment' => null,
         'phone' => null,
-        'recipient' => null
+        'recipient' => null,
+        'gps' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
 		'floor' => false,
 		'apartment' => false,
 		'phone' => false,
-		'recipient' => false
+		'recipient' => false,
+		'gps' => false
     ];
 
     /**
@@ -215,7 +218,8 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
         'floor' => 'floor',
         'apartment' => 'apartment',
         'phone' => 'phone',
-        'recipient' => 'recipient'
+        'recipient' => 'recipient',
+        'gps' => 'gps'
     ];
 
     /**
@@ -236,7 +240,8 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
         'floor' => 'setFloor',
         'apartment' => 'setApartment',
         'phone' => 'setPhone',
-        'recipient' => 'setRecipient'
+        'recipient' => 'setRecipient',
+        'gps' => 'setGps'
     ];
 
     /**
@@ -257,7 +262,8 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
         'floor' => 'getFloor',
         'apartment' => 'getApartment',
         'phone' => 'getPhone',
-        'recipient' => 'getRecipient'
+        'recipient' => 'getRecipient',
+        'gps' => 'getGps'
     ];
 
     /**
@@ -330,6 +336,7 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('apartment', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
         $this->setIfExists('recipient', $data ?? [], null);
+        $this->setIfExists('gps', $data ?? [], null);
     }
 
     /**
@@ -721,6 +728,33 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable recipient cannot be null');
         }
         $this->container['recipient'] = $recipient;
+
+        return $this;
+    }
+
+    /**
+     * Gets gps
+     *
+     * @return \YandexMarketApi\Model\GpsDTO|null
+     */
+    public function getGps()
+    {
+        return $this->container['gps'];
+    }
+
+    /**
+     * Sets gps
+     *
+     * @param \YandexMarketApi\Model\GpsDTO|null $gps gps
+     *
+     * @return self
+     */
+    public function setGps($gps)
+    {
+        if (is_null($gps)) {
+            throw new \InvalidArgumentException('non-nullable gps cannot be null');
+        }
+        $this->container['gps'] = $gps;
 
         return $this;
     }

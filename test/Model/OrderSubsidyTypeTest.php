@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OrderSubsidyTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Тип субсидии
+ * @description Тип субсидии.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

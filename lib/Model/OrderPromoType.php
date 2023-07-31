@@ -97,6 +97,8 @@ class OrderPromoType
 
     public const ANNOUNCEMENT_PROMO = 'ANNOUNCEMENT_PROMO';
 
+    public const DISCOUNT_BY_PAYMENT_TYPE = 'DISCOUNT_BY_PAYMENT_TYPE';
+
     public const UNKNOWN = 'UNKNOWN';
 
     /**
@@ -133,6 +135,7 @@ class OrderPromoType
             self::SPREAD_DISCOUNT_COUNT,
             self::SPREAD_DISCOUNT_RECEIPT,
             self::ANNOUNCEMENT_PROMO,
+            self::DISCOUNT_BY_PAYMENT_TYPE,
             self::UNKNOWN
         ];
     }

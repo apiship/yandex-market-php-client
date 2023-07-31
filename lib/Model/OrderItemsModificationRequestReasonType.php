@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderItemsModificationRequestReasonType Class Doc Comment
  *
  * @category Class
- * @description Причина обновления состава заказа
+ * @description Причина обновления состава заказа.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * SetReturnDecisionRequest Class Doc Comment
  *
  * @category Class
- * @description Решения по позиции в возврате
+ * @description Решения по позиции в возврате.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -323,7 +323,7 @@ class SetReturnDecisionRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets return_item_id
      *
-     * @param int $return_item_id Идентификатор позиции в возврате
+     * @param int $return_item_id Идентификатор позиции в возврате.
      *
      * @return self
      */

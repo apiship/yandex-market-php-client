@@ -72,6 +72,18 @@ class OffersApiTest extends TestCase
     }
 
     /**
+     * Test case for deleteCampaignOffers
+     *
+     * Удаление товаров из ассортимента магазина.
+     *
+     */
+    public function testDeleteCampaignOffers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getAllOffers
      *
      * Все предложения магазина.
@@ -84,12 +96,36 @@ class OffersApiTest extends TestCase
     }
 
     /**
+     * Test case for getCampaignOffers
+     *
+     * Список товаров, размещенных в заданном магазине, с параметрами размещения.
+     *
+     */
+    public function testGetCampaignOffers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getOffers
      *
      * Предложения магазина.
      *
      */
     public function testGetOffers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for updateCampaignOffers
+     *
+     * Настройка размещения товаров в магазине.
+     *
+     */
+    public function testUpdateCampaignOffers()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

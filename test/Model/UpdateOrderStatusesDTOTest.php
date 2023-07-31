@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * UpdateOrderStatusesDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Список заказов, статус которых обновился
+ * @description Список заказов, статус которых обновился.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -16,9 +16,9 @@ Name | Type | Description | Notes
 **model_id** | **int** | Идентификатор модели Маркета, с которой соотнесено предложение.  Если предложение не соотнесено ни с какой карточкой модели, то параметр &#x60;modelid&#x60; содержит значение &#x60;0&#x60;.  {% note info %}  Идентификатор модели присутствует в URL карточки модели в виде значения параметра &#x60;product&#x60;. Например: &#x60;https://market.yandex.ru/product/13584121&#x60;.  {% endnote %} |
 **name** | **string** | Наименование предложения. | [optional]
 **currency** | [**\YandexMarketApi\Model\CurrencyType**](CurrencyType.md) |  | [optional]
-**bid** | **float** | Ставка на клик. deprecated | [optional]
-**cbid** | **float** | Ставка на клик. deprecated | [optional]
-**fee** | **float** | Процент комиссии на товар при продаже по CPA. deprecated | [optional]
+**bid** | **float** | Ставка на клик. deprecated. | [optional]
+**cbid** | **float** | Ставка на клик. deprecated. | [optional]
+**fee** | **float** | Процент комиссии на товар при продаже по CPA. deprecated. | [optional]
 **blocked** | **bool** | Признак блокировки предложения. Возможные значения: * &#x60;false&#x60; — предложение активно, параметр не выводится. * &#x60;true&#x60; — предложение заблокировано. Параметр выводится, если предложение заблокировано и не попадает в выдачу Маркета. Это может произойти из-за отключения магазина. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * ReturnInstanceStatusType Class Doc Comment
  *
  * @category Class
- * @description Логистический статус конкретного товара
+ * @description Логистический статус конкретного товара.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

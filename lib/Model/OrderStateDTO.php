@@ -295,9 +295,6 @@ class OrderStateDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
-        if ($this->container['substatus'] === null) {
-            $invalidProperties[] = "'substatus' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -370,7 +367,7 @@ class OrderStateDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets substatus
      *
-     * @return \YandexMarketApi\Model\OrderSubstatusType
+     * @return \YandexMarketApi\Model\OrderSubstatusType|null
      */
     public function getSubstatus()
     {
@@ -380,7 +377,7 @@ class OrderStateDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets substatus
      *
-     * @param \YandexMarketApi\Model\OrderSubstatusType $substatus substatus
+     * @param \YandexMarketApi\Model\OrderSubstatusType|null $substatus substatus
      *
      * @return self
      */

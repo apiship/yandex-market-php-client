@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * GetFeedCategoriesResponse Class Doc Comment
  *
  * @category Class
- * @description Ответ на запрос списка категорий прайс-листа
+ * @description Ответ на запрос списка категорий прайс-листа.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

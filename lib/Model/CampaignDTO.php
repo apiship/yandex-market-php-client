@@ -60,7 +60,9 @@ class CampaignDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'domain' => 'string',
         'id' => 'int',
-        'client_id' => 'int'
+        'client_id' => 'int',
+        'business' => '\YandexMarketApi\Model\BusinessDTO',
+        'placement_type' => '\YandexMarketApi\Model\PlacementType'
     ];
 
     /**
@@ -73,7 +75,9 @@ class CampaignDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'domain' => null,
         'id' => 'int64',
-        'client_id' => 'int64'
+        'client_id' => 'int64',
+        'business' => null,
+        'placement_type' => null
     ];
 
     /**
@@ -84,7 +88,9 @@ class CampaignDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'domain' => false,
 		'id' => false,
-		'client_id' => false
+		'client_id' => false,
+		'business' => false,
+		'placement_type' => false
     ];
 
     /**
@@ -175,7 +181,9 @@ class CampaignDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'domain' => 'domain',
         'id' => 'id',
-        'client_id' => 'clientId'
+        'client_id' => 'clientId',
+        'business' => 'business',
+        'placement_type' => 'placementType'
     ];
 
     /**
@@ -186,7 +194,9 @@ class CampaignDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'domain' => 'setDomain',
         'id' => 'setId',
-        'client_id' => 'setClientId'
+        'client_id' => 'setClientId',
+        'business' => 'setBusiness',
+        'placement_type' => 'setPlacementType'
     ];
 
     /**
@@ -197,7 +207,9 @@ class CampaignDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'domain' => 'getDomain',
         'id' => 'getId',
-        'client_id' => 'getClientId'
+        'client_id' => 'getClientId',
+        'business' => 'getBusiness',
+        'placement_type' => 'getPlacementType'
     ];
 
     /**
@@ -260,6 +272,8 @@ class CampaignDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('domain', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('client_id', $data ?? [], null);
+        $this->setIfExists('business', $data ?? [], null);
+        $this->setIfExists('placement_type', $data ?? [], null);
     }
 
     /**
@@ -381,6 +395,60 @@ class CampaignDTO implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable client_id cannot be null');
         }
         $this->container['client_id'] = $client_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets business
+     *
+     * @return \YandexMarketApi\Model\BusinessDTO|null
+     */
+    public function getBusiness()
+    {
+        return $this->container['business'];
+    }
+
+    /**
+     * Sets business
+     *
+     * @param \YandexMarketApi\Model\BusinessDTO|null $business business
+     *
+     * @return self
+     */
+    public function setBusiness($business)
+    {
+        if (is_null($business)) {
+            throw new \InvalidArgumentException('non-nullable business cannot be null');
+        }
+        $this->container['business'] = $business;
+
+        return $this;
+    }
+
+    /**
+     * Gets placement_type
+     *
+     * @return \YandexMarketApi\Model\PlacementType|null
+     */
+    public function getPlacementType()
+    {
+        return $this->container['placement_type'];
+    }
+
+    /**
+     * Sets placement_type
+     *
+     * @param \YandexMarketApi\Model\PlacementType|null $placement_type placement_type
+     *
+     * @return self
+     */
+    public function setPlacementType($placement_type)
+    {
+        if (is_null($placement_type)) {
+            throw new \InvalidArgumentException('non-nullable placement_type cannot be null');
+        }
+        $this->container['placement_type'] = $placement_type;
 
         return $this;
     }

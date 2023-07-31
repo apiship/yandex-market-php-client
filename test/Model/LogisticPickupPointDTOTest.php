@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * LogisticPickupPointDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Описание пункта вывоза для возврата
+ * @description Описание пункта вывоза для возврата.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

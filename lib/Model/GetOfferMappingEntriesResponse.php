@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * GetOfferMappingEntriesResponse Class Doc Comment
  *
  * @category Class
- * @description Ответ на запрос списка товаров в каталоге
+ * @description Ответ на запрос списка товаров в каталоге.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

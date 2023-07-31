@@ -405,6 +405,7 @@ class HiddenOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets ttl_in_hours
      *
      * @return int|null
+     * @deprecated
      */
     public function getTtlInHours()
     {
@@ -414,9 +415,10 @@ class HiddenOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ttl_in_hours
      *
-     * @param int|null $ttl_in_hours Количество часов до возобновления показа товара.  Минимальное значение — `1`.  Максимальное значение — `720`.  Значение по умолчанию — `48`.  Используется только совместно с параметром `priority=\"true\"`.
+     * @param int|null $ttl_in_hours {% note alert \"Это поле устарело\" %}  Не используйте его — это может привести к ошибкам.  {% endnote %}  Количество часов до возобновления показа товара.  Минимальное значение — `1`.  Максимальное значение — `720`.  Значение по умолчанию — `48`.  Используется только совместно с параметром `priority=\"true\"`.
      *
      * @return self
+     * @deprecated
      */
     public function setTtlInHours($ttl_in_hours)
     {
@@ -432,6 +434,7 @@ class HiddenOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets comment
      *
      * @return string|null
+     * @deprecated
      */
     public function getComment()
     {
@@ -441,9 +444,10 @@ class HiddenOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets comment
      *
-     * @param string|null $comment Комментарий магазина.  Максимальная длина комментария — 100 символов.  Используется только совместно с параметром `priority=\"true\"`. Если скрытие было без приоритета, комментарий не вернется в ответе.
+     * @param string|null $comment {% note alert \"Это поле устарело\" %}  Не используйте его — это может привести к ошибкам.  {% endnote %}  Комментарий магазина.  Максимальная длина комментария — 100 символов.  Используется только совместно с параметром `priority=\"true\"`. Если скрытие было без приоритета, комментарий не вернется в ответе.
      *
      * @return self
+     * @deprecated
      */
     public function setComment($comment)
     {
@@ -486,6 +490,7 @@ class HiddenOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets priority
      *
      * @return bool|null
+     * @deprecated
      */
     public function getPriority()
     {
@@ -495,9 +500,10 @@ class HiddenOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets priority
      *
-     * @param bool|null $priority Приоритет скрытия предложений через API над скрытием в личном кабинете. Параметр принимает только значение true.
+     * @param bool|null $priority {% note alert \"Это поле устарело\" %}  Не используйте его — это может привести к ошибкам.  {% endnote %}  Приоритет скрытия предложений через API над скрытием в личном кабинете. Параметр принимает только значение true.
      *
      * @return self
+     * @deprecated
      */
     public function setPriority($priority)
     {

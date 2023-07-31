@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * ReturnInstanceDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Логистическая информация по возврату
+ * @description Логистическая информация по возврату.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OrderParcelBoxDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Информация о грузоместе
+ * @description Информация о грузоместе.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

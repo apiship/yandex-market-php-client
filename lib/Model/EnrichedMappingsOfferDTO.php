@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * EnrichedMappingsOfferDTO Class Doc Comment
  *
  * @category Class
- * @description Информация о рекомендованных карточках товаров
+ * @description Информация о рекомендованных карточках товаров.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -527,6 +527,10 @@ class EnrichedMappingsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 150)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 150.";
+        }
+
         if (!is_null($this->container['shop_sku']) && (mb_strlen($this->container['shop_sku']) > 80)) {
             $invalidProperties[] = "invalid value for 'shop_sku', the character length must be smaller than or equal to 80.";
         }
@@ -537,6 +541,22 @@ class EnrichedMappingsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
 
         if (!is_null($this->container['shop_sku']) && !preg_match("/^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/", $this->container['shop_sku'])) {
             $invalidProperties[] = "invalid value for 'shop_sku', must be conform to the pattern /^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/.";
+        }
+
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 6000)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 6000.";
+        }
+
+        if (!is_null($this->container['id']) && (mb_strlen($this->container['id']) > 80)) {
+            $invalidProperties[] = "invalid value for 'id', the character length must be smaller than or equal to 80.";
+        }
+
+        if (!is_null($this->container['id']) && (mb_strlen($this->container['id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'id', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['id']) && !preg_match("/^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/", $this->container['id'])) {
+            $invalidProperties[] = "invalid value for 'id', must be conform to the pattern /^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/.";
         }
 
         return $invalidProperties;
@@ -567,7 +587,7 @@ class EnrichedMappingsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets name
      *
-     * @param string|null $name Название товара.  Составляйте по схеме: **что** (тип товара) + **кто** (производитель или бренд) + **товар** (модель, название) + отличительные **характеристики**, если есть (например, размер, вес или цвет).  Примеры:  * Утюг Philips GC 2088. * Увелка Хлопья 5 злаков, 350 г. * Комбинезон LEO размер 62, розовый.
+     * @param string|null $name Составляйте название по схеме: тип + бренд или производитель + модель + особенности, если есть (например, цвет, размер или вес) и количество в упаковке.  Не включайте в название условия продажи (например, «скидка», «бесплатная доставка» и т. д.), эмоциональные характеристики («хит», «супер» и т. д.). Не пишите слова большими буквами — кроме устоявшихся названий брендов и моделей.  Оптимальная длина — 50–60 символов, максимальная — 150.  [Рекомендации и правила](https://yandex.ru/support/marketplace/assortment/fields/title.html)
      *
      * @return self
      */
@@ -576,6 +596,10 @@ class EnrichedMappingsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
+        if ((mb_strlen($name) > 150)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling EnrichedMappingsOfferDTO., must be smaller than or equal to 150.');
+        }
+
         $this->container['name'] = $name;
 
         return $this;
@@ -631,7 +655,7 @@ class EnrichedMappingsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets category
      *
-     * @param string|null $category Категория товара.  Указывайте специфичную категорию товара, а не общую. Например, для туши для глаз указывайте «Декоративная косметика», а не просто «Косметика».  При указании категорий вы можете ориентироваться на каталог Маркета.
+     * @param string|null $category Категория, к которой магазин относит свой товар. Она помогает точнее определить для товара категорию в каталоге Маркета.  Указывайте конкретные категории — например, набор ножей лучше отнести к категории **Столовые приборы**, а не просто **Посуда**.  Выбирайте категории, которые описывают товар, а не абстрактный признак — например, **Духи**, а не **Подарки**.
      *
      * @return self
      */
@@ -658,7 +682,7 @@ class EnrichedMappingsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets vendor
      *
-     * @param string|null $vendor Бренд товара.
+     * @param string|null $vendor Название бренда или производителя. Должно быть записано так, как его пишет сам бренд.
      *
      * @return self
      */
@@ -712,7 +736,7 @@ class EnrichedMappingsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets description
      *
-     * @param string|null $description Описание товара.  Максимальная длина — 3000 символов.  В описании запрещено:  * давать инструкции по применению, установке или сборке; * использовать слова «скидка», «распродажа», «дешевый», «подарок» (кроме подарочных категорий), «бесплатно», «акция», «специальная цена», «новинка», «new», «аналог», «заказ», «хит»; * указывать номера телефонов, адреса электронной почты, почтовые адреса, номера ICQ, логины мессенджеров, любые URL-ссылки.
+     * @param string|null $description Подробное описание товара: например, его преимущества и особенности.  Не давайте в описании инструкций по установке и сборке. Не используйте слова «скидка», «распродажа», «дешевый», «подарок» (кроме подарочных категорий), «бесплатно», «акция», «специальная цена», «новинка», «new», «аналог», «заказ», «хит». Не указывайте никакой контактной информации и не давайте ссылок.  Можно использовать теги:  * \\<h>, \\<h1>, \\<h2> и так далее — для заголовков; * \\<br> и \\<p> — для переноса строки; * \\<ol> — для нумерованного списка; * \\<ul> — для маркированного списка; * \\<li> — для создания элементов списка (должен находиться внутри \\<ol> или \\<ul>); * \\<div> — поддерживается, но не влияет на отображение текста.  Оптимальная длина — 400–600 символов, максимальная — 6000.  [Рекомендации и правила](https://yandex.ru/support/marketplace/assortment/fields/description.html)
      *
      * @return self
      */
@@ -721,6 +745,10 @@ class EnrichedMappingsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
         if (is_null($description)) {
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
+        if ((mb_strlen($description) > 6000)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling EnrichedMappingsOfferDTO., must be smaller than or equal to 6000.');
+        }
+
         $this->container['description'] = $description;
 
         return $this;
@@ -739,7 +767,7 @@ class EnrichedMappingsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets id
      *
-     * @param string|null $id Идентификатор оффера.
+     * @param string|null $id **Ваш SKU**  Идентификатор товара в магазине. Разрешены английские и русские буквы (кроме ё), цифры и символы `. , / \\ ( ) [ ] - = _`  Максимальная длина — 80 знаков.  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields).
      *
      * @return self
      */
@@ -748,6 +776,16 @@ class EnrichedMappingsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
+        if ((mb_strlen($id) > 80)) {
+            throw new \InvalidArgumentException('invalid length for $id when calling EnrichedMappingsOfferDTO., must be smaller than or equal to 80.');
+        }
+        if ((mb_strlen($id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $id when calling EnrichedMappingsOfferDTO., must be bigger than or equal to 1.');
+        }
+        if ((!preg_match("/^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/", $id))) {
+            throw new \InvalidArgumentException("invalid value for \$id when calling EnrichedMappingsOfferDTO., must conform to the pattern /^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/.");
+        }
+
         $this->container['id'] = $id;
 
         return $this;
@@ -820,7 +858,7 @@ class EnrichedMappingsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets barcodes
      *
-     * @param string[]|null $barcodes Штрихкоды товара от производителя.  Указывайте в виде последовательности цифр. Подойдут коды:  * EAN-13. * EAN-8. * EAN-8UPC-A. * UPC-E. * Code 128.
+     * @param string[]|null $barcodes Указывайте в виде последовательности цифр. Подойдут коды EAN-13, EAN-8, UPC-A, UPC-E или Code 128.  Для книг указывайте ISBN.  Для товаров [определенных категорий и торговых марок](https://yastatic.net/s3/doc-binary/src/support/market/ru/yandex-market-list-for-gtin.xlsx) штрихкод должен быть действительным кодом GTIN. Обратите внимание: внутренние штрихкоды, начинающиеся на 2 или 02, и коды формата Code 128 не являются GTIN.  [Что такое GTIN](*gtin)  [*gtin]:**Что такое GTIN**\\nGTIN — это уникальный номер, присвоенный товару в единой международной базе [GS1](https://ru.wikipedia.org/wiki/GS1). Из этого номера получается штрихкод формата EAN, UPC или ISBN.\\n\\n**Как убедиться, что товар есть в базе**\\nПроверить код можно на [странице проверки](https://gepir.gs1.org/index.php/search-by-gtin) на сайте ассоциации GS1. Если товар не находится, запросите код GTIN у вашего поставщика.\\n\\n**Как получить GTIN для своих товаров**\\nЧтобы получить коды GTIN, производителю нужно вступить в ассоциацию GS1 и зарегистрировать товары.
      *
      * @return self
      */

@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderDeliveryEacType Class Doc Comment
  *
  * @category Class
- * @description Тип кода подтверждения ЭАПП: - MERCHANT_TO_COURIER — продавец передает код курьеру. - COURIER_TO_MERCHANT — курьер передает код продавцу.
+ * @description Тип кода подтверждения ЭАПП: - MERCHANT_TO_COURIER — продавец передает код курьеру. - COURIER_TO_MERCHANT — курьер передает код продавцу. - CHECKING_BY_MERCHANT - продавец проверяет код на своей стороне.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -47,6 +47,8 @@ class OrderDeliveryEacType
 
     public const COURIER_TO_MERCHANT = 'COURIER_TO_MERCHANT';
 
+    public const CHECKING_BY_MERCHANT = 'CHECKING_BY_MERCHANT';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -55,7 +57,8 @@ class OrderDeliveryEacType
     {
         return [
             self::MERCHANT_TO_COURIER,
-            self::COURIER_TO_MERCHANT
+            self::COURIER_TO_MERCHANT,
+            self::CHECKING_BY_MERCHANT
         ];
     }
 }

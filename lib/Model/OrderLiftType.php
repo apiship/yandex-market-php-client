@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderLiftType Class Doc Comment
  *
  * @category Class
- * @description Тип подъема заказа на этаж
+ * @description Тип подъема заказа на этаж.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

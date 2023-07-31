@@ -302,7 +302,7 @@ class VerifyOrderEacRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets code
      *
-     * @param string|null $code Код для подтверждения ЭАПП
+     * @param string|null $code Код для подтверждения ЭАПП.
      *
      * @return self
      */

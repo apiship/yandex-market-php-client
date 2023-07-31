@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderTrackDTO Class Doc Comment
  *
  * @category Class
- * @description Информация о трек-номерах
+ * @description Информация о трек-номерах.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -310,7 +310,7 @@ class OrderTrackDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets track_code
      *
-     * @param string|null $track_code Трек‑номер посылки
+     * @param string|null $track_code Трек‑номер посылки.
      *
      * @return self
      */
@@ -337,7 +337,7 @@ class OrderTrackDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets delivery_service_id
      *
-     * @param int|null $delivery_service_id Идентификатор службы доставки
+     * @param int|null $delivery_service_id Идентификатор службы доставки.
      *
      * @return self
      */

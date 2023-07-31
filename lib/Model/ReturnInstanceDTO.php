@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * ReturnInstanceDTO Class Doc Comment
  *
  * @category Class
- * @description Логистическая информация по возврату
+ * @description Логистическая информация по возврату.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -378,7 +378,7 @@ class ReturnInstanceDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets cis
      *
-     * @param string|null $cis Контрольный идентификационный знак
+     * @param string|null $cis Контрольный идентификационный знак.
      *
      * @return self
      */
@@ -405,7 +405,7 @@ class ReturnInstanceDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets imei
      *
-     * @param string|null $imei Международный идентификатор мобильного оборудования
+     * @param string|null $imei Международный идентификатор мобильного оборудования.
      *
      * @return self
      */

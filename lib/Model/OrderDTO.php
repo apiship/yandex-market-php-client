@@ -660,7 +660,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets delivery_total
      *
-     * @param float|null $delivery_total Стоимость доставки в валюте заказа
+     * @param float|null $delivery_total Стоимость доставки в валюте заказа.
      *
      * @return self
      */
@@ -741,7 +741,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyer_items_total
      *
-     * @param float|null $buyer_items_total Стоимость всех товаров в заказе в валюте покупателя после применения скидок и без учета стоимости доставки
+     * @param float|null $buyer_items_total Стоимость всех товаров в заказе в валюте покупателя после применения скидок и без учета стоимости доставки.
      *
      * @return self
      */
@@ -768,7 +768,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyer_total
      *
-     * @param float|null $buyer_total Стоимость всех товаров в заказе в валюте покупателя после применения скидок и с учетом стоимости доставки
+     * @param float|null $buyer_total Стоимость всех товаров в заказе в валюте покупателя после применения скидок и с учетом стоимости доставки.
      *
      * @return self
      */
@@ -795,7 +795,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyer_items_total_before_discount
      *
-     * @param float|null $buyer_items_total_before_discount Стоимость всех товаров в заказе в валюте покупателя до применения скидок и без учета стоимости доставки
+     * @param float|null $buyer_items_total_before_discount Стоимость всех товаров в заказе в валюте покупателя до применения скидок и без учета стоимости доставки.
      *
      * @return self
      */
@@ -822,7 +822,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyer_total_before_discount
      *
-     * @param float|null $buyer_total_before_discount Стоимость всех товаров в заказе в валюте покупателя до применения скидок и с учетом стоимости доставки
+     * @param float|null $buyer_total_before_discount Стоимость всех товаров в заказе в валюте покупателя до применения скидок и с учетом стоимости доставки.
      *
      * @return self
      */
@@ -957,7 +957,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets subsidies
      *
-     * @param \YandexMarketApi\Model\OrderItemSubsidyDTO[]|null $subsidies Список субсидий по типам
+     * @param \YandexMarketApi\Model\OrderItemSubsidyDTO[]|null $subsidies Список субсидий по типам.
      *
      * @return self
      */
@@ -1092,7 +1092,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cancel_requested
      *
-     * @param bool|null $cancel_requested Запрошена ли отмена
+     * @param bool|null $cancel_requested Запрошена ли отмена.
      *
      * @return self
      */

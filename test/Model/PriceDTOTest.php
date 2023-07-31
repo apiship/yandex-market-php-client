@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * PriceDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Информация о новой цене на товар.
+ * @description Цена с указанием скидки, валюты и времени последнего обновления.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

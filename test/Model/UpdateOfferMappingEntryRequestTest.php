@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * UpdateOfferMappingEntryRequestTest Class Doc Comment
  *
  * @category    Class
- * @description Запрос на обновление товаров
+ * @description Запрос на обновление товаров.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

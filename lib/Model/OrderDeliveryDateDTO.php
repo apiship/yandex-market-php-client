@@ -306,7 +306,7 @@ class OrderDeliveryDateDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets to_date
      *
-     * @param \DateTime $to_date Новая дата доставки заказа.
+     * @param \DateTime $to_date Новая дата доставки заказа.  Формат даты: `ГГГГ-ММ-ДД`.
      *
      * @return self
      */

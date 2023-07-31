@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrdersStatsOrderPaymentType Class Doc Comment
  *
  * @category Class
- * @description Тип оплаты заказа: - &#x60;CREDIT&#x60; — заказ оформлен в кредит. - &#x60;POSTPAID&#x60; — заказ оплачен после того, как был получен. - &#x60;PREPAID&#x60; — заказ оплачен до того, как был получен.
+ * @description Тип оплаты заказа: - &#x60;CREDIT&#x60; — заказ оформлен в кредит; - &#x60;POSTPAID&#x60; — заказ оплачен после того, как был получен; - &#x60;PREPAID&#x60; — заказ оплачен до того, как был получен.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * GetHiddenOffersResultDTO Class Doc Comment
  *
  * @category Class
- * @description Результат работы метода.  Возвращается, если параметр &#x60;status&#x3D;\&quot;OK\&quot;&#x60;.
+ * @description Список скрытых вами товаров.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -308,6 +308,7 @@ class GetHiddenOffersResultDTO implements ModelInterface, ArrayAccess, \JsonSeri
      * Gets total
      *
      * @return int|null
+     * @deprecated
      */
     public function getTotal()
     {
@@ -317,9 +318,10 @@ class GetHiddenOffersResultDTO implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets total
      *
-     * @param int|null $total Общее количество скрытых товаров магазина.
+     * @param int|null $total {% note alert \"Это поле устарело\" %}  Не используйте его — это может привести к ошибкам.  {% endnote %}  Общее количество скрытых товаров магазина.
      *
      * @return self
+     * @deprecated
      */
     public function setTotal($total)
     {

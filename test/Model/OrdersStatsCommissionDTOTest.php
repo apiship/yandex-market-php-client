@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OrdersStatsCommissionDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Информация о комиссиях за заказ.
+ * @description Информация о стоимости услуг.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
