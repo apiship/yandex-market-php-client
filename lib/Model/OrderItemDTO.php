@@ -508,9 +508,6 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if ((mb_strlen($offer_id) < 1)) {
             throw new \InvalidArgumentException('invalid length for $offer_id when calling OrderItemDTO., must be bigger than or equal to 1.');
         }
-        if ((!preg_match("/^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/", $offer_id))) {
-            throw new \InvalidArgumentException("invalid value for \$offer_id when calling OrderItemDTO., must conform to the pattern /^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/.");
-        }
 
         $this->container['offer_id'] = $offer_id;
 
@@ -760,9 +757,6 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ((mb_strlen($shop_sku) < 1)) {
             throw new \InvalidArgumentException('invalid length for $shop_sku when calling OrderItemDTO., must be bigger than or equal to 1.');
-        }
-        if ((!preg_match("/^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/", $shop_sku))) {
-            throw new \InvalidArgumentException("invalid value for \$shop_sku when calling OrderItemDTO., must conform to the pattern /^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/.");
         }
 
         $this->container['shop_sku'] = $shop_sku;
