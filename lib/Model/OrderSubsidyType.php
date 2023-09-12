@@ -50,20 +50,6 @@ class OrderSubsidyType
     public const YANDEX_CASHBACK = 'YANDEX_CASHBACK';
 
     public const SUBSIDY = 'SUBSIDY';
-
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public static function getAllowableEnumValues()
-    {
-        return [
-            self::NOT_SUBSIDY,
-            self::SBER_SPASIBO,
-            self::YANDEX_CASHBACK,
-            self::SUBSIDY
-        ];
-    }
 }
 
 
