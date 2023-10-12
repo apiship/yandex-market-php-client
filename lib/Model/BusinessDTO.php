@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * BusinessDTO Class Doc Comment
  *
  * @category Class
- * @description Информацию о бизнесе.
+ * @description Информацию о кабинете.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -310,7 +310,7 @@ class BusinessDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param int|null $id Идентификатор бизнеса.
+     * @param int|null $id Идентификатор кабинета.
      *
      * @return self
      */

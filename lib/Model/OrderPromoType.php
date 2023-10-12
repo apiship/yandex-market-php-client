@@ -99,6 +99,10 @@ class OrderPromoType
 
     public const DISCOUNT_BY_PAYMENT_TYPE = 'DISCOUNT_BY_PAYMENT_TYPE';
 
+    public const PERCENT_DISCOUNT = 'PERCENT_DISCOUNT';
+
+    public const EMPTY_PROMO = 'EMPTY_PROMO';
+
     public const UNKNOWN = 'UNKNOWN';
 
     /**
@@ -136,6 +140,8 @@ class OrderPromoType
             self::SPREAD_DISCOUNT_RECEIPT,
             self::ANNOUNCEMENT_PROMO,
             self::DISCOUNT_BY_PAYMENT_TYPE,
+            self::PERCENT_DISCOUNT,
+            self::EMPTY_PROMO,
             self::UNKNOWN
         ];
     }

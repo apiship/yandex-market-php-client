@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderStatsStatusType Class Doc Comment
  *
  * @category Class
- * @description Текущий статус заказа:  * &#x60;CANCELLED_BEFORE_PROCESSING&#x60; — заказ отменен до начала его обработки;  * &#x60;CANCELLED_IN_DELIVERY&#x60; — заказ отменен во время его доставки;  * &#x60;CANCELLED_IN_PROCESSING&#x60; — заказ отменен во время его обработки;  * &#x60;DELIVERY&#x60; — заказ передан службе доставки;  * &#x60;DELIVERED&#x60; — заказ доставлен;  * &#x60;PARTIALLY_RETURNED&#x60; — заказ частично возвращен покупателем;  * &#x60;PICKUP&#x60; — заказ доставлен в пункт выдачи;      * Значение по умолчанию: &#x60;PICKUP_SERVICE_RECEIVED&#x60;;      * &#x60;PICKUP_USER_RECEIVED&#x60; – покупатель получил заказ.  * &#x60;PROCESSING&#x60; — заказ в обработке;  * &#x60;REJECTED&#x60; — заказ создан, но не оплачен;  * &#x60;RETURNED&#x60; — заказ полностью возвращен покупателем;  * &#x60;UNKNOWN&#x60; — неизвестный статус заказа.
+ * @description Текущий статус заказа:  * &#x60;CANCELLED_BEFORE_PROCESSING&#x60; — заказ отменен до начала его обработки;  * &#x60;CANCELLED_IN_DELIVERY&#x60; — заказ отменен во время его доставки;  * &#x60;CANCELLED_IN_PROCESSING&#x60; — заказ отменен во время его обработки;  * &#x60;DELIVERY&#x60; — заказ передан службе доставки;  * &#x60;DELIVERED&#x60; — заказ доставлен;  * &#x60;PARTIALLY_DELIVERED&#x60; — заказ частично доставлен;  * &#x60;PARTIALLY_RETURNED&#x60; — заказ частично возвращен покупателем;  * &#x60;PICKUP&#x60; — заказ доставлен в пункт выдачи;      * Значение по умолчанию: &#x60;PICKUP_SERVICE_RECEIVED&#x60;;      * &#x60;PICKUP_USER_RECEIVED&#x60; – покупатель получил заказ.  * &#x60;PROCESSING&#x60; — заказ в обработке;  * &#x60;REJECTED&#x60; — заказ создан, но не оплачен;  * &#x60;RETURNED&#x60; — заказ полностью возвращен покупателем;  * &#x60;LOST&#x60; — заказ утерян;  * &#x60;UNKNOWN&#x60; — неизвестный статус заказа.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -53,6 +53,8 @@ class OrderStatsStatusType
 
     public const DELIVERED = 'DELIVERED';
 
+    public const PARTIALLY_DELIVERED = 'PARTIALLY_DELIVERED';
+
     public const PARTIALLY_RETURNED = 'PARTIALLY_RETURNED';
 
     public const PENDING = 'PENDING';
@@ -71,6 +73,8 @@ class OrderStatsStatusType
 
     public const UNPAID = 'UNPAID';
 
+    public const LOST = 'LOST';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -83,6 +87,7 @@ class OrderStatsStatusType
             self::CANCELLED_IN_PROCESSING,
             self::DELIVERY,
             self::DELIVERED,
+            self::PARTIALLY_DELIVERED,
             self::PARTIALLY_RETURNED,
             self::PENDING,
             self::PICKUP,
@@ -91,7 +96,8 @@ class OrderStatsStatusType
             self::RETURNED,
             self::REJECTED,
             self::UNKNOWN,
-            self::UNPAID
+            self::UNPAID,
+            self::LOST
         ];
     }
 }

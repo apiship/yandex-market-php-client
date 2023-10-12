@@ -385,7 +385,7 @@ class GetCampaignOffersRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets category_ids
      *
-     * @param int[]|null $category_ids Фильтр по категориям на Маркете.  Чтобы узнать идентификатор категории, откройте ее страницу на [market.yandex.ru](https://market.yandex.ru/). Идентификатор — это число после `?hid=` в URL страницы.
+     * @param int[]|null $category_ids Фильтр по категориям на Маркете.
      *
      * @return self
      */

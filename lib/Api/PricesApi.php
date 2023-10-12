@@ -139,9 +139,9 @@ class PricesApi
      *
      * Список цен
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPrices'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -159,9 +159,9 @@ class PricesApi
      *
      * Список цен
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPrices'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -399,9 +399,9 @@ class PricesApi
      *
      * Список цен
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPrices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -422,9 +422,9 @@ class PricesApi
      *
      * Список цен
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPrices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -474,9 +474,9 @@ class PricesApi
     /**
      * Create request for operation 'getPrices'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPrices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -594,10 +594,10 @@ class PricesApi
      *
      * Просмотр установленных в магазине цен
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetPricesByOfferIdsRequest $get_prices_by_offer_ids_request get_prices_by_offer_ids_request (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricesByOfferIds'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -615,10 +615,10 @@ class PricesApi
      *
      * Просмотр установленных в магазине цен
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetPricesByOfferIdsRequest $get_prices_by_offer_ids_request (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricesByOfferIds'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -856,10 +856,10 @@ class PricesApi
      *
      * Просмотр установленных в магазине цен
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetPricesByOfferIdsRequest $get_prices_by_offer_ids_request (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricesByOfferIds'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -880,10 +880,10 @@ class PricesApi
      *
      * Просмотр установленных в магазине цен
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetPricesByOfferIdsRequest $get_prices_by_offer_ids_request (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricesByOfferIds'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -933,10 +933,10 @@ class PricesApi
     /**
      * Create request for operation 'getPricesByOfferIds'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetPricesByOfferIdsRequest $get_prices_by_offer_ids_request (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricesByOfferIds'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1068,7 +1068,7 @@ class PricesApi
      *
      * Цены для продвижения товаров
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\SuggestPricesRequest $suggest_prices_request suggest_prices_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedPrices'] to see the possible values for this operation
      *
@@ -1087,7 +1087,7 @@ class PricesApi
      *
      * Цены для продвижения товаров
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\SuggestPricesRequest $suggest_prices_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedPrices'] to see the possible values for this operation
      *
@@ -1326,7 +1326,7 @@ class PricesApi
      *
      * Цены для продвижения товаров
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\SuggestPricesRequest $suggest_prices_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedPrices'] to see the possible values for this operation
      *
@@ -1348,7 +1348,7 @@ class PricesApi
      *
      * Цены для продвижения товаров
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\SuggestPricesRequest $suggest_prices_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedPrices'] to see the possible values for this operation
      *
@@ -1399,7 +1399,7 @@ class PricesApi
     /**
      * Create request for operation 'getSuggestedPrices'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\SuggestPricesRequest $suggest_prices_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedPrices'] to see the possible values for this operation
      *
@@ -1512,7 +1512,7 @@ class PricesApi
      *
      * Установка цен
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateBusinessPricesRequest $update_business_prices_request update_business_prices_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBusinessPrices'] to see the possible values for this operation
      *
@@ -1531,7 +1531,7 @@ class PricesApi
      *
      * Установка цен
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateBusinessPricesRequest $update_business_prices_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBusinessPrices'] to see the possible values for this operation
      *
@@ -1793,7 +1793,7 @@ class PricesApi
      *
      * Установка цен
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateBusinessPricesRequest $update_business_prices_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBusinessPrices'] to see the possible values for this operation
      *
@@ -1815,7 +1815,7 @@ class PricesApi
      *
      * Установка цен
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateBusinessPricesRequest $update_business_prices_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBusinessPrices'] to see the possible values for this operation
      *
@@ -1866,7 +1866,7 @@ class PricesApi
     /**
      * Create request for operation 'updateBusinessPrices'
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateBusinessPricesRequest $update_business_prices_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBusinessPrices'] to see the possible values for this operation
      *
@@ -1979,7 +1979,7 @@ class PricesApi
      *
      * Установка цен на товары в конкретном магазине.
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdatePricesRequest $update_prices_request update_prices_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePrices'] to see the possible values for this operation
      *
@@ -1998,7 +1998,7 @@ class PricesApi
      *
      * Установка цен на товары в конкретном магазине.
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdatePricesRequest $update_prices_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePrices'] to see the possible values for this operation
      *
@@ -2260,7 +2260,7 @@ class PricesApi
      *
      * Установка цен на товары в конкретном магазине.
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdatePricesRequest $update_prices_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePrices'] to see the possible values for this operation
      *
@@ -2282,7 +2282,7 @@ class PricesApi
      *
      * Установка цен на товары в конкретном магазине.
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdatePricesRequest $update_prices_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePrices'] to see the possible values for this operation
      *
@@ -2333,7 +2333,7 @@ class PricesApi
     /**
      * Create request for operation 'updatePrices'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdatePricesRequest $update_prices_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePrices'] to see the possible values for this operation
      *

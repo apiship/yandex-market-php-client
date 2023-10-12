@@ -136,7 +136,7 @@ class BusinessOfferMappingsApi
      *
      * Удаление товаров из каталога
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\DeleteOffersRequest $delete_offers_request delete_offers_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOffers'] to see the possible values for this operation
      *
@@ -155,7 +155,7 @@ class BusinessOfferMappingsApi
      *
      * Удаление товаров из каталога
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\DeleteOffersRequest $delete_offers_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOffers'] to see the possible values for this operation
      *
@@ -417,7 +417,7 @@ class BusinessOfferMappingsApi
      *
      * Удаление товаров из каталога
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\DeleteOffersRequest $delete_offers_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOffers'] to see the possible values for this operation
      *
@@ -439,7 +439,7 @@ class BusinessOfferMappingsApi
      *
      * Удаление товаров из каталога
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\DeleteOffersRequest $delete_offers_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOffers'] to see the possible values for this operation
      *
@@ -490,7 +490,7 @@ class BusinessOfferMappingsApi
     /**
      * Create request for operation 'deleteOffers'
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\DeleteOffersRequest $delete_offers_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOffers'] to see the possible values for this operation
      *
@@ -603,19 +603,19 @@ class BusinessOfferMappingsApi
      *
      * Информация о товарах в каталоге
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
-     * @param  \YandexMarketApi\Model\GetOfferMappingsRequest $get_offer_mappings_request get_offer_mappings_request (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  \YandexMarketApi\Model\GetOfferMappingsRequest $get_offer_mappings_request get_offer_mappings_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferMappings'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \YandexMarketApi\Model\GetOfferMappingsResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
      */
-    public function getOfferMappings($business_id, $get_offer_mappings_request, $page_token = null, $limit = null, string $contentType = self::contentTypes['getOfferMappings'][0])
+    public function getOfferMappings($business_id, $page_token = null, $limit = null, $get_offer_mappings_request = null, string $contentType = self::contentTypes['getOfferMappings'][0])
     {
-        list($response) = $this->getOfferMappingsWithHttpInfo($business_id, $get_offer_mappings_request, $page_token, $limit, $contentType);
+        list($response) = $this->getOfferMappingsWithHttpInfo($business_id, $page_token, $limit, $get_offer_mappings_request, $contentType);
         return $response;
     }
 
@@ -624,19 +624,19 @@ class BusinessOfferMappingsApi
      *
      * Информация о товарах в каталоге
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
-     * @param  \YandexMarketApi\Model\GetOfferMappingsRequest $get_offer_mappings_request (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  \YandexMarketApi\Model\GetOfferMappingsRequest $get_offer_mappings_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferMappings'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \YandexMarketApi\Model\GetOfferMappingsResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOfferMappingsWithHttpInfo($business_id, $get_offer_mappings_request, $page_token = null, $limit = null, string $contentType = self::contentTypes['getOfferMappings'][0])
+    public function getOfferMappingsWithHttpInfo($business_id, $page_token = null, $limit = null, $get_offer_mappings_request = null, string $contentType = self::contentTypes['getOfferMappings'][0])
     {
-        $request = $this->getOfferMappingsRequest($business_id, $get_offer_mappings_request, $page_token, $limit, $contentType);
+        $request = $this->getOfferMappingsRequest($business_id, $page_token, $limit, $get_offer_mappings_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -865,18 +865,18 @@ class BusinessOfferMappingsApi
      *
      * Информация о товарах в каталоге
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
-     * @param  \YandexMarketApi\Model\GetOfferMappingsRequest $get_offer_mappings_request (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  \YandexMarketApi\Model\GetOfferMappingsRequest $get_offer_mappings_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferMappings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOfferMappingsAsync($business_id, $get_offer_mappings_request, $page_token = null, $limit = null, string $contentType = self::contentTypes['getOfferMappings'][0])
+    public function getOfferMappingsAsync($business_id, $page_token = null, $limit = null, $get_offer_mappings_request = null, string $contentType = self::contentTypes['getOfferMappings'][0])
     {
-        return $this->getOfferMappingsAsyncWithHttpInfo($business_id, $get_offer_mappings_request, $page_token, $limit, $contentType)
+        return $this->getOfferMappingsAsyncWithHttpInfo($business_id, $page_token, $limit, $get_offer_mappings_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -889,19 +889,19 @@ class BusinessOfferMappingsApi
      *
      * Информация о товарах в каталоге
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
-     * @param  \YandexMarketApi\Model\GetOfferMappingsRequest $get_offer_mappings_request (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  \YandexMarketApi\Model\GetOfferMappingsRequest $get_offer_mappings_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferMappings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOfferMappingsAsyncWithHttpInfo($business_id, $get_offer_mappings_request, $page_token = null, $limit = null, string $contentType = self::contentTypes['getOfferMappings'][0])
+    public function getOfferMappingsAsyncWithHttpInfo($business_id, $page_token = null, $limit = null, $get_offer_mappings_request = null, string $contentType = self::contentTypes['getOfferMappings'][0])
     {
         $returnType = '\YandexMarketApi\Model\GetOfferMappingsResponse';
-        $request = $this->getOfferMappingsRequest($business_id, $get_offer_mappings_request, $page_token, $limit, $contentType);
+        $request = $this->getOfferMappingsRequest($business_id, $page_token, $limit, $get_offer_mappings_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -942,16 +942,16 @@ class BusinessOfferMappingsApi
     /**
      * Create request for operation 'getOfferMappings'
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
-     * @param  \YandexMarketApi\Model\GetOfferMappingsRequest $get_offer_mappings_request (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  \YandexMarketApi\Model\GetOfferMappingsRequest $get_offer_mappings_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferMappings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOfferMappingsRequest($business_id, $get_offer_mappings_request, $page_token = null, $limit = null, string $contentType = self::contentTypes['getOfferMappings'][0])
+    public function getOfferMappingsRequest($business_id, $page_token = null, $limit = null, $get_offer_mappings_request = null, string $contentType = self::contentTypes['getOfferMappings'][0])
     {
 
         // verify the required parameter 'business_id' is set
@@ -961,12 +961,6 @@ class BusinessOfferMappingsApi
             );
         }
 
-        // verify the required parameter 'get_offer_mappings_request' is set
-        if ($get_offer_mappings_request === null || (is_array($get_offer_mappings_request) && count($get_offer_mappings_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $get_offer_mappings_request when calling getOfferMappings'
-            );
-        }
 
 
 
@@ -1077,7 +1071,7 @@ class BusinessOfferMappingsApi
      *
      * Предварительный просмотр карточек на Маркете, соответствующих вашим товарам
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetSuggestedOfferMappingsRequest $get_suggested_offer_mappings_request get_suggested_offer_mappings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedOfferMappings'] to see the possible values for this operation
      *
@@ -1096,7 +1090,7 @@ class BusinessOfferMappingsApi
      *
      * Предварительный просмотр карточек на Маркете, соответствующих вашим товарам
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetSuggestedOfferMappingsRequest $get_suggested_offer_mappings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedOfferMappings'] to see the possible values for this operation
      *
@@ -1335,7 +1329,7 @@ class BusinessOfferMappingsApi
      *
      * Предварительный просмотр карточек на Маркете, соответствующих вашим товарам
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetSuggestedOfferMappingsRequest $get_suggested_offer_mappings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedOfferMappings'] to see the possible values for this operation
      *
@@ -1357,7 +1351,7 @@ class BusinessOfferMappingsApi
      *
      * Предварительный просмотр карточек на Маркете, соответствующих вашим товарам
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetSuggestedOfferMappingsRequest $get_suggested_offer_mappings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedOfferMappings'] to see the possible values for this operation
      *
@@ -1408,7 +1402,7 @@ class BusinessOfferMappingsApi
     /**
      * Create request for operation 'getSuggestedOfferMappings'
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetSuggestedOfferMappingsRequest $get_suggested_offer_mappings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedOfferMappings'] to see the possible values for this operation
      *
@@ -1521,7 +1515,7 @@ class BusinessOfferMappingsApi
      *
      * Добавление товаров в каталог и редактирование информации о них
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateOfferMappingsRequest $update_offer_mappings_request update_offer_mappings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOfferMappings'] to see the possible values for this operation
      *
@@ -1540,7 +1534,7 @@ class BusinessOfferMappingsApi
      *
      * Добавление товаров в каталог и редактирование информации о них
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateOfferMappingsRequest $update_offer_mappings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOfferMappings'] to see the possible values for this operation
      *
@@ -1802,7 +1796,7 @@ class BusinessOfferMappingsApi
      *
      * Добавление товаров в каталог и редактирование информации о них
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateOfferMappingsRequest $update_offer_mappings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOfferMappings'] to see the possible values for this operation
      *
@@ -1824,7 +1818,7 @@ class BusinessOfferMappingsApi
      *
      * Добавление товаров в каталог и редактирование информации о них
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateOfferMappingsRequest $update_offer_mappings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOfferMappings'] to see the possible values for this operation
      *
@@ -1875,7 +1869,7 @@ class BusinessOfferMappingsApi
     /**
      * Create request for operation 'updateOfferMappings'
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateOfferMappingsRequest $update_offer_mappings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOfferMappings'] to see the possible values for this operation
      *

@@ -57,10 +57,6 @@ class OrdersStatsStockType
 
     public const EXPIRED = 'EXPIRED';
 
-    public const TRANSIT = 'TRANSIT';
-
-    public const SUGGEST = 'SUGGEST';
-
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -74,9 +70,7 @@ class OrdersStatsStockType
             self::QUARANTINE,
             self::UTILIZATION,
             self::DEFECT,
-            self::EXPIRED,
-            self::TRANSIT,
-            self::SUGGEST
+            self::EXPIRED
         ];
     }
 }

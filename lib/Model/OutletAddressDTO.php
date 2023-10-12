@@ -334,6 +334,30 @@ class OutletAddressDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['region_id'] === null) {
             $invalidProperties[] = "'region_id' can't be null";
         }
+        if (!is_null($this->container['street']) && (mb_strlen($this->container['street']) > 512)) {
+            $invalidProperties[] = "invalid value for 'street', the character length must be smaller than or equal to 512.";
+        }
+
+        if (!is_null($this->container['number']) && (mb_strlen($this->container['number']) > 256)) {
+            $invalidProperties[] = "invalid value for 'number', the character length must be smaller than or equal to 256.";
+        }
+
+        if (!is_null($this->container['building']) && (mb_strlen($this->container['building']) > 16)) {
+            $invalidProperties[] = "invalid value for 'building', the character length must be smaller than or equal to 16.";
+        }
+
+        if (!is_null($this->container['estate']) && (mb_strlen($this->container['estate']) > 16)) {
+            $invalidProperties[] = "invalid value for 'estate', the character length must be smaller than or equal to 16.";
+        }
+
+        if (!is_null($this->container['block']) && (mb_strlen($this->container['block']) > 16)) {
+            $invalidProperties[] = "invalid value for 'block', the character length must be smaller than or equal to 16.";
+        }
+
+        if (!is_null($this->container['city']) && (mb_strlen($this->container['city']) > 200)) {
+            $invalidProperties[] = "invalid value for 'city', the character length must be smaller than or equal to 200.";
+        }
+
         return $invalidProperties;
     }
 
@@ -398,6 +422,10 @@ class OutletAddressDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($street)) {
             throw new \InvalidArgumentException('non-nullable street cannot be null');
         }
+        if ((mb_strlen($street) > 512)) {
+            throw new \InvalidArgumentException('invalid length for $street when calling OutletAddressDTO., must be smaller than or equal to 512.');
+        }
+
         $this->container['street'] = $street;
 
         return $this;
@@ -425,6 +453,10 @@ class OutletAddressDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($number)) {
             throw new \InvalidArgumentException('non-nullable number cannot be null');
         }
+        if ((mb_strlen($number) > 256)) {
+            throw new \InvalidArgumentException('invalid length for $number when calling OutletAddressDTO., must be smaller than or equal to 256.');
+        }
+
         $this->container['number'] = $number;
 
         return $this;
@@ -452,6 +484,10 @@ class OutletAddressDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($building)) {
             throw new \InvalidArgumentException('non-nullable building cannot be null');
         }
+        if ((mb_strlen($building) > 16)) {
+            throw new \InvalidArgumentException('invalid length for $building when calling OutletAddressDTO., must be smaller than or equal to 16.');
+        }
+
         $this->container['building'] = $building;
 
         return $this;
@@ -479,6 +515,10 @@ class OutletAddressDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($estate)) {
             throw new \InvalidArgumentException('non-nullable estate cannot be null');
         }
+        if ((mb_strlen($estate) > 16)) {
+            throw new \InvalidArgumentException('invalid length for $estate when calling OutletAddressDTO., must be smaller than or equal to 16.');
+        }
+
         $this->container['estate'] = $estate;
 
         return $this;
@@ -506,6 +546,10 @@ class OutletAddressDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($block)) {
             throw new \InvalidArgumentException('non-nullable block cannot be null');
         }
+        if ((mb_strlen($block) > 16)) {
+            throw new \InvalidArgumentException('invalid length for $block when calling OutletAddressDTO., must be smaller than or equal to 16.');
+        }
+
         $this->container['block'] = $block;
 
         return $this;
@@ -587,6 +631,10 @@ class OutletAddressDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($city)) {
             throw new \InvalidArgumentException('non-nullable city cannot be null');
         }
+        if ((mb_strlen($city) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $city when calling OutletAddressDTO., must be smaller than or equal to 200.');
+        }
+
         $this->container['city'] = $city;
 
         return $this;

@@ -22,5 +22,6 @@ Name | Type | Description | Notes
 **instances** | [**\YandexMarketApi\Model\OrderItemInstanceDTO[]**](OrderItemInstanceDTO.md) | Информация о маркировке единиц товара.  Возвращаются данные для маркировки, переданные в запросе &#x60;PUT /campaigns/{campaignId}/orders/{orderId}/cis&#x60;.  Если магазин еще не передавал коды для этого заказа, &#x60;instances&#x60; отсутствует. | [optional]
 **details** | [**\YandexMarketApi\Model\OrderItemDetailDTO[]**](OrderItemDetailDTO.md) | Информация об удалении товара из заказа. | [optional]
 **subsidies** | [**\YandexMarketApi\Model\OrderItemSubsidyDTO[]**](OrderItemSubsidyDTO.md) | Список субсидий по типам. | [optional]
+**required_instance_types** | [**\YandexMarketApi\Model\OrderItemInstanceType[]**](OrderItemInstanceType.md) | Список необходимых маркировок товара. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

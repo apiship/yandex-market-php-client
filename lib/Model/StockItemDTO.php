@@ -334,7 +334,7 @@ class StockItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets count
      *
-     * @param int $count Количество доступного товара с учетом резерва. О том, как учитывать резерв, рассказано в статье [Как управлять остатками](https://yandex.ru/support/marketplace/assortment/operations/stocks.html#reserved) в Справке для продавцов.
+     * @param int $count Количество доступного товара.
      *
      * @return self
      */

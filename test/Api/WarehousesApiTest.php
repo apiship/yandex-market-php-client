@@ -72,6 +72,18 @@ class WarehousesApiTest extends TestCase
     }
 
     /**
+     * Test case for getFulfillmentWarehouses
+     *
+     * Идентификаторы складов Маркета (FBY).
+     *
+     */
+    public function testGetFulfillmentWarehouses()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getWarehouses
      *
      * Список складов и групп складов.

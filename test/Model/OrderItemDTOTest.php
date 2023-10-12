@@ -240,4 +240,13 @@ class OrderItemDTOTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "required_instance_types"
+     */
+    public function testPropertyRequiredInstanceTypes()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

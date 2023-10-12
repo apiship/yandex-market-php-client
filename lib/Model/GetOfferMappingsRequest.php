@@ -302,6 +302,10 @@ class GetOfferMappingsRequest implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['offer_ids']) && (count($this->container['offer_ids']) > 200)) {
+            $invalidProperties[] = "invalid value for 'offer_ids', number of items must be less than or equal to 200.";
+        }
+
         return $invalidProperties;
     }
 
@@ -330,7 +334,7 @@ class GetOfferMappingsRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets offer_ids
      *
-     * @param string[]|null $offer_ids Идентификаторы товаров, информация о которых нужна. ⚠️ Не используйте это поле одновременно с фильтрами по статусам карточек, категориям, брендам или тегам. Если вы хотите воспользоваться фильтрами, оставьте поле пустым.
+     * @param string[]|null $offer_ids Идентификаторы товаров, информация о которых нужна.  {% note warning \"Такой список возвращается только целиком\" %}  Если вы запрашиваете информацию по конкретным SKU, не заполняйте: * `page_token`; * `limit`; * `cardStatuses`; * `categoryIds`; * `vendorNames`; * `tags`.  {% endnote %}   
      *
      * @return self
      */
@@ -338,6 +342,10 @@ class GetOfferMappingsRequest implements ModelInterface, ArrayAccess, \JsonSeria
     {
         if (is_null($offer_ids)) {
             throw new \InvalidArgumentException('non-nullable offer_ids cannot be null');
+        }
+
+        if ((count($offer_ids) > 200)) {
+            throw new \InvalidArgumentException('invalid value for $offer_ids when calling GetOfferMappingsRequest., number of items must be less than or equal to 200.');
         }
         $this->container['offer_ids'] = $offer_ids;
 
@@ -384,7 +392,7 @@ class GetOfferMappingsRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets category_ids
      *
-     * @param int[]|null $category_ids Фильтр по категориям на Маркете.  Чтобы узнать идентификатор категории, откройте ее страницу на [market.yandex.ru](https://market.yandex.ru/). Идентификатор — это число после `?hid=` в URL страницы.
+     * @param int[]|null $category_ids Фильтр по категориям на Маркете.
      *
      * @return self
      */

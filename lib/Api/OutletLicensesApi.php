@@ -133,7 +133,7 @@ class OutletLicensesApi
      *
      * Удаление лицензий для точек продаж
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int[] $ids Список идентификаторов лицензий. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutletLicenses'] to see the possible values for this operation
      *
@@ -152,7 +152,7 @@ class OutletLicensesApi
      *
      * Удаление лицензий для точек продаж
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int[] $ids Список идентификаторов лицензий. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutletLicenses'] to see the possible values for this operation
      *
@@ -391,7 +391,7 @@ class OutletLicensesApi
      *
      * Удаление лицензий для точек продаж
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int[] $ids Список идентификаторов лицензий. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutletLicenses'] to see the possible values for this operation
      *
@@ -413,7 +413,7 @@ class OutletLicensesApi
      *
      * Удаление лицензий для точек продаж
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int[] $ids Список идентификаторов лицензий. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutletLicenses'] to see the possible values for this operation
      *
@@ -464,7 +464,7 @@ class OutletLicensesApi
     /**
      * Create request for operation 'deleteOutletLicenses'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int[] $ids Список идентификаторов лицензий. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutletLicenses'] to see the possible values for this operation
      *
@@ -573,7 +573,7 @@ class OutletLicensesApi
      *
      * Информация о лицензиях для точек продаж
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int[] $outlet_ids Список идентификаторов точек продаж, для которых нужно получить информацию о лицензиях. Идентификаторы указываются через запятую. В запросе должен быть либо параметр &#x60;outletIds&#x60;, либо параметр &#x60;ids&#x60;. Запрос с обоими параметрами или без них приведет к ошибке. (optional)
      * @param  int[] $ids Список идентификаторов лицензий. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutletLicenses'] to see the possible values for this operation
@@ -593,7 +593,7 @@ class OutletLicensesApi
      *
      * Информация о лицензиях для точек продаж
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int[] $outlet_ids Список идентификаторов точек продаж, для которых нужно получить информацию о лицензиях. Идентификаторы указываются через запятую. В запросе должен быть либо параметр &#x60;outletIds&#x60;, либо параметр &#x60;ids&#x60;. Запрос с обоими параметрами или без них приведет к ошибке. (optional)
      * @param  int[] $ids Список идентификаторов лицензий. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutletLicenses'] to see the possible values for this operation
@@ -833,7 +833,7 @@ class OutletLicensesApi
      *
      * Информация о лицензиях для точек продаж
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int[] $outlet_ids Список идентификаторов точек продаж, для которых нужно получить информацию о лицензиях. Идентификаторы указываются через запятую. В запросе должен быть либо параметр &#x60;outletIds&#x60;, либо параметр &#x60;ids&#x60;. Запрос с обоими параметрами или без них приведет к ошибке. (optional)
      * @param  int[] $ids Список идентификаторов лицензий. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutletLicenses'] to see the possible values for this operation
@@ -856,7 +856,7 @@ class OutletLicensesApi
      *
      * Информация о лицензиях для точек продаж
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int[] $outlet_ids Список идентификаторов точек продаж, для которых нужно получить информацию о лицензиях. Идентификаторы указываются через запятую. В запросе должен быть либо параметр &#x60;outletIds&#x60;, либо параметр &#x60;ids&#x60;. Запрос с обоими параметрами или без них приведет к ошибке. (optional)
      * @param  int[] $ids Список идентификаторов лицензий. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutletLicenses'] to see the possible values for this operation
@@ -908,7 +908,7 @@ class OutletLicensesApi
     /**
      * Create request for operation 'getOutletLicenses'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int[] $outlet_ids Список идентификаторов точек продаж, для которых нужно получить информацию о лицензиях. Идентификаторы указываются через запятую. В запросе должен быть либо параметр &#x60;outletIds&#x60;, либо параметр &#x60;ids&#x60;. Запрос с обоими параметрами или без них приведет к ошибке. (optional)
      * @param  int[] $ids Список идентификаторов лицензий. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutletLicenses'] to see the possible values for this operation
@@ -1028,7 +1028,7 @@ class OutletLicensesApi
      *
      * Создание и изменение лицензий для точек продаж
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateOutletLicenseRequest $update_outlet_license_request update_outlet_license_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOutletLicenses'] to see the possible values for this operation
      *
@@ -1047,7 +1047,7 @@ class OutletLicensesApi
      *
      * Создание и изменение лицензий для точек продаж
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateOutletLicenseRequest $update_outlet_license_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOutletLicenses'] to see the possible values for this operation
      *
@@ -1286,7 +1286,7 @@ class OutletLicensesApi
      *
      * Создание и изменение лицензий для точек продаж
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateOutletLicenseRequest $update_outlet_license_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOutletLicenses'] to see the possible values for this operation
      *
@@ -1308,7 +1308,7 @@ class OutletLicensesApi
      *
      * Создание и изменение лицензий для точек продаж
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateOutletLicenseRequest $update_outlet_license_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOutletLicenses'] to see the possible values for this operation
      *
@@ -1359,7 +1359,7 @@ class OutletLicensesApi
     /**
      * Create request for operation 'updateOutletLicenses'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateOutletLicenseRequest $update_outlet_license_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOutletLicenses'] to see the possible values for this operation
      *

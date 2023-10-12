@@ -5,7 +5,6 @@ All URIs are relative to https://api.partner.market.yandex.ru, except if the ope
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**getOrderBuyerInfo()**](OrderDeliveryApi.md#getOrderBuyerInfo) | **GET** /campaigns/{campaignId}/orders/{orderId}/buyer | Информация о покупателе |
-| [**getOrderDeliveryOptions()**](OrderDeliveryApi.md#getOrderDeliveryOptions) | **POST** /campaigns/{campaignId}/delivery/get-options | Метод для получения слотов доставки по адресу и товарным позициям для создания FaaS-заказа |
 | [**setOrderDeliveryDate()**](OrderDeliveryApi.md#setOrderDeliveryDate) | **PUT** /campaigns/{campaignId}/orders/{orderId}/delivery/date | Изменение даты доставки заказа |
 | [**setOrderDeliveryTrackCode()**](OrderDeliveryApi.md#setOrderDeliveryTrackCode) | **POST** /campaigns/{campaignId}/orders/{orderId}/delivery/track | Передача трек‑номера посылки |
 | [**updateOrderStorageLimit()**](OrderDeliveryApi.md#updateOrderStorageLimit) | **PUT** /campaigns/{campaignId}/orders/{orderId}/delivery/storage-limit | Продление срока хранения заказа |
@@ -39,7 +38,7 @@ $apiInstance = new YandexMarketApi\Api\OrderDeliveryApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 56; // int | Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**.
+$campaign_id = 56; // int | Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html)
 $order_id = 56; // int | Идентификатор заказа.
 
 try {
@@ -54,7 +53,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **int**| Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. | |
+| **campaign_id** | **int**| Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) | |
 | **order_id** | **int**| Идентификатор заказа. | |
 
 ### Return type
@@ -68,68 +67,6 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getOrderDeliveryOptions()`
-
-```php
-getOrderDeliveryOptions($campaign_id, $get_order_delivery_options_request): \YandexMarketApi\Model\GetOrderDeliveryOptionsResponse
-```
-
-Метод для получения слотов доставки по адресу и товарным позициям для создания FaaS-заказа
-
-Метод для получения слотов доставки по адресу и товарным позициям для создания FaaS-заказа  |**⚙️ Лимит:** 1 000 000 запросов в час| |-|
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: OAuth
-$config = YandexMarketApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new YandexMarketApi\Api\OrderDeliveryApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$campaign_id = 56; // int | Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**.
-$get_order_delivery_options_request = new \YandexMarketApi\Model\GetOrderDeliveryOptionsRequest(); // \YandexMarketApi\Model\GetOrderDeliveryOptionsRequest
-
-try {
-    $result = $apiInstance->getOrderDeliveryOptions($campaign_id, $get_order_delivery_options_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OrderDeliveryApi->getOrderDeliveryOptions: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **int**| Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. | |
-| **get_order_delivery_options_request** | [**\YandexMarketApi\Model\GetOrderDeliveryOptionsRequest**](../Model/GetOrderDeliveryOptionsRequest.md)|  | |
-
-### Return type
-
-[**\YandexMarketApi\Model\GetOrderDeliveryOptionsResponse**](../Model/GetOrderDeliveryOptionsResponse.md)
-
-### Authorization
-
-[OAuth](../../README.md#OAuth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -163,7 +100,7 @@ $apiInstance = new YandexMarketApi\Api\OrderDeliveryApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 56; // int | Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**.
+$campaign_id = 56; // int | Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html)
 $order_id = 56; // int | Идентификатор заказа.
 $set_order_delivery_date_request = new \YandexMarketApi\Model\SetOrderDeliveryDateRequest(); // \YandexMarketApi\Model\SetOrderDeliveryDateRequest
 
@@ -179,7 +116,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **int**| Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. | |
+| **campaign_id** | **int**| Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) | |
 | **order_id** | **int**| Идентификатор заказа. | |
 | **set_order_delivery_date_request** | [**\YandexMarketApi\Model\SetOrderDeliveryDateRequest**](../Model/SetOrderDeliveryDateRequest.md)|  | |
 
@@ -227,7 +164,7 @@ $apiInstance = new YandexMarketApi\Api\OrderDeliveryApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 56; // int | Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**.
+$campaign_id = 56; // int | Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html)
 $order_id = 56; // int | Идентификатор заказа.
 $set_order_delivery_track_code_request = new \YandexMarketApi\Model\SetOrderDeliveryTrackCodeRequest(); // \YandexMarketApi\Model\SetOrderDeliveryTrackCodeRequest
 
@@ -243,7 +180,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **int**| Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. | |
+| **campaign_id** | **int**| Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) | |
 | **order_id** | **int**| Идентификатор заказа. | |
 | **set_order_delivery_track_code_request** | [**\YandexMarketApi\Model\SetOrderDeliveryTrackCodeRequest**](../Model/SetOrderDeliveryTrackCodeRequest.md)|  | |
 
@@ -291,7 +228,7 @@ $apiInstance = new YandexMarketApi\Api\OrderDeliveryApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 56; // int | Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**.
+$campaign_id = 56; // int | Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html)
 $order_id = 56; // int | Идентификатор заказа.
 $update_order_storage_limit_request = new \YandexMarketApi\Model\UpdateOrderStorageLimitRequest(); // \YandexMarketApi\Model\UpdateOrderStorageLimitRequest
 
@@ -307,7 +244,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **int**| Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. | |
+| **campaign_id** | **int**| Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) | |
 | **order_id** | **int**| Идентификатор заказа. | |
 | **update_order_storage_limit_request** | [**\YandexMarketApi\Model\UpdateOrderStorageLimitRequest**](../Model/UpdateOrderStorageLimitRequest.md)|  | |
 
@@ -355,7 +292,7 @@ $apiInstance = new YandexMarketApi\Api\OrderDeliveryApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 56; // int | Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**.
+$campaign_id = 56; // int | Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html)
 $order_id = 56; // int | Идентификатор заказа.
 $verify_order_eac_request = new \YandexMarketApi\Model\VerifyOrderEacRequest(); // \YandexMarketApi\Model\VerifyOrderEacRequest
 
@@ -371,7 +308,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **int**| Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. | |
+| **campaign_id** | **int**| Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) | |
 | **order_id** | **int**| Идентификатор заказа. | |
 | **verify_order_eac_request** | [**\YandexMarketApi\Model\VerifyOrderEacRequest**](../Model/VerifyOrderEacRequest.md)|  | |
 

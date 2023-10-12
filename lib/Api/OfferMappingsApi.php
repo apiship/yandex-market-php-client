@@ -133,7 +133,7 @@ class OfferMappingsApi
      *
      * Список товаров в каталоге
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string[] $offer_id Идентификатор товара в каталоге. (optional)
      * @param  string[] $shop_sku Ваш SKU товара.  Параметр может быть указан несколько раз, например:  &#x60;&#x60;&#x60; ...shop_sku&#x3D;123&amp;shop_sku&#x3D;129&amp;shop_sku&#x3D;141... &#x60;&#x60;&#x60;  В запросе можно указать либо параметр &#x60;shopSku&#x60;, либо любые параметры для фильтрации товаров. Совместное использование параметра &#x60;shopSku&#x60; и параметров для фильтрации приведет к ошибке. (optional)
      * @param  OfferMappingKindType $mapping_kind Тип маппинга. (optional)
@@ -142,7 +142,7 @@ class OfferMappingsApi
      * @param  int[] $category_id Фильтрация по идентификатору категории на Маркете.  Чтобы узнать идентификатор категории, откройте ее страницу и посмотрите на ее URL. Идентификатор — это число после «...?hid&#x3D;». Например:  ##https://market.yandex.ru/catalog--bezmeny/65590/list?hid&#x3D;13431995##  Можно указать несколько идентификаторов в одном параметре, через запятую, или в нескольких одинаковых параметрах. Например:  &#x60;&#x60;&#x60; ...category_id&#x3D;14727164,14382343... ...category_id&#x3D;14727164&amp;category_id&#x3D;14382343... &#x60;&#x60;&#x60;  В запросе можно указать либо параметр &#x60;shopSku&#x60;, либо любые параметры для фильтрации товаров. Совместное использование параметра &#x60;shopSku&#x60; и параметров для фильтрации приведет к ошибке. (optional)
      * @param  string[] $vendor Фильтрация по бренду товара.  Можно указать несколько брендов в одном параметре, через запятую, или в нескольких одинаковых параметрах. Например:  &#x60;&#x60;&#x60; ...vendor&#x3D;Aqua%20Minerale,Borjomi... ...vendor&#x3D;Aqua%20Minerale&amp;vendor&#x3D;Borjomi... &#x60;&#x60;&#x60;  Чтобы товар попал в результаты фильтрации, его бренд должен точно совпадать с одним из указанных в запросе. Например, если указан бренд Schwarzkopf, то в результатах не будет товаров Schwarzkopf Professional.  Если в названии бренда есть символы, которые не входят в таблицу ASCII (в том числе кириллические символы), используйте для них URL-кодирование. Например, пробел — %20, апостроф «&#39;» — %27 и т. д. Подробнее см. в разделе [Кодирование URL русскоязычной Википедии](https://ru.wikipedia.org/wiki/URL#Кодирование_URL).  В запросе можно указать либо параметр shopSku, либо любые параметры для фильтрации товаров. Совместное использование параметра shopSku и параметров для фильтрации приведет к ошибке. (optional)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferMappingEntries'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -161,7 +161,7 @@ class OfferMappingsApi
      *
      * Список товаров в каталоге
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string[] $offer_id Идентификатор товара в каталоге. (optional)
      * @param  string[] $shop_sku Ваш SKU товара.  Параметр может быть указан несколько раз, например:  &#x60;&#x60;&#x60; ...shop_sku&#x3D;123&amp;shop_sku&#x3D;129&amp;shop_sku&#x3D;141... &#x60;&#x60;&#x60;  В запросе можно указать либо параметр &#x60;shopSku&#x60;, либо любые параметры для фильтрации товаров. Совместное использование параметра &#x60;shopSku&#x60; и параметров для фильтрации приведет к ошибке. (optional)
      * @param  OfferMappingKindType $mapping_kind Тип маппинга. (optional)
@@ -170,7 +170,7 @@ class OfferMappingsApi
      * @param  int[] $category_id Фильтрация по идентификатору категории на Маркете.  Чтобы узнать идентификатор категории, откройте ее страницу и посмотрите на ее URL. Идентификатор — это число после «...?hid&#x3D;». Например:  ##https://market.yandex.ru/catalog--bezmeny/65590/list?hid&#x3D;13431995##  Можно указать несколько идентификаторов в одном параметре, через запятую, или в нескольких одинаковых параметрах. Например:  &#x60;&#x60;&#x60; ...category_id&#x3D;14727164,14382343... ...category_id&#x3D;14727164&amp;category_id&#x3D;14382343... &#x60;&#x60;&#x60;  В запросе можно указать либо параметр &#x60;shopSku&#x60;, либо любые параметры для фильтрации товаров. Совместное использование параметра &#x60;shopSku&#x60; и параметров для фильтрации приведет к ошибке. (optional)
      * @param  string[] $vendor Фильтрация по бренду товара.  Можно указать несколько брендов в одном параметре, через запятую, или в нескольких одинаковых параметрах. Например:  &#x60;&#x60;&#x60; ...vendor&#x3D;Aqua%20Minerale,Borjomi... ...vendor&#x3D;Aqua%20Minerale&amp;vendor&#x3D;Borjomi... &#x60;&#x60;&#x60;  Чтобы товар попал в результаты фильтрации, его бренд должен точно совпадать с одним из указанных в запросе. Например, если указан бренд Schwarzkopf, то в результатах не будет товаров Schwarzkopf Professional.  Если в названии бренда есть символы, которые не входят в таблицу ASCII (в том числе кириллические символы), используйте для них URL-кодирование. Например, пробел — %20, апостроф «&#39;» — %27 и т. д. Подробнее см. в разделе [Кодирование URL русскоязычной Википедии](https://ru.wikipedia.org/wiki/URL#Кодирование_URL).  В запросе можно указать либо параметр shopSku, либо любые параметры для фильтрации товаров. Совместное использование параметра shopSku и параметров для фильтрации приведет к ошибке. (optional)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferMappingEntries'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -409,7 +409,7 @@ class OfferMappingsApi
      *
      * Список товаров в каталоге
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string[] $offer_id Идентификатор товара в каталоге. (optional)
      * @param  string[] $shop_sku Ваш SKU товара.  Параметр может быть указан несколько раз, например:  &#x60;&#x60;&#x60; ...shop_sku&#x3D;123&amp;shop_sku&#x3D;129&amp;shop_sku&#x3D;141... &#x60;&#x60;&#x60;  В запросе можно указать либо параметр &#x60;shopSku&#x60;, либо любые параметры для фильтрации товаров. Совместное использование параметра &#x60;shopSku&#x60; и параметров для фильтрации приведет к ошибке. (optional)
      * @param  OfferMappingKindType $mapping_kind Тип маппинга. (optional)
@@ -418,7 +418,7 @@ class OfferMappingsApi
      * @param  int[] $category_id Фильтрация по идентификатору категории на Маркете.  Чтобы узнать идентификатор категории, откройте ее страницу и посмотрите на ее URL. Идентификатор — это число после «...?hid&#x3D;». Например:  ##https://market.yandex.ru/catalog--bezmeny/65590/list?hid&#x3D;13431995##  Можно указать несколько идентификаторов в одном параметре, через запятую, или в нескольких одинаковых параметрах. Например:  &#x60;&#x60;&#x60; ...category_id&#x3D;14727164,14382343... ...category_id&#x3D;14727164&amp;category_id&#x3D;14382343... &#x60;&#x60;&#x60;  В запросе можно указать либо параметр &#x60;shopSku&#x60;, либо любые параметры для фильтрации товаров. Совместное использование параметра &#x60;shopSku&#x60; и параметров для фильтрации приведет к ошибке. (optional)
      * @param  string[] $vendor Фильтрация по бренду товара.  Можно указать несколько брендов в одном параметре, через запятую, или в нескольких одинаковых параметрах. Например:  &#x60;&#x60;&#x60; ...vendor&#x3D;Aqua%20Minerale,Borjomi... ...vendor&#x3D;Aqua%20Minerale&amp;vendor&#x3D;Borjomi... &#x60;&#x60;&#x60;  Чтобы товар попал в результаты фильтрации, его бренд должен точно совпадать с одним из указанных в запросе. Например, если указан бренд Schwarzkopf, то в результатах не будет товаров Schwarzkopf Professional.  Если в названии бренда есть символы, которые не входят в таблицу ASCII (в том числе кириллические символы), используйте для них URL-кодирование. Например, пробел — %20, апостроф «&#39;» — %27 и т. д. Подробнее см. в разделе [Кодирование URL русскоязычной Википедии](https://ru.wikipedia.org/wiki/URL#Кодирование_URL).  В запросе можно указать либо параметр shopSku, либо любые параметры для фильтрации товаров. Совместное использование параметра shopSku и параметров для фильтрации приведет к ошибке. (optional)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferMappingEntries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -440,7 +440,7 @@ class OfferMappingsApi
      *
      * Список товаров в каталоге
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string[] $offer_id Идентификатор товара в каталоге. (optional)
      * @param  string[] $shop_sku Ваш SKU товара.  Параметр может быть указан несколько раз, например:  &#x60;&#x60;&#x60; ...shop_sku&#x3D;123&amp;shop_sku&#x3D;129&amp;shop_sku&#x3D;141... &#x60;&#x60;&#x60;  В запросе можно указать либо параметр &#x60;shopSku&#x60;, либо любые параметры для фильтрации товаров. Совместное использование параметра &#x60;shopSku&#x60; и параметров для фильтрации приведет к ошибке. (optional)
      * @param  OfferMappingKindType $mapping_kind Тип маппинга. (optional)
@@ -449,7 +449,7 @@ class OfferMappingsApi
      * @param  int[] $category_id Фильтрация по идентификатору категории на Маркете.  Чтобы узнать идентификатор категории, откройте ее страницу и посмотрите на ее URL. Идентификатор — это число после «...?hid&#x3D;». Например:  ##https://market.yandex.ru/catalog--bezmeny/65590/list?hid&#x3D;13431995##  Можно указать несколько идентификаторов в одном параметре, через запятую, или в нескольких одинаковых параметрах. Например:  &#x60;&#x60;&#x60; ...category_id&#x3D;14727164,14382343... ...category_id&#x3D;14727164&amp;category_id&#x3D;14382343... &#x60;&#x60;&#x60;  В запросе можно указать либо параметр &#x60;shopSku&#x60;, либо любые параметры для фильтрации товаров. Совместное использование параметра &#x60;shopSku&#x60; и параметров для фильтрации приведет к ошибке. (optional)
      * @param  string[] $vendor Фильтрация по бренду товара.  Можно указать несколько брендов в одном параметре, через запятую, или в нескольких одинаковых параметрах. Например:  &#x60;&#x60;&#x60; ...vendor&#x3D;Aqua%20Minerale,Borjomi... ...vendor&#x3D;Aqua%20Minerale&amp;vendor&#x3D;Borjomi... &#x60;&#x60;&#x60;  Чтобы товар попал в результаты фильтрации, его бренд должен точно совпадать с одним из указанных в запросе. Например, если указан бренд Schwarzkopf, то в результатах не будет товаров Schwarzkopf Professional.  Если в названии бренда есть символы, которые не входят в таблицу ASCII (в том числе кириллические символы), используйте для них URL-кодирование. Например, пробел — %20, апостроф «&#39;» — %27 и т. д. Подробнее см. в разделе [Кодирование URL русскоязычной Википедии](https://ru.wikipedia.org/wiki/URL#Кодирование_URL).  В запросе можно указать либо параметр shopSku, либо любые параметры для фильтрации товаров. Совместное использование параметра shopSku и параметров для фильтрации приведет к ошибке. (optional)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferMappingEntries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -500,7 +500,7 @@ class OfferMappingsApi
     /**
      * Create request for operation 'getOfferMappingEntries'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string[] $offer_id Идентификатор товара в каталоге. (optional)
      * @param  string[] $shop_sku Ваш SKU товара.  Параметр может быть указан несколько раз, например:  &#x60;&#x60;&#x60; ...shop_sku&#x3D;123&amp;shop_sku&#x3D;129&amp;shop_sku&#x3D;141... &#x60;&#x60;&#x60;  В запросе можно указать либо параметр &#x60;shopSku&#x60;, либо любые параметры для фильтрации товаров. Совместное использование параметра &#x60;shopSku&#x60; и параметров для фильтрации приведет к ошибке. (optional)
      * @param  OfferMappingKindType $mapping_kind Тип маппинга. (optional)
@@ -509,7 +509,7 @@ class OfferMappingsApi
      * @param  int[] $category_id Фильтрация по идентификатору категории на Маркете.  Чтобы узнать идентификатор категории, откройте ее страницу и посмотрите на ее URL. Идентификатор — это число после «...?hid&#x3D;». Например:  ##https://market.yandex.ru/catalog--bezmeny/65590/list?hid&#x3D;13431995##  Можно указать несколько идентификаторов в одном параметре, через запятую, или в нескольких одинаковых параметрах. Например:  &#x60;&#x60;&#x60; ...category_id&#x3D;14727164,14382343... ...category_id&#x3D;14727164&amp;category_id&#x3D;14382343... &#x60;&#x60;&#x60;  В запросе можно указать либо параметр &#x60;shopSku&#x60;, либо любые параметры для фильтрации товаров. Совместное использование параметра &#x60;shopSku&#x60; и параметров для фильтрации приведет к ошибке. (optional)
      * @param  string[] $vendor Фильтрация по бренду товара.  Можно указать несколько брендов в одном параметре, через запятую, или в нескольких одинаковых параметрах. Например:  &#x60;&#x60;&#x60; ...vendor&#x3D;Aqua%20Minerale,Borjomi... ...vendor&#x3D;Aqua%20Minerale&amp;vendor&#x3D;Borjomi... &#x60;&#x60;&#x60;  Чтобы товар попал в результаты фильтрации, его бренд должен точно совпадать с одним из указанных в запросе. Например, если указан бренд Schwarzkopf, то в результатах не будет товаров Schwarzkopf Professional.  Если в названии бренда есть символы, которые не входят в таблицу ASCII (в том числе кириллические символы), используйте для них URL-кодирование. Например, пробел — %20, апостроф «&#39;» — %27 и т. д. Подробнее см. в разделе [Кодирование URL русскоязычной Википедии](https://ru.wikipedia.org/wiki/URL#Кодирование_URL).  В запросе можно указать либо параметр shopSku, либо любые параметры для фильтрации товаров. Совместное использование параметра shopSku и параметров для фильтрации приведет к ошибке. (optional)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferMappingEntries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -698,7 +698,7 @@ class OfferMappingsApi
      *
      * Рекомендованные карточки для ваших товаров
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetSuggestedOfferMappingEntriesRequest $get_suggested_offer_mapping_entries_request get_suggested_offer_mapping_entries_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedOfferMappingEntries'] to see the possible values for this operation
      *
@@ -718,7 +718,7 @@ class OfferMappingsApi
      *
      * Рекомендованные карточки для ваших товаров
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetSuggestedOfferMappingEntriesRequest $get_suggested_offer_mapping_entries_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedOfferMappingEntries'] to see the possible values for this operation
      *
@@ -958,7 +958,7 @@ class OfferMappingsApi
      *
      * Рекомендованные карточки для ваших товаров
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetSuggestedOfferMappingEntriesRequest $get_suggested_offer_mapping_entries_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedOfferMappingEntries'] to see the possible values for this operation
      *
@@ -981,7 +981,7 @@ class OfferMappingsApi
      *
      * Рекомендованные карточки для ваших товаров
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetSuggestedOfferMappingEntriesRequest $get_suggested_offer_mapping_entries_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedOfferMappingEntries'] to see the possible values for this operation
      *
@@ -1033,7 +1033,7 @@ class OfferMappingsApi
     /**
      * Create request for operation 'getSuggestedOfferMappingEntries'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetSuggestedOfferMappingEntriesRequest $get_suggested_offer_mapping_entries_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSuggestedOfferMappingEntries'] to see the possible values for this operation
      *
@@ -1147,7 +1147,7 @@ class OfferMappingsApi
      *
      * Добавление и редактирование товаров в каталоге
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateOfferMappingEntryRequest $update_offer_mapping_entry_request update_offer_mapping_entry_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOfferMappingEntries'] to see the possible values for this operation
      *
@@ -1167,7 +1167,7 @@ class OfferMappingsApi
      *
      * Добавление и редактирование товаров в каталоге
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateOfferMappingEntryRequest $update_offer_mapping_entry_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOfferMappingEntries'] to see the possible values for this operation
      *
@@ -1430,7 +1430,7 @@ class OfferMappingsApi
      *
      * Добавление и редактирование товаров в каталоге
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateOfferMappingEntryRequest $update_offer_mapping_entry_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOfferMappingEntries'] to see the possible values for this operation
      *
@@ -1453,7 +1453,7 @@ class OfferMappingsApi
      *
      * Добавление и редактирование товаров в каталоге
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateOfferMappingEntryRequest $update_offer_mapping_entry_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOfferMappingEntries'] to see the possible values for this operation
      *
@@ -1505,7 +1505,7 @@ class OfferMappingsApi
     /**
      * Create request for operation 'updateOfferMappingEntries'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdateOfferMappingEntryRequest $update_offer_mapping_entry_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOfferMappingEntries'] to see the possible values for this operation
      *

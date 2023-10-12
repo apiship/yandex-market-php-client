@@ -60,7 +60,9 @@ class OrderItemInstanceDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPITypes = [
         'cis' => 'string',
         'cis_full' => 'string',
-        'uin' => 'string'
+        'uin' => 'string',
+        'rnpt' => 'string',
+        'gtd' => 'string'
     ];
 
     /**
@@ -73,7 +75,9 @@ class OrderItemInstanceDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPIFormats = [
         'cis' => null,
         'cis_full' => null,
-        'uin' => null
+        'uin' => null,
+        'rnpt' => null,
+        'gtd' => null
     ];
 
     /**
@@ -84,7 +88,9 @@ class OrderItemInstanceDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static array $openAPINullables = [
         'cis' => false,
 		'cis_full' => false,
-		'uin' => false
+		'uin' => false,
+		'rnpt' => false,
+		'gtd' => false
     ];
 
     /**
@@ -175,7 +181,9 @@ class OrderItemInstanceDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $attributeMap = [
         'cis' => 'cis',
         'cis_full' => 'cisFull',
-        'uin' => 'uin'
+        'uin' => 'uin',
+        'rnpt' => 'rnpt',
+        'gtd' => 'gtd'
     ];
 
     /**
@@ -186,7 +194,9 @@ class OrderItemInstanceDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $setters = [
         'cis' => 'setCis',
         'cis_full' => 'setCisFull',
-        'uin' => 'setUin'
+        'uin' => 'setUin',
+        'rnpt' => 'setRnpt',
+        'gtd' => 'setGtd'
     ];
 
     /**
@@ -197,7 +207,9 @@ class OrderItemInstanceDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $getters = [
         'cis' => 'getCis',
         'cis_full' => 'getCisFull',
-        'uin' => 'getUin'
+        'uin' => 'getUin',
+        'rnpt' => 'getRnpt',
+        'gtd' => 'getGtd'
     ];
 
     /**
@@ -260,6 +272,8 @@ class OrderItemInstanceDTO implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('cis', $data ?? [], null);
         $this->setIfExists('cis_full', $data ?? [], null);
         $this->setIfExists('uin', $data ?? [], null);
+        $this->setIfExists('rnpt', $data ?? [], null);
+        $this->setIfExists('gtd', $data ?? [], null);
     }
 
     /**
@@ -381,6 +395,60 @@ class OrderItemInstanceDTO implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable uin cannot be null');
         }
         $this->container['uin'] = $uin;
+
+        return $this;
+    }
+
+    /**
+     * Gets rnpt
+     *
+     * @return string|null
+     */
+    public function getRnpt()
+    {
+        return $this->container['rnpt'];
+    }
+
+    /**
+     * Sets rnpt
+     *
+     * @param string|null $rnpt Регистрационный номер партии товара. Представляет собой строку из четырех частей, разделенных косой чертой: ХХХХХХХХ/ХХХХХХ/ХХХХХХХ/ХХХ. Первая часть — код таможни, зарегистрировавшей декларацию на ввезенные товары, вторая — дата. Третья — номер декларации, и четвертая — номер прослеживаемого товара в декларации.
+     *
+     * @return self
+     */
+    public function setRnpt($rnpt)
+    {
+        if (is_null($rnpt)) {
+            throw new \InvalidArgumentException('non-nullable rnpt cannot be null');
+        }
+        $this->container['rnpt'] = $rnpt;
+
+        return $this;
+    }
+
+    /**
+     * Gets gtd
+     *
+     * @return string|null
+     */
+    public function getGtd()
+    {
+        return $this->container['gtd'];
+    }
+
+    /**
+     * Sets gtd
+     *
+     * @param string|null $gtd Грузовая таможенная декларация. Представляет собой строку из четырех частей, разделенных косой чертой: ХХХХХХХХ/ХХХХХХ/ХХХХХХХ. Первая часть — код таможни, зарегистрировавшей декларацию на ввезенные товары, вторая — дата. Третья — номер декларации.
+     *
+     * @return self
+     */
+    public function setGtd($gtd)
+    {
+        if (is_null($gtd)) {
+            throw new \InvalidArgumentException('non-nullable gtd cannot be null');
+        }
+        $this->container['gtd'] = $gtd;
 
         return $this;
     }

@@ -60,6 +60,7 @@ class SkuBidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonS
     protected static $openAPITypes = [
         'sku' => 'string',
         'bid' => 'int',
+        'bid_recommendations' => '\YandexMarketApi\Model\BidRecommendationItemDTO[]',
         'price_recommendations' => '\YandexMarketApi\Model\PriceRecommendationItemDTO[]'
     ];
 
@@ -73,6 +74,7 @@ class SkuBidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonS
     protected static $openAPIFormats = [
         'sku' => null,
         'bid' => 'int32',
+        'bid_recommendations' => null,
         'price_recommendations' => null
     ];
 
@@ -84,6 +86,7 @@ class SkuBidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonS
     protected static array $openAPINullables = [
         'sku' => false,
 		'bid' => false,
+		'bid_recommendations' => false,
 		'price_recommendations' => false
     ];
 
@@ -175,6 +178,7 @@ class SkuBidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonS
     protected static $attributeMap = [
         'sku' => 'sku',
         'bid' => 'bid',
+        'bid_recommendations' => 'bidRecommendations',
         'price_recommendations' => 'priceRecommendations'
     ];
 
@@ -186,6 +190,7 @@ class SkuBidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonS
     protected static $setters = [
         'sku' => 'setSku',
         'bid' => 'setBid',
+        'bid_recommendations' => 'setBidRecommendations',
         'price_recommendations' => 'setPriceRecommendations'
     ];
 
@@ -197,6 +202,7 @@ class SkuBidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonS
     protected static $getters = [
         'sku' => 'getSku',
         'bid' => 'getBid',
+        'bid_recommendations' => 'getBidRecommendations',
         'price_recommendations' => 'getPriceRecommendations'
     ];
 
@@ -259,6 +265,7 @@ class SkuBidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonS
     {
         $this->setIfExists('sku', $data ?? [], null);
         $this->setIfExists('bid', $data ?? [], null);
+        $this->setIfExists('bid_recommendations', $data ?? [], null);
         $this->setIfExists('price_recommendations', $data ?? [], null);
     }
 
@@ -398,6 +405,33 @@ class SkuBidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonS
         }
 
         $this->container['bid'] = $bid;
+
+        return $this;
+    }
+
+    /**
+     * Gets bid_recommendations
+     *
+     * @return \YandexMarketApi\Model\BidRecommendationItemDTO[]|null
+     */
+    public function getBidRecommendations()
+    {
+        return $this->container['bid_recommendations'];
+    }
+
+    /**
+     * Sets bid_recommendations
+     *
+     * @param \YandexMarketApi\Model\BidRecommendationItemDTO[]|null $bid_recommendations Список рекомендованных ставок с соответствующими долями показов. Чем больше ставка, тем большую долю показов она помогает получить.
+     *
+     * @return self
+     */
+    public function setBidRecommendations($bid_recommendations)
+    {
+        if (is_null($bid_recommendations)) {
+            throw new \InvalidArgumentException('non-nullable bid_recommendations cannot be null');
+        }
+        $this->container['bid_recommendations'] = $bid_recommendations;
 
         return $this;
     }

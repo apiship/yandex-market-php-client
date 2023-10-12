@@ -136,9 +136,9 @@ class BidsApi
      *
      * Информация об установленных ставках
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  \YandexMarketApi\Model\GetBidsInfoRequest $get_bids_info_request description (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBidsInfoForBusiness'] to see the possible values for this operation
      *
@@ -157,9 +157,9 @@ class BidsApi
      *
      * Информация об установленных ставках
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  \YandexMarketApi\Model\GetBidsInfoRequest $get_bids_info_request description (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBidsInfoForBusiness'] to see the possible values for this operation
      *
@@ -398,9 +398,9 @@ class BidsApi
      *
      * Информация об установленных ставках
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  \YandexMarketApi\Model\GetBidsInfoRequest $get_bids_info_request description (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBidsInfoForBusiness'] to see the possible values for this operation
      *
@@ -422,9 +422,9 @@ class BidsApi
      *
      * Информация об установленных ставках
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  \YandexMarketApi\Model\GetBidsInfoRequest $get_bids_info_request description (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBidsInfoForBusiness'] to see the possible values for this operation
      *
@@ -475,9 +475,9 @@ class BidsApi
     /**
      * Create request for operation 'getBidsInfoForBusiness'
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  \YandexMarketApi\Model\GetBidsInfoRequest $get_bids_info_request description (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBidsInfoForBusiness'] to see the possible values for this operation
      *
@@ -604,7 +604,7 @@ class BidsApi
      *
      * Рекомендованные ставки для заданных товаров
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetBidsRecommendationsRequest $get_bids_recommendations_request description. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBidsRecommendations'] to see the possible values for this operation
      *
@@ -623,7 +623,7 @@ class BidsApi
      *
      * Рекомендованные ставки для заданных товаров
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetBidsRecommendationsRequest $get_bids_recommendations_request description. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBidsRecommendations'] to see the possible values for this operation
      *
@@ -862,7 +862,7 @@ class BidsApi
      *
      * Рекомендованные ставки для заданных товаров
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetBidsRecommendationsRequest $get_bids_recommendations_request description. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBidsRecommendations'] to see the possible values for this operation
      *
@@ -884,7 +884,7 @@ class BidsApi
      *
      * Рекомендованные ставки для заданных товаров
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetBidsRecommendationsRequest $get_bids_recommendations_request description. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBidsRecommendations'] to see the possible values for this operation
      *
@@ -935,7 +935,7 @@ class BidsApi
     /**
      * Create request for operation 'getBidsRecommendations'
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetBidsRecommendationsRequest $get_bids_recommendations_request description. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBidsRecommendations'] to see the possible values for this operation
      *
@@ -1048,7 +1048,7 @@ class BidsApi
      *
      * Включение буста продаж и установка ставок
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\PutSkuBidsRequest $put_sku_bids_request description (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putBidsForBusiness'] to see the possible values for this operation
      *
@@ -1067,7 +1067,7 @@ class BidsApi
      *
      * Включение буста продаж и установка ставок
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\PutSkuBidsRequest $put_sku_bids_request description (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putBidsForBusiness'] to see the possible values for this operation
      *
@@ -1306,7 +1306,7 @@ class BidsApi
      *
      * Включение буста продаж и установка ставок
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\PutSkuBidsRequest $put_sku_bids_request description (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putBidsForBusiness'] to see the possible values for this operation
      *
@@ -1328,7 +1328,7 @@ class BidsApi
      *
      * Включение буста продаж и установка ставок
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\PutSkuBidsRequest $put_sku_bids_request description (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putBidsForBusiness'] to see the possible values for this operation
      *
@@ -1379,7 +1379,7 @@ class BidsApi
     /**
      * Create request for operation 'putBidsForBusiness'
      *
-     * @param  int $business_id Идентификатор бизнеса.  Чтобы узнать идентификатор, войдите в личный кабинет и выберите **Товары** → **Каталог**, а затем в левом верхнем углу откройте переключатель бизнес-аккаунтов. Чтобы скопировать идентификатор, наведите на него мышь и нажмите появившуюся кнопку. (required)
+     * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\PutSkuBidsRequest $put_sku_bids_request description (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putBidsForBusiness'] to see the possible values for this operation
      *
@@ -1492,7 +1492,7 @@ class BidsApi
      *
      * Включение буста продаж и установка ставок для магазина
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\PutSkuBidsRequest $put_sku_bids_request description (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putBidsForCampaign'] to see the possible values for this operation
      *
@@ -1511,7 +1511,7 @@ class BidsApi
      *
      * Включение буста продаж и установка ставок для магазина
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\PutSkuBidsRequest $put_sku_bids_request description (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putBidsForCampaign'] to see the possible values for this operation
      *
@@ -1750,7 +1750,7 @@ class BidsApi
      *
      * Включение буста продаж и установка ставок для магазина
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\PutSkuBidsRequest $put_sku_bids_request description (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putBidsForCampaign'] to see the possible values for this operation
      *
@@ -1772,7 +1772,7 @@ class BidsApi
      *
      * Включение буста продаж и установка ставок для магазина
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\PutSkuBidsRequest $put_sku_bids_request description (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putBidsForCampaign'] to see the possible values for this operation
      *
@@ -1823,7 +1823,7 @@ class BidsApi
     /**
      * Create request for operation 'putBidsForCampaign'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\PutSkuBidsRequest $put_sku_bids_request description (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putBidsForCampaign'] to see the possible values for this operation
      *

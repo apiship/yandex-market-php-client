@@ -43,8 +43,6 @@ class ShipmentStatusType
     /**
      * Possible values of this enum
      */
-    public const OUTBOUND_PLANNED = 'OUTBOUND_PLANNED';
-
     public const OUTBOUND_CREATED = 'OUTBOUND_CREATED';
 
     public const OUTBOUND_READY_FOR_CONFIRMATION = 'OUTBOUND_READY_FOR_CONFIRMATION';
@@ -61,26 +59,6 @@ class ShipmentStatusType
 
     public const ERROR = 'ERROR';
 
-    public const MOVEMENT_COURIER_FOUND = 'MOVEMENT_COURIER_FOUND';
-
-    public const MOVEMENT_HANDED_OVER = 'MOVEMENT_HANDED_OVER';
-
-    public const MOVEMENT_DELIVERING = 'MOVEMENT_DELIVERING';
-
-    public const MOVEMENT_DELIVERED = 'MOVEMENT_DELIVERED';
-
-    public const INBOUND_ARRIVED = 'INBOUND_ARRIVED';
-
-    public const INBOUND_ACCEPTANCE = 'INBOUND_ACCEPTANCE';
-
-    public const INBOUND_ACCEPTED = 'INBOUND_ACCEPTED';
-
-    public const INBOUND_SHIPPED = 'INBOUND_SHIPPED';
-
-    public const FINISHED_WITHOUT_MATCH = 'FINISHED_WITHOUT_MATCH';
-
-    public const WAITING_DEPARTURE = 'WAITING_DEPARTURE';
-
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -88,7 +66,6 @@ class ShipmentStatusType
     public static function getAllowableEnumValues()
     {
         return [
-            self::OUTBOUND_PLANNED,
             self::OUTBOUND_CREATED,
             self::OUTBOUND_READY_FOR_CONFIRMATION,
             self::OUTBOUND_CONFIRMED,
@@ -96,17 +73,7 @@ class ShipmentStatusType
             self::FINISHED,
             self::ACCEPTED,
             self::ACCEPTED_WITH_DISCREPANCIES,
-            self::ERROR,
-            self::MOVEMENT_COURIER_FOUND,
-            self::MOVEMENT_HANDED_OVER,
-            self::MOVEMENT_DELIVERING,
-            self::MOVEMENT_DELIVERED,
-            self::INBOUND_ARRIVED,
-            self::INBOUND_ACCEPTANCE,
-            self::INBOUND_ACCEPTED,
-            self::INBOUND_SHIPPED,
-            self::FINISHED_WITHOUT_MATCH,
-            self::WAITING_DEPARTURE
+            self::ERROR
         ];
     }
 }

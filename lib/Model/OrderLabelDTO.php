@@ -302,6 +302,9 @@ class OrderLabelDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['places_number'] === null) {
             $invalidProperties[] = "'places_number' can't be null";
         }
+        if ($this->container['url'] === null) {
+            $invalidProperties[] = "'url' can't be null";
+        }
         if ($this->container['parcel_box_labels'] === null) {
             $invalidProperties[] = "'parcel_box_labels' can't be null";
         }
@@ -377,7 +380,7 @@ class OrderLabelDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets url
      *
-     * @return string|null
+     * @return string
      */
     public function getUrl()
     {
@@ -387,7 +390,7 @@ class OrderLabelDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets url
      *
-     * @param string|null $url URL файла с ярлыками‑наклейками на все грузовые места в заказе.  Соответствует URL, по которому выполняется запрос `GET /campaigns/{campaignId}/orders/{orderId}/delivery/labels`.
+     * @param string $url URL файла с ярлыками‑наклейками на все грузовые места в заказе.  Соответствует URL, по которому выполняется запрос `GET /campaigns/{campaignId}/orders/{orderId}/delivery/labels`.
      *
      * @return self
      */

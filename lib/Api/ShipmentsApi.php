@@ -83,6 +83,9 @@ class ShipmentsApi
         'downloadShipmentInboundAct' => [
             'application/json',
         ],
+        'downloadShipmentPalletLabels' => [
+            'application/json',
+        ],
         'downloadShipmentReceptionTransferAct' => [
             'application/json',
         ],
@@ -96,6 +99,12 @@ class ShipmentsApi
             'application/json',
         ],
         'searchShipments' => [
+            'application/json',
+        ],
+        'setShipmentPalletsCount' => [
+            'application/json',
+        ],
+        'transferOrdersFromShipment' => [
             'application/json',
         ],
     ];
@@ -151,7 +160,7 @@ class ShipmentsApi
      *
      * Подтверждение отгрузки
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  \YandexMarketApi\Model\ConfirmShipmentRequest $confirm_shipment_request confirm_shipment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmShipment'] to see the possible values for this operation
@@ -171,7 +180,7 @@ class ShipmentsApi
      *
      * Подтверждение отгрузки
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  \YandexMarketApi\Model\ConfirmShipmentRequest $confirm_shipment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmShipment'] to see the possible values for this operation
@@ -411,7 +420,7 @@ class ShipmentsApi
      *
      * Подтверждение отгрузки
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  \YandexMarketApi\Model\ConfirmShipmentRequest $confirm_shipment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmShipment'] to see the possible values for this operation
@@ -434,7 +443,7 @@ class ShipmentsApi
      *
      * Подтверждение отгрузки
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  \YandexMarketApi\Model\ConfirmShipmentRequest $confirm_shipment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmShipment'] to see the possible values for this operation
@@ -486,7 +495,7 @@ class ShipmentsApi
     /**
      * Create request for operation 'confirmShipment'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  \YandexMarketApi\Model\ConfirmShipmentRequest $confirm_shipment_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmShipment'] to see the possible values for this operation
@@ -615,7 +624,7 @@ class ShipmentsApi
      *
      * Получение акта приема-передачи
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentAct'] to see the possible values for this operation
      *
@@ -634,7 +643,7 @@ class ShipmentsApi
      *
      * Получение акта приема-передачи
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentAct'] to see the possible values for this operation
      *
@@ -873,7 +882,7 @@ class ShipmentsApi
      *
      * Получение акта приема-передачи
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentAct'] to see the possible values for this operation
      *
@@ -895,7 +904,7 @@ class ShipmentsApi
      *
      * Получение акта приема-передачи
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentAct'] to see the possible values for this operation
      *
@@ -946,7 +955,7 @@ class ShipmentsApi
     /**
      * Create request for operation 'downloadShipmentAct'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentAct'] to see the possible values for this operation
      *
@@ -1058,9 +1067,9 @@ class ShipmentsApi
     /**
      * Operation downloadShipmentDiscrepancyAct
      *
-     * Скачать акт расхождений
+     * Получение акта расхождений
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentDiscrepancyAct'] to see the possible values for this operation
      *
@@ -1077,9 +1086,9 @@ class ShipmentsApi
     /**
      * Operation downloadShipmentDiscrepancyActWithHttpInfo
      *
-     * Скачать акт расхождений
+     * Получение акта расхождений
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentDiscrepancyAct'] to see the possible values for this operation
      *
@@ -1316,9 +1325,9 @@ class ShipmentsApi
     /**
      * Operation downloadShipmentDiscrepancyActAsync
      *
-     * Скачать акт расхождений
+     * Получение акта расхождений
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentDiscrepancyAct'] to see the possible values for this operation
      *
@@ -1338,9 +1347,9 @@ class ShipmentsApi
     /**
      * Operation downloadShipmentDiscrepancyActAsyncWithHttpInfo
      *
-     * Скачать акт расхождений
+     * Получение акта расхождений
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentDiscrepancyAct'] to see the possible values for this operation
      *
@@ -1391,7 +1400,7 @@ class ShipmentsApi
     /**
      * Create request for operation 'downloadShipmentDiscrepancyAct'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentDiscrepancyAct'] to see the possible values for this operation
      *
@@ -1503,9 +1512,9 @@ class ShipmentsApi
     /**
      * Operation downloadShipmentInboundAct
      *
-     * Скачать фактический акт приема-передачи для отгрузки
+     * Получение фактического акта приема-передачи
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentInboundAct'] to see the possible values for this operation
      *
@@ -1522,9 +1531,9 @@ class ShipmentsApi
     /**
      * Operation downloadShipmentInboundActWithHttpInfo
      *
-     * Скачать фактический акт приема-передачи для отгрузки
+     * Получение фактического акта приема-передачи
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentInboundAct'] to see the possible values for this operation
      *
@@ -1761,9 +1770,9 @@ class ShipmentsApi
     /**
      * Operation downloadShipmentInboundActAsync
      *
-     * Скачать фактический акт приема-передачи для отгрузки
+     * Получение фактического акта приема-передачи
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentInboundAct'] to see the possible values for this operation
      *
@@ -1783,9 +1792,9 @@ class ShipmentsApi
     /**
      * Operation downloadShipmentInboundActAsyncWithHttpInfo
      *
-     * Скачать фактический акт приема-передачи для отгрузки
+     * Получение фактического акта приема-передачи
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentInboundAct'] to see the possible values for this operation
      *
@@ -1836,7 +1845,7 @@ class ShipmentsApi
     /**
      * Create request for operation 'downloadShipmentInboundAct'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentInboundAct'] to see the possible values for this operation
      *
@@ -1946,11 +1955,471 @@ class ShipmentsApi
     }
 
     /**
+     * Operation downloadShipmentPalletLabels
+     *
+     * Ярлыки на все упаковки в отгрузке
+     *
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
+     * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  ShipmentPalletLabelPageFormatType $format Формат страниц PDF-файла с ярлыками: * &#x60;A4&#x60; — по 16 ярлыков на странице. * &#x60;A8&#x60; — по одному ярлыку на странице. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentPalletLabels'] to see the possible values for this operation
+     *
+     * @throws \YandexMarketApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \SplFileObject|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
+     */
+    public function downloadShipmentPalletLabels($campaign_id, $shipment_id, $format = null, string $contentType = self::contentTypes['downloadShipmentPalletLabels'][0])
+    {
+        list($response) = $this->downloadShipmentPalletLabelsWithHttpInfo($campaign_id, $shipment_id, $format, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation downloadShipmentPalletLabelsWithHttpInfo
+     *
+     * Ярлыки на все упаковки в отгрузке
+     *
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
+     * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  ShipmentPalletLabelPageFormatType $format Формат страниц PDF-файла с ярлыками: * &#x60;A4&#x60; — по 16 ярлыков на странице. * &#x60;A8&#x60; — по одному ярлыку на странице. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentPalletLabels'] to see the possible values for this operation
+     *
+     * @throws \YandexMarketApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \SplFileObject|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function downloadShipmentPalletLabelsWithHttpInfo($campaign_id, $shipment_id, $format = null, string $contentType = self::contentTypes['downloadShipmentPalletLabels'][0])
+    {
+        $request = $this->downloadShipmentPalletLabelsRequest($campaign_id, $shipment_id, $format, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\SplFileObject' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\SplFileObject' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\YandexMarketApi\Model\ApiClientDataErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiClientDataErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiClientDataErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\YandexMarketApi\Model\ApiUnauthorizedErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiUnauthorizedErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiUnauthorizedErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\YandexMarketApi\Model\ApiForbiddenErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiForbiddenErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiForbiddenErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\YandexMarketApi\Model\ApiNotFoundErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiNotFoundErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiNotFoundErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 420:
+                    if ('\YandexMarketApi\Model\ApiLimitErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiLimitErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiLimitErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\YandexMarketApi\Model\ApiServerErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiServerErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiServerErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\SplFileObject';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SplFileObject',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiClientDataErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiUnauthorizedErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiForbiddenErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiNotFoundErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 420:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiLimitErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiServerErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation downloadShipmentPalletLabelsAsync
+     *
+     * Ярлыки на все упаковки в отгрузке
+     *
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
+     * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  ShipmentPalletLabelPageFormatType $format Формат страниц PDF-файла с ярлыками: * &#x60;A4&#x60; — по 16 ярлыков на странице. * &#x60;A8&#x60; — по одному ярлыку на странице. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentPalletLabels'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function downloadShipmentPalletLabelsAsync($campaign_id, $shipment_id, $format = null, string $contentType = self::contentTypes['downloadShipmentPalletLabels'][0])
+    {
+        return $this->downloadShipmentPalletLabelsAsyncWithHttpInfo($campaign_id, $shipment_id, $format, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation downloadShipmentPalletLabelsAsyncWithHttpInfo
+     *
+     * Ярлыки на все упаковки в отгрузке
+     *
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
+     * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  ShipmentPalletLabelPageFormatType $format Формат страниц PDF-файла с ярлыками: * &#x60;A4&#x60; — по 16 ярлыков на странице. * &#x60;A8&#x60; — по одному ярлыку на странице. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentPalletLabels'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function downloadShipmentPalletLabelsAsyncWithHttpInfo($campaign_id, $shipment_id, $format = null, string $contentType = self::contentTypes['downloadShipmentPalletLabels'][0])
+    {
+        $returnType = '\SplFileObject';
+        $request = $this->downloadShipmentPalletLabelsRequest($campaign_id, $shipment_id, $format, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'downloadShipmentPalletLabels'
+     *
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
+     * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  ShipmentPalletLabelPageFormatType $format Формат страниц PDF-файла с ярлыками: * &#x60;A4&#x60; — по 16 ярлыков на странице. * &#x60;A8&#x60; — по одному ярлыку на странице. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentPalletLabels'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function downloadShipmentPalletLabelsRequest($campaign_id, $shipment_id, $format = null, string $contentType = self::contentTypes['downloadShipmentPalletLabels'][0])
+    {
+
+        // verify the required parameter 'campaign_id' is set
+        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaign_id when calling downloadShipmentPalletLabels'
+            );
+        }
+
+        // verify the required parameter 'shipment_id' is set
+        if ($shipment_id === null || (is_array($shipment_id) && count($shipment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $shipment_id when calling downloadShipmentPalletLabels'
+            );
+        }
+
+
+
+        $resourcePath = '/campaigns/{campaignId}/first-mile/shipments/{shipmentId}/pallet/labels';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $format,
+            'format', // param base name
+            'ShipmentPalletLabelPageFormatType', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($campaign_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'campaignId' . '}',
+                ObjectSerializer::toPathValue($campaign_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($shipment_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'shipmentId' . '}',
+                ObjectSerializer::toPathValue($shipment_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/pdf', 'application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation downloadShipmentReceptionTransferAct
      *
      * Подтверждение ближайшей отгрузки и получение акта приема-передачи для нее
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $warehouse_id Идентификатор склада (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentReceptionTransferAct'] to see the possible values for this operation
      *
@@ -1969,7 +2438,7 @@ class ShipmentsApi
      *
      * Подтверждение ближайшей отгрузки и получение акта приема-передачи для нее
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $warehouse_id Идентификатор склада (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentReceptionTransferAct'] to see the possible values for this operation
      *
@@ -2208,7 +2677,7 @@ class ShipmentsApi
      *
      * Подтверждение ближайшей отгрузки и получение акта приема-передачи для нее
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $warehouse_id Идентификатор склада (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentReceptionTransferAct'] to see the possible values for this operation
      *
@@ -2230,7 +2699,7 @@ class ShipmentsApi
      *
      * Подтверждение ближайшей отгрузки и получение акта приема-передачи для нее
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $warehouse_id Идентификатор склада (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentReceptionTransferAct'] to see the possible values for this operation
      *
@@ -2281,7 +2750,7 @@ class ShipmentsApi
     /**
      * Create request for operation 'downloadShipmentReceptionTransferAct'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $warehouse_id Идентификатор склада (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentReceptionTransferAct'] to see the possible values for this operation
      *
@@ -2388,9 +2857,9 @@ class ShipmentsApi
     /**
      * Operation downloadShipmentTransportationWaybill
      *
-     * Скачать транспортную накладную
+     * Получение транспортной накладной
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentTransportationWaybill'] to see the possible values for this operation
      *
@@ -2407,9 +2876,9 @@ class ShipmentsApi
     /**
      * Operation downloadShipmentTransportationWaybillWithHttpInfo
      *
-     * Скачать транспортную накладную
+     * Получение транспортной накладной
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentTransportationWaybill'] to see the possible values for this operation
      *
@@ -2646,9 +3115,9 @@ class ShipmentsApi
     /**
      * Operation downloadShipmentTransportationWaybillAsync
      *
-     * Скачать транспортную накладную
+     * Получение транспортной накладной
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentTransportationWaybill'] to see the possible values for this operation
      *
@@ -2668,9 +3137,9 @@ class ShipmentsApi
     /**
      * Operation downloadShipmentTransportationWaybillAsyncWithHttpInfo
      *
-     * Скачать транспортную накладную
+     * Получение транспортной накладной
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentTransportationWaybill'] to see the possible values for this operation
      *
@@ -2721,7 +3190,7 @@ class ShipmentsApi
     /**
      * Create request for operation 'downloadShipmentTransportationWaybill'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentTransportationWaybill'] to see the possible values for this operation
      *
@@ -2774,7 +3243,7 @@ class ShipmentsApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/pdf', 'application/json', ],
+            ['application/vnd.ms-excel', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -2835,7 +3304,7 @@ class ShipmentsApi
      *
      * Получение информации об отгрузке
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
@@ -2854,7 +3323,7 @@ class ShipmentsApi
      *
      * Получение информации об отгрузке
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
@@ -3093,7 +3562,7 @@ class ShipmentsApi
      *
      * Получение информации об отгрузке
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
@@ -3115,7 +3584,7 @@ class ShipmentsApi
      *
      * Получение информации об отгрузке
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
@@ -3166,7 +3635,7 @@ class ShipmentsApi
     /**
      * Create request for operation 'getShipment'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
@@ -3280,7 +3749,7 @@ class ShipmentsApi
      *
      * Получение информации о ярлыках
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentOrdersInfo'] to see the possible values for this operation
      *
@@ -3299,7 +3768,7 @@ class ShipmentsApi
      *
      * Получение информации о ярлыках
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentOrdersInfo'] to see the possible values for this operation
      *
@@ -3538,7 +4007,7 @@ class ShipmentsApi
      *
      * Получение информации о ярлыках
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentOrdersInfo'] to see the possible values for this operation
      *
@@ -3560,7 +4029,7 @@ class ShipmentsApi
      *
      * Получение информации о ярлыках
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentOrdersInfo'] to see the possible values for this operation
      *
@@ -3611,7 +4080,7 @@ class ShipmentsApi
     /**
      * Create request for operation 'getShipmentOrdersInfo'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipmentOrdersInfo'] to see the possible values for this operation
      *
@@ -3725,10 +4194,10 @@ class ShipmentsApi
      *
      * Получение информации об отгрузках
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\SearchShipmentsRequest $search_shipments_request search_shipments_request (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchShipments'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -3746,10 +4215,10 @@ class ShipmentsApi
      *
      * Получение информации об отгрузках
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\SearchShipmentsRequest $search_shipments_request (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchShipments'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -3987,10 +4456,10 @@ class ShipmentsApi
      *
      * Получение информации об отгрузках
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\SearchShipmentsRequest $search_shipments_request (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchShipments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4011,10 +4480,10 @@ class ShipmentsApi
      *
      * Получение информации об отгрузках
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\SearchShipmentsRequest $search_shipments_request (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchShipments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4064,10 +4533,10 @@ class ShipmentsApi
     /**
      * Create request for operation 'searchShipments'
      *
-     * @param  int $campaign_id Идентификатор кампании и идентификатор магазина. Каждая кампания в API соответствует магазину в кабинете.  **Где его взять**  Войдите в личный кабинет, в меню слева выберите **Настройки** → **Настройки API** и скопируйте число из поля **Номер кампании**. (required)
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\SearchShipmentsRequest $search_shipments_request (required)
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров в выходных данных. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchShipments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4188,6 +4657,934 @@ class ShipmentsApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation setShipmentPalletsCount
+     *
+     * Передача количества упаковок в отгрузке
+     *
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
+     * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  \YandexMarketApi\Model\SetShipmentPalletsCountRequest $set_shipment_pallets_count_request set_shipment_pallets_count_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setShipmentPalletsCount'] to see the possible values for this operation
+     *
+     * @throws \YandexMarketApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \YandexMarketApi\Model\EmptyApiResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
+     */
+    public function setShipmentPalletsCount($campaign_id, $shipment_id, $set_shipment_pallets_count_request, string $contentType = self::contentTypes['setShipmentPalletsCount'][0])
+    {
+        list($response) = $this->setShipmentPalletsCountWithHttpInfo($campaign_id, $shipment_id, $set_shipment_pallets_count_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation setShipmentPalletsCountWithHttpInfo
+     *
+     * Передача количества упаковок в отгрузке
+     *
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
+     * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  \YandexMarketApi\Model\SetShipmentPalletsCountRequest $set_shipment_pallets_count_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setShipmentPalletsCount'] to see the possible values for this operation
+     *
+     * @throws \YandexMarketApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \YandexMarketApi\Model\EmptyApiResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function setShipmentPalletsCountWithHttpInfo($campaign_id, $shipment_id, $set_shipment_pallets_count_request, string $contentType = self::contentTypes['setShipmentPalletsCount'][0])
+    {
+        $request = $this->setShipmentPalletsCountRequest($campaign_id, $shipment_id, $set_shipment_pallets_count_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\YandexMarketApi\Model\EmptyApiResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\EmptyApiResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\EmptyApiResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\YandexMarketApi\Model\ApiClientDataErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiClientDataErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiClientDataErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\YandexMarketApi\Model\ApiUnauthorizedErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiUnauthorizedErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiUnauthorizedErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\YandexMarketApi\Model\ApiForbiddenErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiForbiddenErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiForbiddenErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\YandexMarketApi\Model\ApiNotFoundErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiNotFoundErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiNotFoundErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 420:
+                    if ('\YandexMarketApi\Model\ApiLimitErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiLimitErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiLimitErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\YandexMarketApi\Model\ApiServerErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiServerErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiServerErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\YandexMarketApi\Model\EmptyApiResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\EmptyApiResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiClientDataErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiUnauthorizedErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiForbiddenErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiNotFoundErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 420:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiLimitErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiServerErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation setShipmentPalletsCountAsync
+     *
+     * Передача количества упаковок в отгрузке
+     *
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
+     * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  \YandexMarketApi\Model\SetShipmentPalletsCountRequest $set_shipment_pallets_count_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setShipmentPalletsCount'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setShipmentPalletsCountAsync($campaign_id, $shipment_id, $set_shipment_pallets_count_request, string $contentType = self::contentTypes['setShipmentPalletsCount'][0])
+    {
+        return $this->setShipmentPalletsCountAsyncWithHttpInfo($campaign_id, $shipment_id, $set_shipment_pallets_count_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation setShipmentPalletsCountAsyncWithHttpInfo
+     *
+     * Передача количества упаковок в отгрузке
+     *
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
+     * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  \YandexMarketApi\Model\SetShipmentPalletsCountRequest $set_shipment_pallets_count_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setShipmentPalletsCount'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setShipmentPalletsCountAsyncWithHttpInfo($campaign_id, $shipment_id, $set_shipment_pallets_count_request, string $contentType = self::contentTypes['setShipmentPalletsCount'][0])
+    {
+        $returnType = '\YandexMarketApi\Model\EmptyApiResponse';
+        $request = $this->setShipmentPalletsCountRequest($campaign_id, $shipment_id, $set_shipment_pallets_count_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'setShipmentPalletsCount'
+     *
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
+     * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  \YandexMarketApi\Model\SetShipmentPalletsCountRequest $set_shipment_pallets_count_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setShipmentPalletsCount'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function setShipmentPalletsCountRequest($campaign_id, $shipment_id, $set_shipment_pallets_count_request, string $contentType = self::contentTypes['setShipmentPalletsCount'][0])
+    {
+
+        // verify the required parameter 'campaign_id' is set
+        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaign_id when calling setShipmentPalletsCount'
+            );
+        }
+
+        // verify the required parameter 'shipment_id' is set
+        if ($shipment_id === null || (is_array($shipment_id) && count($shipment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $shipment_id when calling setShipmentPalletsCount'
+            );
+        }
+
+        // verify the required parameter 'set_shipment_pallets_count_request' is set
+        if ($set_shipment_pallets_count_request === null || (is_array($set_shipment_pallets_count_request) && count($set_shipment_pallets_count_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $set_shipment_pallets_count_request when calling setShipmentPalletsCount'
+            );
+        }
+
+
+        $resourcePath = '/campaigns/{campaignId}/first-mile/shipments/{shipmentId}/pallets';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($campaign_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'campaignId' . '}',
+                ObjectSerializer::toPathValue($campaign_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($shipment_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'shipmentId' . '}',
+                ObjectSerializer::toPathValue($shipment_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($set_shipment_pallets_count_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($set_shipment_pallets_count_request));
+            } else {
+                $httpBody = $set_shipment_pallets_count_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation transferOrdersFromShipment
+     *
+     * Перенос заказов в следующую отгрузку
+     *
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
+     * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  \YandexMarketApi\Model\TransferOrdersFromShipmentRequest $transfer_orders_from_shipment_request transfer_orders_from_shipment_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferOrdersFromShipment'] to see the possible values for this operation
+     *
+     * @throws \YandexMarketApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \YandexMarketApi\Model\EmptyApiResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
+     */
+    public function transferOrdersFromShipment($campaign_id, $shipment_id, $transfer_orders_from_shipment_request, string $contentType = self::contentTypes['transferOrdersFromShipment'][0])
+    {
+        list($response) = $this->transferOrdersFromShipmentWithHttpInfo($campaign_id, $shipment_id, $transfer_orders_from_shipment_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation transferOrdersFromShipmentWithHttpInfo
+     *
+     * Перенос заказов в следующую отгрузку
+     *
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
+     * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  \YandexMarketApi\Model\TransferOrdersFromShipmentRequest $transfer_orders_from_shipment_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferOrdersFromShipment'] to see the possible values for this operation
+     *
+     * @throws \YandexMarketApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \YandexMarketApi\Model\EmptyApiResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function transferOrdersFromShipmentWithHttpInfo($campaign_id, $shipment_id, $transfer_orders_from_shipment_request, string $contentType = self::contentTypes['transferOrdersFromShipment'][0])
+    {
+        $request = $this->transferOrdersFromShipmentRequest($campaign_id, $shipment_id, $transfer_orders_from_shipment_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\YandexMarketApi\Model\EmptyApiResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\EmptyApiResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\EmptyApiResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\YandexMarketApi\Model\ApiClientDataErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiClientDataErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiClientDataErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\YandexMarketApi\Model\ApiUnauthorizedErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiUnauthorizedErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiUnauthorizedErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\YandexMarketApi\Model\ApiForbiddenErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiForbiddenErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiForbiddenErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\YandexMarketApi\Model\ApiNotFoundErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiNotFoundErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiNotFoundErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 420:
+                    if ('\YandexMarketApi\Model\ApiLimitErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiLimitErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiLimitErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\YandexMarketApi\Model\ApiServerErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\YandexMarketApi\Model\ApiServerErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiServerErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\YandexMarketApi\Model\EmptyApiResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\EmptyApiResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiClientDataErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiUnauthorizedErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiForbiddenErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiNotFoundErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 420:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiLimitErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\YandexMarketApi\Model\ApiServerErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation transferOrdersFromShipmentAsync
+     *
+     * Перенос заказов в следующую отгрузку
+     *
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
+     * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  \YandexMarketApi\Model\TransferOrdersFromShipmentRequest $transfer_orders_from_shipment_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferOrdersFromShipment'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function transferOrdersFromShipmentAsync($campaign_id, $shipment_id, $transfer_orders_from_shipment_request, string $contentType = self::contentTypes['transferOrdersFromShipment'][0])
+    {
+        return $this->transferOrdersFromShipmentAsyncWithHttpInfo($campaign_id, $shipment_id, $transfer_orders_from_shipment_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation transferOrdersFromShipmentAsyncWithHttpInfo
+     *
+     * Перенос заказов в следующую отгрузку
+     *
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
+     * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  \YandexMarketApi\Model\TransferOrdersFromShipmentRequest $transfer_orders_from_shipment_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferOrdersFromShipment'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function transferOrdersFromShipmentAsyncWithHttpInfo($campaign_id, $shipment_id, $transfer_orders_from_shipment_request, string $contentType = self::contentTypes['transferOrdersFromShipment'][0])
+    {
+        $returnType = '\YandexMarketApi\Model\EmptyApiResponse';
+        $request = $this->transferOrdersFromShipmentRequest($campaign_id, $shipment_id, $transfer_orders_from_shipment_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'transferOrdersFromShipment'
+     *
+     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
+     * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  \YandexMarketApi\Model\TransferOrdersFromShipmentRequest $transfer_orders_from_shipment_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferOrdersFromShipment'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function transferOrdersFromShipmentRequest($campaign_id, $shipment_id, $transfer_orders_from_shipment_request, string $contentType = self::contentTypes['transferOrdersFromShipment'][0])
+    {
+
+        // verify the required parameter 'campaign_id' is set
+        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaign_id when calling transferOrdersFromShipment'
+            );
+        }
+
+        // verify the required parameter 'shipment_id' is set
+        if ($shipment_id === null || (is_array($shipment_id) && count($shipment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $shipment_id when calling transferOrdersFromShipment'
+            );
+        }
+
+        // verify the required parameter 'transfer_orders_from_shipment_request' is set
+        if ($transfer_orders_from_shipment_request === null || (is_array($transfer_orders_from_shipment_request) && count($transfer_orders_from_shipment_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $transfer_orders_from_shipment_request when calling transferOrdersFromShipment'
+            );
+        }
+
+
+        $resourcePath = '/campaigns/{campaignId}/first-mile/shipments/{shipmentId}/orders/transfer';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($campaign_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'campaignId' . '}',
+                ObjectSerializer::toPathValue($campaign_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($shipment_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'shipmentId' . '}',
+                ObjectSerializer::toPathValue($shipment_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($transfer_orders_from_shipment_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transfer_orders_from_shipment_request));
+            } else {
+                $httpBody = $transfer_orders_from_shipment_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * BusinessDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Информацию о бизнесе.
+ * @description Информацию о кабинете.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -84,18 +84,6 @@ class OrderDeliveryApiTest extends TestCase
     }
 
     /**
-     * Test case for getOrderDeliveryOptions
-     *
-     * Метод для получения слотов доставки по адресу и товарным позициям для создания FaaS-заказа.
-     *
-     */
-    public function testGetOrderDeliveryOptions()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for setOrderDeliveryDate
      *
      * Изменение даты доставки заказа.
