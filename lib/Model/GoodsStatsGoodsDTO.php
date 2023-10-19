@@ -66,7 +66,6 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         'category_name' => 'string',
         'weight_dimensions' => '\YandexMarketApi\Model\GoodsStatsWeightDimensionsDTO',
         'warehouses' => '\YandexMarketApi\Model\GoodsStatsWarehouseDTO[]',
-        'storage' => '\YandexMarketApi\Model\GoodsStatsStorageDTO[]',
         'tariffs' => '\YandexMarketApi\Model\GoodsStatsTariffDTO[]',
         'pictures' => 'string[]'
     ];
@@ -87,7 +86,6 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         'category_name' => null,
         'weight_dimensions' => null,
         'warehouses' => null,
-        'storage' => null,
         'tariffs' => null,
         'pictures' => null
     ];
@@ -106,7 +104,6 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
 		'category_name' => false,
 		'weight_dimensions' => false,
 		'warehouses' => false,
-		'storage' => false,
 		'tariffs' => false,
 		'pictures' => false
     ];
@@ -205,7 +202,6 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         'category_name' => 'categoryName',
         'weight_dimensions' => 'weightDimensions',
         'warehouses' => 'warehouses',
-        'storage' => 'storage',
         'tariffs' => 'tariffs',
         'pictures' => 'pictures'
     ];
@@ -224,7 +220,6 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         'category_name' => 'setCategoryName',
         'weight_dimensions' => 'setWeightDimensions',
         'warehouses' => 'setWarehouses',
-        'storage' => 'setStorage',
         'tariffs' => 'setTariffs',
         'pictures' => 'setPictures'
     ];
@@ -243,7 +238,6 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         'category_name' => 'getCategoryName',
         'weight_dimensions' => 'getWeightDimensions',
         'warehouses' => 'getWarehouses',
-        'storage' => 'getStorage',
         'tariffs' => 'getTariffs',
         'pictures' => 'getPictures'
     ];
@@ -313,7 +307,6 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('category_name', $data ?? [], null);
         $this->setIfExists('weight_dimensions', $data ?? [], null);
         $this->setIfExists('warehouses', $data ?? [], null);
-        $this->setIfExists('storage', $data ?? [], null);
         $this->setIfExists('tariffs', $data ?? [], null);
         $this->setIfExists('pictures', $data ?? [], null);
     }
@@ -594,33 +587,6 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable warehouses cannot be null');
         }
         $this->container['warehouses'] = $warehouses;
-
-        return $this;
-    }
-
-    /**
-     * Gets storage
-     *
-     * @return \YandexMarketApi\Model\GoodsStatsStorageDTO[]|null
-     */
-    public function getStorage()
-    {
-        return $this->container['storage'];
-    }
-
-    /**
-     * Sets storage
-     *
-     * @param \YandexMarketApi\Model\GoodsStatsStorageDTO[]|null $storage Информация об условиях хранения и обработки товара на складе.
-     *
-     * @return self
-     */
-    public function setStorage($storage)
-    {
-        if (is_null($storage)) {
-            throw new \InvalidArgumentException('non-nullable storage cannot be null');
-        }
-        $this->container['storage'] = $storage;
 
         return $this;
     }

@@ -152,15 +152,6 @@ class GoodsStatsGoodsDTOTest extends TestCase
     }
 
     /**
-     * Test attribute "storage"
-     */
-    public function testPropertyStorage()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "tariffs"
      */
     public function testPropertyTariffs()

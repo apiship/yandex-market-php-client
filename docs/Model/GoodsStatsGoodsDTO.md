@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **category_name** | **string** | Название категории товара на Маркете. | [optional]
 **weight_dimensions** | [**\YandexMarketApi\Model\GoodsStatsWeightDimensionsDTO**](GoodsStatsWeightDimensionsDTO.md) |  | [optional]
 **warehouses** | [**\YandexMarketApi\Model\GoodsStatsWarehouseDTO[]**](GoodsStatsWarehouseDTO.md) | Информация о складах, на которых хранится товар. | [optional]
-**storage** | [**\YandexMarketApi\Model\GoodsStatsStorageDTO[]**](GoodsStatsStorageDTO.md) | Информация об условиях хранения и обработки товара на складе. | [optional]
 **tariffs** | [**\YandexMarketApi\Model\GoodsStatsTariffDTO[]**](GoodsStatsTariffDTO.md) | Информация о тарифах, по которым нужно заплатить за услуги Маркета. | [optional]
 **pictures** | **string[]** | Ссылки (URL) изображений товара в хорошем качестве. | [optional]
 

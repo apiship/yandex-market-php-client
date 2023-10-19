@@ -330,7 +330,7 @@ class GetMappingDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets market_sku_name
      *
-     * @param string|null $market_sku_name Название карточки на Маркете.  Может отсутствовать в ответе.
+     * @param string|null $market_sku_name Название карточки товара.  Может отсутствовать в ответе, если товар еще не привязан к карточке.
      *
      * @return self
      */
@@ -357,7 +357,7 @@ class GetMappingDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets market_model_id
      *
-     * @param int|null $market_model_id Идентификатор модели на Маркете.  Может отсутствовать в ответе.
+     * @param int|null $market_model_id Идентификатор модели на Маркете.  Может отсутствовать в ответе, если товар еще не привязан к карточке.
      *
      * @return self
      */
@@ -384,7 +384,7 @@ class GetMappingDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets market_model_name
      *
-     * @param string|null $market_model_name Название модели на Маркете.  Может отсутствовать в ответе.
+     * @param string|null $market_model_name Название модели на Маркете.  Может отсутствовать в ответе, если товар еще не привязан к карточке.
      *
      * @return self
      */
@@ -411,7 +411,7 @@ class GetMappingDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets market_category_id
      *
-     * @param int|null $market_category_id Идентификатор категории карточки на Маркете.  Может отсутствовать в ответе.
+     * @param int|null $market_category_id Идентификатор категории карточки на Маркете.  Может отсутствовать в ответе, если Маркет еще не определил категорию товара.
      *
      * @return self
      */
@@ -438,7 +438,7 @@ class GetMappingDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets market_category_name
      *
-     * @param string|null $market_category_name Название категории карточки на Маркете.  Может отсутствовать в ответе.
+     * @param string|null $market_category_name Название категории карточки на Маркете.  Может отсутствовать в ответе, если Маркет еще не определил категорию товара.
      *
      * @return self
      */

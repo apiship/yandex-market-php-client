@@ -120,6 +120,18 @@ class ExpressApiTest extends TestCase
     }
 
     /**
+     * Test case for generateGoodsRealizationReport
+     *
+     * Отчет по реализации.
+     *
+     */
+    public function testGenerateGoodsRealizationReport()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for generateOrderLabel
      *
      * Ярлык‑наклейка на отдельное грузовое место в заказе.
@@ -138,6 +150,66 @@ class ExpressApiTest extends TestCase
      *
      */
     public function testGenerateOrderLabels()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for generatePricesReport
+     *
+     * Отчет «Цены на рынке».
+     *
+     */
+    public function testGeneratePricesReport()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for generateShowsSalesReport
+     *
+     * Отчет «Аналитика продаж».
+     *
+     */
+    public function testGenerateShowsSalesReport()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for generateStocksOnWarehousesReport
+     *
+     * Отчет по остаткам на складах.
+     *
+     */
+    public function testGenerateStocksOnWarehousesReport()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for generateUnitedMarketplaceServicesReport
+     *
+     * Отчет по стоимости услуг.
+     *
+     */
+    public function testGenerateUnitedMarketplaceServicesReport()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for generateUnitedNettingReport
+     *
+     * Отчет по платежам.
+     *
+     */
+    public function testGenerateUnitedNettingReport()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -252,6 +324,18 @@ class ExpressApiTest extends TestCase
     }
 
     /**
+     * Test case for getCategoryContentParameters
+     *
+     * Списки характеристик товаров по категориям.
+     *
+     */
+    public function testGetCategoryContentParameters()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getDeliveryServices
      *
      * Справочник служб доставки.
@@ -276,6 +360,18 @@ class ExpressApiTest extends TestCase
     }
 
     /**
+     * Test case for getOfferCardsContentStatus
+     *
+     * Получение информации о заполненности карточек.
+     *
+     */
+    public function testGetOfferCardsContentStatus()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getOfferMappingEntries
      *
      * Список товаров в каталоге.
@@ -294,6 +390,18 @@ class ExpressApiTest extends TestCase
      *
      */
     public function testGetOfferMappings()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getOfferRecommendations
+     *
+     * Рекомендации Маркета, касающиеся цен.
+     *
+     */
+    public function testGetOfferRecommendations()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -366,6 +474,18 @@ class ExpressApiTest extends TestCase
      *
      */
     public function testGetPricesByOfferIds()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getReportInfo
+     *
+     * Статус генерации и скачивание готовых отчетов.
+     *
+     */
+    public function testGetReportInfo()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -522,6 +642,18 @@ class ExpressApiTest extends TestCase
      *
      */
     public function testUpdateCampaignOffers()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for updateOfferContent
+     *
+     * Редактирование категорийных характеристик товара.
+     *
+     */
+    public function testUpdateOfferContent()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

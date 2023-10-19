@@ -60,7 +60,8 @@ class QuarantineOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'offer_id' => 'string',
         'current_price' => '\YandexMarketApi\Model\BasePriceDTO',
-        'last_valid_price' => '\YandexMarketApi\Model\BasePriceDTO'
+        'last_valid_price' => '\YandexMarketApi\Model\BasePriceDTO',
+        'verdicts' => '\YandexMarketApi\Model\PriceQuarantineVerdictDTO[]'
     ];
 
     /**
@@ -73,7 +74,8 @@ class QuarantineOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPIFormats = [
         'offer_id' => null,
         'current_price' => null,
-        'last_valid_price' => null
+        'last_valid_price' => null,
+        'verdicts' => null
     ];
 
     /**
@@ -84,7 +86,8 @@ class QuarantineOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static array $openAPINullables = [
         'offer_id' => false,
 		'current_price' => false,
-		'last_valid_price' => false
+		'last_valid_price' => false,
+		'verdicts' => false
     ];
 
     /**
@@ -175,7 +178,8 @@ class QuarantineOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $attributeMap = [
         'offer_id' => 'offerId',
         'current_price' => 'currentPrice',
-        'last_valid_price' => 'lastValidPrice'
+        'last_valid_price' => 'lastValidPrice',
+        'verdicts' => 'verdicts'
     ];
 
     /**
@@ -186,7 +190,8 @@ class QuarantineOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $setters = [
         'offer_id' => 'setOfferId',
         'current_price' => 'setCurrentPrice',
-        'last_valid_price' => 'setLastValidPrice'
+        'last_valid_price' => 'setLastValidPrice',
+        'verdicts' => 'setVerdicts'
     ];
 
     /**
@@ -197,7 +202,8 @@ class QuarantineOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $getters = [
         'offer_id' => 'getOfferId',
         'current_price' => 'getCurrentPrice',
-        'last_valid_price' => 'getLastValidPrice'
+        'last_valid_price' => 'getLastValidPrice',
+        'verdicts' => 'getVerdicts'
     ];
 
     /**
@@ -260,6 +266,7 @@ class QuarantineOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('offer_id', $data ?? [], null);
         $this->setIfExists('current_price', $data ?? [], null);
         $this->setIfExists('last_valid_price', $data ?? [], null);
+        $this->setIfExists('verdicts', $data ?? [], null);
     }
 
     /**
@@ -403,6 +410,33 @@ class QuarantineOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable last_valid_price cannot be null');
         }
         $this->container['last_valid_price'] = $last_valid_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets verdicts
+     *
+     * @return \YandexMarketApi\Model\PriceQuarantineVerdictDTO[]|null
+     */
+    public function getVerdicts()
+    {
+        return $this->container['verdicts'];
+    }
+
+    /**
+     * Sets verdicts
+     *
+     * @param \YandexMarketApi\Model\PriceQuarantineVerdictDTO[]|null $verdicts Причины попадания товара в карантин.
+     *
+     * @return self
+     */
+    public function setVerdicts($verdicts)
+    {
+        if (is_null($verdicts)) {
+            throw new \InvalidArgumentException('non-nullable verdicts cannot be null');
+        }
+        $this->container['verdicts'] = $verdicts;
 
         return $this;
     }

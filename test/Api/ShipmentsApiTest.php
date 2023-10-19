@@ -98,7 +98,7 @@ class ShipmentsApiTest extends TestCase
     /**
      * Test case for downloadShipmentDiscrepancyAct
      *
-     * Скачать акт расхождений.
+     * Получение акта расхождений.
      *
      */
     public function testDownloadShipmentDiscrepancyAct()
@@ -110,10 +110,22 @@ class ShipmentsApiTest extends TestCase
     /**
      * Test case for downloadShipmentInboundAct
      *
-     * Скачать фактический акт приема-передачи для отгрузки.
+     * Получение фактического акта приема-передачи.
      *
      */
     public function testDownloadShipmentInboundAct()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for downloadShipmentPalletLabels
+     *
+     * Ярлыки на все упаковки в отгрузке.
+     *
+     */
+    public function testDownloadShipmentPalletLabels()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -134,7 +146,7 @@ class ShipmentsApiTest extends TestCase
     /**
      * Test case for downloadShipmentTransportationWaybill
      *
-     * Скачать транспортную накладную.
+     * Получение транспортной накладной.
      *
      */
     public function testDownloadShipmentTransportationWaybill()
@@ -174,6 +186,30 @@ class ShipmentsApiTest extends TestCase
      *
      */
     public function testSearchShipments()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for setShipmentPalletsCount
+     *
+     * Передача количества упаковок в отгрузке.
+     *
+     */
+    public function testSetShipmentPalletsCount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for transferOrdersFromShipment
+     *
+     * Перенос заказов в следующую отгрузку.
+     *
+     */
+    public function testTransferOrdersFromShipment()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

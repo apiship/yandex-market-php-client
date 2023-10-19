@@ -53,7 +53,6 @@ class OrderSubsidyType
 
     public const DELIVERY = 'DELIVERY';
 
-
     /**
      * Gets allowable values of the enum
      * @return string[]

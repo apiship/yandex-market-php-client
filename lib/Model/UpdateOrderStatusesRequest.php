@@ -278,6 +278,14 @@ class UpdateOrderStatusesRequest implements ModelInterface, ArrayAccess, \JsonSe
         if ($this->container['orders'] === null) {
             $invalidProperties[] = "'orders' can't be null";
         }
+        if ((count($this->container['orders']) > 30)) {
+            $invalidProperties[] = "invalid value for 'orders', number of items must be less than or equal to 30.";
+        }
+
+        if ((count($this->container['orders']) < 1)) {
+            $invalidProperties[] = "invalid value for 'orders', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -314,6 +322,13 @@ class UpdateOrderStatusesRequest implements ModelInterface, ArrayAccess, \JsonSe
     {
         if (is_null($orders)) {
             throw new \InvalidArgumentException('non-nullable orders cannot be null');
+        }
+
+        if ((count($orders) > 30)) {
+            throw new \InvalidArgumentException('invalid value for $orders when calling UpdateOrderStatusesRequest., number of items must be less than or equal to 30.');
+        }
+        if ((count($orders) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $orders when calling UpdateOrderStatusesRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['orders'] = $orders;
 

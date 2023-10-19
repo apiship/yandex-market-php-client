@@ -75,7 +75,8 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'promos' => '\YandexMarketApi\Model\OrderItemPromoDTO[]',
         'instances' => '\YandexMarketApi\Model\OrderItemInstanceDTO[]',
         'details' => '\YandexMarketApi\Model\OrderItemDetailDTO[]',
-        'subsidies' => '\YandexMarketApi\Model\OrderItemSubsidyDTO[]'
+        'subsidies' => '\YandexMarketApi\Model\OrderItemSubsidyDTO[]',
+        'required_instance_types' => '\YandexMarketApi\Model\OrderItemInstanceType[]'
     ];
 
     /**
@@ -103,7 +104,8 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'promos' => null,
         'instances' => null,
         'details' => null,
-        'subsidies' => null
+        'subsidies' => null,
+        'required_instance_types' => null
     ];
 
     /**
@@ -129,7 +131,8 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
 		'promos' => false,
 		'instances' => false,
 		'details' => false,
-		'subsidies' => false
+		'subsidies' => false,
+		'required_instance_types' => false
     ];
 
     /**
@@ -235,7 +238,8 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'promos' => 'promos',
         'instances' => 'instances',
         'details' => 'details',
-        'subsidies' => 'subsidies'
+        'subsidies' => 'subsidies',
+        'required_instance_types' => 'requiredInstanceTypes'
     ];
 
     /**
@@ -261,7 +265,8 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'promos' => 'setPromos',
         'instances' => 'setInstances',
         'details' => 'setDetails',
-        'subsidies' => 'setSubsidies'
+        'subsidies' => 'setSubsidies',
+        'required_instance_types' => 'setRequiredInstanceTypes'
     ];
 
     /**
@@ -287,7 +292,8 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'promos' => 'getPromos',
         'instances' => 'getInstances',
         'details' => 'getDetails',
-        'subsidies' => 'getSubsidies'
+        'subsidies' => 'getSubsidies',
+        'required_instance_types' => 'getRequiredInstanceTypes'
     ];
 
     /**
@@ -365,6 +371,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('instances', $data ?? [], null);
         $this->setIfExists('details', $data ?? [], null);
         $this->setIfExists('subsidies', $data ?? [], null);
+        $this->setIfExists('required_instance_types', $data ?? [], null);
     }
 
     /**
@@ -402,6 +409,9 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'offer_id', the character length must be bigger than or equal to 1.";
         }
 
+        if (!is_null($this->container['offer_id']) && !preg_match("/^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/", $this->container['offer_id'])) {
+            $invalidProperties[] = "invalid value for 'offer_id', must be conform to the pattern /^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/.";
+        }
 
         if (!is_null($this->container['shop_sku']) && (mb_strlen($this->container['shop_sku']) > 80)) {
             $invalidProperties[] = "invalid value for 'shop_sku', the character length must be smaller than or equal to 80.";
@@ -409,6 +419,10 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if (!is_null($this->container['shop_sku']) && (mb_strlen($this->container['shop_sku']) < 1)) {
             $invalidProperties[] = "invalid value for 'shop_sku', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['shop_sku']) && !preg_match("/^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/", $this->container['shop_sku'])) {
+            $invalidProperties[] = "invalid value for 'shop_sku', must be conform to the pattern /^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/.";
         }
 
         return $invalidProperties;
@@ -507,6 +521,9 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ((mb_strlen($offer_id) < 1)) {
             throw new \InvalidArgumentException('invalid length for $offer_id when calling OrderItemDTO., must be bigger than or equal to 1.');
+        }
+        if ((!preg_match("/^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/", $offer_id))) {
+            throw new \InvalidArgumentException("invalid value for \$offer_id when calling OrderItemDTO., must conform to the pattern /^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/.");
         }
 
         $this->container['offer_id'] = $offer_id;
@@ -758,6 +775,9 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if ((mb_strlen($shop_sku) < 1)) {
             throw new \InvalidArgumentException('invalid length for $shop_sku when calling OrderItemDTO., must be bigger than or equal to 1.');
         }
+        if ((!preg_match("/^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/", $shop_sku))) {
+            throw new \InvalidArgumentException("invalid value for \$shop_sku when calling OrderItemDTO., must conform to the pattern /^[\\da-zA-ZА-Яа-я\\.,\/\\\\\\(\\)\\[\\]\\-=_]*$/.");
+        }
 
         $this->container['shop_sku'] = $shop_sku;
 
@@ -922,6 +942,33 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable subsidies cannot be null');
         }
         $this->container['subsidies'] = $subsidies;
+
+        return $this;
+    }
+
+    /**
+     * Gets required_instance_types
+     *
+     * @return \YandexMarketApi\Model\OrderItemInstanceType[]|null
+     */
+    public function getRequiredInstanceTypes()
+    {
+        return $this->container['required_instance_types'];
+    }
+
+    /**
+     * Sets required_instance_types
+     *
+     * @param \YandexMarketApi\Model\OrderItemInstanceType[]|null $required_instance_types Список необходимых маркировок товара.
+     *
+     * @return self
+     */
+    public function setRequiredInstanceTypes($required_instance_types)
+    {
+        if (is_null($required_instance_types)) {
+            throw new \InvalidArgumentException('non-nullable required_instance_types cannot be null');
+        }
+        $this->container['required_instance_types'] = $required_instance_types;
 
         return $this;
     }

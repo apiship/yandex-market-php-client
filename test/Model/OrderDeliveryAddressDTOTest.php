@@ -107,6 +107,15 @@ class OrderDeliveryAddressDTOTest extends TestCase
     }
 
     /**
+     * Test attribute "district"
+     */
+    public function testPropertyDistrict()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "subway"
      */
     public function testPropertySubway()

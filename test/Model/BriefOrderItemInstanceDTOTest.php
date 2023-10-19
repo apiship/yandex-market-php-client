@@ -96,4 +96,22 @@ class BriefOrderItemInstanceDTOTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "rnpt"
+     */
+    public function testPropertyRnpt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gtd"
+     */
+    public function testPropertyGtd()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

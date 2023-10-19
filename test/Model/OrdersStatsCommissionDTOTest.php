@@ -96,13 +96,4 @@ class OrdersStatsCommissionDTOTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test attribute "predicted"
-     */
-    public function testPropertyPredicted()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
 }

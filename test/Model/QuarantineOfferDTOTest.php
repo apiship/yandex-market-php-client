@@ -105,4 +105,13 @@ class QuarantineOfferDTOTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "verdicts"
+     */
+    public function testPropertyVerdicts()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

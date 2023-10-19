@@ -98,6 +98,15 @@ class SkuBidRecommendationItemDTOTest extends TestCase
     }
 
     /**
+     * Test attribute "bid_recommendations"
+     */
+    public function testPropertyBidRecommendations()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "price_recommendations"
      */
     public function testPropertyPriceRecommendations()

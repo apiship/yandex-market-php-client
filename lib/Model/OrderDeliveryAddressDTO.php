@@ -61,6 +61,7 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
         'country' => 'string',
         'postcode' => 'string',
         'city' => 'string',
+        'district' => 'string',
         'subway' => 'string',
         'street' => 'string',
         'house' => 'string',
@@ -85,6 +86,7 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
         'country' => null,
         'postcode' => null,
         'city' => null,
+        'district' => null,
         'subway' => null,
         'street' => null,
         'house' => null,
@@ -107,6 +109,7 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
         'country' => false,
 		'postcode' => false,
 		'city' => false,
+		'district' => false,
 		'subway' => false,
 		'street' => false,
 		'house' => false,
@@ -209,6 +212,7 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
         'country' => 'country',
         'postcode' => 'postcode',
         'city' => 'city',
+        'district' => 'district',
         'subway' => 'subway',
         'street' => 'street',
         'house' => 'house',
@@ -231,6 +235,7 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
         'country' => 'setCountry',
         'postcode' => 'setPostcode',
         'city' => 'setCity',
+        'district' => 'setDistrict',
         'subway' => 'setSubway',
         'street' => 'setStreet',
         'house' => 'setHouse',
@@ -253,6 +258,7 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
         'country' => 'getCountry',
         'postcode' => 'getPostcode',
         'city' => 'getCity',
+        'district' => 'getDistrict',
         'subway' => 'getSubway',
         'street' => 'getStreet',
         'house' => 'getHouse',
@@ -326,6 +332,7 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('country', $data ?? [], null);
         $this->setIfExists('postcode', $data ?? [], null);
         $this->setIfExists('city', $data ?? [], null);
+        $this->setIfExists('district', $data ?? [], null);
         $this->setIfExists('subway', $data ?? [], null);
         $this->setIfExists('street', $data ?? [], null);
         $this->setIfExists('house', $data ?? [], null);
@@ -458,6 +465,33 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable city cannot be null');
         }
         $this->container['city'] = $city;
+
+        return $this;
+    }
+
+    /**
+     * Gets district
+     *
+     * @return string|null
+     */
+    public function getDistrict()
+    {
+        return $this->container['district'];
+    }
+
+    /**
+     * Sets district
+     *
+     * @param string|null $district Район.
+     *
+     * @return self
+     */
+    public function setDistrict($district)
+    {
+        if (is_null($district)) {
+            throw new \InvalidArgumentException('non-nullable district cannot be null');
+        }
+        $this->container['district'] = $district;
 
         return $this;
     }

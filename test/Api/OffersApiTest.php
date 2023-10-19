@@ -108,6 +108,18 @@ class OffersApiTest extends TestCase
     }
 
     /**
+     * Test case for getOfferRecommendations
+     *
+     * Рекомендации Маркета, касающиеся цен.
+     *
+     */
+    public function testGetOfferRecommendations()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getOffers
      *
      * Предложения магазина.

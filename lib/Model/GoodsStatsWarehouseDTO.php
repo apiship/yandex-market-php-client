@@ -60,7 +60,7 @@ class GoodsStatsWarehouseDTO implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPITypes = [
         'id' => 'int',
         'name' => 'string',
-        'stocks' => '\YandexMarketApi\Model\GoodsStatsWarehouseStockDTO[]'
+        'stocks' => '\YandexMarketApi\Model\WarehouseStockDTO[]'
     ];
 
     /**
@@ -361,7 +361,7 @@ class GoodsStatsWarehouseDTO implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets stocks
      *
-     * @return \YandexMarketApi\Model\GoodsStatsWarehouseStockDTO[]|null
+     * @return \YandexMarketApi\Model\WarehouseStockDTO[]|null
      */
     public function getStocks()
     {
@@ -371,7 +371,7 @@ class GoodsStatsWarehouseDTO implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets stocks
      *
-     * @param \YandexMarketApi\Model\GoodsStatsWarehouseStockDTO[]|null $stocks Информация об остатках товаров на складе.
+     * @param \YandexMarketApi\Model\WarehouseStockDTO[]|null $stocks Информация об остатках товаров на складе.
      *
      * @return self
      */

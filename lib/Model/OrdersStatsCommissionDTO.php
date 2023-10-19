@@ -59,8 +59,7 @@ class OrdersStatsCommissionDTO implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPITypes = [
         'type' => '\YandexMarketApi\Model\OrdersStatsCommissionType',
-        'actual' => 'float',
-        'predicted' => 'float'
+        'actual' => 'float'
     ];
 
     /**
@@ -72,8 +71,7 @@ class OrdersStatsCommissionDTO implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPIFormats = [
         'type' => null,
-        'actual' => null,
-        'predicted' => null
+        'actual' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class OrdersStatsCommissionDTO implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static array $openAPINullables = [
         'type' => false,
-		'actual' => false,
-		'predicted' => false
+		'actual' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class OrdersStatsCommissionDTO implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $attributeMap = [
         'type' => 'type',
-        'actual' => 'actual',
-        'predicted' => 'predicted'
+        'actual' => 'actual'
     ];
 
     /**
@@ -185,8 +181,7 @@ class OrdersStatsCommissionDTO implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $setters = [
         'type' => 'setType',
-        'actual' => 'setActual',
-        'predicted' => 'setPredicted'
+        'actual' => 'setActual'
     ];
 
     /**
@@ -196,8 +191,7 @@ class OrdersStatsCommissionDTO implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $getters = [
         'type' => 'getType',
-        'actual' => 'getActual',
-        'predicted' => 'getPredicted'
+        'actual' => 'getActual'
     ];
 
     /**
@@ -259,7 +253,6 @@ class OrdersStatsCommissionDTO implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('actual', $data ?? [], null);
-        $this->setIfExists('predicted', $data ?? [], null);
     }
 
     /**
@@ -354,33 +347,6 @@ class OrdersStatsCommissionDTO implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable actual cannot be null');
         }
         $this->container['actual'] = $actual;
-
-        return $this;
-    }
-
-    /**
-     * Gets predicted
-     *
-     * @return float|null
-     */
-    public function getPredicted()
-    {
-        return $this->container['predicted'];
-    }
-
-    /**
-     * Sets predicted
-     *
-     * @param float|null $predicted Сумма в рублях, которая была бы выставлена, если бы заказ был создан в момент формирования отчета по заказам. Точность — два знака после запятой.
-     *
-     * @return self
-     */
-    public function setPredicted($predicted)
-    {
-        if (is_null($predicted)) {
-            throw new \InvalidArgumentException('non-nullable predicted cannot be null');
-        }
-        $this->container['predicted'] = $predicted;
 
         return $this;
     }

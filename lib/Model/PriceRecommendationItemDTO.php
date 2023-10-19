@@ -320,7 +320,7 @@ class PriceRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets campaign_id
      *
-     * @param int $campaign_id Идентификатор магазина.
+     * @param int $campaign_id Идентификатор кампании.
      *
      * @return self
      */

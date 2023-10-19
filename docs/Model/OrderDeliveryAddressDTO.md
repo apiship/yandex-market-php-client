@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **country** | **string** | Страна.  Обязательный параметр. | [optional]
 **postcode** | **string** | Почтовый индекс.  Указывается, если выбрана доставка почтой (&#x60;delivery type&#x3D;POST&#x60;). | [optional]
 **city** | **string** | Город или населенный пункт.  Обязательный параметр. | [optional]
+**district** | **string** | Район. | [optional]
 **subway** | **string** | Станция метро. | [optional]
 **street** | **string** | Улица.  Обязательный параметр. | [optional]
 **house** | **string** | Дом или владение.  Обязательный параметр. | [optional]
