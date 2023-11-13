@@ -8,7 +8,7 @@ All URIs are relative to https://api.partner.market.yandex.ru, except if the ope
 | [**getPricesByOfferIds()**](PricesApi.md#getPricesByOfferIds) | **POST** /campaigns/{campaignId}/offer-prices | Просмотр установленных в магазине цен |
 | [**getSuggestedPrices()**](PricesApi.md#getSuggestedPrices) | **POST** /campaigns/{campaignId}/offer-prices/suggestions | Цены для продвижения товаров |
 | [**updateBusinessPrices()**](PricesApi.md#updateBusinessPrices) | **POST** /businesses/{businessId}/offer-prices/updates | Установка цен |
-| [**updatePrices()**](PricesApi.md#updatePrices) | **POST** /campaigns/{campaignId}/offer-prices/updates | Установка цен на товары в конкретном магазине. |
+| [**updatePrices()**](PricesApi.md#updatePrices) | **POST** /campaigns/{campaignId}/offer-prices/updates | Установка цен на товары в конкретном магазине |
 
 
 ## `getPrices()`
@@ -83,7 +83,7 @@ getPricesByOfferIds($campaign_id, $get_prices_by_offer_ids_request, $page_token,
 
 Просмотр установленных в магазине цен
 
-Возвращает список установленных вами цен на заданные товары в заданном магазине.  {% note warning %}  Этот метод не работает с новыми магазинами. Вместо него используйте [POST businesses/{businessId}/offer-mappings](../../reference/business-assortment/getOfferMappings.md).  {% endnote %}  |**⚙️ Лимит:** рассчитывается по [формуле](*rule)| |-|  [//]: <> (rule: суточный лимит товаров — количество товаров на витрине * 25)
+Возвращает список установленных вами цен на заданные товары в заданном магазине.  {% note warning \"Метод только для отдельных магазинов\" %}  Используйте этот метод, только если в кабинете установлены уникальные цены в отдельных магазинах.  Для просмотра базовых цен используйте [POST businesses/{businessId}/offer-mappings](../../reference/business-assortment/getOfferMappings.md).  {% endnote %}  |**⚙️ Лимит:** рассчитывается по [формуле](*rule)| |-|  [//]: <> (rule: суточный лимит товаров — количество товаров на витрине * 25)
 
 ### Example
 
@@ -211,7 +211,7 @@ updateBusinessPrices($business_id, $update_business_prices_request): \YandexMark
 
 Установка цен
 
-Устанавливает цены на товары.  |**⚙️ Лимит:** 5000 товаров в минуту, не более 500 товаров в одном запросе| |-|
+Устанавливает цены на товары.  {% note info \"Данные в каталоге обновляются не мгновенно\" %}  Это занимает до нескольких минут.  {% endnote %}  |**⚙️ Лимит:** 5000 товаров в минуту, не более 500 товаров в одном запросе| |-|
 
 ### Example
 
@@ -271,9 +271,9 @@ try {
 updatePrices($campaign_id, $update_prices_request): \YandexMarketApi\Model\EmptyApiResponse
 ```
 
-Установка цен на товары в конкретном магазине.
+Установка цен на товары в конкретном магазине
 
-Устанавливает цены на товары в магазине.  {% note warning %}  Этот метод не работает с новыми магазинами. Вместо него используйте [POST businesses/{businessId}/offer-prices/updates](../../reference/business-assortment/updateBusinessPrices.md).  {% endnote %}  {% note info %}  Количество товаров магазина считается по данным за последние семь дней (не включая сегодня).  {% endnote %}  |**⚙️ Лимит:** рассчитывается по [формуле](*rule)| |-|  [//]: <> (rule: количество товаров на витрине / 200, но не менее 1000 товаров в минуту)
+Устанавливает цены на товары в магазине.  {% note warning \"Метод только для отдельных магазинов\" %}  Используйте этот метод, только если в кабинете установлены уникальные цены в отдельных магазинах.  Для управления базовыми ценами используйте [POST businesses/{businessId}/offer-prices/updates](../../reference/business-assortment/updateBusinessPrices.md).  {% endnote %}  {% note info \"Данные в каталоге обновляются не мгновенно\" %}  Это занимает до нескольких минут.  {% endnote %}  |**⚙️ Лимит:** рассчитывается по [формуле](*rule)| |-|  [//]: <> (rule: количество товаров на витрине / 200, но не менее 1000 товаров в минуту)
 
 ### Example
 

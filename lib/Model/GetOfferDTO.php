@@ -88,7 +88,8 @@ class GetOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'cofinance_price' => '\YandexMarketApi\Model\GetPriceDTO',
         'card_status' => '\YandexMarketApi\Model\OfferCardStatusType',
         'campaigns' => '\YandexMarketApi\Model\OfferCampaignStatusDTO[]',
-        'selling_programs' => '\YandexMarketApi\Model\OfferSellingProgramDTO[]'
+        'selling_programs' => '\YandexMarketApi\Model\OfferSellingProgramDTO[]',
+        'archived' => 'bool'
     ];
 
     /**
@@ -129,7 +130,8 @@ class GetOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'cofinance_price' => null,
         'card_status' => null,
         'campaigns' => null,
-        'selling_programs' => null
+        'selling_programs' => null,
+        'archived' => null
     ];
 
     /**
@@ -168,7 +170,8 @@ class GetOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
 		'cofinance_price' => false,
 		'card_status' => false,
 		'campaigns' => false,
-		'selling_programs' => false
+		'selling_programs' => false,
+		'archived' => false
     ];
 
     /**
@@ -287,7 +290,8 @@ class GetOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'cofinance_price' => 'cofinancePrice',
         'card_status' => 'cardStatus',
         'campaigns' => 'campaigns',
-        'selling_programs' => 'sellingPrograms'
+        'selling_programs' => 'sellingPrograms',
+        'archived' => 'archived'
     ];
 
     /**
@@ -326,7 +330,8 @@ class GetOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'cofinance_price' => 'setCofinancePrice',
         'card_status' => 'setCardStatus',
         'campaigns' => 'setCampaigns',
-        'selling_programs' => 'setSellingPrograms'
+        'selling_programs' => 'setSellingPrograms',
+        'archived' => 'setArchived'
     ];
 
     /**
@@ -365,7 +370,8 @@ class GetOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'cofinance_price' => 'getCofinancePrice',
         'card_status' => 'getCardStatus',
         'campaigns' => 'getCampaigns',
-        'selling_programs' => 'getSellingPrograms'
+        'selling_programs' => 'getSellingPrograms',
+        'archived' => 'getArchived'
     ];
 
     /**
@@ -456,6 +462,7 @@ class GetOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('card_status', $data ?? [], null);
         $this->setIfExists('campaigns', $data ?? [], null);
         $this->setIfExists('selling_programs', $data ?? [], null);
+        $this->setIfExists('archived', $data ?? [], null);
     }
 
     /**
@@ -635,7 +642,7 @@ class GetOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pictures
      *
-     * @param string[]|null $pictures Ссылки на изображения товара. Изображение по первой ссылке считается основным, остальные дополнительными.  **Требования к ссылкам**  * Ссылок может быть до 10. * Указывайте ссылку целиком, включая протокол http или https. * Максимальная длина — 512 символов. * Русские буквы в URL можно. * Можно использовать прямые ссылки на изображения и на Яндекс Диск. Ссылки на Яндекс Диске нужно копировать с помощью функции **Поделиться**. Относительные ссылки и ссылки на другие облачные хранилища — не работают.  ✅ `https://example-shop.ru/images/sku12345.jpg`  ✅ `https://yadi.sk/i/NaBoRsimVOLov`  ❌ `/images/sku12345.jpg`  ❌ `https://www.dropbox.com/s/818f/super-tovar.jpg`  Ссылки на изображение должны быть постоянными. Нельзя использовать динамические ссылки, меняющиеся от выгрузки к выгрузке.  Если нужно заменить изображение, выложите новое изображение по новой ссылке, а ссылку на старое удалите. Если просто заменить изображение по старой ссылке, оно не обновится.  [Требования к изображениям](https://yandex.ru/support/marketplace/assortment/fields/images.html)
+     * @param string[]|null $pictures Ссылки на изображения товара. Изображение по первой ссылке считается основным, остальные дополнительными.  **Требования к ссылкам**  * Ссылок может быть до 10. * Указывайте ссылку целиком, включая протокол http или https. * Максимальная длина — 512 символов. * Русские буквы в URL можно. * Можно использовать прямые ссылки на изображения и на Яндекс Диск. Ссылки на Яндекс Диске нужно копировать с помощью функции **Поделиться**. Относительные ссылки и ссылки на другие облачные хранилища — не работают.  ✅ `https://example-shop.ru/images/sku12345.jpg`  ✅ `https://yadi.sk/i/NaBoRsimVOLov`  ❌ `/images/sku12345.jpg`  ❌ `https://www.dropbox.com/s/818f/tovar.jpg`  Ссылки на изображение должны быть постоянными. Нельзя использовать динамические ссылки, меняющиеся от выгрузки к выгрузке.  Если нужно заменить изображение, выложите новое изображение по новой ссылке, а ссылку на старое удалите. Если просто заменить изображение по старой ссылке, оно не обновится.  [Требования к изображениям](https://yandex.ru/support/marketplace/assortment/fields/images.html)
      *
      * @return self
      */
@@ -1382,6 +1389,33 @@ class GetOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable selling_programs cannot be null');
         }
         $this->container['selling_programs'] = $selling_programs;
+
+        return $this;
+    }
+
+    /**
+     * Gets archived
+     *
+     * @return bool|null
+     */
+    public function getArchived()
+    {
+        return $this->container['archived'];
+    }
+
+    /**
+     * Sets archived
+     *
+     * @param bool|null $archived Товар помещен в архив.
+     *
+     * @return self
+     */
+    public function setArchived($archived)
+    {
+        if (is_null($archived)) {
+            throw new \InvalidArgumentException('non-nullable archived cannot be null');
+        }
+        $this->container['archived'] = $archived;
 
         return $this;
     }

@@ -275,6 +275,17 @@ class GetSuggestedOfferMappingEntriesRequest implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
+        if ($this->container['offers'] === null) {
+            $invalidProperties[] = "'offers' can't be null";
+        }
+        if ((count($this->container['offers']) > 500)) {
+            $invalidProperties[] = "invalid value for 'offers', number of items must be less than or equal to 500.";
+        }
+
+        if ((count($this->container['offers']) < 1)) {
+            $invalidProperties[] = "invalid value for 'offers', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -293,7 +304,7 @@ class GetSuggestedOfferMappingEntriesRequest implements ModelInterface, ArrayAcc
     /**
      * Gets offers
      *
-     * @return \YandexMarketApi\Model\MappingsOfferDTO[]|null
+     * @return \YandexMarketApi\Model\MappingsOfferDTO[]
      */
     public function getOffers()
     {
@@ -303,7 +314,7 @@ class GetSuggestedOfferMappingEntriesRequest implements ModelInterface, ArrayAcc
     /**
      * Sets offers
      *
-     * @param \YandexMarketApi\Model\MappingsOfferDTO[]|null $offers Список товаров.
+     * @param \YandexMarketApi\Model\MappingsOfferDTO[] $offers Список товаров.
      *
      * @return self
      */
@@ -311,6 +322,13 @@ class GetSuggestedOfferMappingEntriesRequest implements ModelInterface, ArrayAcc
     {
         if (is_null($offers)) {
             throw new \InvalidArgumentException('non-nullable offers cannot be null');
+        }
+
+        if ((count($offers) > 500)) {
+            throw new \InvalidArgumentException('invalid value for $offers when calling GetSuggestedOfferMappingEntriesRequest., number of items must be less than or equal to 500.');
+        }
+        if ((count($offers) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $offers when calling GetSuggestedOfferMappingEntriesRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['offers'] = $offers;
 

@@ -74,9 +74,6 @@ class OrdersApi
         'acceptOrderCancellation' => [
             'application/json',
         ],
-        'createFaasOrder' => [
-            'application/json',
-        ],
         'getOrder' => [
             'application/json',
         ],
@@ -614,450 +611,6 @@ class OrdersApi
     }
 
     /**
-     * Operation createFaasOrder
-     *
-     * Создание заказа
-     *
-     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  \YandexMarketApi\Model\CreateOrderRequest $create_order_request create_order_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFaasOrder'] to see the possible values for this operation
-     *
-     * @throws \YandexMarketApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \YandexMarketApi\Model\CreateOrderResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
-     */
-    public function createFaasOrder($campaign_id, $create_order_request, string $contentType = self::contentTypes['createFaasOrder'][0])
-    {
-        list($response) = $this->createFaasOrderWithHttpInfo($campaign_id, $create_order_request, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation createFaasOrderWithHttpInfo
-     *
-     * Создание заказа
-     *
-     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  \YandexMarketApi\Model\CreateOrderRequest $create_order_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFaasOrder'] to see the possible values for this operation
-     *
-     * @throws \YandexMarketApi\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \YandexMarketApi\Model\CreateOrderResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function createFaasOrderWithHttpInfo($campaign_id, $create_order_request, string $contentType = self::contentTypes['createFaasOrder'][0])
-    {
-        $request = $this->createFaasOrderRequest($campaign_id, $create_order_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\YandexMarketApi\Model\CreateOrderResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\YandexMarketApi\Model\CreateOrderResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\CreateOrderResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\YandexMarketApi\Model\ApiClientDataErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\YandexMarketApi\Model\ApiClientDataErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiClientDataErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\YandexMarketApi\Model\ApiUnauthorizedErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\YandexMarketApi\Model\ApiUnauthorizedErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiUnauthorizedErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\YandexMarketApi\Model\ApiForbiddenErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\YandexMarketApi\Model\ApiForbiddenErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiForbiddenErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
-                    if ('\YandexMarketApi\Model\ApiNotFoundErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\YandexMarketApi\Model\ApiNotFoundErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiNotFoundErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 420:
-                    if ('\YandexMarketApi\Model\ApiLimitErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\YandexMarketApi\Model\ApiLimitErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiLimitErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\YandexMarketApi\Model\ApiServerErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\YandexMarketApi\Model\ApiServerErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiServerErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\YandexMarketApi\Model\CreateOrderResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\YandexMarketApi\Model\CreateOrderResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\YandexMarketApi\Model\ApiClientDataErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\YandexMarketApi\Model\ApiUnauthorizedErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\YandexMarketApi\Model\ApiForbiddenErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\YandexMarketApi\Model\ApiNotFoundErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 420:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\YandexMarketApi\Model\ApiLimitErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\YandexMarketApi\Model\ApiServerErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation createFaasOrderAsync
-     *
-     * Создание заказа
-     *
-     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  \YandexMarketApi\Model\CreateOrderRequest $create_order_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFaasOrder'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createFaasOrderAsync($campaign_id, $create_order_request, string $contentType = self::contentTypes['createFaasOrder'][0])
-    {
-        return $this->createFaasOrderAsyncWithHttpInfo($campaign_id, $create_order_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation createFaasOrderAsyncWithHttpInfo
-     *
-     * Создание заказа
-     *
-     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  \YandexMarketApi\Model\CreateOrderRequest $create_order_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFaasOrder'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createFaasOrderAsyncWithHttpInfo($campaign_id, $create_order_request, string $contentType = self::contentTypes['createFaasOrder'][0])
-    {
-        $returnType = '\YandexMarketApi\Model\CreateOrderResponse';
-        $request = $this->createFaasOrderRequest($campaign_id, $create_order_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'createFaasOrder'
-     *
-     * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  \YandexMarketApi\Model\CreateOrderRequest $create_order_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFaasOrder'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function createFaasOrderRequest($campaign_id, $create_order_request, string $contentType = self::contentTypes['createFaasOrder'][0])
-    {
-
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null || (is_array($campaign_id) && count($campaign_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_id when calling createFaasOrder'
-            );
-        }
-
-        // verify the required parameter 'create_order_request' is set
-        if ($create_order_request === null || (is_array($create_order_request) && count($create_order_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $create_order_request when calling createFaasOrder'
-            );
-        }
-
-
-        $resourcePath = '/campaigns/{campaignId}/orders';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($campaign_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'campaignId' . '}',
-                ObjectSerializer::toPathValue($campaign_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($create_order_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_order_request));
-            } else {
-                $httpBody = $create_order_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation getOrder
      *
      * Информация о заказе
@@ -1514,6 +1067,8 @@ class OrdersApi
      * @param  \DateTime $to_date Конечная дата для фильтрации заказов по дате оформления.  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;fromDate&#x60;) и конечной датой должно быть не больше 30 дней.  Значение по умолчанию: текущая дата. (optional)
      * @param  \DateTime $supplier_shipment_date_from Начальная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной и конечной датой (параметр &#x60;supplierShipmentDateTo&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
      * @param  \DateTime $supplier_shipment_date_to Конечная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;supplierShipmentDateFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_from Начальная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной и конечной датой (параметр &#x60;updatedAtDateTimeFrom&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_to Конечная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной (параметр &#x60;updatedAtDateTimeFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
      * @param  OrderDeliveryDispatchType $dispatch_type Способ отгрузки (optional)
      * @param  bool $fake Фильтрация заказов по типам:  * &#x60;false&#x60; — заказ пользователя.  * &#x60;true&#x60; — тестовый заказ Маркета. (optional, default to false)
      * @param  bool $has_cis Нужно ли вернуть только те заказы, в составе которых есть хотя бы один товар с кодом идентификации из системы «Честный ЗНАК»:  * &#x60;true&#x60; — да;  * &#x60;false&#x60; — нет.  Такие коды присваиваются товарам, которые подлежат маркировке и относятся к определенным категориям. (optional, default to false)
@@ -1527,9 +1082,9 @@ class OrdersApi
      * @throws \InvalidArgumentException
      * @return \YandexMarketApi\Model\GetOrdersResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
      */
-    public function getOrders($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
+    public function getOrders($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $updated_at_date_from = null, $updated_at_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
     {
-        list($response) = $this->getOrdersWithHttpInfo($campaign_id, $status, $substatus, $from_date, $to_date, $supplier_shipment_date_from, $supplier_shipment_date_to, $dispatch_type, $fake, $has_cis, $only_waiting_for_cancellation_approve, $only_estimated_delivery, $page, $page_size, $contentType);
+        list($response) = $this->getOrdersWithHttpInfo($campaign_id, $status, $substatus, $from_date, $to_date, $supplier_shipment_date_from, $supplier_shipment_date_to, $updated_at_date_from, $updated_at_date_to, $dispatch_type, $fake, $has_cis, $only_waiting_for_cancellation_approve, $only_estimated_delivery, $page, $page_size, $contentType);
         return $response;
     }
 
@@ -1545,6 +1100,8 @@ class OrdersApi
      * @param  \DateTime $to_date Конечная дата для фильтрации заказов по дате оформления.  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;fromDate&#x60;) и конечной датой должно быть не больше 30 дней.  Значение по умолчанию: текущая дата. (optional)
      * @param  \DateTime $supplier_shipment_date_from Начальная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной и конечной датой (параметр &#x60;supplierShipmentDateTo&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
      * @param  \DateTime $supplier_shipment_date_to Конечная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;supplierShipmentDateFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_from Начальная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной и конечной датой (параметр &#x60;updatedAtDateTimeFrom&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_to Конечная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной (параметр &#x60;updatedAtDateTimeFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
      * @param  OrderDeliveryDispatchType $dispatch_type Способ отгрузки (optional)
      * @param  bool $fake Фильтрация заказов по типам:  * &#x60;false&#x60; — заказ пользователя.  * &#x60;true&#x60; — тестовый заказ Маркета. (optional, default to false)
      * @param  bool $has_cis Нужно ли вернуть только те заказы, в составе которых есть хотя бы один товар с кодом идентификации из системы «Честный ЗНАК»:  * &#x60;true&#x60; — да;  * &#x60;false&#x60; — нет.  Такие коды присваиваются товарам, которые подлежат маркировке и относятся к определенным категориям. (optional, default to false)
@@ -1558,9 +1115,9 @@ class OrdersApi
      * @throws \InvalidArgumentException
      * @return array of \YandexMarketApi\Model\GetOrdersResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOrdersWithHttpInfo($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
+    public function getOrdersWithHttpInfo($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $updated_at_date_from = null, $updated_at_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
     {
-        $request = $this->getOrdersRequest($campaign_id, $status, $substatus, $from_date, $to_date, $supplier_shipment_date_from, $supplier_shipment_date_to, $dispatch_type, $fake, $has_cis, $only_waiting_for_cancellation_approve, $only_estimated_delivery, $page, $page_size, $contentType);
+        $request = $this->getOrdersRequest($campaign_id, $status, $substatus, $from_date, $to_date, $supplier_shipment_date_from, $supplier_shipment_date_to, $updated_at_date_from, $updated_at_date_to, $dispatch_type, $fake, $has_cis, $only_waiting_for_cancellation_approve, $only_estimated_delivery, $page, $page_size, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1796,6 +1353,8 @@ class OrdersApi
      * @param  \DateTime $to_date Конечная дата для фильтрации заказов по дате оформления.  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;fromDate&#x60;) и конечной датой должно быть не больше 30 дней.  Значение по умолчанию: текущая дата. (optional)
      * @param  \DateTime $supplier_shipment_date_from Начальная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной и конечной датой (параметр &#x60;supplierShipmentDateTo&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
      * @param  \DateTime $supplier_shipment_date_to Конечная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;supplierShipmentDateFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_from Начальная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной и конечной датой (параметр &#x60;updatedAtDateTimeFrom&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_to Конечная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной (параметр &#x60;updatedAtDateTimeFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
      * @param  OrderDeliveryDispatchType $dispatch_type Способ отгрузки (optional)
      * @param  bool $fake Фильтрация заказов по типам:  * &#x60;false&#x60; — заказ пользователя.  * &#x60;true&#x60; — тестовый заказ Маркета. (optional, default to false)
      * @param  bool $has_cis Нужно ли вернуть только те заказы, в составе которых есть хотя бы один товар с кодом идентификации из системы «Честный ЗНАК»:  * &#x60;true&#x60; — да;  * &#x60;false&#x60; — нет.  Такие коды присваиваются товарам, которые подлежат маркировке и относятся к определенным категориям. (optional, default to false)
@@ -1808,9 +1367,9 @@ class OrdersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrdersAsync($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
+    public function getOrdersAsync($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $updated_at_date_from = null, $updated_at_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
     {
-        return $this->getOrdersAsyncWithHttpInfo($campaign_id, $status, $substatus, $from_date, $to_date, $supplier_shipment_date_from, $supplier_shipment_date_to, $dispatch_type, $fake, $has_cis, $only_waiting_for_cancellation_approve, $only_estimated_delivery, $page, $page_size, $contentType)
+        return $this->getOrdersAsyncWithHttpInfo($campaign_id, $status, $substatus, $from_date, $to_date, $supplier_shipment_date_from, $supplier_shipment_date_to, $updated_at_date_from, $updated_at_date_to, $dispatch_type, $fake, $has_cis, $only_waiting_for_cancellation_approve, $only_estimated_delivery, $page, $page_size, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1830,6 +1389,8 @@ class OrdersApi
      * @param  \DateTime $to_date Конечная дата для фильтрации заказов по дате оформления.  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;fromDate&#x60;) и конечной датой должно быть не больше 30 дней.  Значение по умолчанию: текущая дата. (optional)
      * @param  \DateTime $supplier_shipment_date_from Начальная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной и конечной датой (параметр &#x60;supplierShipmentDateTo&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
      * @param  \DateTime $supplier_shipment_date_to Конечная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;supplierShipmentDateFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_from Начальная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной и конечной датой (параметр &#x60;updatedAtDateTimeFrom&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_to Конечная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной (параметр &#x60;updatedAtDateTimeFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
      * @param  OrderDeliveryDispatchType $dispatch_type Способ отгрузки (optional)
      * @param  bool $fake Фильтрация заказов по типам:  * &#x60;false&#x60; — заказ пользователя.  * &#x60;true&#x60; — тестовый заказ Маркета. (optional, default to false)
      * @param  bool $has_cis Нужно ли вернуть только те заказы, в составе которых есть хотя бы один товар с кодом идентификации из системы «Честный ЗНАК»:  * &#x60;true&#x60; — да;  * &#x60;false&#x60; — нет.  Такие коды присваиваются товарам, которые подлежат маркировке и относятся к определенным категориям. (optional, default to false)
@@ -1842,10 +1403,10 @@ class OrdersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrdersAsyncWithHttpInfo($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
+    public function getOrdersAsyncWithHttpInfo($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $updated_at_date_from = null, $updated_at_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
     {
         $returnType = '\YandexMarketApi\Model\GetOrdersResponse';
-        $request = $this->getOrdersRequest($campaign_id, $status, $substatus, $from_date, $to_date, $supplier_shipment_date_from, $supplier_shipment_date_to, $dispatch_type, $fake, $has_cis, $only_waiting_for_cancellation_approve, $only_estimated_delivery, $page, $page_size, $contentType);
+        $request = $this->getOrdersRequest($campaign_id, $status, $substatus, $from_date, $to_date, $supplier_shipment_date_from, $supplier_shipment_date_to, $updated_at_date_from, $updated_at_date_to, $dispatch_type, $fake, $has_cis, $only_waiting_for_cancellation_approve, $only_estimated_delivery, $page, $page_size, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1893,6 +1454,8 @@ class OrdersApi
      * @param  \DateTime $to_date Конечная дата для фильтрации заказов по дате оформления.  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;fromDate&#x60;) и конечной датой должно быть не больше 30 дней.  Значение по умолчанию: текущая дата. (optional)
      * @param  \DateTime $supplier_shipment_date_from Начальная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной и конечной датой (параметр &#x60;supplierShipmentDateTo&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
      * @param  \DateTime $supplier_shipment_date_to Конечная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;supplierShipmentDateFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_from Начальная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной и конечной датой (параметр &#x60;updatedAtDateTimeFrom&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_to Конечная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной (параметр &#x60;updatedAtDateTimeFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
      * @param  OrderDeliveryDispatchType $dispatch_type Способ отгрузки (optional)
      * @param  bool $fake Фильтрация заказов по типам:  * &#x60;false&#x60; — заказ пользователя.  * &#x60;true&#x60; — тестовый заказ Маркета. (optional, default to false)
      * @param  bool $has_cis Нужно ли вернуть только те заказы, в составе которых есть хотя бы один товар с кодом идентификации из системы «Честный ЗНАК»:  * &#x60;true&#x60; — да;  * &#x60;false&#x60; — нет.  Такие коды присваиваются товарам, которые подлежат маркировке и относятся к определенным категориям. (optional, default to false)
@@ -1905,7 +1468,7 @@ class OrdersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOrdersRequest($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
+    public function getOrdersRequest($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $updated_at_date_from = null, $updated_at_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
     {
 
         // verify the required parameter 'campaign_id' is set
@@ -1914,6 +1477,8 @@ class OrdersApi
                 'Missing the required parameter $campaign_id when calling getOrders'
             );
         }
+
+
 
 
 
@@ -1985,6 +1550,24 @@ class OrdersApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $supplier_shipment_date_to,
             'supplierShipmentDateTo', // param base name
+            'string', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $updated_at_date_from,
+            'updatedAtDateFrom', // param base name
+            'string', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $updated_at_date_to,
+            'updatedAtDateTo', // param base name
             'string', // openApiType
             '', // style
             false, // explode

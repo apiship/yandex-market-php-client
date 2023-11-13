@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * GoodsStatsTariffTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Услуга Маркета, за которую начисляется тариф:  * &#x60;AGENCY_COMMISSION&#x60; — прием и перечисление денег от покупателя (агентское вознаграждение).  * &#x60;FULFILLMENT&#x60; — обработка товара на складе Маркета.  * &#x60;STORAGE&#x60; — хранение товара на складе Маркета в течение суток.  * &#x60;SURPLUS&#x60; — хранение излишков на складе Маркета.  * &#x60;WITHDRAW&#x60; — вывоз товара со склада Маркета.  * &#x60;FEE&#x60; — размещение товара на Маркете.  Все тарифы описаны [в Справке для продавцов](https://yandex.ru/support/marketplace/introduction/rates/index.html).
+ * @description Услуга Маркета, за которую начисляется тариф:  * &#x60;AGENCY_COMMISSION&#x60; — прием платежа покупателя.  * &#x60;PAYMENT_TRANSFER&#x60; — перевод платежа покупателя.  * &#x60;FULFILLMENT&#x60; — обработка товара на складе Маркета.  * &#x60;STORAGE&#x60; — хранение товара на складе Маркета в течение суток.  * &#x60;SURPLUS&#x60; — хранение излишков на складе Маркета.  * &#x60;WITHDRAW&#x60; — вывоз товара со склада Маркета.  * &#x60;FEE&#x60; — размещение товара на Маркете.  Все тарифы описаны [в Справке для продавцов](https://yandex.ru/support/marketplace/introduction/rates/index.html).
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

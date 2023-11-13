@@ -89,6 +89,15 @@ class OfferForRecommendationDTOTest extends TestCase
     }
 
     /**
+     * Test attribute "price"
+     */
+    public function testPropertyPrice()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "cofinance_price"
      */
     public function testPropertyCofinancePrice()

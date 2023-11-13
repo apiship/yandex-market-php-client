@@ -259,6 +259,10 @@ class OrderSubstatusType
 
     public const AWAIT_CASHIER = 'AWAIT_CASHIER';
 
+    public const WAITING_POSTPAID_BUDGET_RESERVATION = 'WAITING_POSTPAID_BUDGET_RESERVATION';
+
+    public const AWAIT_SERVICEABLE_CONFIRMATION = 'AWAIT_SERVICEABLE_CONFIRMATION';
+
     public const UNKNOWN = 'UNKNOWN';
 
     /**
@@ -376,6 +380,8 @@ class OrderSubstatusType
             self::NO_PERSONAL_DATA_EXPIRED,
             self::CUSTOMS_PROBLEMS,
             self::AWAIT_CASHIER,
+            self::WAITING_POSTPAID_BUDGET_RESERVATION,
+            self::AWAIT_SERVICEABLE_CONFIRMATION,
             self::UNKNOWN
         ];
     }

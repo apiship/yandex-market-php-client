@@ -387,6 +387,8 @@ class SearchShipmentsRequest implements ModelInterface, ArrayAccess, \JsonSerial
         if (is_null($statuses)) {
             throw new \InvalidArgumentException('non-nullable statuses cannot be null');
         }
+
+
         $this->container['statuses'] = $statuses;
 
         return $this;
@@ -414,6 +416,8 @@ class SearchShipmentsRequest implements ModelInterface, ArrayAccess, \JsonSerial
         if (is_null($order_ids)) {
             throw new \InvalidArgumentException('non-nullable order_ids cannot be null');
         }
+
+
         $this->container['order_ids'] = $order_ids;
 
         return $this;

@@ -591,7 +591,7 @@ class ChangeOutletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets phones
      *
-     * @param string[] $phones Номера телефонов точки продаж. Обязательный параметр.
+     * @param string[] $phones Номера телефонов точки продаж. Передавайте в формате: `+7 (999) 999-99-99`. Обязательный параметр.
      *
      * @return self
      */

@@ -63,7 +63,8 @@ class GetOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'cofinance_price' => '\YandexMarketApi\Model\GetPriceDTO',
         'card_status' => '\YandexMarketApi\Model\OfferCardStatusType',
         'campaigns' => '\YandexMarketApi\Model\OfferCampaignStatusDTO[]',
-        'selling_programs' => '\YandexMarketApi\Model\OfferSellingProgramDTO[]'
+        'selling_programs' => '\YandexMarketApi\Model\OfferSellingProgramDTO[]',
+        'archived' => 'bool'
     ];
 
     /**
@@ -80,7 +81,8 @@ class GetOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'cofinance_price' => null,
         'card_status' => null,
         'campaigns' => null,
-        'selling_programs' => null
+        'selling_programs' => null,
+        'archived' => null
     ];
 
     /**
@@ -95,7 +97,8 @@ class GetOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
 		'cofinance_price' => false,
 		'card_status' => false,
 		'campaigns' => false,
-		'selling_programs' => false
+		'selling_programs' => false,
+		'archived' => false
     ];
 
     /**
@@ -190,7 +193,8 @@ class GetOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'cofinance_price' => 'cofinancePrice',
         'card_status' => 'cardStatus',
         'campaigns' => 'campaigns',
-        'selling_programs' => 'sellingPrograms'
+        'selling_programs' => 'sellingPrograms',
+        'archived' => 'archived'
     ];
 
     /**
@@ -205,7 +209,8 @@ class GetOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'cofinance_price' => 'setCofinancePrice',
         'card_status' => 'setCardStatus',
         'campaigns' => 'setCampaigns',
-        'selling_programs' => 'setSellingPrograms'
+        'selling_programs' => 'setSellingPrograms',
+        'archived' => 'setArchived'
     ];
 
     /**
@@ -220,7 +225,8 @@ class GetOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'cofinance_price' => 'getCofinancePrice',
         'card_status' => 'getCardStatus',
         'campaigns' => 'getCampaigns',
-        'selling_programs' => 'getSellingPrograms'
+        'selling_programs' => 'getSellingPrograms',
+        'archived' => 'getArchived'
     ];
 
     /**
@@ -287,6 +293,7 @@ class GetOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('card_status', $data ?? [], null);
         $this->setIfExists('campaigns', $data ?? [], null);
         $this->setIfExists('selling_programs', $data ?? [], null);
+        $this->setIfExists('archived', $data ?? [], null);
     }
 
     /**
@@ -516,6 +523,33 @@ class GetOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable selling_programs cannot be null');
         }
         $this->container['selling_programs'] = $selling_programs;
+
+        return $this;
+    }
+
+    /**
+     * Gets archived
+     *
+     * @return bool|null
+     */
+    public function getArchived()
+    {
+        return $this->container['archived'];
+    }
+
+    /**
+     * Sets archived
+     *
+     * @param bool|null $archived Товар помещен в архив.
+     *
+     * @return self
+     */
+    public function setArchived($archived)
+    {
+        if (is_null($archived)) {
+            throw new \InvalidArgumentException('non-nullable archived cannot be null');
+        }
+        $this->container['archived'] = $archived;
 
         return $this;
     }

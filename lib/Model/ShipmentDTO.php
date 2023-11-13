@@ -625,6 +625,8 @@ class ShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($order_ids)) {
             throw new \InvalidArgumentException('non-nullable order_ids cannot be null');
         }
+
+
         $this->container['order_ids'] = $order_ids;
 
         return $this;

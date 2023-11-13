@@ -950,7 +950,7 @@ class FbsApiTest extends TestCase
     /**
      * Test case for updatePrices
      *
-     * Установка цен на товары в конкретном магазине..
+     * Установка цен на товары в конкретном магазине.
      *
      */
     public function testUpdatePrices()

@@ -108,18 +108,6 @@ class FbyApiTest extends TestCase
     }
 
     /**
-     * Test case for createFaasOrder
-     *
-     * Создание заказа.
-     *
-     */
-    public function testCreateFaasOrder()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for deleteCampaignOffers
      *
      * Удаление товаров из ассортимента магазина.
@@ -686,7 +674,7 @@ class FbyApiTest extends TestCase
     /**
      * Test case for updatePrices
      *
-     * Установка цен на товары в конкретном магазине..
+     * Установка цен на товары в конкретном магазине.
      *
      */
     public function testUpdatePrices()

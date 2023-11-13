@@ -282,6 +282,13 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
+        if ($this->container['order_ids'] === null) {
+            $invalidProperties[] = "'order_ids' can't be null";
+        }
+        if ((count($this->container['order_ids']) < 1)) {
+            $invalidProperties[] = "invalid value for 'order_ids', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -327,7 +334,7 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets order_ids
      *
-     * @return int[]|null
+     * @return int[]
      */
     public function getOrderIds()
     {
@@ -337,7 +344,7 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets order_ids
      *
-     * @param int[]|null $order_ids Список идентификаторов заказов в отгрузке.
+     * @param int[] $order_ids Список идентификаторов заказов в отгрузке.
      *
      * @return self
      */
@@ -345,6 +352,11 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
     {
         if (is_null($order_ids)) {
             throw new \InvalidArgumentException('non-nullable order_ids cannot be null');
+        }
+
+
+        if ((count($order_ids) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $order_ids when calling ConfirmShipmentRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['order_ids'] = $order_ids;
 
