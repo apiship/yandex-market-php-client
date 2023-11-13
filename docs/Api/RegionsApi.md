@@ -136,7 +136,7 @@ try {
 ## `searchRegionsByName()`
 
 ```php
-searchRegionsByName($name): \YandexMarketApi\Model\GetRegionsResponse
+searchRegionsByName($name, $page_token, $limit): \YandexMarketApi\Model\GetRegionsResponse
 ```
 
 Метод для поиска регионов по их имени
@@ -161,9 +161,11 @@ $apiInstance = new YandexMarketApi\Api\RegionsApi(
     $config
 );
 $name = 'name_example'; // string | Название региона.  Важно учитывать регистр: первая буква должна быть заглавной, остальные — строчными. Например, `Москва`.
+$page_token = eyBuZXh0SWQ6IDIzNDIgfQ==; // string | Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра `nextPageToken`, полученное при последнем запросе.  Если задан `page_token`, параметры `offset`, `page_number` и `page_size` игнорируются.
+$limit = 20; // int | Количество товаров на одной странице.
 
 try {
-    $result = $apiInstance->searchRegionsByName($name);
+    $result = $apiInstance->searchRegionsByName($name, $page_token, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RegionsApi->searchRegionsByName: ', $e->getMessage(), PHP_EOL;
@@ -175,6 +177,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **name** | **string**| Название региона.  Важно учитывать регистр: первая буква должна быть заглавной, остальные — строчными. Например, &#x60;Москва&#x60;. | |
+| **page_token** | **string**| Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. | [optional] |
+| **limit** | **int**| Количество товаров на одной странице. | [optional] |
 
 ### Return type
 

@@ -57,7 +57,8 @@ class GetRegionsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'regions' => '\YandexMarketApi\Model\RegionDTO[]'
+        'regions' => '\YandexMarketApi\Model\RegionDTO[]',
+        'paging' => '\YandexMarketApi\Model\ForwardScrollingPagerDTO'
     ];
 
     /**
@@ -68,7 +69,8 @@ class GetRegionsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'regions' => null
+        'regions' => null,
+        'paging' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class GetRegionsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'regions' => false
+        'regions' => false,
+		'paging' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class GetRegionsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'regions' => 'regions'
+        'regions' => 'regions',
+        'paging' => 'paging'
     ];
 
     /**
@@ -175,7 +179,8 @@ class GetRegionsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'regions' => 'setRegions'
+        'regions' => 'setRegions',
+        'paging' => 'setPaging'
     ];
 
     /**
@@ -184,7 +189,8 @@ class GetRegionsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'regions' => 'getRegions'
+        'regions' => 'getRegions',
+        'paging' => 'getPaging'
     ];
 
     /**
@@ -245,6 +251,7 @@ class GetRegionsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(array $data = null)
     {
         $this->setIfExists('regions', $data ?? [], null);
+        $this->setIfExists('paging', $data ?? [], null);
     }
 
     /**
@@ -312,6 +319,33 @@ class GetRegionsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable regions cannot be null');
         }
         $this->container['regions'] = $regions;
+
+        return $this;
+    }
+
+    /**
+     * Gets paging
+     *
+     * @return \YandexMarketApi\Model\ForwardScrollingPagerDTO|null
+     */
+    public function getPaging()
+    {
+        return $this->container['paging'];
+    }
+
+    /**
+     * Sets paging
+     *
+     * @param \YandexMarketApi\Model\ForwardScrollingPagerDTO|null $paging paging
+     *
+     * @return self
+     */
+    public function setPaging($paging)
+    {
+        if (is_null($paging)) {
+            throw new \InvalidArgumentException('non-nullable paging cannot be null');
+        }
+        $this->container['paging'] = $paging;
 
         return $this;
     }

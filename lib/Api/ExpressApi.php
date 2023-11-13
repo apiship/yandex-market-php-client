@@ -13839,6 +13839,8 @@ class ExpressApi
      * @param  \DateTime $to_date Конечная дата для фильтрации заказов по дате оформления.  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;fromDate&#x60;) и конечной датой должно быть не больше 30 дней.  Значение по умолчанию: текущая дата. (optional)
      * @param  \DateTime $supplier_shipment_date_from Начальная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной и конечной датой (параметр &#x60;supplierShipmentDateTo&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
      * @param  \DateTime $supplier_shipment_date_to Конечная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;supplierShipmentDateFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_from Начальная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной и конечной датой (параметр &#x60;updatedAtDateTimeFrom&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_to Конечная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной (параметр &#x60;updatedAtDateTimeFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
      * @param  OrderDeliveryDispatchType $dispatch_type Способ отгрузки (optional)
      * @param  bool $fake Фильтрация заказов по типам:  * &#x60;false&#x60; — заказ пользователя.  * &#x60;true&#x60; — тестовый заказ Маркета. (optional, default to false)
      * @param  bool $has_cis Нужно ли вернуть только те заказы, в составе которых есть хотя бы один товар с кодом идентификации из системы «Честный ЗНАК»:  * &#x60;true&#x60; — да;  * &#x60;false&#x60; — нет.  Такие коды присваиваются товарам, которые подлежат маркировке и относятся к определенным категориям. (optional, default to false)
@@ -13852,9 +13854,9 @@ class ExpressApi
      * @throws \InvalidArgumentException
      * @return \YandexMarketApi\Model\GetOrdersResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
      */
-    public function getOrders($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
+    public function getOrders($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $updated_at_date_from = null, $updated_at_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
     {
-        list($response) = $this->getOrdersWithHttpInfo($campaign_id, $status, $substatus, $from_date, $to_date, $supplier_shipment_date_from, $supplier_shipment_date_to, $dispatch_type, $fake, $has_cis, $only_waiting_for_cancellation_approve, $only_estimated_delivery, $page, $page_size, $contentType);
+        list($response) = $this->getOrdersWithHttpInfo($campaign_id, $status, $substatus, $from_date, $to_date, $supplier_shipment_date_from, $supplier_shipment_date_to, $updated_at_date_from, $updated_at_date_to, $dispatch_type, $fake, $has_cis, $only_waiting_for_cancellation_approve, $only_estimated_delivery, $page, $page_size, $contentType);
         return $response;
     }
 
@@ -13870,6 +13872,8 @@ class ExpressApi
      * @param  \DateTime $to_date Конечная дата для фильтрации заказов по дате оформления.  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;fromDate&#x60;) и конечной датой должно быть не больше 30 дней.  Значение по умолчанию: текущая дата. (optional)
      * @param  \DateTime $supplier_shipment_date_from Начальная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной и конечной датой (параметр &#x60;supplierShipmentDateTo&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
      * @param  \DateTime $supplier_shipment_date_to Конечная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;supplierShipmentDateFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_from Начальная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной и конечной датой (параметр &#x60;updatedAtDateTimeFrom&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_to Конечная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной (параметр &#x60;updatedAtDateTimeFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
      * @param  OrderDeliveryDispatchType $dispatch_type Способ отгрузки (optional)
      * @param  bool $fake Фильтрация заказов по типам:  * &#x60;false&#x60; — заказ пользователя.  * &#x60;true&#x60; — тестовый заказ Маркета. (optional, default to false)
      * @param  bool $has_cis Нужно ли вернуть только те заказы, в составе которых есть хотя бы один товар с кодом идентификации из системы «Честный ЗНАК»:  * &#x60;true&#x60; — да;  * &#x60;false&#x60; — нет.  Такие коды присваиваются товарам, которые подлежат маркировке и относятся к определенным категориям. (optional, default to false)
@@ -13883,9 +13887,9 @@ class ExpressApi
      * @throws \InvalidArgumentException
      * @return array of \YandexMarketApi\Model\GetOrdersResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOrdersWithHttpInfo($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
+    public function getOrdersWithHttpInfo($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $updated_at_date_from = null, $updated_at_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
     {
-        $request = $this->getOrdersRequest($campaign_id, $status, $substatus, $from_date, $to_date, $supplier_shipment_date_from, $supplier_shipment_date_to, $dispatch_type, $fake, $has_cis, $only_waiting_for_cancellation_approve, $only_estimated_delivery, $page, $page_size, $contentType);
+        $request = $this->getOrdersRequest($campaign_id, $status, $substatus, $from_date, $to_date, $supplier_shipment_date_from, $supplier_shipment_date_to, $updated_at_date_from, $updated_at_date_to, $dispatch_type, $fake, $has_cis, $only_waiting_for_cancellation_approve, $only_estimated_delivery, $page, $page_size, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14121,6 +14125,8 @@ class ExpressApi
      * @param  \DateTime $to_date Конечная дата для фильтрации заказов по дате оформления.  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;fromDate&#x60;) и конечной датой должно быть не больше 30 дней.  Значение по умолчанию: текущая дата. (optional)
      * @param  \DateTime $supplier_shipment_date_from Начальная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной и конечной датой (параметр &#x60;supplierShipmentDateTo&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
      * @param  \DateTime $supplier_shipment_date_to Конечная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;supplierShipmentDateFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_from Начальная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной и конечной датой (параметр &#x60;updatedAtDateTimeFrom&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_to Конечная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной (параметр &#x60;updatedAtDateTimeFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
      * @param  OrderDeliveryDispatchType $dispatch_type Способ отгрузки (optional)
      * @param  bool $fake Фильтрация заказов по типам:  * &#x60;false&#x60; — заказ пользователя.  * &#x60;true&#x60; — тестовый заказ Маркета. (optional, default to false)
      * @param  bool $has_cis Нужно ли вернуть только те заказы, в составе которых есть хотя бы один товар с кодом идентификации из системы «Честный ЗНАК»:  * &#x60;true&#x60; — да;  * &#x60;false&#x60; — нет.  Такие коды присваиваются товарам, которые подлежат маркировке и относятся к определенным категориям. (optional, default to false)
@@ -14133,9 +14139,9 @@ class ExpressApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrdersAsync($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
+    public function getOrdersAsync($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $updated_at_date_from = null, $updated_at_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
     {
-        return $this->getOrdersAsyncWithHttpInfo($campaign_id, $status, $substatus, $from_date, $to_date, $supplier_shipment_date_from, $supplier_shipment_date_to, $dispatch_type, $fake, $has_cis, $only_waiting_for_cancellation_approve, $only_estimated_delivery, $page, $page_size, $contentType)
+        return $this->getOrdersAsyncWithHttpInfo($campaign_id, $status, $substatus, $from_date, $to_date, $supplier_shipment_date_from, $supplier_shipment_date_to, $updated_at_date_from, $updated_at_date_to, $dispatch_type, $fake, $has_cis, $only_waiting_for_cancellation_approve, $only_estimated_delivery, $page, $page_size, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14155,6 +14161,8 @@ class ExpressApi
      * @param  \DateTime $to_date Конечная дата для фильтрации заказов по дате оформления.  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;fromDate&#x60;) и конечной датой должно быть не больше 30 дней.  Значение по умолчанию: текущая дата. (optional)
      * @param  \DateTime $supplier_shipment_date_from Начальная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной и конечной датой (параметр &#x60;supplierShipmentDateTo&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
      * @param  \DateTime $supplier_shipment_date_to Конечная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;supplierShipmentDateFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_from Начальная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной и конечной датой (параметр &#x60;updatedAtDateTimeFrom&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_to Конечная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной (параметр &#x60;updatedAtDateTimeFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
      * @param  OrderDeliveryDispatchType $dispatch_type Способ отгрузки (optional)
      * @param  bool $fake Фильтрация заказов по типам:  * &#x60;false&#x60; — заказ пользователя.  * &#x60;true&#x60; — тестовый заказ Маркета. (optional, default to false)
      * @param  bool $has_cis Нужно ли вернуть только те заказы, в составе которых есть хотя бы один товар с кодом идентификации из системы «Честный ЗНАК»:  * &#x60;true&#x60; — да;  * &#x60;false&#x60; — нет.  Такие коды присваиваются товарам, которые подлежат маркировке и относятся к определенным категориям. (optional, default to false)
@@ -14167,10 +14175,10 @@ class ExpressApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrdersAsyncWithHttpInfo($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
+    public function getOrdersAsyncWithHttpInfo($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $updated_at_date_from = null, $updated_at_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
     {
         $returnType = '\YandexMarketApi\Model\GetOrdersResponse';
-        $request = $this->getOrdersRequest($campaign_id, $status, $substatus, $from_date, $to_date, $supplier_shipment_date_from, $supplier_shipment_date_to, $dispatch_type, $fake, $has_cis, $only_waiting_for_cancellation_approve, $only_estimated_delivery, $page, $page_size, $contentType);
+        $request = $this->getOrdersRequest($campaign_id, $status, $substatus, $from_date, $to_date, $supplier_shipment_date_from, $supplier_shipment_date_to, $updated_at_date_from, $updated_at_date_to, $dispatch_type, $fake, $has_cis, $only_waiting_for_cancellation_approve, $only_estimated_delivery, $page, $page_size, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14218,6 +14226,8 @@ class ExpressApi
      * @param  \DateTime $to_date Конечная дата для фильтрации заказов по дате оформления.  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;fromDate&#x60;) и конечной датой должно быть не больше 30 дней.  Значение по умолчанию: текущая дата. (optional)
      * @param  \DateTime $supplier_shipment_date_from Начальная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной и конечной датой (параметр &#x60;supplierShipmentDateTo&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
      * @param  \DateTime $supplier_shipment_date_to Конечная дата для фильтрации заказов по дате отгрузки в службу доставки (параметр &#x60;shipmentDate&#x60;).  Формат даты: &#x60;ДД-ММ-ГГГГ&#x60;.  Между начальной (параметр &#x60;supplierShipmentDateFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_from Начальная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной и конечной датой (параметр &#x60;updatedAtDateTimeFrom&#x60;) должно быть не больше 30 дней.  Начальная дата включается в интервал для фильтрации. (optional)
+     * @param  \DateTime $updated_at_date_to Конечная дата для фильтрации заказов по дате и времени обновления (параметр &#x60;updatedAt&#x60;).  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Между начальной (параметр &#x60;updatedAtDateTimeFrom&#x60;) и конечной датой должно быть не больше 30 дней.  Конечная дата не включается в интервал для фильтрации. (optional)
      * @param  OrderDeliveryDispatchType $dispatch_type Способ отгрузки (optional)
      * @param  bool $fake Фильтрация заказов по типам:  * &#x60;false&#x60; — заказ пользователя.  * &#x60;true&#x60; — тестовый заказ Маркета. (optional, default to false)
      * @param  bool $has_cis Нужно ли вернуть только те заказы, в составе которых есть хотя бы один товар с кодом идентификации из системы «Честный ЗНАК»:  * &#x60;true&#x60; — да;  * &#x60;false&#x60; — нет.  Такие коды присваиваются товарам, которые подлежат маркировке и относятся к определенным категориям. (optional, default to false)
@@ -14230,7 +14240,7 @@ class ExpressApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOrdersRequest($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
+    public function getOrdersRequest($campaign_id, $status = null, $substatus = null, $from_date = null, $to_date = null, $supplier_shipment_date_from = null, $supplier_shipment_date_to = null, $updated_at_date_from = null, $updated_at_date_to = null, $dispatch_type = null, $fake = false, $has_cis = false, $only_waiting_for_cancellation_approve = false, $only_estimated_delivery = false, $page = 1, $page_size = null, string $contentType = self::contentTypes['getOrders'][0])
     {
 
         // verify the required parameter 'campaign_id' is set
@@ -14239,6 +14249,8 @@ class ExpressApi
                 'Missing the required parameter $campaign_id when calling getOrders'
             );
         }
+
+
 
 
 
@@ -14310,6 +14322,24 @@ class ExpressApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $supplier_shipment_date_to,
             'supplierShipmentDateTo', // param base name
+            'string', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $updated_at_date_from,
+            'updatedAtDateFrom', // param base name
+            'string', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $updated_at_date_to,
+            'updatedAtDateTo', // param base name
             'string', // openApiType
             '', // style
             false, // explode
@@ -24989,7 +25019,7 @@ class ExpressApi
     /**
      * Operation updatePrices
      *
-     * Установка цен на товары в конкретном магазине.
+     * Установка цен на товары в конкретном магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdatePricesRequest $update_prices_request update_prices_request (required)
@@ -25008,7 +25038,7 @@ class ExpressApi
     /**
      * Operation updatePricesWithHttpInfo
      *
-     * Установка цен на товары в конкретном магазине.
+     * Установка цен на товары в конкретном магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdatePricesRequest $update_prices_request (required)
@@ -25270,7 +25300,7 @@ class ExpressApi
     /**
      * Operation updatePricesAsync
      *
-     * Установка цен на товары в конкретном магазине.
+     * Установка цен на товары в конкретном магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdatePricesRequest $update_prices_request (required)
@@ -25292,7 +25322,7 @@ class ExpressApi
     /**
      * Operation updatePricesAsyncWithHttpInfo
      *
-     * Установка цен на товары в конкретном магазине.
+     * Установка цен на товары в конкретном магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdatePricesRequest $update_prices_request (required)

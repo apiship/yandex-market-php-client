@@ -325,6 +325,8 @@ class OrdersShipmentInfoDTO implements ModelInterface, ArrayAccess, \JsonSeriali
         if (is_null($order_ids_with_labels)) {
             throw new \InvalidArgumentException('non-nullable order_ids_with_labels cannot be null');
         }
+
+
         $this->container['order_ids_with_labels'] = $order_ids_with_labels;
 
         return $this;
@@ -352,6 +354,8 @@ class OrdersShipmentInfoDTO implements ModelInterface, ArrayAccess, \JsonSeriali
         if (is_null($order_ids_without_labels)) {
             throw new \InvalidArgumentException('non-nullable order_ids_without_labels cannot be null');
         }
+
+
         $this->container['order_ids_without_labels'] = $order_ids_without_labels;
 
         return $this;

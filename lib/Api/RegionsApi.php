@@ -991,15 +991,17 @@ class RegionsApi
      * Метод для поиска регионов по их имени
      *
      * @param  string $name Название региона.  Важно учитывать регистр: первая буква должна быть заглавной, остальные — строчными. Например, &#x60;Москва&#x60;. (required)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRegionsByName'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \YandexMarketApi\Model\GetRegionsResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
      */
-    public function searchRegionsByName($name, string $contentType = self::contentTypes['searchRegionsByName'][0])
+    public function searchRegionsByName($name, $page_token = null, $limit = null, string $contentType = self::contentTypes['searchRegionsByName'][0])
     {
-        list($response) = $this->searchRegionsByNameWithHttpInfo($name, $contentType);
+        list($response) = $this->searchRegionsByNameWithHttpInfo($name, $page_token, $limit, $contentType);
         return $response;
     }
 
@@ -1009,15 +1011,17 @@ class RegionsApi
      * Метод для поиска регионов по их имени
      *
      * @param  string $name Название региона.  Важно учитывать регистр: первая буква должна быть заглавной, остальные — строчными. Например, &#x60;Москва&#x60;. (required)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRegionsByName'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \YandexMarketApi\Model\GetRegionsResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchRegionsByNameWithHttpInfo($name, string $contentType = self::contentTypes['searchRegionsByName'][0])
+    public function searchRegionsByNameWithHttpInfo($name, $page_token = null, $limit = null, string $contentType = self::contentTypes['searchRegionsByName'][0])
     {
-        $request = $this->searchRegionsByNameRequest($name, $contentType);
+        $request = $this->searchRegionsByNameRequest($name, $page_token, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1201,14 +1205,16 @@ class RegionsApi
      * Метод для поиска регионов по их имени
      *
      * @param  string $name Название региона.  Важно учитывать регистр: первая буква должна быть заглавной, остальные — строчными. Например, &#x60;Москва&#x60;. (required)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRegionsByName'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRegionsByNameAsync($name, string $contentType = self::contentTypes['searchRegionsByName'][0])
+    public function searchRegionsByNameAsync($name, $page_token = null, $limit = null, string $contentType = self::contentTypes['searchRegionsByName'][0])
     {
-        return $this->searchRegionsByNameAsyncWithHttpInfo($name, $contentType)
+        return $this->searchRegionsByNameAsyncWithHttpInfo($name, $page_token, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1222,15 +1228,17 @@ class RegionsApi
      * Метод для поиска регионов по их имени
      *
      * @param  string $name Название региона.  Важно учитывать регистр: первая буква должна быть заглавной, остальные — строчными. Например, &#x60;Москва&#x60;. (required)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRegionsByName'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRegionsByNameAsyncWithHttpInfo($name, string $contentType = self::contentTypes['searchRegionsByName'][0])
+    public function searchRegionsByNameAsyncWithHttpInfo($name, $page_token = null, $limit = null, string $contentType = self::contentTypes['searchRegionsByName'][0])
     {
         $returnType = '\YandexMarketApi\Model\GetRegionsResponse';
-        $request = $this->searchRegionsByNameRequest($name, $contentType);
+        $request = $this->searchRegionsByNameRequest($name, $page_token, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1272,12 +1280,14 @@ class RegionsApi
      * Create request for operation 'searchRegionsByName'
      *
      * @param  string $name Название региона.  Важно учитывать регистр: первая буква должна быть заглавной, остальные — строчными. Например, &#x60;Москва&#x60;. (required)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
+     * @param  int $limit Количество товаров на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRegionsByName'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchRegionsByNameRequest($name, string $contentType = self::contentTypes['searchRegionsByName'][0])
+    public function searchRegionsByNameRequest($name, $page_token = null, $limit = null, string $contentType = self::contentTypes['searchRegionsByName'][0])
     {
 
         // verify the required parameter 'name' is set
@@ -1286,6 +1296,8 @@ class RegionsApi
                 'Missing the required parameter $name when calling searchRegionsByName'
             );
         }
+
+
 
 
         $resourcePath = '/regions';
@@ -1303,6 +1315,24 @@ class RegionsApi
             '', // style
             false, // explode
             true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_token,
+            'page_token', // param base name
+            'string', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            '', // style
+            false, // explode
+            false // required
         ) ?? []);
 
 

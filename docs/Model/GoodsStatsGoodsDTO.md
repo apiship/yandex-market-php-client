@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **category_id** | **int** | Идентификатор категории товара на Маркете. | [optional]
 **category_name** | **string** | Название категории товара на Маркете. | [optional]
 **weight_dimensions** | [**\YandexMarketApi\Model\GoodsStatsWeightDimensionsDTO**](GoodsStatsWeightDimensionsDTO.md) |  | [optional]
-**warehouses** | [**\YandexMarketApi\Model\GoodsStatsWarehouseDTO[]**](GoodsStatsWarehouseDTO.md) | Информация о складах, на которых хранится товар. | [optional]
+**warehouses** | [**\YandexMarketApi\Model\GoodsStatsWarehouseDTO[]**](GoodsStatsWarehouseDTO.md) | Информация о складах, на которых хранится товар.  Параметр не приходит, если товара нет ни на одном складе. | [optional]
 **tariffs** | [**\YandexMarketApi\Model\GoodsStatsTariffDTO[]**](GoodsStatsTariffDTO.md) | Информация о тарифах, по которым нужно заплатить за услуги Маркета. | [optional]
 **pictures** | **string[]** | Ссылки (URL) изображений товара в хорошем качестве. | [optional]
 

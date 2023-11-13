@@ -1977,7 +1977,7 @@ class PricesApi
     /**
      * Operation updatePrices
      *
-     * Установка цен на товары в конкретном магазине.
+     * Установка цен на товары в конкретном магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdatePricesRequest $update_prices_request update_prices_request (required)
@@ -1996,7 +1996,7 @@ class PricesApi
     /**
      * Operation updatePricesWithHttpInfo
      *
-     * Установка цен на товары в конкретном магазине.
+     * Установка цен на товары в конкретном магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdatePricesRequest $update_prices_request (required)
@@ -2258,7 +2258,7 @@ class PricesApi
     /**
      * Operation updatePricesAsync
      *
-     * Установка цен на товары в конкретном магазине.
+     * Установка цен на товары в конкретном магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdatePricesRequest $update_prices_request (required)
@@ -2280,7 +2280,7 @@ class PricesApi
     /**
      * Operation updatePricesAsyncWithHttpInfo
      *
-     * Установка цен на товары в конкретном магазине.
+     * Установка цен на товары в конкретном магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\UpdatePricesRequest $update_prices_request (required)

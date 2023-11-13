@@ -84,18 +84,6 @@ class OrdersApiTest extends TestCase
     }
 
     /**
-     * Test case for createFaasOrder
-     *
-     * Создание заказа.
-     *
-     */
-    public function testCreateFaasOrder()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for getOrder
      *
      * Информация о заказе.

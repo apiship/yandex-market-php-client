@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **shop_outlet_code** | **string** | Идентификатор точки продаж, присвоенный магазином. | [optional]
 **visibility** | [**\YandexMarketApi\Model\OutletVisibilityType**](OutletVisibilityType.md) |  | [optional]
 **address** | [**\YandexMarketApi\Model\OutletAddressDTO**](OutletAddressDTO.md) |  |
-**phones** | **string[]** | Номера телефонов точки продаж. Обязательный параметр. |
+**phones** | **string[]** | Номера телефонов точки продаж. Передавайте в формате: &#x60;+7 (999) 999-99-99&#x60;. Обязательный параметр. |
 **working_schedule** | [**\YandexMarketApi\Model\OutletWorkingScheduleDTO**](OutletWorkingScheduleDTO.md) |  |
 **delivery_rules** | [**\YandexMarketApi\Model\OutletDeliveryRuleDTO[]**](OutletDeliveryRuleDTO.md) | Информация об условиях доставки для данной точки продаж. Обязательный параметр, если параметр &#x60;type&#x3D;DEPOT&#x60; или &#x60;type&#x3D;MIXED&#x60;. | [optional]
 **emails** | **string[]** | Адрес электронной почты точки продаж. Может содержать только один параметр &#x60;email&#x60;. | [optional]

@@ -59,6 +59,7 @@ class OfferForRecommendationDTO implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'offer_id' => 'string',
+        'price' => '\YandexMarketApi\Model\BasePriceDTO',
         'cofinance_price' => '\YandexMarketApi\Model\GetPriceDTO',
         'competitiveness' => '\YandexMarketApi\Model\PriceCompetitivenessType'
     ];
@@ -72,6 +73,7 @@ class OfferForRecommendationDTO implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPIFormats = [
         'offer_id' => null,
+        'price' => null,
         'cofinance_price' => null,
         'competitiveness' => null
     ];
@@ -83,6 +85,7 @@ class OfferForRecommendationDTO implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static array $openAPINullables = [
         'offer_id' => false,
+		'price' => false,
 		'cofinance_price' => false,
 		'competitiveness' => false
     ];
@@ -174,6 +177,7 @@ class OfferForRecommendationDTO implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $attributeMap = [
         'offer_id' => 'offerId',
+        'price' => 'price',
         'cofinance_price' => 'cofinancePrice',
         'competitiveness' => 'competitiveness'
     ];
@@ -185,6 +189,7 @@ class OfferForRecommendationDTO implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $setters = [
         'offer_id' => 'setOfferId',
+        'price' => 'setPrice',
         'cofinance_price' => 'setCofinancePrice',
         'competitiveness' => 'setCompetitiveness'
     ];
@@ -196,6 +201,7 @@ class OfferForRecommendationDTO implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $getters = [
         'offer_id' => 'getOfferId',
+        'price' => 'getPrice',
         'cofinance_price' => 'getCofinancePrice',
         'competitiveness' => 'getCompetitiveness'
     ];
@@ -258,6 +264,7 @@ class OfferForRecommendationDTO implements ModelInterface, ArrayAccess, \JsonSer
     public function __construct(array $data = null)
     {
         $this->setIfExists('offer_id', $data ?? [], null);
+        $this->setIfExists('price', $data ?? [], null);
         $this->setIfExists('cofinance_price', $data ?? [], null);
         $this->setIfExists('competitiveness', $data ?? [], null);
     }
@@ -349,6 +356,33 @@ class OfferForRecommendationDTO implements ModelInterface, ArrayAccess, \JsonSer
         }
 
         $this->container['offer_id'] = $offer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets price
+     *
+     * @return \YandexMarketApi\Model\BasePriceDTO|null
+     */
+    public function getPrice()
+    {
+        return $this->container['price'];
+    }
+
+    /**
+     * Sets price
+     *
+     * @param \YandexMarketApi\Model\BasePriceDTO|null $price price
+     *
+     * @return self
+     */
+    public function setPrice($price)
+    {
+        if (is_null($price)) {
+            throw new \InvalidArgumentException('non-nullable price cannot be null');
+        }
+        $this->container['price'] = $price;
 
         return $this;
     }

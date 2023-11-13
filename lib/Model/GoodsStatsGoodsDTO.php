@@ -577,7 +577,7 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets warehouses
      *
-     * @param \YandexMarketApi\Model\GoodsStatsWarehouseDTO[]|null $warehouses Информация о складах, на которых хранится товар.
+     * @param \YandexMarketApi\Model\GoodsStatsWarehouseDTO[]|null $warehouses Информация о складах, на которых хранится товар.  Параметр не приходит, если товара нет ни на одном складе.
      *
      * @return self
      */
