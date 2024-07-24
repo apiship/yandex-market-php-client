@@ -473,7 +473,7 @@ class OrderBuyerInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets phone
      *
-     * @param string|null $phone Подменный номер телефона покупателя. Подробнее о таких номерах читайте [в Справке для продавцов](https://yandex.ru/support2/marketplace/ru/orders/dbs/call#fake-number).  Формат номера: `+<код_страны><код_региона><номер_телефона>`.
+     * @param string|null $phone Подменный номер телефона покупателя. Подробнее о таких номерах читайте [в Справке Маркета для продавцов](https://yandex.ru/support2/marketplace/ru/orders/dbs/call#fake-number).  Формат номера: `+<код_страны><код_региона><номер_телефона>`.
      *
      * @return self
      */

@@ -144,7 +144,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturn'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -164,7 +164,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturn'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -404,7 +404,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturn'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -427,7 +427,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturn'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -479,7 +479,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturn'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -609,7 +609,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnApplication'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -629,7 +629,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnApplication'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -869,7 +869,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnApplication'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -892,7 +892,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnApplication'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -944,7 +944,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnApplication'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1074,9 +1074,9 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
-     * @param  int $item_id Идентификатор товара в возврате (required)
-     * @param  string $image_hash Хеш ссылки изображения для загрузки (required)
+     * @param  int $return_id Идентификатор возврата. (required)
+     * @param  int $item_id Идентификатор товара в возврате. (required)
+     * @param  string $image_hash Хеш ссылки изображения для загрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnPhoto'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -1096,9 +1096,9 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
-     * @param  int $item_id Идентификатор товара в возврате (required)
-     * @param  string $image_hash Хеш ссылки изображения для загрузки (required)
+     * @param  int $return_id Идентификатор возврата. (required)
+     * @param  int $item_id Идентификатор товара в возврате. (required)
+     * @param  string $image_hash Хеш ссылки изображения для загрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnPhoto'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -1338,9 +1338,9 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
-     * @param  int $item_id Идентификатор товара в возврате (required)
-     * @param  string $image_hash Хеш ссылки изображения для загрузки (required)
+     * @param  int $return_id Идентификатор возврата. (required)
+     * @param  int $item_id Идентификатор товара в возврате. (required)
+     * @param  string $image_hash Хеш ссылки изображения для загрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnPhoto'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1363,9 +1363,9 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
-     * @param  int $item_id Идентификатор товара в возврате (required)
-     * @param  string $image_hash Хеш ссылки изображения для загрузки (required)
+     * @param  int $return_id Идентификатор возврата. (required)
+     * @param  int $item_id Идентификатор товара в возврате. (required)
+     * @param  string $image_hash Хеш ссылки изображения для загрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnPhoto'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1417,9 +1417,9 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
-     * @param  int $item_id Идентификатор товара в возврате (required)
-     * @param  string $image_hash Хеш ссылки изображения для загрузки (required)
+     * @param  int $return_id Идентификатор возврата. (required)
+     * @param  int $item_id Идентификатор товара в возврате. (required)
+     * @param  string $image_hash Хеш ссылки изображения для загрузки. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturnPhoto'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1583,10 +1583,10 @@ class ReturnsApi
      * @param  int[] $order_ids Идентификаторы заказов — для фильтрации результатов.  Несколько идентификаторов перечисляются через запятую без пробела. Максимальное количество идентификаторов — 50. (optional)
      * @param  \YandexMarketApi\Model\RefundStatusType[] $statuses Статусы возвратов или невыкупов — для фильтрации результатов.  Несколько статусов перечисляются через запятую. (optional)
      * @param  ReturnType $type Тип заказа для фильтрации:  * &#x60;RETURN&#x60; — возврат.  * &#x60;UNREDEEMED&#x60; — невыкуп.  Если не указывать, в ответе будут и возвраты, и невыкупы. (optional)
-     * @param  \DateTime $from_date Начальные дата и время для фильтрации возвратов или невыкупов по дате оформления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
-     * @param  \DateTime $to_date Конечные дата и время для фильтрации возвратов или невыкупов по дате оформления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
-     * @param  \DateTime $from_date2 Дата, с которой интересуют возвраты (устаревшее, будет удалено). (optional) (deprecated)
-     * @param  \DateTime $to_date2 Дата, до которой интересуют возвраты (устаревшее, будет удалено). (optional) (deprecated)
+     * @param  \DateTime $from_date Начальная дата для фильтрации возвратов или невыкупов по дате обновления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
+     * @param  \DateTime $to_date Конечная дата для фильтрации возвратов или невыкупов по дате обновления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
+     * @param  \DateTime $from_date2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Вместо него используйте &#x60;fromDate&#x60;.  {% endnote %}  Начальная дата для фильтрации возвратов или невыкупов по дате обновления. (optional) (deprecated)
+     * @param  \DateTime $to_date2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Вместо него используйте &#x60;toDate&#x60;.  {% endnote %}  Конечная дата для фильтрации возвратов или невыкупов по дате обновления. (optional) (deprecated)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturns'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -1610,10 +1610,10 @@ class ReturnsApi
      * @param  int[] $order_ids Идентификаторы заказов — для фильтрации результатов.  Несколько идентификаторов перечисляются через запятую без пробела. Максимальное количество идентификаторов — 50. (optional)
      * @param  \YandexMarketApi\Model\RefundStatusType[] $statuses Статусы возвратов или невыкупов — для фильтрации результатов.  Несколько статусов перечисляются через запятую. (optional)
      * @param  ReturnType $type Тип заказа для фильтрации:  * &#x60;RETURN&#x60; — возврат.  * &#x60;UNREDEEMED&#x60; — невыкуп.  Если не указывать, в ответе будут и возвраты, и невыкупы. (optional)
-     * @param  \DateTime $from_date Начальные дата и время для фильтрации возвратов или невыкупов по дате оформления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
-     * @param  \DateTime $to_date Конечные дата и время для фильтрации возвратов или невыкупов по дате оформления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
-     * @param  \DateTime $from_date2 Дата, с которой интересуют возвраты (устаревшее, будет удалено). (optional) (deprecated)
-     * @param  \DateTime $to_date2 Дата, до которой интересуют возвраты (устаревшее, будет удалено). (optional) (deprecated)
+     * @param  \DateTime $from_date Начальная дата для фильтрации возвратов или невыкупов по дате обновления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
+     * @param  \DateTime $to_date Конечная дата для фильтрации возвратов или невыкупов по дате обновления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
+     * @param  \DateTime $from_date2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Вместо него используйте &#x60;fromDate&#x60;.  {% endnote %}  Начальная дата для фильтрации возвратов или невыкупов по дате обновления. (optional) (deprecated)
+     * @param  \DateTime $to_date2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Вместо него используйте &#x60;toDate&#x60;.  {% endnote %}  Конечная дата для фильтрации возвратов или невыкупов по дате обновления. (optional) (deprecated)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturns'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -1857,10 +1857,10 @@ class ReturnsApi
      * @param  int[] $order_ids Идентификаторы заказов — для фильтрации результатов.  Несколько идентификаторов перечисляются через запятую без пробела. Максимальное количество идентификаторов — 50. (optional)
      * @param  \YandexMarketApi\Model\RefundStatusType[] $statuses Статусы возвратов или невыкупов — для фильтрации результатов.  Несколько статусов перечисляются через запятую. (optional)
      * @param  ReturnType $type Тип заказа для фильтрации:  * &#x60;RETURN&#x60; — возврат.  * &#x60;UNREDEEMED&#x60; — невыкуп.  Если не указывать, в ответе будут и возвраты, и невыкупы. (optional)
-     * @param  \DateTime $from_date Начальные дата и время для фильтрации возвратов или невыкупов по дате оформления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
-     * @param  \DateTime $to_date Конечные дата и время для фильтрации возвратов или невыкупов по дате оформления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
-     * @param  \DateTime $from_date2 Дата, с которой интересуют возвраты (устаревшее, будет удалено). (optional) (deprecated)
-     * @param  \DateTime $to_date2 Дата, до которой интересуют возвраты (устаревшее, будет удалено). (optional) (deprecated)
+     * @param  \DateTime $from_date Начальная дата для фильтрации возвратов или невыкупов по дате обновления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
+     * @param  \DateTime $to_date Конечная дата для фильтрации возвратов или невыкупов по дате обновления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
+     * @param  \DateTime $from_date2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Вместо него используйте &#x60;fromDate&#x60;.  {% endnote %}  Начальная дата для фильтрации возвратов или невыкупов по дате обновления. (optional) (deprecated)
+     * @param  \DateTime $to_date2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Вместо него используйте &#x60;toDate&#x60;.  {% endnote %}  Конечная дата для фильтрации возвратов или невыкупов по дате обновления. (optional) (deprecated)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1887,10 +1887,10 @@ class ReturnsApi
      * @param  int[] $order_ids Идентификаторы заказов — для фильтрации результатов.  Несколько идентификаторов перечисляются через запятую без пробела. Максимальное количество идентификаторов — 50. (optional)
      * @param  \YandexMarketApi\Model\RefundStatusType[] $statuses Статусы возвратов или невыкупов — для фильтрации результатов.  Несколько статусов перечисляются через запятую. (optional)
      * @param  ReturnType $type Тип заказа для фильтрации:  * &#x60;RETURN&#x60; — возврат.  * &#x60;UNREDEEMED&#x60; — невыкуп.  Если не указывать, в ответе будут и возвраты, и невыкупы. (optional)
-     * @param  \DateTime $from_date Начальные дата и время для фильтрации возвратов или невыкупов по дате оформления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
-     * @param  \DateTime $to_date Конечные дата и время для фильтрации возвратов или невыкупов по дате оформления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
-     * @param  \DateTime $from_date2 Дата, с которой интересуют возвраты (устаревшее, будет удалено). (optional) (deprecated)
-     * @param  \DateTime $to_date2 Дата, до которой интересуют возвраты (устаревшее, будет удалено). (optional) (deprecated)
+     * @param  \DateTime $from_date Начальная дата для фильтрации возвратов или невыкупов по дате обновления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
+     * @param  \DateTime $to_date Конечная дата для фильтрации возвратов или невыкупов по дате обновления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
+     * @param  \DateTime $from_date2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Вместо него используйте &#x60;fromDate&#x60;.  {% endnote %}  Начальная дата для фильтрации возвратов или невыкупов по дате обновления. (optional) (deprecated)
+     * @param  \DateTime $to_date2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Вместо него используйте &#x60;toDate&#x60;.  {% endnote %}  Конечная дата для фильтрации возвратов или невыкупов по дате обновления. (optional) (deprecated)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1946,10 +1946,10 @@ class ReturnsApi
      * @param  int[] $order_ids Идентификаторы заказов — для фильтрации результатов.  Несколько идентификаторов перечисляются через запятую без пробела. Максимальное количество идентификаторов — 50. (optional)
      * @param  \YandexMarketApi\Model\RefundStatusType[] $statuses Статусы возвратов или невыкупов — для фильтрации результатов.  Несколько статусов перечисляются через запятую. (optional)
      * @param  ReturnType $type Тип заказа для фильтрации:  * &#x60;RETURN&#x60; — возврат.  * &#x60;UNREDEEMED&#x60; — невыкуп.  Если не указывать, в ответе будут и возвраты, и невыкупы. (optional)
-     * @param  \DateTime $from_date Начальные дата и время для фильтрации возвратов или невыкупов по дате оформления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
-     * @param  \DateTime $to_date Конечные дата и время для фильтрации возвратов или невыкупов по дате оформления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
-     * @param  \DateTime $from_date2 Дата, с которой интересуют возвраты (устаревшее, будет удалено). (optional) (deprecated)
-     * @param  \DateTime $to_date2 Дата, до которой интересуют возвраты (устаревшее, будет удалено). (optional) (deprecated)
+     * @param  \DateTime $from_date Начальная дата для фильтрации возвратов или невыкупов по дате обновления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
+     * @param  \DateTime $to_date Конечная дата для фильтрации возвратов или невыкупов по дате обновления.  Формат: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
+     * @param  \DateTime $from_date2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Вместо него используйте &#x60;fromDate&#x60;.  {% endnote %}  Начальная дата для фильтрации возвратов или невыкупов по дате обновления. (optional) (deprecated)
+     * @param  \DateTime $to_date2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Вместо него используйте &#x60;toDate&#x60;.  {% endnote %}  Конечная дата для фильтрации возвратов или невыкупов по дате обновления. (optional) (deprecated)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReturns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2142,7 +2142,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  \YandexMarketApi\Model\SetReturnDecisionRequest $set_return_decision_request set_return_decision_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setReturnDecision'] to see the possible values for this operation
      *
@@ -2163,7 +2163,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  \YandexMarketApi\Model\SetReturnDecisionRequest $set_return_decision_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setReturnDecision'] to see the possible values for this operation
      *
@@ -2404,7 +2404,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  \YandexMarketApi\Model\SetReturnDecisionRequest $set_return_decision_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setReturnDecision'] to see the possible values for this operation
      *
@@ -2428,7 +2428,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  \YandexMarketApi\Model\SetReturnDecisionRequest $set_return_decision_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setReturnDecision'] to see the possible values for this operation
      *
@@ -2481,7 +2481,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  \YandexMarketApi\Model\SetReturnDecisionRequest $set_return_decision_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setReturnDecision'] to see the possible values for this operation
      *
@@ -2626,7 +2626,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitReturnDecision'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -2646,7 +2646,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitReturnDecision'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -2886,7 +2886,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitReturnDecision'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2909,7 +2909,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitReturnDecision'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2961,7 +2961,7 @@ class ReturnsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
-     * @param  int $return_id Идентификатор возврата (required)
+     * @param  int $return_id Идентификатор возврата. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitReturnDecision'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

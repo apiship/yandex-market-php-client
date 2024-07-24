@@ -303,6 +303,14 @@ class GetQuarantineOffersRequest implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['offer_ids']) && (count($this->container['offer_ids']) > 500)) {
+            $invalidProperties[] = "invalid value for 'offer_ids', number of items must be less than or equal to 500.";
+        }
+
+        if (!is_null($this->container['offer_ids']) && (count($this->container['offer_ids']) < 1)) {
+            $invalidProperties[] = "invalid value for 'offer_ids', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -339,6 +347,13 @@ class GetQuarantineOffersRequest implements ModelInterface, ArrayAccess, \JsonSe
     {
         if (is_null($offer_ids)) {
             throw new \InvalidArgumentException('non-nullable offer_ids cannot be null');
+        }
+
+        if ((count($offer_ids) > 500)) {
+            throw new \InvalidArgumentException('invalid value for $offer_ids when calling GetQuarantineOffersRequest., number of items must be less than or equal to 500.');
+        }
+        if ((count($offer_ids) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $offer_ids when calling GetQuarantineOffersRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['offer_ids'] = $offer_ids;
 

@@ -426,7 +426,7 @@ class GenerateUnitedMarketplaceServicesReportRequest implements ModelInterface, 
     /**
      * Sets date_time_from
      *
-     * @param \DateTime|null $date_time_from {% note alert \"Это поле устарело\" %}  Не используйте его — это может привести к ошибкам.  {% endnote %}  Начало периода, включительно.
+     * @param \DateTime|null $date_time_from {% note warning \"\" %}  Этот параметр устарел. Не используйте его.  {% endnote %}  Начало периода, включительно.
      *
      * @return self
      */
@@ -453,7 +453,7 @@ class GenerateUnitedMarketplaceServicesReportRequest implements ModelInterface, 
     /**
      * Sets date_time_to
      *
-     * @param \DateTime|null $date_time_to {% note alert \"Это поле устарело\" %}  Не используйте его — это может привести к ошибкам.  {% endnote %}  Конец периода, включительно. Максимальный период — 1 год.
+     * @param \DateTime|null $date_time_to {% note warning \"\" %}  Этот параметр устарел. Не используйте его.  {% endnote %}  Конец периода, включительно. Максимальный период — 1 год.
      *
      * @return self
      */

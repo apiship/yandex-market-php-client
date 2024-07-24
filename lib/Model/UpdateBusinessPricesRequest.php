@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * UpdateBusinessPricesRequest Class Doc Comment
  *
  * @category Class
- * @description Запрос на установку дефолтных цен на товары.
+ * @description Запрос на установку базовых цен на товары.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

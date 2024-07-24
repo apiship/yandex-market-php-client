@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * BriefOrderItemInstanceDTO Class Doc Comment
  *
  * @category Class
- * @description Идентификатор единицы товара.  Заполните только одно поле в зависимости от того, в какой системе маркирован товар.  Подробно о работе с маркируемыми товарами рассказано [в Справке](https://yandex.ru/support/marketplace/orders/cz.html).
+ * @description Идентификатор единицы товара.  Заполните только одно поле в зависимости от того, в какой системе маркирован товар.  Подробно о работе с маркируемыми товарами рассказано [в Справке Маркета для продавцов](https://yandex.ru/support/marketplace/orders/cz.html).
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

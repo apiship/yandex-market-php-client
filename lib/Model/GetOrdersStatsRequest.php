@@ -372,7 +372,7 @@ class GetOrdersStatsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets date_to
      *
-     * @param \DateTime|null $date_to Конечная дата, когда заказ был сформирован. Формат даты: `ГГГГ‑ММ‑ДД`. Нельзя использовать вместе с параметрами `updateFrom` и `updateTo`.
+     * @param \DateTime|null $date_to Конечная дата, когда заказ был сформирован.  Формат даты: `ГГГГ‑ММ‑ДД`.  Нельзя использовать вместе с параметрами `updateFrom` и `updateTo`.
      *
      * @return self
      */
@@ -399,7 +399,7 @@ class GetOrdersStatsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets update_from
      *
-     * @param \DateTime|null $update_from Начальная дата периода, за который были изменения статуса заказа. Формат даты: `ГГГГ‑ММ‑ДД`. Нельзя использовать вместе с параметрами `dateFrom` и `dateTo`.
+     * @param \DateTime|null $update_from Начальная дата периода, за который были изменения статуса заказа.  Формат даты: `ГГГГ‑ММ‑ДД`.  Нельзя использовать вместе с параметрами `dateFrom` и `dateTo`.
      *
      * @return self
      */
@@ -426,7 +426,7 @@ class GetOrdersStatsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets update_to
      *
-     * @param \DateTime|null $update_to Конечная дата периода, за который были изменения статуса заказа. Формат даты: `ГГГГ‑ММ‑ДД`. Нельзя использовать вместе с параметрами `dateFrom` и `dateTo`.
+     * @param \DateTime|null $update_to Конечная дата периода, за который были изменения статуса заказа.  Формат даты: `ГГГГ‑ММ‑ДД`.  Нельзя использовать вместе с параметрами `dateFrom` и `dateTo`.
      *
      * @return self
      */

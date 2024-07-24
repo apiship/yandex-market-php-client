@@ -358,7 +358,7 @@ class TariffDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets percent
      *
-     * @param float|null $percent {% note alert \"Это поле устарело\" %}  Не используйте его — это может привести к ошибкам.  {% endnote %}  Значение тарифа в процентах.
+     * @param float|null $percent {% note warning \"\" %}  Этот параметр устарел. Не используйте его.  {% endnote %}  Значение тарифа в процентах.
      *
      * @return self
      * @deprecated

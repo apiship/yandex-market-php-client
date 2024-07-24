@@ -1,6 +1,6 @@
 <?php
 /**
- * OfferPriceFeedDTO
+ * UpdateOfferMappingsResponseAllOf
  *
  * PHP version 7.4
  *
@@ -32,16 +32,15 @@ use \ArrayAccess;
 use \YandexMarketApi\ObjectSerializer;
 
 /**
- * OfferPriceFeedDTO Class Doc Comment
+ * UpdateOfferMappingsResponseAllOf Class Doc Comment
  *
  * @category Class
- * @description Информация о прайс-листе, содержащем предложение.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OfferPriceFeedDTO implements ModelInterface, ArrayAccess, \JsonSerializable
+class UpdateOfferMappingsResponseAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class OfferPriceFeedDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OfferPriceFeedDTO';
+    protected static $openAPIModelName = 'UpdateOfferMappingsResponse_allOf';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +57,7 @@ class OfferPriceFeedDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int'
+        'results' => '\YandexMarketApi\Model\UpdateOfferMappingResultDTO[]'
     ];
 
     /**
@@ -69,7 +68,7 @@ class OfferPriceFeedDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => 'int64'
+        'results' => null
     ];
 
     /**
@@ -78,7 +77,7 @@ class OfferPriceFeedDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false
+        'results' => false
     ];
 
     /**
@@ -167,7 +166,7 @@ class OfferPriceFeedDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id'
+        'results' => 'results'
     ];
 
     /**
@@ -176,7 +175,7 @@ class OfferPriceFeedDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'results' => 'setResults'
     ];
 
     /**
@@ -185,7 +184,7 @@ class OfferPriceFeedDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'results' => 'getResults'
     ];
 
     /**
@@ -245,7 +244,7 @@ class OfferPriceFeedDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('results', $data ?? [], null);
     }
 
     /**
@@ -291,28 +290,28 @@ class OfferPriceFeedDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets id
+     * Gets results
      *
-     * @return int|null
+     * @return \YandexMarketApi\Model\UpdateOfferMappingResultDTO[]|null
      */
-    public function getId()
+    public function getResults()
     {
-        return $this->container['id'];
+        return $this->container['results'];
     }
 
     /**
-     * Sets id
+     * Sets results
      *
-     * @param int|null $id Идентификатор прайс-листа, содержащего предложение.
+     * @param \YandexMarketApi\Model\UpdateOfferMappingResultDTO[]|null $results Ошибки и предупреждения, которые появились при обработке списка характеристик. Каждый элемент списка соответствует одному товару.  Если ошибок и предупреждений нет, поле не передается.
      *
      * @return self
      */
-    public function setId($id)
+    public function setResults($results)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($results)) {
+            throw new \InvalidArgumentException('non-nullable results cannot be null');
         }
-        $this->container['id'] = $id;
+        $this->container['results'] = $results;
 
         return $this;
     }

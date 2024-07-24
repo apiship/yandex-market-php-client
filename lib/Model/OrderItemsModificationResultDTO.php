@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderItemsModificationResultDTO Class Doc Comment
  *
  * @category Class
- * @description Краткие сведения о промаркированных товарах — возвращаются, если ответ &#x60;OK&#x60;.
+ * @description Краткие сведения о промаркированных товарах. Параметр возвращается, если ответ &#x60;OK&#x60;.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

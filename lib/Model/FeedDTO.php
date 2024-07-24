@@ -474,7 +474,7 @@ class FeedDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets upload_date
      *
-     * @param \DateTime|null $upload_date Дата загрузки прайс-листа на Маркет. Формат даты: `ДД-ММ-ГГГГ`. Параметр выводится при размещении прайс-листа на сервере Маркета.
+     * @param \DateTime|null $upload_date Дата загрузки прайс-листа на Маркет.  Формат даты: `ДД-ММ-ГГГГ`.  Параметр выводится при размещении прайс-листа на сервере Маркета.
      *
      * @return self
      */

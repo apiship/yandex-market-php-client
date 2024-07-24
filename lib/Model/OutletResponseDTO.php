@@ -303,7 +303,7 @@ class OutletResponseDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets id
      *
-     * @param int|null $id Идентификатор точки продаж, присвоенный Яндекс Маркетом.
+     * @param int|null $id Идентификатор точки продаж, присвоенный Маркетом.
      *
      * @return self
      */

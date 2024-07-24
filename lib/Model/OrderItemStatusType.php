@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderItemStatusType Class Doc Comment
  *
  * @category Class
- * @description Возвращенный или невыкупленный товар.  * &#x60;REJECTED&#x60; — невыкуп.  * &#x60;RETURNED&#x60; — возврат.
+ * @description Возвращенный или невыкупленный товар:  * &#x60;REJECTED&#x60; — невыкупленный.  * &#x60;RETURNED&#x60; — возвращенный.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

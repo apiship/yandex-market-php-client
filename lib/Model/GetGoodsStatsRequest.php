@@ -314,7 +314,7 @@ class GetGoodsStatsRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets shop_skus
      *
-     * @param string[] $shop_skus Список ваших идентификаторов SKU. Максимальное количество идентификаторов: 500. Обязательный параметр. Должен содержать хотя бы один SKU.
+     * @param string[] $shop_skus Список ваших идентификаторов SKU.
      *
      * @return self
      */

@@ -60,9 +60,7 @@ class OfferPriceDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'offer_id' => 'string',
         'id' => 'string',
-        'feed' => '\YandexMarketApi\Model\OfferPriceFeedDTO',
         'price' => '\YandexMarketApi\Model\PriceDTO',
-        'market_sku' => 'int',
         'shop_sku' => 'string'
     ];
 
@@ -76,9 +74,7 @@ class OfferPriceDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'offer_id' => null,
         'id' => null,
-        'feed' => null,
         'price' => null,
-        'market_sku' => 'int64',
         'shop_sku' => null
     ];
 
@@ -90,9 +86,7 @@ class OfferPriceDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'offer_id' => false,
 		'id' => false,
-		'feed' => false,
 		'price' => false,
-		'market_sku' => false,
 		'shop_sku' => false
     ];
 
@@ -184,9 +178,7 @@ class OfferPriceDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'offer_id' => 'offerId',
         'id' => 'id',
-        'feed' => 'feed',
         'price' => 'price',
-        'market_sku' => 'marketSku',
         'shop_sku' => 'shopSku'
     ];
 
@@ -198,9 +190,7 @@ class OfferPriceDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'offer_id' => 'setOfferId',
         'id' => 'setId',
-        'feed' => 'setFeed',
         'price' => 'setPrice',
-        'market_sku' => 'setMarketSku',
         'shop_sku' => 'setShopSku'
     ];
 
@@ -212,9 +202,7 @@ class OfferPriceDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'offer_id' => 'getOfferId',
         'id' => 'getId',
-        'feed' => 'getFeed',
         'price' => 'getPrice',
-        'market_sku' => 'getMarketSku',
         'shop_sku' => 'getShopSku'
     ];
 
@@ -277,9 +265,7 @@ class OfferPriceDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('offer_id', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('feed', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
-        $this->setIfExists('market_sku', $data ?? [], null);
         $this->setIfExists('shop_sku', $data ?? [], null);
     }
 
@@ -310,29 +296,24 @@ class OfferPriceDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['offer_id']) && (mb_strlen($this->container['offer_id']) > 80)) {
-            $invalidProperties[] = "invalid value for 'offer_id', the character length must be smaller than or equal to 80.";
+        if (!is_null($this->container['offer_id']) && (mb_strlen($this->container['offer_id']) > 255)) {
+            $invalidProperties[] = "invalid value for 'offer_id', the character length must be smaller than or equal to 255.";
         }
 
         if (!is_null($this->container['offer_id']) && (mb_strlen($this->container['offer_id']) < 1)) {
             $invalidProperties[] = "invalid value for 'offer_id', the character length must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['offer_id']) && !preg_match("/^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/", $this->container['offer_id'])) {
-            $invalidProperties[] = "invalid value for 'offer_id', must be conform to the pattern /^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/.";
-        }
 
-        if (!is_null($this->container['shop_sku']) && (mb_strlen($this->container['shop_sku']) > 80)) {
-            $invalidProperties[] = "invalid value for 'shop_sku', the character length must be smaller than or equal to 80.";
+
+        if (!is_null($this->container['shop_sku']) && (mb_strlen($this->container['shop_sku']) > 255)) {
+            $invalidProperties[] = "invalid value for 'shop_sku', the character length must be smaller than or equal to 255.";
         }
 
         if (!is_null($this->container['shop_sku']) && (mb_strlen($this->container['shop_sku']) < 1)) {
             $invalidProperties[] = "invalid value for 'shop_sku', the character length must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['shop_sku']) && !preg_match("/^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/", $this->container['shop_sku'])) {
-            $invalidProperties[] = "invalid value for 'shop_sku', must be conform to the pattern /^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/.";
-        }
 
         return $invalidProperties;
     }
@@ -362,7 +343,7 @@ class OfferPriceDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets offer_id
      *
-     * @param string|null $offer_id Ваш SKU — идентификатор товара в вашей системе.  Разрешена любая последовательность длиной до 80 знаков. В нее могут входить английские и русские буквы, цифры и символы `. , / \\ ( ) [ ] - = _`  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * SKU товара нельзя менять — можно только удалить товар и добавить заново с новым SKU.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
+     * @param string|null $offer_id Ваш SKU — идентификатор товара в вашей системе.  Разрешена любая последовательность длиной до 255 знаков.  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * SKU товара нельзя менять — можно только удалить товар и добавить заново с новым SKU.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
      *
      * @return self
      */
@@ -371,14 +352,14 @@ class OfferPriceDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($offer_id)) {
             throw new \InvalidArgumentException('non-nullable offer_id cannot be null');
         }
-        if ((mb_strlen($offer_id) > 80)) {
-            throw new \InvalidArgumentException('invalid length for $offer_id when calling OfferPriceDTO., must be smaller than or equal to 80.');
+        if ((mb_strlen($offer_id) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $offer_id when calling OfferPriceDTO., must be smaller than or equal to 255.');
         }
         if ((mb_strlen($offer_id) < 1)) {
             throw new \InvalidArgumentException('invalid length for $offer_id when calling OfferPriceDTO., must be bigger than or equal to 1.');
         }
-        if ((!preg_match("/^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/", $offer_id))) {
-            throw new \InvalidArgumentException("invalid value for \$offer_id when calling OfferPriceDTO., must conform to the pattern /^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/.");
+        if ((!preg_match("/^[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $offer_id))) {
+            throw new \InvalidArgumentException("invalid value for \$offer_id when calling OfferPriceDTO., must conform to the pattern /^[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.");
         }
 
         $this->container['offer_id'] = $offer_id;
@@ -400,7 +381,7 @@ class OfferPriceDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id {% note alert \"Это поле устарело\" %}  Не используйте его — это может привести к ошибкам.  {% endnote %}  Идентификатор предложения из прайс-листа.
+     * @param string|null $id {% note warning \"\" %}  Этот параметр устарел. Не используйте его.  {% endnote %}  Идентификатор предложения из прайс-листа.
      *
      * @return self
      * @deprecated
@@ -411,33 +392,6 @@ class OfferPriceDTO implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets feed
-     *
-     * @return \YandexMarketApi\Model\OfferPriceFeedDTO|null
-     */
-    public function getFeed()
-    {
-        return $this->container['feed'];
-    }
-
-    /**
-     * Sets feed
-     *
-     * @param \YandexMarketApi\Model\OfferPriceFeedDTO|null $feed feed
-     *
-     * @return self
-     */
-    public function setFeed($feed)
-    {
-        if (is_null($feed)) {
-            throw new \InvalidArgumentException('non-nullable feed cannot be null');
-        }
-        $this->container['feed'] = $feed;
 
         return $this;
     }
@@ -470,33 +424,6 @@ class OfferPriceDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets market_sku
-     *
-     * @return int|null
-     */
-    public function getMarketSku()
-    {
-        return $this->container['market_sku'];
-    }
-
-    /**
-     * Sets market_sku
-     *
-     * @param int|null $market_sku SKU на Маркете.
-     *
-     * @return self
-     */
-    public function setMarketSku($market_sku)
-    {
-        if (is_null($market_sku)) {
-            throw new \InvalidArgumentException('non-nullable market_sku cannot be null');
-        }
-        $this->container['market_sku'] = $market_sku;
-
-        return $this;
-    }
-
-    /**
      * Gets shop_sku
      *
      * @return string|null
@@ -509,7 +436,7 @@ class OfferPriceDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets shop_sku
      *
-     * @param string|null $shop_sku Ваш SKU — идентификатор товара в вашей системе.  Разрешена любая последовательность длиной до 80 знаков. В нее могут входить английские и русские буквы, цифры и символы `. , / \\ ( ) [ ] - = _`  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * SKU товара нельзя менять — можно только удалить товар и добавить заново с новым SKU.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
+     * @param string|null $shop_sku Ваш SKU — идентификатор товара в вашей системе.  Разрешена любая последовательность длиной до 255 знаков.  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * SKU товара нельзя менять — можно только удалить товар и добавить заново с новым SKU.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
      *
      * @return self
      */
@@ -518,14 +445,14 @@ class OfferPriceDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($shop_sku)) {
             throw new \InvalidArgumentException('non-nullable shop_sku cannot be null');
         }
-        if ((mb_strlen($shop_sku) > 80)) {
-            throw new \InvalidArgumentException('invalid length for $shop_sku when calling OfferPriceDTO., must be smaller than or equal to 80.');
+        if ((mb_strlen($shop_sku) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $shop_sku when calling OfferPriceDTO., must be smaller than or equal to 255.');
         }
         if ((mb_strlen($shop_sku) < 1)) {
             throw new \InvalidArgumentException('invalid length for $shop_sku when calling OfferPriceDTO., must be bigger than or equal to 1.');
         }
-        if ((!preg_match("/^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/", $shop_sku))) {
-            throw new \InvalidArgumentException("invalid value for \$shop_sku when calling OfferPriceDTO., must conform to the pattern /^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/.");
+        if ((!preg_match("/^[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $shop_sku))) {
+            throw new \InvalidArgumentException("invalid value for \$shop_sku when calling OfferPriceDTO., must conform to the pattern /^[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.");
         }
 
         $this->container['shop_sku'] = $shop_sku;

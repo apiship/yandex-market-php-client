@@ -388,7 +388,7 @@ class OrderItemPromoDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets subsidy
      *
-     * @param float|null $subsidy Вознаграждение партнеру от Маркета за товар, проданный в рамках акции.  Передается в валюте заказа, для отделения целой части от дробной используется точка.
+     * @param float|null $subsidy Вознаграждение партнеру от Маркета за товар, проданный в рамках акции.  Передается в валюте заказа.
      *
      * @return self
      */

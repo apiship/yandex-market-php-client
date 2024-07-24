@@ -472,7 +472,7 @@ class ChangeOutletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets is_main
      *
-     * @param bool|null $is_main Признак основной точки продаж. Возможные значения: * `false` — неосновная точка продаж. * `true` — основная точка продаж.
+     * @param bool|null $is_main Признак основной точки продаж.  Возможные значения:  * `false` — неосновная точка продаж. * `true` — основная точка продаж.
      *
      * @return self
      */
@@ -639,7 +639,7 @@ class ChangeOutletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets delivery_rules
      *
-     * @param \YandexMarketApi\Model\OutletDeliveryRuleDTO[]|null $delivery_rules Информация об условиях доставки для данной точки продаж. Обязательный параметр, если параметр `type=DEPOT` или `type=MIXED`.
+     * @param \YandexMarketApi\Model\OutletDeliveryRuleDTO[]|null $delivery_rules Информация об условиях доставки для данной точки продаж.  Обязательный параметр, если параметр `type=DEPOT` или `type=MIXED`.
      *
      * @return self
      */

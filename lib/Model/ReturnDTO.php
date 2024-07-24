@@ -68,7 +68,8 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipment_status' => '\YandexMarketApi\Model\ReturnShipmentStatusType',
         'refund_amount' => 'int',
         'items' => '\YandexMarketApi\Model\ReturnItemDTO[]',
-        'return_type' => '\YandexMarketApi\Model\ReturnType'
+        'return_type' => '\YandexMarketApi\Model\ReturnType',
+        'fast_return' => 'bool'
     ];
 
     /**
@@ -89,7 +90,8 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipment_status' => null,
         'refund_amount' => 'int64',
         'items' => null,
-        'return_type' => null
+        'return_type' => null,
+        'fast_return' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
 		'shipment_status' => false,
 		'refund_amount' => false,
 		'items' => false,
-		'return_type' => false
+		'return_type' => false,
+		'fast_return' => false
     ];
 
     /**
@@ -207,7 +210,8 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipment_status' => 'shipmentStatus',
         'refund_amount' => 'refundAmount',
         'items' => 'items',
-        'return_type' => 'returnType'
+        'return_type' => 'returnType',
+        'fast_return' => 'fastReturn'
     ];
 
     /**
@@ -226,7 +230,8 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipment_status' => 'setShipmentStatus',
         'refund_amount' => 'setRefundAmount',
         'items' => 'setItems',
-        'return_type' => 'setReturnType'
+        'return_type' => 'setReturnType',
+        'fast_return' => 'setFastReturn'
     ];
 
     /**
@@ -245,7 +250,8 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipment_status' => 'getShipmentStatus',
         'refund_amount' => 'getRefundAmount',
         'items' => 'getItems',
-        'return_type' => 'getReturnType'
+        'return_type' => 'getReturnType',
+        'fast_return' => 'getFastReturn'
     ];
 
     /**
@@ -316,6 +322,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('refund_amount', $data ?? [], null);
         $this->setIfExists('items', $data ?? [], null);
         $this->setIfExists('return_type', $data ?? [], null);
+        $this->setIfExists('fast_return', $data ?? [], null);
     }
 
     /**
@@ -653,6 +660,33 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable return_type cannot be null');
         }
         $this->container['return_type'] = $return_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets fast_return
+     *
+     * @return bool|null
+     */
+    public function getFastReturn()
+    {
+        return $this->container['fast_return'];
+    }
+
+    /**
+     * Sets fast_return
+     *
+     * @param bool|null $fast_return Используется ли опция **Быстрый возврат денег за дешевый брак**.
+     *
+     * @return self
+     */
+    public function setFastReturn($fast_return)
+    {
+        if (is_null($fast_return)) {
+            throw new \InvalidArgumentException('non-nullable fast_return cannot be null');
+        }
+        $this->container['fast_return'] = $fast_return;
 
         return $this;
     }

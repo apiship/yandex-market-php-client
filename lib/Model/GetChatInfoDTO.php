@@ -464,7 +464,7 @@ class GetChatInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Дата и время создания чата.  Формат даты: ISO 8601 со смещением относительно UTC. Например, 2017-11-21T00:00:00+03:00.
+     * @param \DateTime $created_at Дата и время создания чата.  Формат даты: ISO 8601 со смещением относительно UTC. Например, `2017-11-21T00:00:00+03:00`.
      *
      * @return self
      */

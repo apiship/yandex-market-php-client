@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OfferContentErrorDTO Class Doc Comment
  *
  * @category Class
- * @description Сообщение об ошибке.
+ * @description Текст ошибки.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -377,7 +377,7 @@ class OfferContentErrorDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets message
      *
-     * @param string $message Сообщение об ошибке.
+     * @param string $message Текст ошибки.
      *
      * @return self
      */

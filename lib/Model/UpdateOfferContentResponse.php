@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * UpdateOfferContentResponse Class Doc Comment
  *
  * @category Class
- * @description Описывает проблемы, возникшие при сохранении товара.
+ * @description Описывает проблемы, которые появились при сохранении товара.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -337,7 +337,7 @@ class UpdateOfferContentResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets results
      *
-     * @param \YandexMarketApi\Model\UpdateOfferContentResultDTO[]|null $results Ошибки и предупреждения, возникшие при обработке переданных значений. Каждый элемент списка соответствует одному товару.  Поле не передается, если все в порядке.
+     * @param \YandexMarketApi\Model\UpdateOfferContentResultDTO[]|null $results Ошибки и предупреждения, которые появились при обработке переданных значений. Каждый элемент списка соответствует одному товару.  Если ошибок и предупреждений нет, поле не передается.
      *
      * @return self
      */

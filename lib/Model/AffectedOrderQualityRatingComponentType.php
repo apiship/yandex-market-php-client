@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderParcelStatusType
+ * AffectedOrderQualityRatingComponentType
  *
  * PHP version 7.4
  *
@@ -30,28 +30,26 @@ namespace YandexMarketApi\Model;
 use \YandexMarketApi\ObjectSerializer;
 
 /**
- * OrderParcelStatusType Class Doc Comment
+ * AffectedOrderQualityRatingComponentType Class Doc Comment
  *
  * @category Class
- * @description {% note alert %}  Поле устарело и не рекомендуется к использованию.  {% endnote %}  Статус заказа в партнерской службе доставки.  * &#x60;NEW&#x60; — новый.  * &#x60;CREATED&#x60; — создан в службе доставки.  * &#x60;READY_TO_SHIP&#x60; — посылка готова к передаче в службу доставки.  * &#x60;ERROR&#x60; — ошибка создания заказа.  * &#x60;UNKNOWN&#x60; — неизвестный статус.
+ * @description Составляющие индекса качества.  **Для модели DBS:** * &#x60;DBS_CANCELLATION_RATE&#x60; — доля отмененных товаров. * &#x60;DBS_LATE_DELIVERY_RATE&#x60; — доля заказов, доставленных после плановой даты.  **Для моделей FBS и Экспресс:** * &#x60;FBS_CANCELLATION_RATE&#x60; — доля отмененных товаров. * &#x60;FBS_LATE_SHIP_RATE&#x60; — доля не вовремя отгруженных заказов.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class OrderParcelStatusType
+class AffectedOrderQualityRatingComponentType
 {
     /**
      * Possible values of this enum
      */
-    public const _NEW = 'NEW';
+    public const DBS_CANCELLATION_RATE = 'DBS_CANCELLATION_RATE';
 
-    public const CREATED = 'CREATED';
+    public const DBS_LATE_DELIVERY_RATE = 'DBS_LATE_DELIVERY_RATE';
 
-    public const READY_TO_SHIP = 'READY_TO_SHIP';
+    public const FBS_CANCELLATION_RATE = 'FBS_CANCELLATION_RATE';
 
-    public const ERROR = 'ERROR';
-
-    public const UNKNOWN = 'UNKNOWN';
+    public const FBS_LATE_SHIP_RATE = 'FBS_LATE_SHIP_RATE';
 
     /**
      * Gets allowable values of the enum
@@ -60,11 +58,10 @@ class OrderParcelStatusType
     public static function getAllowableEnumValues()
     {
         return [
-            self::_NEW,
-            self::CREATED,
-            self::READY_TO_SHIP,
-            self::ERROR,
-            self::UNKNOWN
+            self::DBS_CANCELLATION_RATE,
+            self::DBS_LATE_DELIVERY_RATE,
+            self::FBS_CANCELLATION_RATE,
+            self::FBS_LATE_SHIP_RATE
         ];
     }
 }

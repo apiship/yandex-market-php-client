@@ -302,7 +302,7 @@ class UpdateOfferContentResponseAllOf implements ModelInterface, ArrayAccess, \J
     /**
      * Sets results
      *
-     * @param \YandexMarketApi\Model\UpdateOfferContentResultDTO[]|null $results Ошибки и предупреждения, возникшие при обработке переданных значений. Каждый элемент списка соответствует одному товару.  Поле не передается, если все в порядке.
+     * @param \YandexMarketApi\Model\UpdateOfferContentResultDTO[]|null $results Ошибки и предупреждения, которые появились при обработке переданных значений. Каждый элемент списка соответствует одному товару.  Если ошибок и предупреждений нет, поле не передается.
      *
      * @return self
      */

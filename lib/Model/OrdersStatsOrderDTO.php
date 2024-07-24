@@ -407,7 +407,7 @@ class OrdersStatsOrderDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets creation_date
      *
-     * @param \DateTime|null $creation_date Дата создания заказа. Формат даты: `ГГГГ-ММ-ДД`.
+     * @param \DateTime|null $creation_date Дата создания заказа.  Формат даты: `ГГГГ-ММ-ДД`.
      *
      * @return self
      */
@@ -434,7 +434,7 @@ class OrdersStatsOrderDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets status_update_date
      *
-     * @param \DateTime|null $status_update_date Дата и время, когда статус заказа был изменен в последний раз. Формат даты и времени: ISO 8601. Например, `2017-11-21T00:00:00`. Часовой пояс — UTC+03:00 (Москва).
+     * @param \DateTime|null $status_update_date Дата и время, когда статус заказа был изменен в последний раз.  Формат даты и времени: ISO 8601. Например, `2017-11-21T00:00:00`. Часовой пояс — UTC+03:00 (Москва).
      *
      * @return self
      */

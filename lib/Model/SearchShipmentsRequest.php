@@ -296,6 +296,12 @@ class SearchShipmentsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
+        if ($this->container['date_from'] === null) {
+            $invalidProperties[] = "'date_from' can't be null";
+        }
+        if ($this->container['date_to'] === null) {
+            $invalidProperties[] = "'date_to' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -314,7 +320,7 @@ class SearchShipmentsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets date_from
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getDateFrom()
     {
@@ -324,7 +330,7 @@ class SearchShipmentsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets date_from
      *
-     * @param \DateTime|null $date_from Начальная дата для фильтрации по дате отгрузки (включительно).  Формат даты: `ДД-ММ-ГГГГ`.
+     * @param \DateTime $date_from Начальная дата для фильтрации по дате отгрузки (включительно).  Формат даты: `ДД-ММ-ГГГГ`.
      *
      * @return self
      */
@@ -341,7 +347,7 @@ class SearchShipmentsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets date_to
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getDateTo()
     {
@@ -351,7 +357,7 @@ class SearchShipmentsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets date_to
      *
-     * @param \DateTime|null $date_to Конечная дата для фильтрации по дате отгрузки (включительно).  Формат даты: `ДД-ММ-ГГГГ`.
+     * @param \DateTime $date_to Конечная дата для фильтрации по дате отгрузки (включительно).  Формат даты: `ДД-ММ-ГГГГ`.
      *
      * @return self
      */

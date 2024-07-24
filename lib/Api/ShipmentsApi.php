@@ -1955,7 +1955,7 @@ class ShipmentsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
-     * @param  ShipmentPalletLabelPageFormatType $format Формат страниц PDF-файла с ярлыками: * &#x60;A4&#x60; — по 16 ярлыков на странице. * &#x60;A8&#x60; — по одному ярлыку на странице. (optional)
+     * @param  ShipmentPalletLabelPageFormatType $format Формат страниц PDF-файла с ярлыками:  * &#x60;A4&#x60; — по 16 ярлыков на странице. * &#x60;A8&#x60; — по одному ярлыку на странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentPalletLabels'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -1975,7 +1975,7 @@ class ShipmentsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
-     * @param  ShipmentPalletLabelPageFormatType $format Формат страниц PDF-файла с ярлыками: * &#x60;A4&#x60; — по 16 ярлыков на странице. * &#x60;A8&#x60; — по одному ярлыку на странице. (optional)
+     * @param  ShipmentPalletLabelPageFormatType $format Формат страниц PDF-файла с ярлыками:  * &#x60;A4&#x60; — по 16 ярлыков на странице. * &#x60;A8&#x60; — по одному ярлыку на странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentPalletLabels'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -2215,7 +2215,7 @@ class ShipmentsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
-     * @param  ShipmentPalletLabelPageFormatType $format Формат страниц PDF-файла с ярлыками: * &#x60;A4&#x60; — по 16 ярлыков на странице. * &#x60;A8&#x60; — по одному ярлыку на странице. (optional)
+     * @param  ShipmentPalletLabelPageFormatType $format Формат страниц PDF-файла с ярлыками:  * &#x60;A4&#x60; — по 16 ярлыков на странице. * &#x60;A8&#x60; — по одному ярлыку на странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentPalletLabels'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2238,7 +2238,7 @@ class ShipmentsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
-     * @param  ShipmentPalletLabelPageFormatType $format Формат страниц PDF-файла с ярлыками: * &#x60;A4&#x60; — по 16 ярлыков на странице. * &#x60;A8&#x60; — по одному ярлыку на странице. (optional)
+     * @param  ShipmentPalletLabelPageFormatType $format Формат страниц PDF-файла с ярлыками:  * &#x60;A4&#x60; — по 16 ярлыков на странице. * &#x60;A8&#x60; — по одному ярлыку на странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentPalletLabels'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2290,7 +2290,7 @@ class ShipmentsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
-     * @param  ShipmentPalletLabelPageFormatType $format Формат страниц PDF-файла с ярлыками: * &#x60;A4&#x60; — по 16 ярлыков на странице. * &#x60;A8&#x60; — по одному ярлыку на странице. (optional)
+     * @param  ShipmentPalletLabelPageFormatType $format Формат страниц PDF-файла с ярлыками:  * &#x60;A4&#x60; — по 16 ярлыков на странице. * &#x60;A8&#x60; — по одному ярлыку на странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentPalletLabels'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2414,7 +2414,7 @@ class ShipmentsApi
      * Подтверждение ближайшей отгрузки и получение акта приема-передачи для нее
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $warehouse_id Идентификатор склада (optional)
+     * @param  int $warehouse_id Идентификатор склада. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentReceptionTransferAct'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -2433,7 +2433,7 @@ class ShipmentsApi
      * Подтверждение ближайшей отгрузки и получение акта приема-передачи для нее
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $warehouse_id Идентификатор склада (optional)
+     * @param  int $warehouse_id Идентификатор склада. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentReceptionTransferAct'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -2672,7 +2672,7 @@ class ShipmentsApi
      * Подтверждение ближайшей отгрузки и получение акта приема-передачи для нее
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $warehouse_id Идентификатор склада (optional)
+     * @param  int $warehouse_id Идентификатор склада. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentReceptionTransferAct'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2694,7 +2694,7 @@ class ShipmentsApi
      * Подтверждение ближайшей отгрузки и получение акта приема-передачи для нее
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $warehouse_id Идентификатор склада (optional)
+     * @param  int $warehouse_id Идентификатор склада. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentReceptionTransferAct'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2745,7 +2745,7 @@ class ShipmentsApi
      * Create request for operation 'downloadShipmentReceptionTransferAct'
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $warehouse_id Идентификатор склада (optional)
+     * @param  int $warehouse_id Идентификатор склада. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadShipmentReceptionTransferAct'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

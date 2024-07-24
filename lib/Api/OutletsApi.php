@@ -584,7 +584,7 @@ class OutletsApi
      * Удаление точки продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $outlet_id Идентификатор точки продаж (required)
+     * @param  int $outlet_id Идентификатор точки продаж. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutlet'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -603,7 +603,7 @@ class OutletsApi
      * Удаление точки продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $outlet_id Идентификатор точки продаж (required)
+     * @param  int $outlet_id Идентификатор точки продаж. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutlet'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -842,7 +842,7 @@ class OutletsApi
      * Удаление точки продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $outlet_id Идентификатор точки продаж (required)
+     * @param  int $outlet_id Идентификатор точки продаж. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutlet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -864,7 +864,7 @@ class OutletsApi
      * Удаление точки продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $outlet_id Идентификатор точки продаж (required)
+     * @param  int $outlet_id Идентификатор точки продаж. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutlet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -915,7 +915,7 @@ class OutletsApi
      * Create request for operation 'deleteOutlet'
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $outlet_id Идентификатор точки продаж (required)
+     * @param  int $outlet_id Идентификатор точки продаж. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutlet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1029,7 +1029,7 @@ class OutletsApi
      * Информация о точке продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $outlet_id Идентификатор точки продаж (required)
+     * @param  int $outlet_id Идентификатор точки продаж. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlet'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -1048,7 +1048,7 @@ class OutletsApi
      * Информация о точке продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $outlet_id Идентификатор точки продаж (required)
+     * @param  int $outlet_id Идентификатор точки продаж. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlet'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -1287,7 +1287,7 @@ class OutletsApi
      * Информация о точке продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $outlet_id Идентификатор точки продаж (required)
+     * @param  int $outlet_id Идентификатор точки продаж. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1309,7 +1309,7 @@ class OutletsApi
      * Информация о точке продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $outlet_id Идентификатор точки продаж (required)
+     * @param  int $outlet_id Идентификатор точки продаж. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1360,7 +1360,7 @@ class OutletsApi
      * Create request for operation 'getOutlet'
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $outlet_id Идентификатор точки продаж (required)
+     * @param  int $outlet_id Идентификатор точки продаж. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1477,7 +1477,7 @@ class OutletsApi
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
      * @param  int $region_id Идентификатор региона. Если задать идентификатор родительского региона любого уровня, в выходных данных будут отображены точки продаж всех дочерних регионов. Идентификатор региона можно получить c помощью метода [GET regions](../../reference/regions/searchRegionsByName.md). (optional)
      * @param  string $shop_outlet_code Идентификатор точки продаж, присвоенный магазином. (optional)
-     * @param  int $region_id2 {% note alert %}  Параметр устарел и не рекомендуется к использованию. Идентификатор региона укажите в параметре &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
+     * @param  int $region_id2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Для указания региона используйте &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlets'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -1499,7 +1499,7 @@ class OutletsApi
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
      * @param  int $region_id Идентификатор региона. Если задать идентификатор родительского региона любого уровня, в выходных данных будут отображены точки продаж всех дочерних регионов. Идентификатор региона можно получить c помощью метода [GET regions](../../reference/regions/searchRegionsByName.md). (optional)
      * @param  string $shop_outlet_code Идентификатор точки продаж, присвоенный магазином. (optional)
-     * @param  int $region_id2 {% note alert %}  Параметр устарел и не рекомендуется к использованию. Идентификатор региона укажите в параметре &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
+     * @param  int $region_id2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Для указания региона используйте &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlets'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -1741,7 +1741,7 @@ class OutletsApi
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
      * @param  int $region_id Идентификатор региона. Если задать идентификатор родительского региона любого уровня, в выходных данных будут отображены точки продаж всех дочерних регионов. Идентификатор региона можно получить c помощью метода [GET regions](../../reference/regions/searchRegionsByName.md). (optional)
      * @param  string $shop_outlet_code Идентификатор точки продаж, присвоенный магазином. (optional)
-     * @param  int $region_id2 {% note alert %}  Параметр устарел и не рекомендуется к использованию. Идентификатор региона укажите в параметре &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
+     * @param  int $region_id2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Для указания региона используйте &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1766,7 +1766,7 @@ class OutletsApi
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
      * @param  int $region_id Идентификатор региона. Если задать идентификатор родительского региона любого уровня, в выходных данных будут отображены точки продаж всех дочерних регионов. Идентификатор региона можно получить c помощью метода [GET regions](../../reference/regions/searchRegionsByName.md). (optional)
      * @param  string $shop_outlet_code Идентификатор точки продаж, присвоенный магазином. (optional)
-     * @param  int $region_id2 {% note alert %}  Параметр устарел и не рекомендуется к использованию. Идентификатор региона укажите в параметре &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
+     * @param  int $region_id2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Для указания региона используйте &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1820,7 +1820,7 @@ class OutletsApi
      * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
      * @param  int $region_id Идентификатор региона. Если задать идентификатор родительского региона любого уровня, в выходных данных будут отображены точки продаж всех дочерних регионов. Идентификатор региона можно получить c помощью метода [GET regions](../../reference/regions/searchRegionsByName.md). (optional)
      * @param  string $shop_outlet_code Идентификатор точки продаж, присвоенный магазином. (optional)
-     * @param  int $region_id2 {% note alert %}  Параметр устарел и не рекомендуется к использованию. Идентификатор региона укажите в параметре &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
+     * @param  int $region_id2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Для указания региона используйте &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1959,7 +1959,7 @@ class OutletsApi
      * Изменение информации о точке продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $outlet_id Идентификатор точки продаж (required)
+     * @param  int $outlet_id Идентификатор точки продаж. (required)
      * @param  \YandexMarketApi\Model\ChangeOutletRequest $change_outlet_request change_outlet_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOutlet'] to see the possible values for this operation
      *
@@ -1979,7 +1979,7 @@ class OutletsApi
      * Изменение информации о точке продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $outlet_id Идентификатор точки продаж (required)
+     * @param  int $outlet_id Идентификатор точки продаж. (required)
      * @param  \YandexMarketApi\Model\ChangeOutletRequest $change_outlet_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOutlet'] to see the possible values for this operation
      *
@@ -2219,7 +2219,7 @@ class OutletsApi
      * Изменение информации о точке продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $outlet_id Идентификатор точки продаж (required)
+     * @param  int $outlet_id Идентификатор точки продаж. (required)
      * @param  \YandexMarketApi\Model\ChangeOutletRequest $change_outlet_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOutlet'] to see the possible values for this operation
      *
@@ -2242,7 +2242,7 @@ class OutletsApi
      * Изменение информации о точке продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $outlet_id Идентификатор точки продаж (required)
+     * @param  int $outlet_id Идентификатор точки продаж. (required)
      * @param  \YandexMarketApi\Model\ChangeOutletRequest $change_outlet_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOutlet'] to see the possible values for this operation
      *
@@ -2294,7 +2294,7 @@ class OutletsApi
      * Create request for operation 'updateOutlet'
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int $outlet_id Идентификатор точки продаж (required)
+     * @param  int $outlet_id Идентификатор точки продаж. (required)
      * @param  \YandexMarketApi\Model\ChangeOutletRequest $change_outlet_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateOutlet'] to see the possible values for this operation
      *

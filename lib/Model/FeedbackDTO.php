@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * FeedbackDTO Class Doc Comment
  *
  * @category Class
- * @description Отзыв пользователя Яндекс.Маркета об указанном магазине.
+ * @description Отзыв пользователя Яндекс Маркета об указанном магазине.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -664,7 +664,7 @@ class FeedbackDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets verified
      *
-     * @param bool|null $verified Является ли отзыв рекомендованным:  * `true` — да. * `false` — нет.  {% note alert %}  Параметр устарел и не рекомендуется к использованию.  {% endnote %}
+     * @param bool|null $verified {% note warning \"\" %}  Этот параметр устарел. Не используйте его.  {% endnote %}  Является ли отзыв рекомендованным:  * `true` — да. * `false` — нет.
      *
      * @return self
      */

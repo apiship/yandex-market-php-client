@@ -337,7 +337,7 @@ class OrdersStatsPaymentOrderDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets date
      *
-     * @param \DateTime|null $date Дата платежного поручения. Формат даты: `ГГГГ‑ММ‑ДД`.
+     * @param \DateTime|null $date Дата платежного поручения.  Формат даты: `ГГГГ‑ММ‑ДД`.
      *
      * @return self
      */

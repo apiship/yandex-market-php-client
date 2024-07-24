@@ -956,7 +956,7 @@ class HiddenOffersApi
         }
 
 
-        $resourcePath = '/campaigns/{campaignId}/hidden-offers';
+        $resourcePath = '/campaigns/{campaignId}/hidden-offers/delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1032,7 +1032,7 @@ class HiddenOffersApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'DELETE',
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

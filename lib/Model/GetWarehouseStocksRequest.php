@@ -321,7 +321,7 @@ class GetWarehouseStocksRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets with_turnover
      *
-     * @param bool|null $with_turnover Возвращать ли информацию по оборачиваемости (FBY).  Значение по умолчанию — `false`. Передавайте `true`, если информация нужна.
+     * @param bool|null $with_turnover **Только для модели FBY**  Возвращать ли информацию по оборачиваемости.  Значение по умолчанию — `false`. Если информация нужна, передавайте значение `true`.
      *
      * @return self
      */
@@ -375,7 +375,7 @@ class GetWarehouseStocksRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets offer_ids
      *
-     * @param string[]|null $offer_ids Фильтр по вашим SKU товаров.  Возвращается информация об остатках всех переданных SKU, включая товары в архиве.  {% note warning \"Такой список возвращается только целиком\" %}  Если вы запрашиваете информацию по конкретным SKU, не заполняйте:  * `page_token`; * `limit`; * `archived`.  {% endnote %}   
+     * @param string[]|null $offer_ids Фильтр по вашим SKU товаров.  Возвращается информация об остатках всех переданных SKU, включая товары в архиве.  {% note warning \"Такой список возвращается только целиком\" %}  Если вы запрашиваете информацию по конкретным SKU, не заполняйте:  * `page_token` * `limit` * `archived`  {% endnote %}   
      *
      * @return self
      */

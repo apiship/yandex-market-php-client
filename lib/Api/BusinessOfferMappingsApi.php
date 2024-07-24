@@ -2461,7 +2461,7 @@ class BusinessOfferMappingsApi
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \YandexMarketApi\Model\EmptyApiResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiLockedErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
+     * @return \YandexMarketApi\Model\UpdateOfferMappingsResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiLockedErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
      */
     public function updateOfferMappings($business_id, $update_offer_mappings_request, string $contentType = self::contentTypes['updateOfferMappings'][0])
     {
@@ -2480,7 +2480,7 @@ class BusinessOfferMappingsApi
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \YandexMarketApi\Model\EmptyApiResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiLockedErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \YandexMarketApi\Model\UpdateOfferMappingsResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiLockedErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateOfferMappingsWithHttpInfo($business_id, $update_offer_mappings_request, string $contentType = self::contentTypes['updateOfferMappings'][0])
     {
@@ -2523,17 +2523,17 @@ class BusinessOfferMappingsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\YandexMarketApi\Model\EmptyApiResponse' === '\SplFileObject') {
+                    if ('\YandexMarketApi\Model\UpdateOfferMappingsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\YandexMarketApi\Model\EmptyApiResponse' !== 'string') {
+                        if ('\YandexMarketApi\Model\UpdateOfferMappingsResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\EmptyApiResponse', []),
+                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\UpdateOfferMappingsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2644,7 +2644,7 @@ class BusinessOfferMappingsApi
                     ];
             }
 
-            $returnType = '\YandexMarketApi\Model\EmptyApiResponse';
+            $returnType = '\YandexMarketApi\Model\UpdateOfferMappingsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2665,7 +2665,7 @@ class BusinessOfferMappingsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\YandexMarketApi\Model\EmptyApiResponse',
+                        '\YandexMarketApi\Model\UpdateOfferMappingsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2767,7 +2767,7 @@ class BusinessOfferMappingsApi
      */
     public function updateOfferMappingsAsyncWithHttpInfo($business_id, $update_offer_mappings_request, string $contentType = self::contentTypes['updateOfferMappings'][0])
     {
-        $returnType = '\YandexMarketApi\Model\EmptyApiResponse';
+        $returnType = '\YandexMarketApi\Model\UpdateOfferMappingsResponse';
         $request = $this->updateOfferMappingsRequest($business_id, $update_offer_mappings_request, $contentType);
 
         return $this->client

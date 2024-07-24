@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * EacVerificationStatusType Class Doc Comment
  *
  * @category Class
- * @description Статус проверки кода подтверждения:  * &#x60;ACCEPTED&#x60; — код верный; * &#x60;REJECTED&#x60; — код неверный; * &#x60;NEED_UPDATE&#x60; — Маркет отправит новый код. Значение возвращается, если превышено количество попыток отправки кода.
+ * @description Статус проверки кода подтверждения:  * &#x60;ACCEPTED&#x60; — код верный. * &#x60;REJECTED&#x60; — код неверный. * &#x60;NEED_UPDATE&#x60; — Маркет отправит новый код. Значение возвращается, если превышено количество попыток отправки кода.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -347,7 +347,7 @@ class PriceRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets price
      *
-     * @param float $price Рекомендованная цена товара. Чтобы продвижение хорошо работало, цена товара должна быть не выше этого значения. [Подробно о рекомендованных ценах](https://yandex.ru/support/marketplace/marketing/campaigns.html#prices)
+     * @param float $price Рекомендованная цена на товар. Чтобы продвижение хорошо работало, цена на товар должна быть не выше этого значения. [Подробно о рекомендованных ценах](https://yandex.ru/support/marketplace/marketing/campaigns.html#prices)
      *
      * @return self
      */

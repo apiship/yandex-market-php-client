@@ -134,7 +134,7 @@ class PriceQuarantineApi
     /**
      * Operation confirmBusinessPrices
      *
-     * Подтверждение цены товара, попавшего в карантин (основная цена)
+     * Подтверждение цены на товар, попавшего в карантин (основная цена)
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\ConfirmPricesRequest $confirm_prices_request confirm_prices_request (required)
@@ -153,7 +153,7 @@ class PriceQuarantineApi
     /**
      * Operation confirmBusinessPricesWithHttpInfo
      *
-     * Подтверждение цены товара, попавшего в карантин (основная цена)
+     * Подтверждение цены на товар, попавшего в карантин (основная цена)
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\ConfirmPricesRequest $confirm_prices_request (required)
@@ -415,7 +415,7 @@ class PriceQuarantineApi
     /**
      * Operation confirmBusinessPricesAsync
      *
-     * Подтверждение цены товара, попавшего в карантин (основная цена)
+     * Подтверждение цены на товар, попавшего в карантин (основная цена)
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\ConfirmPricesRequest $confirm_prices_request (required)
@@ -437,7 +437,7 @@ class PriceQuarantineApi
     /**
      * Operation confirmBusinessPricesAsyncWithHttpInfo
      *
-     * Подтверждение цены товара, попавшего в карантин (основная цена)
+     * Подтверждение цены на товар, попавшего в карантин (основная цена)
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\ConfirmPricesRequest $confirm_prices_request (required)
@@ -601,7 +601,7 @@ class PriceQuarantineApi
     /**
      * Operation confirmCampaignPrices
      *
-     * Подтверждение цены товара, попавшего в карантин (цена в магазине)
+     * Подтверждение цены на товар, попавшего в карантин (цена в магазине)
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\ConfirmPricesRequest $confirm_prices_request confirm_prices_request (required)
@@ -620,7 +620,7 @@ class PriceQuarantineApi
     /**
      * Operation confirmCampaignPricesWithHttpInfo
      *
-     * Подтверждение цены товара, попавшего в карантин (цена в магазине)
+     * Подтверждение цены на товар, попавшего в карантин (цена в магазине)
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\ConfirmPricesRequest $confirm_prices_request (required)
@@ -882,7 +882,7 @@ class PriceQuarantineApi
     /**
      * Operation confirmCampaignPricesAsync
      *
-     * Подтверждение цены товара, попавшего в карантин (цена в магазине)
+     * Подтверждение цены на товар, попавшего в карантин (цена в магазине)
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\ConfirmPricesRequest $confirm_prices_request (required)
@@ -904,7 +904,7 @@ class PriceQuarantineApi
     /**
      * Operation confirmCampaignPricesAsyncWithHttpInfo
      *
-     * Подтверждение цены товара, попавшего в карантин (цена в магазине)
+     * Подтверждение цены на товар, попавшего в карантин (цена в магазине)
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\ConfirmPricesRequest $confirm_prices_request (required)

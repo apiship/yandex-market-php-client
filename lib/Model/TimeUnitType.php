@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * TimeUnitType Class Doc Comment
  *
  * @category Class
- * @description Единица измерения времени:  * &#x60;HOUR&#x60; — час; * &#x60;DAY&#x60; — сутки; * &#x60;WEEK&#x60; — неделя; * &#x60;MONTH&#x60; — месяц; * &#x60;YEAR&#x60; — год.
+ * @description Единица измерения времени:  * &#x60;HOUR&#x60; — час. * &#x60;DAY&#x60; — сутки. * &#x60;WEEK&#x60; — неделя. * &#x60;MONTH&#x60; — месяц. * &#x60;YEAR&#x60; — год.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

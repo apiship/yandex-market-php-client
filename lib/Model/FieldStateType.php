@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * FieldStateType Class Doc Comment
  *
  * @category Class
- * @description Фильтр по заполненности или незаполненности поля:  * &#x60;SPECIFIED&#x60; — вывести товары, у которых поле заполнено; * &#x60;EMPTY&#x60; — вывести товары, у которых поле не заполнено.
+ * @description Фильтр по заполненности или незаполненности поля:  * &#x60;SPECIFIED&#x60; — вывести товары, у которых поле заполнено. * &#x60;EMPTY&#x60; — вывести товары, у которых поле не заполнено.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

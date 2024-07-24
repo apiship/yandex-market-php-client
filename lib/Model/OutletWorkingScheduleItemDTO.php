@@ -398,7 +398,7 @@ class OutletWorkingScheduleItemDTO implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets start_time
      *
-     * @param string $start_time Точка продаж работает c указанного часа. Формат: `ЧЧ:ММ`.
+     * @param string $start_time Точка продаж работает c указанного часа.  Формат: `ЧЧ:ММ`.
      *
      * @return self
      */
@@ -430,7 +430,7 @@ class OutletWorkingScheduleItemDTO implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets end_time
      *
-     * @param string $end_time Точка продаж работает до указанного часа. Формат: `ЧЧ:ММ`.
+     * @param string $end_time Точка продаж работает до указанного часа.  Формат: `ЧЧ:ММ`.
      *
      * @return self
      */

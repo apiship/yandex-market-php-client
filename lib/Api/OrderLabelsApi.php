@@ -631,7 +631,7 @@ class OrderLabelsApi
     /**
      * Operation generateOrderLabels
      *
-     * Ярлыки‑наклейки на все грузовые места в заказе
+     * Ярлыки‑наклейки на все коробки в одном заказе
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
@@ -651,7 +651,7 @@ class OrderLabelsApi
     /**
      * Operation generateOrderLabelsWithHttpInfo
      *
-     * Ярлыки‑наклейки на все грузовые места в заказе
+     * Ярлыки‑наклейки на все коробки в одном заказе
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
@@ -891,7 +891,7 @@ class OrderLabelsApi
     /**
      * Operation generateOrderLabelsAsync
      *
-     * Ярлыки‑наклейки на все грузовые места в заказе
+     * Ярлыки‑наклейки на все коробки в одном заказе
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)
@@ -914,7 +914,7 @@ class OrderLabelsApi
     /**
      * Operation generateOrderLabelsAsyncWithHttpInfo
      *
-     * Ярлыки‑наклейки на все грузовые места в заказе
+     * Ярлыки‑наклейки на все коробки в одном заказе
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $order_id Идентификатор заказа. (required)

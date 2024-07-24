@@ -314,7 +314,7 @@ class ParcelBoxDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param int|null $id Поле больше не используется. Не передавайте его в запросах и не обращайте на него внимания в ответах.
+     * @param int|null $id {% note warning \"\" %}  Этот параметр устарел. Не используйте его.  {% endnote %}
      *
      * @return self
      */
@@ -341,7 +341,7 @@ class ParcelBoxDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fulfilment_id
      *
-     * @param string|null $fulfilment_id Поле больше не используется. Не передавайте его в запросах и не обращайте на него внимания в ответах.
+     * @param string|null $fulfilment_id {% note warning \"\" %}  Этот параметр устарел. Не используйте его.  {% endnote %}
      *
      * @return self
      */

@@ -63,7 +63,8 @@ class CalculateTariffsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
         'length' => 'float',
         'width' => 'float',
         'height' => 'float',
-        'weight' => 'float'
+        'weight' => 'float',
+        'quantity' => 'int'
     ];
 
     /**
@@ -79,7 +80,8 @@ class CalculateTariffsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
         'length' => null,
         'width' => null,
         'height' => null,
-        'weight' => null
+        'weight' => null,
+        'quantity' => 'int32'
     ];
 
     /**
@@ -93,7 +95,8 @@ class CalculateTariffsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
 		'length' => false,
 		'width' => false,
 		'height' => false,
-		'weight' => false
+		'weight' => false,
+		'quantity' => false
     ];
 
     /**
@@ -187,7 +190,8 @@ class CalculateTariffsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
         'length' => 'length',
         'width' => 'width',
         'height' => 'height',
-        'weight' => 'weight'
+        'weight' => 'weight',
+        'quantity' => 'quantity'
     ];
 
     /**
@@ -201,7 +205,8 @@ class CalculateTariffsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
         'length' => 'setLength',
         'width' => 'setWidth',
         'height' => 'setHeight',
-        'weight' => 'setWeight'
+        'weight' => 'setWeight',
+        'quantity' => 'setQuantity'
     ];
 
     /**
@@ -215,7 +220,8 @@ class CalculateTariffsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
         'length' => 'getLength',
         'width' => 'getWidth',
         'height' => 'getHeight',
-        'weight' => 'getWeight'
+        'weight' => 'getWeight',
+        'quantity' => 'getQuantity'
     ];
 
     /**
@@ -281,6 +287,7 @@ class CalculateTariffsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('width', $data ?? [], null);
         $this->setIfExists('height', $data ?? [], null);
         $this->setIfExists('weight', $data ?? [], null);
+        $this->setIfExists('quantity', $data ?? [], 1);
     }
 
     /**
@@ -352,6 +359,10 @@ class CalculateTariffsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
             $invalidProperties[] = "invalid value for 'weight', must be bigger than 0.";
         }
 
+        if (!is_null($this->container['quantity']) && ($this->container['quantity'] < 1)) {
+            $invalidProperties[] = "invalid value for 'quantity', must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -412,7 +423,7 @@ class CalculateTariffsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets price
      *
-     * @param float $price Цена товара в рублях.
+     * @param float $price Цена на товар в рублях.
      *
      * @return self
      */
@@ -555,6 +566,38 @@ class CalculateTariffsOfferDTO implements ModelInterface, ArrayAccess, \JsonSeri
         }
 
         $this->container['weight'] = $weight;
+
+        return $this;
+    }
+
+    /**
+     * Gets quantity
+     *
+     * @return int|null
+     */
+    public function getQuantity()
+    {
+        return $this->container['quantity'];
+    }
+
+    /**
+     * Sets quantity
+     *
+     * @param int|null $quantity Квант продажи — количество единиц товара в одном товарном предложении.
+     *
+     * @return self
+     */
+    public function setQuantity($quantity)
+    {
+        if (is_null($quantity)) {
+            throw new \InvalidArgumentException('non-nullable quantity cannot be null');
+        }
+
+        if (($quantity < 1)) {
+            throw new \InvalidArgumentException('invalid value for $quantity when calling CalculateTariffsOfferDTO., must be bigger than or equal to 1.');
+        }
+
+        $this->container['quantity'] = $quantity;
 
         return $this;
     }

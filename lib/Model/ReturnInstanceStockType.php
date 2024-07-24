@@ -69,6 +69,16 @@ class ReturnInstanceStockType
 
     public const NOT_ACCEPTABLE = 'NOT_ACCEPTABLE';
 
+    public const SERVICE = 'SERVICE';
+
+    public const MARKDOWN = 'MARKDOWN';
+
+    public const DEMO = 'DEMO';
+
+    public const REPAIR = 'REPAIR';
+
+    public const FIRMWARE = 'FIRMWARE';
+
     public const UNKNOWN = 'UNKNOWN';
 
     /**
@@ -91,6 +101,11 @@ class ReturnInstanceStockType
             self::PART_MISSING,
             self::NON_COMPLIENT,
             self::NOT_ACCEPTABLE,
+            self::SERVICE,
+            self::MARKDOWN,
+            self::DEMO,
+            self::REPAIR,
+            self::FIRMWARE,
             self::UNKNOWN
         ];
     }

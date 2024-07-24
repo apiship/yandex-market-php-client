@@ -323,7 +323,7 @@ class CategoryDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param int $id ID категории.
+     * @param int $id Идентификатор категории.
      *
      * @return self
      */

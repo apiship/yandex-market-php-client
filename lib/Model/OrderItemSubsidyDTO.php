@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderItemSubsidyDTO Class Doc Comment
  *
  * @category Class
- * @description Общее вознаграждение партнеру за DBS-доставку и все скидки на товар:  * по промокодам; * по купонам; * по баллам Плюса; * по акциям.  Передается в валюте заказа, для отделения целой части от дробной используется точка.
+ * @description Общее вознаграждение партнеру за все скидки на товар:  * по промокодам, купонам и акциям; * по баллам Плюса.  Передается в валюте заказа.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,7 +58,7 @@ class OrderItemSubsidyDTO implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\YandexMarketApi\Model\OrderSubsidyType',
+        'type' => '\YandexMarketApi\Model\OrderItemSubsidyType',
         'amount' => 'float'
     ];
 
@@ -300,7 +300,7 @@ class OrderItemSubsidyDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets type
      *
-     * @return \YandexMarketApi\Model\OrderSubsidyType|null
+     * @return \YandexMarketApi\Model\OrderItemSubsidyType|null
      */
     public function getType()
     {
@@ -310,7 +310,7 @@ class OrderItemSubsidyDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets type
      *
-     * @param \YandexMarketApi\Model\OrderSubsidyType|null $type type
+     * @param \YandexMarketApi\Model\OrderItemSubsidyType|null $type type
      *
      * @return self
      */

@@ -64,10 +64,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_date' => 'string',
         'currency' => '\YandexMarketApi\Model\CurrencyType',
         'items_total' => 'float',
-        'total' => 'float',
         'delivery_total' => 'float',
-        'subsidy_total' => 'float',
-        'total_with_subsidy' => 'float',
         'buyer_items_total' => 'float',
         'buyer_total' => 'float',
         'buyer_items_total_before_discount' => 'float',
@@ -76,7 +73,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'payment_method' => '\YandexMarketApi\Model\OrderPaymentMethodType',
         'fake' => 'bool',
         'items' => '\YandexMarketApi\Model\OrderItemDTO[]',
-        'subsidies' => '\YandexMarketApi\Model\OrderItemSubsidyDTO[]',
+        'subsidies' => '\YandexMarketApi\Model\OrderSubsidyDTO[]',
         'delivery' => '\YandexMarketApi\Model\OrderDeliveryDTO',
         'buyer' => '\YandexMarketApi\Model\OrderBuyerDTO',
         'notes' => 'string',
@@ -99,10 +96,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_date' => 'date-dd-MM-yyyy-HH-mm-ss',
         'currency' => null,
         'items_total' => 'decimal',
-        'total' => 'decimal',
         'delivery_total' => 'decimal',
-        'subsidy_total' => 'decimal',
-        'total_with_subsidy' => 'decimal',
         'buyer_items_total' => 'decimal',
         'buyer_total' => 'decimal',
         'buyer_items_total_before_discount' => 'decimal',
@@ -132,10 +126,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
 		'creation_date' => false,
 		'currency' => false,
 		'items_total' => false,
-		'total' => false,
 		'delivery_total' => false,
-		'subsidy_total' => false,
-		'total_with_subsidy' => false,
 		'buyer_items_total' => false,
 		'buyer_total' => false,
 		'buyer_items_total_before_discount' => false,
@@ -245,10 +236,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_date' => 'creationDate',
         'currency' => 'currency',
         'items_total' => 'itemsTotal',
-        'total' => 'total',
         'delivery_total' => 'deliveryTotal',
-        'subsidy_total' => 'subsidyTotal',
-        'total_with_subsidy' => 'totalWithSubsidy',
         'buyer_items_total' => 'buyerItemsTotal',
         'buyer_total' => 'buyerTotal',
         'buyer_items_total_before_discount' => 'buyerItemsTotalBeforeDiscount',
@@ -278,10 +266,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_date' => 'setCreationDate',
         'currency' => 'setCurrency',
         'items_total' => 'setItemsTotal',
-        'total' => 'setTotal',
         'delivery_total' => 'setDeliveryTotal',
-        'subsidy_total' => 'setSubsidyTotal',
-        'total_with_subsidy' => 'setTotalWithSubsidy',
         'buyer_items_total' => 'setBuyerItemsTotal',
         'buyer_total' => 'setBuyerTotal',
         'buyer_items_total_before_discount' => 'setBuyerItemsTotalBeforeDiscount',
@@ -311,10 +296,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_date' => 'getCreationDate',
         'currency' => 'getCurrency',
         'items_total' => 'getItemsTotal',
-        'total' => 'getTotal',
         'delivery_total' => 'getDeliveryTotal',
-        'subsidy_total' => 'getSubsidyTotal',
-        'total_with_subsidy' => 'getTotalWithSubsidy',
         'buyer_items_total' => 'getBuyerItemsTotal',
         'buyer_total' => 'getBuyerTotal',
         'buyer_items_total_before_discount' => 'getBuyerItemsTotalBeforeDiscount',
@@ -395,10 +377,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('creation_date', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('items_total', $data ?? [], null);
-        $this->setIfExists('total', $data ?? [], null);
         $this->setIfExists('delivery_total', $data ?? [], null);
-        $this->setIfExists('subsidy_total', $data ?? [], null);
-        $this->setIfExists('total_with_subsidy', $data ?? [], null);
         $this->setIfExists('buyer_items_total', $data ?? [], null);
         $this->setIfExists('buyer_total', $data ?? [], null);
         $this->setIfExists('buyer_items_total_before_discount', $data ?? [], null);
@@ -606,7 +585,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets items_total
      *
-     * @param float|null $items_total Общая сумма заказа в валюте заказа без учета стоимости доставки и вознаграждения партнеру за скидки по промокодам, купонам и акциям (параметр `subsidyTotal`).  Для отделения целой части от дробной используется точка.
+     * @param float|null $items_total Платеж покупателя.
      *
      * @return self
      */
@@ -616,33 +595,6 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable items_total cannot be null');
         }
         $this->container['items_total'] = $items_total;
-
-        return $this;
-    }
-
-    /**
-     * Gets total
-     *
-     * @return float|null
-     */
-    public function getTotal()
-    {
-        return $this->container['total'];
-    }
-
-    /**
-     * Sets total
-     *
-     * @param float|null $total {% note warning \"\" %}  Этот параметр устарел. Чтобы узнать соответствующее значение, сложите значения `itemsTotal` и `deliveryTotal`.  {% endnote %}  Общая сумма заказа в валюте заказа с учетом стоимости доставки, но без учета вознаграждения партнеру за скидки по промокодам, купонам, кешбэку и акциям (параметр `subsidyTotal`).  Для отделения целой части от дробной используется точка.
-     *
-     * @return self
-     */
-    public function setTotal($total)
-    {
-        if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
-        }
-        $this->container['total'] = $total;
 
         return $this;
     }
@@ -660,7 +612,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets delivery_total
      *
-     * @param float|null $delivery_total Стоимость доставки в валюте заказа.  Для отделения целой части от дробной используется точка.
+     * @param float|null $delivery_total Стоимость доставки.
      *
      * @return self
      */
@@ -675,63 +627,10 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets subsidy_total
-     *
-     * @return float|null
-     */
-    public function getSubsidyTotal()
-    {
-        return $this->container['subsidy_total'];
-    }
-
-    /**
-     * Sets subsidy_total
-     *
-     * @param float|null $subsidy_total {% note warning \"\" %}  Этот параметр устарел. Чтобы узнать соответствующее значение, сложите значения всех субсидий в `subsidies`.  {% endnote %}  Общее вознаграждение партнеру за DBS-доставку и все скидки:  * по промокодам; * по купонам; * по баллам Плюса; * по акциям.  Передается в валюте, указанной в параметре `currency`.  Для отделения целой части от дробной используется точка.
-     *
-     * @return self
-     */
-    public function setSubsidyTotal($subsidy_total)
-    {
-        if (is_null($subsidy_total)) {
-            throw new \InvalidArgumentException('non-nullable subsidy_total cannot be null');
-        }
-        $this->container['subsidy_total'] = $subsidy_total;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_with_subsidy
-     *
-     * @return float|null
-     */
-    public function getTotalWithSubsidy()
-    {
-        return $this->container['total_with_subsidy'];
-    }
-
-    /**
-     * Sets total_with_subsidy
-     *
-     * @param float|null $total_with_subsidy {% note warning \"\" %}  Этот параметр устарел. Чтобы узнать соответствующее значение, сложите значения `itemsTotal`, `deliveryTotal` и всех субсидий в `subsidies`.  {% endnote %}  Сумма стоимости всех товаров в заказе и вознаграждения за них в валюте магазина (сумма параметров `total` и `subsidyTotal`).
-     *
-     * @return self
-     */
-    public function setTotalWithSubsidy($total_with_subsidy)
-    {
-        if (is_null($total_with_subsidy)) {
-            throw new \InvalidArgumentException('non-nullable total_with_subsidy cannot be null');
-        }
-        $this->container['total_with_subsidy'] = $total_with_subsidy;
-
-        return $this;
-    }
-
-    /**
      * Gets buyer_items_total
      *
      * @return float|null
+     * @deprecated
      */
     public function getBuyerItemsTotal()
     {
@@ -741,9 +640,10 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyer_items_total
      *
-     * @param float|null $buyer_items_total Стоимость всех товаров в заказе в валюте покупателя после применения скидок и без учета стоимости доставки.
+     * @param float|null $buyer_items_total {% note warning \"\" %}  Этот параметр устарел.  {% endnote %}  Стоимость всех товаров в заказе в валюте покупателя после применения скидок и без учета стоимости доставки.
      *
      * @return self
+     * @deprecated
      */
     public function setBuyerItemsTotal($buyer_items_total)
     {
@@ -759,6 +659,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets buyer_total
      *
      * @return float|null
+     * @deprecated
      */
     public function getBuyerTotal()
     {
@@ -768,9 +669,10 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyer_total
      *
-     * @param float|null $buyer_total Стоимость всех товаров в заказе в валюте покупателя после применения скидок и с учетом стоимости доставки.
+     * @param float|null $buyer_total {% note warning \"\" %}  Этот параметр устарел.  {% endnote %}  Стоимость всех товаров в заказе в валюте покупателя после применения скидок и с учетом стоимости доставки.
      *
      * @return self
+     * @deprecated
      */
     public function setBuyerTotal($buyer_total)
     {
@@ -795,7 +697,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyer_items_total_before_discount
      *
-     * @param float|null $buyer_items_total_before_discount Стоимость всех товаров в заказе в валюте покупателя до применения скидок и без учета стоимости доставки.
+     * @param float|null $buyer_items_total_before_discount Цена продажи. Стоимость всех товаров в заказе в валюте покупателя до применения скидок и без учета стоимости доставки.
      *
      * @return self
      */
@@ -813,6 +715,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets buyer_total_before_discount
      *
      * @return float|null
+     * @deprecated
      */
     public function getBuyerTotalBeforeDiscount()
     {
@@ -822,9 +725,10 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyer_total_before_discount
      *
-     * @param float|null $buyer_total_before_discount Стоимость всех товаров в заказе в валюте покупателя до применения скидок и с учетом стоимости доставки.
+     * @param float|null $buyer_total_before_discount {% note warning \"\" %}  Этот параметр устарел.  {% endnote %}  Стоимость всех товаров в заказе в валюте покупателя до применения скидок и с учетом стоимости доставки (`buyerItemsTotalBeforeDiscount` + стоимость доставки).
      *
      * @return self
+     * @deprecated
      */
     public function setBuyerTotalBeforeDiscount($buyer_total_before_discount)
     {
@@ -947,7 +851,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets subsidies
      *
-     * @return \YandexMarketApi\Model\OrderItemSubsidyDTO[]|null
+     * @return \YandexMarketApi\Model\OrderSubsidyDTO[]|null
      */
     public function getSubsidies()
     {
@@ -957,7 +861,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets subsidies
      *
-     * @param \YandexMarketApi\Model\OrderItemSubsidyDTO[]|null $subsidies Список субсидий по типам.
+     * @param \YandexMarketApi\Model\OrderSubsidyDTO[]|null $subsidies Список субсидий по типам.
      *
      * @return self
      */
