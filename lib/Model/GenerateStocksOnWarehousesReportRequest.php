@@ -87,9 +87,9 @@ class GenerateStocksOnWarehousesReportRequest implements ModelInterface, ArrayAc
       */
     protected static array $openAPINullables = [
         'campaign_id' => false,
-		'warehouse_ids' => false,
+		'warehouse_ids' => true,
 		'report_date' => false,
-		'category_ids' => false,
+		'category_ids' => true,
 		'has_stocks' => false
     ];
 
@@ -368,7 +368,14 @@ class GenerateStocksOnWarehousesReportRequest implements ModelInterface, ArrayAc
     public function setWarehouseIds($warehouse_ids)
     {
         if (is_null($warehouse_ids)) {
-            throw new \InvalidArgumentException('non-nullable warehouse_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'warehouse_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('warehouse_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['warehouse_ids'] = $warehouse_ids;
 
@@ -422,7 +429,14 @@ class GenerateStocksOnWarehousesReportRequest implements ModelInterface, ArrayAc
     public function setCategoryIds($category_ids)
     {
         if (is_null($category_ids)) {
-            throw new \InvalidArgumentException('non-nullable category_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['category_ids'] = $category_ids;
 

@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * ReturnRequestDecisionType Class Doc Comment
  *
  * @category Class
- * @description Решение по возврату.
+ * @description Решение по товару в возврате:  * &#x60;REFUND_MONEY&#x60; — вернуть деньги за товар. * &#x60;REFUND_MONEY_INCLUDING_SHIPMENT&#x60; — вернуть деньги за товар и обратную пересылку. * &#x60;REPAIR&#x60; — магазин устранит недостатки товара. * &#x60;REPLACE&#x60; — магазин заменит товар. * &#x60;SEND_TO_EXAMINATION&#x60; — магазин отправит товар на экспертизу. * &#x60;DECLINE_REFUND&#x60; — не возвращать деньги. * &#x60;OTHER_DECISION&#x60; — другое решение.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

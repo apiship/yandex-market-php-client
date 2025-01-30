@@ -84,7 +84,7 @@ class OrderItemModificationDTO implements ModelInterface, ArrayAccess, \JsonSeri
     protected static array $openAPINullables = [
         'id' => false,
 		'count' => false,
-		'instances' => false
+		'instances' => true
     ];
 
     /**
@@ -393,7 +393,14 @@ class OrderItemModificationDTO implements ModelInterface, ArrayAccess, \JsonSeri
     public function setInstances($instances)
     {
         if (is_null($instances)) {
-            throw new \InvalidArgumentException('non-nullable instances cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'instances');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('instances', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['instances'] = $instances;
 

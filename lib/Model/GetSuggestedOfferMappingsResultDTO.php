@@ -275,6 +275,9 @@ class GetSuggestedOfferMappingsResultDTO implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
+        if ($this->container['offers'] === null) {
+            $invalidProperties[] = "'offers' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -293,7 +296,7 @@ class GetSuggestedOfferMappingsResultDTO implements ModelInterface, ArrayAccess,
     /**
      * Gets offers
      *
-     * @return \YandexMarketApi\Model\SuggestedOfferMappingDTO[]|null
+     * @return \YandexMarketApi\Model\SuggestedOfferMappingDTO[]
      */
     public function getOffers()
     {
@@ -303,7 +306,7 @@ class GetSuggestedOfferMappingsResultDTO implements ModelInterface, ArrayAccess,
     /**
      * Sets offers
      *
-     * @param \YandexMarketApi\Model\SuggestedOfferMappingDTO[]|null $offers Список товаров.
+     * @param \YandexMarketApi\Model\SuggestedOfferMappingDTO[] $offers Список товаров.
      *
      * @return self
      */

@@ -74,7 +74,7 @@ class PriceQuarantineApiTest extends TestCase
     /**
      * Test case for confirmBusinessPrices
      *
-     * Подтверждение цены товара, попавшего в карантин (основная цена).
+     * Удаление товара из карантина по цене в кабинете.
      *
      */
     public function testConfirmBusinessPrices()
@@ -86,7 +86,7 @@ class PriceQuarantineApiTest extends TestCase
     /**
      * Test case for confirmCampaignPrices
      *
-     * Подтверждение цены товара, попавшего в карантин (цена в магазине).
+     * Удаление товара из карантина по цене в магазине.
      *
      */
     public function testConfirmCampaignPrices()
@@ -98,7 +98,7 @@ class PriceQuarantineApiTest extends TestCase
     /**
      * Test case for getBusinessQuarantineOffers
      *
-     * Список товаров, находящихся в карантине (основная цена).
+     * Список товаров, находящихся в карантине по цене в кабинете.
      *
      */
     public function testGetBusinessQuarantineOffers()
@@ -110,7 +110,7 @@ class PriceQuarantineApiTest extends TestCase
     /**
      * Test case for getCampaignQuarantineOffers
      *
-     * Список товаров, находящихся в карантине (цена в магазине).
+     * Список товаров, находящихся в карантине по цене в магазине.
      *
      */
     public function testGetCampaignQuarantineOffers()

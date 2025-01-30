@@ -84,9 +84,33 @@ class ReportsApiTest extends TestCase
     }
 
     /**
+     * Test case for generateCompetitorsPositionReport
+     *
+     * Отчет «Конкурентная позиция».
+     *
+     */
+    public function testGenerateCompetitorsPositionReport()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for generateGoodsFeedbackReport
+     *
+     * Отчет по отзывам о товарах.
+     *
+     */
+    public function testGenerateGoodsFeedbackReport()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for generateGoodsMovementReport
      *
-     * Отчет по движению товаров.
+     * Отчет по движению товаров (FBY).
      *
      */
     public function testGenerateGoodsMovementReport()
@@ -110,10 +134,22 @@ class ReportsApiTest extends TestCase
     /**
      * Test case for generateGoodsTurnoverReport
      *
-     * Отчет по оборачиваемости.
+     * Отчет по оборачиваемости (FBY).
      *
      */
     public function testGenerateGoodsTurnoverReport()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for generateMassOrderLabelsReport
+     *
+     * Готовые ярлыки‑наклейки на все коробки в нескольких заказах.
+     *
+     */
+    public function testGenerateMassOrderLabelsReport()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -132,9 +168,21 @@ class ReportsApiTest extends TestCase
     }
 
     /**
+     * Test case for generateShelfsStatisticsReport
+     *
+     * Отчет по полкам.
+     *
+     */
+    public function testGenerateShelfsStatisticsReport()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for generateShipmentListDocumentReport
      *
-     * Лист сборки.
+     * Получение листа сборки.
      *
      */
     public function testGenerateShipmentListDocumentReport()
@@ -206,7 +254,7 @@ class ReportsApiTest extends TestCase
     /**
      * Test case for getReportInfo
      *
-     * Статус генерации и скачивание готовых отчетов.
+     * Получение заданного отчета.
      *
      */
     public function testGetReportInfo()

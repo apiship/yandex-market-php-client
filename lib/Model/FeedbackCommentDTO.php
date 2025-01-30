@@ -96,7 +96,7 @@ class FeedbackCommentDTO implements ModelInterface, ArrayAccess, \JsonSerializab
 		'created_at' => false,
 		'updated_at' => false,
 		'author' => false,
-		'children' => false
+		'children' => true
     ];
 
     /**
@@ -514,7 +514,14 @@ class FeedbackCommentDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setChildren($children)
     {
         if (is_null($children)) {
-            throw new \InvalidArgumentException('non-nullable children cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'children');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('children', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['children'] = $children;
 

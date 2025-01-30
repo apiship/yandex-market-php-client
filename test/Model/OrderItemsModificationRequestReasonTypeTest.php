@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OrderItemsModificationRequestReasonTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Причина обновления состава заказа.
+ * @description Причина обновления состава заказа:  * &#x60;PARTNER_REQUESTED_REMOVE&#x60; — магазин удалил товар. * &#x60;USER_REQUESTED_REMOVE&#x60; — покупатель попросил удалить товар.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

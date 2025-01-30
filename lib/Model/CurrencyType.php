@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * CurrencyType Class Doc Comment
  *
  * @category Class
- * @description Коды валют. Возможные значения: * &#x60;BYR&#x60; — белорусский рубль. * &#x60;KZT&#x60; — казахстанский тенге. * &#x60;RUR&#x60; — российский рубль. * &#x60;UAH&#x60; — украинская гривна.
+ * @description Коды валют. Возможные значения: * &#x60;RUR&#x60; — российский рубль. * &#x60;UAH&#x60; — украинская гривна. * &#x60;BYR&#x60; — белорусский рубль. * &#x60;KZT&#x60; — казахстанский тенге. * &#x60;UZS&#x60; — узбекский сум.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

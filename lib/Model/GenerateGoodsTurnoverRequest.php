@@ -58,7 +58,8 @@ class GenerateGoodsTurnoverRequest implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'campaign_id' => 'int'
+        'campaign_id' => 'int',
+        'date' => '\DateTime'
     ];
 
     /**
@@ -69,7 +70,8 @@ class GenerateGoodsTurnoverRequest implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'campaign_id' => 'int64'
+        'campaign_id' => 'int64',
+        'date' => 'date'
     ];
 
     /**
@@ -78,7 +80,8 @@ class GenerateGoodsTurnoverRequest implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'campaign_id' => false
+        'campaign_id' => false,
+		'date' => false
     ];
 
     /**
@@ -167,7 +170,8 @@ class GenerateGoodsTurnoverRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'campaign_id' => 'campaignId'
+        'campaign_id' => 'campaignId',
+        'date' => 'date'
     ];
 
     /**
@@ -176,7 +180,8 @@ class GenerateGoodsTurnoverRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'campaign_id' => 'setCampaignId'
+        'campaign_id' => 'setCampaignId',
+        'date' => 'setDate'
     ];
 
     /**
@@ -185,7 +190,8 @@ class GenerateGoodsTurnoverRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'campaign_id' => 'getCampaignId'
+        'campaign_id' => 'getCampaignId',
+        'date' => 'getDate'
     ];
 
     /**
@@ -246,6 +252,7 @@ class GenerateGoodsTurnoverRequest implements ModelInterface, ArrayAccess, \Json
     public function __construct(array $data = null)
     {
         $this->setIfExists('campaign_id', $data ?? [], null);
+        $this->setIfExists('date', $data ?? [], null);
     }
 
     /**
@@ -316,6 +323,33 @@ class GenerateGoodsTurnoverRequest implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
         }
         $this->container['campaign_id'] = $campaign_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets date
+     *
+     * @return \DateTime|null
+     */
+    public function getDate()
+    {
+        return $this->container['date'];
+    }
+
+    /**
+     * Sets date
+     *
+     * @param \DateTime|null $date Дата, за которую нужно рассчитать оборачиваемость. Если параметр не указан, используется текущая дата.
+     *
+     * @return self
+     */
+    public function setDate($date)
+    {
+        if (is_null($date)) {
+            throw new \InvalidArgumentException('non-nullable date cannot be null');
+        }
+        $this->container['date'] = $date;
 
         return $this;
     }

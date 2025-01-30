@@ -74,7 +74,8 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'instances' => '\YandexMarketApi\Model\OrderItemInstanceDTO[]',
         'details' => '\YandexMarketApi\Model\OrderItemDetailDTO[]',
         'subsidies' => '\YandexMarketApi\Model\OrderItemSubsidyDTO[]',
-        'required_instance_types' => '\YandexMarketApi\Model\OrderItemInstanceType[]'
+        'required_instance_types' => '\YandexMarketApi\Model\OrderItemInstanceType[]',
+        'tags' => '\YandexMarketApi\Model\OrderItemTagType[]'
     ];
 
     /**
@@ -101,7 +102,8 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'instances' => null,
         'details' => null,
         'subsidies' => null,
-        'required_instance_types' => null
+        'required_instance_types' => null,
+        'tags' => null
     ];
 
     /**
@@ -122,11 +124,12 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
 		'shop_sku' => false,
 		'subsidy' => false,
 		'partner_warehouse_id' => false,
-		'promos' => false,
-		'instances' => false,
-		'details' => false,
-		'subsidies' => false,
-		'required_instance_types' => false
+		'promos' => true,
+		'instances' => true,
+		'details' => true,
+		'subsidies' => true,
+		'required_instance_types' => true,
+		'tags' => true
     ];
 
     /**
@@ -231,7 +234,8 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'instances' => 'instances',
         'details' => 'details',
         'subsidies' => 'subsidies',
-        'required_instance_types' => 'requiredInstanceTypes'
+        'required_instance_types' => 'requiredInstanceTypes',
+        'tags' => 'tags'
     ];
 
     /**
@@ -256,7 +260,8 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'instances' => 'setInstances',
         'details' => 'setDetails',
         'subsidies' => 'setSubsidies',
-        'required_instance_types' => 'setRequiredInstanceTypes'
+        'required_instance_types' => 'setRequiredInstanceTypes',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -281,7 +286,8 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'instances' => 'getInstances',
         'details' => 'getDetails',
         'subsidies' => 'getSubsidies',
-        'required_instance_types' => 'getRequiredInstanceTypes'
+        'required_instance_types' => 'getRequiredInstanceTypes',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -358,6 +364,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('details', $data ?? [], null);
         $this->setIfExists('subsidies', $data ?? [], null);
         $this->setIfExists('required_instance_types', $data ?? [], null);
+        $this->setIfExists('tags', $data ?? [], null);
     }
 
     /**
@@ -387,16 +394,40 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['offer_id']) && (mb_strlen($this->container['offer_id']) > 255)) {
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['offer_id'] === null) {
+            $invalidProperties[] = "'offer_id' can't be null";
+        }
+        if ((mb_strlen($this->container['offer_id']) > 255)) {
             $invalidProperties[] = "invalid value for 'offer_id', the character length must be smaller than or equal to 255.";
         }
 
-        if (!is_null($this->container['offer_id']) && (mb_strlen($this->container['offer_id']) < 1)) {
+        if ((mb_strlen($this->container['offer_id']) < 1)) {
             $invalidProperties[] = "invalid value for 'offer_id', the character length must be bigger than or equal to 1.";
         }
 
 
 
+        if ($this->container['offer_name'] === null) {
+            $invalidProperties[] = "'offer_name' can't be null";
+        }
+        if ($this->container['price'] === null) {
+            $invalidProperties[] = "'price' can't be null";
+        }
+        if ($this->container['buyer_price'] === null) {
+            $invalidProperties[] = "'buyer_price' can't be null";
+        }
+        if ($this->container['buyer_price_before_discount'] === null) {
+            $invalidProperties[] = "'buyer_price_before_discount' can't be null";
+        }
+        if ($this->container['count'] === null) {
+            $invalidProperties[] = "'count' can't be null";
+        }
+        if ($this->container['vat'] === null) {
+            $invalidProperties[] = "'vat' can't be null";
+        }
         if (!is_null($this->container['shop_sku']) && (mb_strlen($this->container['shop_sku']) > 255)) {
             $invalidProperties[] = "invalid value for 'shop_sku', the character length must be smaller than or equal to 255.";
         }
@@ -405,6 +436,9 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'shop_sku', the character length must be bigger than or equal to 1.";
         }
 
+        if (!is_null($this->container['shop_sku']) && !preg_match("/^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $this->container['shop_sku'])) {
+            $invalidProperties[] = "invalid value for 'shop_sku', must be conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.";
+        }
 
         return $invalidProperties;
     }
@@ -424,7 +458,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return int|null
+     * @return int
      */
     public function getId()
     {
@@ -434,7 +468,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param int|null $id Идентификатор товара в заказе.  Позволяет идентифицировать товар в рамках данного заказа.
+     * @param int $id Идентификатор товара в заказе.  Позволяет идентифицировать товар в рамках данного заказа.
      *
      * @return self
      */
@@ -451,7 +485,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets offer_id
      *
-     * @return string|null
+     * @return string
      */
     public function getOfferId()
     {
@@ -461,7 +495,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets offer_id
      *
-     * @param string|null $offer_id Ваш SKU — идентификатор товара в вашей системе.  Разрешена любая последовательность длиной до 255 знаков.  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * SKU товара нельзя менять — можно только удалить товар и добавить заново с новым SKU.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
+     * @param string $offer_id Ваш SKU — идентификатор товара в вашей системе.  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  SKU товара можно изменить в кабинете продавца на Маркете. О том, как это сделать, читайте [в Справке Маркета для продавцов](https://yandex.ru/support2/marketplace/ru/assortment/operations/edit-sku).  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
      *
      * @return self
      */
@@ -476,8 +510,8 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if ((mb_strlen($offer_id) < 1)) {
             throw new \InvalidArgumentException('invalid length for $offer_id when calling OrderItemDTO., must be bigger than or equal to 1.');
         }
-        if ((!preg_match("/^[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $offer_id))) {
-            throw new \InvalidArgumentException("invalid value for \$offer_id when calling OrderItemDTO., must conform to the pattern /^[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.");
+        if ((!preg_match("/^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $offer_id))) {
+            throw new \InvalidArgumentException("invalid value for \$offer_id when calling OrderItemDTO., must conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.");
         }
 
         $this->container['offer_id'] = $offer_id;
@@ -488,7 +522,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets offer_name
      *
-     * @return string|null
+     * @return string
      */
     public function getOfferName()
     {
@@ -498,7 +532,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets offer_name
      *
-     * @param string|null $offer_name Название товара.
+     * @param string $offer_name Название товара.
      *
      * @return self
      */
@@ -515,7 +549,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets price
      *
-     * @return float|null
+     * @return float
      */
     public function getPrice()
     {
@@ -525,7 +559,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets price
      *
-     * @param float|null $price Цена на товар в валюте заказа без учета вознаграждения партнеру за скидки по промокодам, купонам и акциям (параметр `subsidies`).
+     * @param float $price Цена на товар в валюте заказа без учета вознаграждения партнеру за скидки по промокодам, купонам и акциям (параметр `subsidies`).
      *
      * @return self
      */
@@ -542,7 +576,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets buyer_price
      *
-     * @return float|null
+     * @return float
      */
     public function getBuyerPrice()
     {
@@ -552,7 +586,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyer_price
      *
-     * @param float|null $buyer_price Цена на товар в валюте покупателя. В цене уже учтены скидки по:  * акциям; * купонам; * промокодам.
+     * @param float $buyer_price Цена на товар в валюте покупателя. В цене уже учтены скидки по:  * акциям; * купонам; * промокодам.
      *
      * @return self
      */
@@ -569,7 +603,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets buyer_price_before_discount
      *
-     * @return float|null
+     * @return float
      */
     public function getBuyerPriceBeforeDiscount()
     {
@@ -579,7 +613,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyer_price_before_discount
      *
-     * @param float|null $buyer_price_before_discount Цена продажи. Стоимость товара в валюте покупателя до применения скидок.
+     * @param float $buyer_price_before_discount Стоимость товара в валюте покупателя до применения скидок по:  * акциям; * купонам; * промокодам.
      *
      * @return self
      */
@@ -607,7 +641,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets price_before_discount
      *
-     * @param float|null $price_before_discount {% note warning \"\" %}  Этот параметр устарел.  {% endnote %}  Стоимость товара в валюте магазина до применения скидок.
+     * @param float|null $price_before_discount {% note warning \"Этот параметр устарел\" %}  Не используйте его.  {% endnote %}  Стоимость товара в валюте магазина до применения скидок.
      *
      * @return self
      * @deprecated
@@ -625,7 +659,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets count
      *
-     * @return int|null
+     * @return int
      */
     public function getCount()
     {
@@ -635,7 +669,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets count
      *
-     * @param int|null $count Количество единиц товара.
+     * @param int $count Количество единиц товара.
      *
      * @return self
      */
@@ -652,7 +686,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets vat
      *
-     * @return \YandexMarketApi\Model\OrderVatType|null
+     * @return \YandexMarketApi\Model\OrderVatType
      */
     public function getVat()
     {
@@ -662,7 +696,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets vat
      *
-     * @param \YandexMarketApi\Model\OrderVatType|null $vat vat
+     * @param \YandexMarketApi\Model\OrderVatType $vat vat
      *
      * @return self
      */
@@ -689,7 +723,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets shop_sku
      *
-     * @param string|null $shop_sku Ваш SKU — идентификатор товара в вашей системе.  Разрешена любая последовательность длиной до 255 знаков.  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * SKU товара нельзя менять — можно только удалить товар и добавить заново с новым SKU.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
+     * @param string|null $shop_sku Ваш SKU — идентификатор товара в вашей системе.  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  SKU товара можно изменить в кабинете продавца на Маркете. О том, как это сделать, читайте [в Справке Маркета для продавцов](https://yandex.ru/support2/marketplace/ru/assortment/operations/edit-sku).  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
      *
      * @return self
      */
@@ -704,8 +738,8 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if ((mb_strlen($shop_sku) < 1)) {
             throw new \InvalidArgumentException('invalid length for $shop_sku when calling OrderItemDTO., must be bigger than or equal to 1.');
         }
-        if ((!preg_match("/^[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $shop_sku))) {
-            throw new \InvalidArgumentException("invalid value for \$shop_sku when calling OrderItemDTO., must conform to the pattern /^[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.");
+        if ((!preg_match("/^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $shop_sku))) {
+            throw new \InvalidArgumentException("invalid value for \$shop_sku when calling OrderItemDTO., must conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.");
         }
 
         $this->container['shop_sku'] = $shop_sku;
@@ -727,7 +761,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets subsidy
      *
-     * @param float|null $subsidy {% note warning \"\" %}  Этот параметр устарел. Вместо него используйте `subsidies`.  {% endnote %}  Общее вознаграждение партнеру за DBS-доставку и все скидки на товар:  * по промокодам; * по купонам; * по баллам Плюса; * по акциям.  Передается в валюте заказа.
+     * @param float|null $subsidy {% note warning \"Этот параметр устарел\" %}  Вместо него используйте `subsidies`.  {% endnote %}  Общее вознаграждение партнеру за DBS-доставку и все скидки на товар:  * по промокодам; * по купонам; * по баллам Плюса; * по акциям.
      *
      * @return self
      * @deprecated
@@ -756,7 +790,7 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets partner_warehouse_id
      *
-     * @param string|null $partner_warehouse_id {% note warning \"\" %}  Этот параметр устарел. Не используйте его.  {% endnote %}  Идентификатор склада в системе партнера, на который сформирован заказ.
+     * @param string|null $partner_warehouse_id {% note warning \"Этот параметр устарел\" %}  Не используйте его.  {% endnote %}  Идентификатор склада в системе партнера, на который сформирован заказ.
      *
      * @return self
      * @deprecated
@@ -791,7 +825,14 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPromos($promos)
     {
         if (is_null($promos)) {
-            throw new \InvalidArgumentException('non-nullable promos cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'promos');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('promos', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['promos'] = $promos;
 
@@ -811,14 +852,21 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets instances
      *
-     * @param \YandexMarketApi\Model\OrderItemInstanceDTO[]|null $instances Информация о маркировке единиц товара.  Возвращаются данные для маркировки, переданные в запросе [PUT campaigns/{campaignId}/orders/{orderId}/cis](../../reference/orders/provideOrderItemCis.md).  Если магазин еще не передавал коды для этого заказа, `instances` отсутствует.
+     * @param \YandexMarketApi\Model\OrderItemInstanceDTO[]|null $instances Информация о маркировке единиц товара.  Возвращаются данные для маркировки, переданные в запросе [PUT campaigns/{campaignId}/orders/{orderId}/identifiers](../../reference/orders/provideOrderItemIdentifiers.md).  Если магазин еще не передавал коды для этого заказа, `instances` отсутствует.
      *
      * @return self
      */
     public function setInstances($instances)
     {
         if (is_null($instances)) {
-            throw new \InvalidArgumentException('non-nullable instances cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'instances');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('instances', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['instances'] = $instances;
 
@@ -845,7 +893,14 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDetails($details)
     {
         if (is_null($details)) {
-            throw new \InvalidArgumentException('non-nullable details cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'details');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('details', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['details'] = $details;
 
@@ -872,7 +927,14 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSubsidies($subsidies)
     {
         if (is_null($subsidies)) {
-            throw new \InvalidArgumentException('non-nullable subsidies cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'subsidies');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subsidies', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['subsidies'] = $subsidies;
 
@@ -899,9 +961,50 @@ class OrderItemDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRequiredInstanceTypes($required_instance_types)
     {
         if (is_null($required_instance_types)) {
-            throw new \InvalidArgumentException('non-nullable required_instance_types cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'required_instance_types');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('required_instance_types', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['required_instance_types'] = $required_instance_types;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \YandexMarketApi\Model\OrderItemTagType[]|null
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \YandexMarketApi\Model\OrderItemTagType[]|null $tags Признаки товара.
+     *
+     * @return self
+     */
+    public function setTags($tags)
+    {
+        if (is_null($tags)) {
+            array_push($this->openAPINullablesSetToNull, 'tags');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tags', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['tags'] = $tags;
 
         return $this;
     }

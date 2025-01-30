@@ -77,7 +77,7 @@ class UpdateOfferMappingsResponseAllOf implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'results' => false
+        'results' => true
     ];
 
     /**
@@ -309,7 +309,14 @@ class UpdateOfferMappingsResponseAllOf implements ModelInterface, ArrayAccess, \
     public function setResults($results)
     {
         if (is_null($results)) {
-            throw new \InvalidArgumentException('non-nullable results cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'results');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('results', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['results'] = $results;
 

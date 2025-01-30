@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **author** | [**\YandexMarketApi\Model\FeedbackAuthorDTO**](FeedbackAuthorDTO.md) |  | [optional]
 **pro** | **string** | Достоинства магазина, описанные в отзыве. | [optional]
 **contra** | **string** | Недостатки магазина, описанные в отзыве. | [optional]
-**comments** | [**\YandexMarketApi\Model\FeedbackCommentDTO[]**](FeedbackCommentDTO.md) | Переписка автора отзыва с магазином. | [optional]
+**comments** | [**\YandexMarketApi\Model\FeedbackCommentDTO[]**](FeedbackCommentDTO.md) | Переписка автора отзыва с магазином. |
 **shop** | [**\YandexMarketApi\Model\FeedbackShopDTO**](FeedbackShopDTO.md) |  | [optional]
 **resolved** | **bool** | Решена ли проблема автора отзыва:  * &#x60;true&#x60; — да. * &#x60;false&#x60; — нет.  Если проблема решена, около отзыва на странице магазина появляется соответствующая надпись. | [optional]
-**verified** | **bool** | Является ли отзыв рекомендованным:  * &#x60;true&#x60; — да. * &#x60;false&#x60; — нет.  {% note alert %}  Параметр устарел и не рекомендуется к использованию.  {% endnote %} | [optional]
+**verified** | **bool** | {% note warning \&quot;Этот параметр устарел\&quot; %}  Не используйте его.  {% endnote %}  Является ли отзыв рекомендованным:  * &#x60;true&#x60; — да. * &#x60;false&#x60; — нет. | [optional]
 **recommend** | **bool** | Купил бы автор отзыва в магазине снова:  * &#x60;true&#x60; — да. * &#x60;false&#x60; — нет. | [optional]
 **grades** | [**\YandexMarketApi\Model\FeedbackGradesDTO**](FeedbackGradesDTO.md) |  | [optional]
 **order** | [**\YandexMarketApi\Model\FeedbackOrderDTO**](FeedbackOrderDTO.md) |  | [optional]

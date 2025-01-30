@@ -91,7 +91,7 @@ class EnrichedModelDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => false,
 		'name' => false,
 		'prices' => false,
-		'offers' => false,
+		'offers' => true,
 		'offline_offers' => false,
 		'online_offers' => false
     ];
@@ -426,7 +426,14 @@ class EnrichedModelDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setOffers($offers)
     {
         if (is_null($offers)) {
-            throw new \InvalidArgumentException('non-nullable offers cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'offers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('offers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['offers'] = $offers;
 

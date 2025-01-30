@@ -278,6 +278,10 @@ class CreateChatResultDTO implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['chat_id'] === null) {
             $invalidProperties[] = "'chat_id' can't be null";
         }
+        if (($this->container['chat_id'] < 1)) {
+            $invalidProperties[] = "invalid value for 'chat_id', must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -315,6 +319,11 @@ class CreateChatResultDTO implements ModelInterface, ArrayAccess, \JsonSerializa
         if (is_null($chat_id)) {
             throw new \InvalidArgumentException('non-nullable chat_id cannot be null');
         }
+
+        if (($chat_id < 1)) {
+            throw new \InvalidArgumentException('invalid value for $chat_id when calling CreateChatResultDTO., must be bigger than or equal to 1.');
+        }
+
         $this->container['chat_id'] = $chat_id;
 
         return $this;

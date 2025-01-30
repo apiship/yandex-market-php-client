@@ -98,7 +98,7 @@ class BusinessOfferMappingsApiTest extends TestCase
     /**
      * Test case for deleteOffersFromArchive
      *
-     * Восстановление товаров из архива.
+     * Удаление товаров из архива.
      *
      */
     public function testDeleteOffersFromArchive()
@@ -122,7 +122,7 @@ class BusinessOfferMappingsApiTest extends TestCase
     /**
      * Test case for getSuggestedOfferMappings
      *
-     * Предварительный просмотр карточек на Маркете, соответствующих вашим товарам.
+     * Просмотр карточек на Маркете, которые подходят вашим товарам.
      *
      */
     public function testGetSuggestedOfferMappings()
@@ -134,7 +134,7 @@ class BusinessOfferMappingsApiTest extends TestCase
     /**
      * Test case for updateOfferMappings
      *
-     * Добавление товаров в каталог и редактирование информации о них.
+     * Добавление товаров в каталог и изменение информации о них.
      *
      */
     public function testUpdateOfferMappings()

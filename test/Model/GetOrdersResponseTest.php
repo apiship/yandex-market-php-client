@@ -96,4 +96,13 @@ class GetOrdersResponseTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "paging"
+     */
+    public function testPropertyPaging()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

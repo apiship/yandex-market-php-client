@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OrderDigitalItemDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Ключ цифрового товара.
+ * @description Цифровой товар.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -92,6 +92,15 @@ class OrderDigitalItemDTOTest extends TestCase
      * Test attribute "code"
      */
     public function testPropertyCode()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "codes"
+     */
+    public function testPropertyCodes()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

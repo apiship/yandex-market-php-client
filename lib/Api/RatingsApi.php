@@ -472,7 +472,10 @@ class RatingsApi
                 'Missing the required parameter $campaign_id when calling getQualityRatingDetails'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling RatingsApi.getQualityRatingDetails, must be bigger than or equal to 1.');
+        }
+        
 
         $resourcePath = '/campaigns/{campaignId}/ratings/quality/details';
         $formParams = [];
@@ -524,6 +527,11 @@ class RatingsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -902,7 +910,10 @@ class RatingsApi
                 'Missing the required parameter $business_id when calling getQualityRatings'
             );
         }
-
+        if ($business_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$business_id" when calling RatingsApi.getQualityRatings, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'get_quality_rating_request' is set
         if ($get_quality_rating_request === null || (is_array($get_quality_rating_request) && count($get_quality_rating_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -968,6 +979,11 @@ class RatingsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();

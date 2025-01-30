@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * ReturnDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Возврат заказа.
+ * @description Возврат заказа.  Параметров &#x60;logisticPickupPoint&#x60;, &#x60;shipmentRecipientType&#x60; и &#x60;shipmentStatus&#x60; может не быть в случае возврата:   * С опцией **Быстрый возврат денег за дешевый брак**, когда товар остается у покупателя (&#x60;fastReturn&#x3D;true&#x60;).   * По заказу от бизнеса, если:     * статус возврата &#x60;STARTED_BY_USER&#x60; или &#x60;WAITING_FOR_DECISION&#x60;;     * возврат отменен до передачи товара.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -173,6 +173,15 @@ class ReturnDTOTest extends TestCase
      * Test attribute "return_type"
      */
     public function testPropertyReturnType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "fast_return"
+     */
+    public function testPropertyFastReturn()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -282,6 +282,12 @@ class OrderParcelBoxDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['fulfilment_id'] === null) {
+            $invalidProperties[] = "'fulfilment_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -300,7 +306,7 @@ class OrderParcelBoxDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets id
      *
-     * @return int|null
+     * @return int
      */
     public function getId()
     {
@@ -310,7 +316,7 @@ class OrderParcelBoxDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets id
      *
-     * @param int|null $id Идентификатор грузоместа.
+     * @param int $id Идентификатор грузоместа.
      *
      * @return self
      */
@@ -327,7 +333,7 @@ class OrderParcelBoxDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets fulfilment_id
      *
-     * @return string|null
+     * @return string
      */
     public function getFulfilmentId()
     {
@@ -337,7 +343,7 @@ class OrderParcelBoxDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets fulfilment_id
      *
-     * @param string|null $fulfilment_id Идентификатор грузового места в информационной системе магазина.
+     * @param string $fulfilment_id Идентификатор грузового места в информационной системе магазина.
      *
      * @return self
      */

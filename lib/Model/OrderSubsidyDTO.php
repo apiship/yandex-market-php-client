@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderSubsidyDTO Class Doc Comment
  *
  * @category Class
- * @description Общее вознаграждение партнеру за DBS-доставку и все скидки на товар:  * по промокодам, купонам и акциям; * по баллам Плюса; * по доставке (DBS).  Передается в валюте заказа.
+ * @description Общее вознаграждение партнеру за DBS-доставку и все скидки на товар:  * по промокодам, купонам и акциям; * по баллам Плюса; * по доставке (DBS).
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -282,6 +282,12 @@ class OrderSubsidyDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -300,7 +306,7 @@ class OrderSubsidyDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return \YandexMarketApi\Model\OrderSubsidyType|null
+     * @return \YandexMarketApi\Model\OrderSubsidyType
      */
     public function getType()
     {
@@ -310,7 +316,7 @@ class OrderSubsidyDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param \YandexMarketApi\Model\OrderSubsidyType|null $type type
+     * @param \YandexMarketApi\Model\OrderSubsidyType $type type
      *
      * @return self
      */
@@ -327,7 +333,7 @@ class OrderSubsidyDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets amount
      *
-     * @return float|null
+     * @return float
      */
     public function getAmount()
     {
@@ -337,7 +343,7 @@ class OrderSubsidyDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount
      *
-     * @param float|null $amount Сумма субсидии.
+     * @param float $amount Сумма субсидии.
      *
      * @return self
      */

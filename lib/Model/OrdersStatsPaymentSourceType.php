@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrdersStatsPaymentSourceType Class Doc Comment
  *
  * @category Class
- * @description Способ денежного перевода: - &#x60;BUYER&#x60; — оплата или возврат деньгами. - &#x60;CASHBACK&#x60; — оплата или возврат баллами Плюса. - &#x60;MARKETPLACE&#x60; — оплата или возврат купонами. - &#x60;SPLIT&#x60; — оплата картой по частям (Сплит).
+ * @description Способ денежного перевода: - &#x60;BUYER&#x60; — оплата или возврат деньгами.  Устаревшие способы: - &#x60;CASHBACK&#x60;. - &#x60;MARKETPLACE&#x60;. - &#x60;SPLIT&#x60;.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

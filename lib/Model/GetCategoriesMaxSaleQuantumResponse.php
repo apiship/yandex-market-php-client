@@ -83,7 +83,7 @@ class GetCategoriesMaxSaleQuantumResponse implements ModelInterface, ArrayAccess
     protected static array $openAPINullables = [
         'status' => false,
 		'results' => false,
-		'errors' => false
+		'errors' => true
     ];
 
     /**
@@ -288,6 +288,9 @@ class GetCategoriesMaxSaleQuantumResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['results'] === null) {
+            $invalidProperties[] = "'results' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -333,7 +336,7 @@ class GetCategoriesMaxSaleQuantumResponse implements ModelInterface, ArrayAccess
     /**
      * Gets results
      *
-     * @return \YandexMarketApi\Model\MaxSaleQuantumDTO[]|null
+     * @return \YandexMarketApi\Model\MaxSaleQuantumDTO[]
      */
     public function getResults()
     {
@@ -343,7 +346,7 @@ class GetCategoriesMaxSaleQuantumResponse implements ModelInterface, ArrayAccess
     /**
      * Sets results
      *
-     * @param \YandexMarketApi\Model\MaxSaleQuantumDTO[]|null $results Категории и лимит на установку кванта и минимального количества товаров.
+     * @param \YandexMarketApi\Model\MaxSaleQuantumDTO[] $results Категории и лимит на установку кванта и минимального количества товаров.
      *
      * @return self
      */
@@ -377,7 +380,14 @@ class GetCategoriesMaxSaleQuantumResponse implements ModelInterface, ArrayAccess
     public function setErrors($errors)
     {
         if (is_null($errors)) {
-            throw new \InvalidArgumentException('non-nullable errors cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'errors');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('errors', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['errors'] = $errors;
 

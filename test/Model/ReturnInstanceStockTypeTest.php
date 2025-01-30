@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * ReturnInstanceStockTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Тип остатка на складе.
+ * @description Тип остатка на складе:  * &#x60;FIT&#x60; — годный.  * &#x60;DEFECT&#x60; — бракованный.  * &#x60;ANOMALY&#x60; — аномалия.  * &#x60;SURPLUS&#x60; — лишний.  * &#x60;EXPIRED&#x60; — просроченный.  * &#x60;MISGRADING&#x60; — пересортица.  * &#x60;UNDEFINED&#x60; — с неизвестным статусом.  * &#x60;INCORRECT_IMEI&#x60; — товар с некорректным [IMEI](https://ru.wikipedia.org/wiki/IMEI).  * &#x60;INCORRECT_SERIAL_NUMBER&#x60; — товар с некорректным серийным номером.  * &#x60;INCORRECT_CIS&#x60; — товар с некорректным кодом идентификации единицы товара [в системе «Честный ЗНАК»](https://честныйзнак.рф/).  * &#x60;PART_MISSING&#x60; — недостача.  * &#x60;NON_COMPLIENT&#x60; — товар с множественными несоответствиями.  * &#x60;NOT_ACCEPTABLE&#x60; — товар, который Маркет не принимает.  * &#x60;SERVICE&#x60; — сервисный сток.  * &#x60;MARKDOWN&#x60; — уценка.  * &#x60;DEMO&#x60; — демо.  * &#x60;REPAIR&#x60; — ремонт.  * &#x60;FIRMWARE&#x60; — прошивка.  * &#x60;UNKNOWN&#x60; — неизвестный тип товара.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

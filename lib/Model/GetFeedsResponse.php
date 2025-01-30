@@ -275,6 +275,9 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['feeds'] === null) {
+            $invalidProperties[] = "'feeds' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -293,7 +296,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets feeds
      *
-     * @return \YandexMarketApi\Model\FeedDTO[]|null
+     * @return \YandexMarketApi\Model\FeedDTO[]
      */
     public function getFeeds()
     {
@@ -303,7 +306,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets feeds
      *
-     * @param \YandexMarketApi\Model\FeedDTO[]|null $feeds Список прайс-листов.
+     * @param \YandexMarketApi\Model\FeedDTO[] $feeds Список прайс-листов.
      *
      * @return self
      */

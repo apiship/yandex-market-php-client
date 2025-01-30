@@ -86,7 +86,7 @@ class PricesApiTest extends TestCase
     /**
      * Test case for getPricesByOfferIds
      *
-     * Просмотр установленных в магазине цен.
+     * Просмотр цен на указанные товары в магазине.
      *
      */
     public function testGetPricesByOfferIds()
@@ -110,7 +110,7 @@ class PricesApiTest extends TestCase
     /**
      * Test case for updateBusinessPrices
      *
-     * Установка цен.
+     * Установка цен на товары для всех магазинов.
      *
      */
     public function testUpdateBusinessPrices()

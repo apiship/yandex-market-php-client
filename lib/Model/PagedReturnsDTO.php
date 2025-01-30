@@ -282,6 +282,9 @@ class PagedReturnsDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['returns'] === null) {
+            $invalidProperties[] = "'returns' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -327,7 +330,7 @@ class PagedReturnsDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets returns
      *
-     * @return \YandexMarketApi\Model\ReturnDTO[]|null
+     * @return \YandexMarketApi\Model\ReturnDTO[]
      */
     public function getReturns()
     {
@@ -337,7 +340,7 @@ class PagedReturnsDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets returns
      *
-     * @param \YandexMarketApi\Model\ReturnDTO[]|null $returns Список возвратов.
+     * @param \YandexMarketApi\Model\ReturnDTO[] $returns Список возвратов.
      *
      * @return self
      */

@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * BidRecommendationItemDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Рекомендованная ставка и возможная доля показов.
+ * @description Рекомендованная ставка, возможная доля показов и доступные дополнительные инструменты продвижения.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -92,6 +92,15 @@ class BidRecommendationItemDTOTest extends TestCase
      * Test attribute "show_percent"
      */
     public function testPropertyShowPercent()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "benefits"
+     */
+    public function testPropertyBenefits()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -310,7 +310,7 @@ class BusinessSettingsDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets only_default_price
      *
-     * @param bool|null $only_default_price Можно ли установить только [базовую цену](*rule): * `false` — можно задать и базовую цену, и цены в конкретных магазинах. * `true` — можно задать только базовую цену.
+     * @param bool|null $only_default_price Управление ценами на товары:  * `false` — можно установить цену, которая действует:   * во всех магазинах кабинета — [POST businesses/{businessId}/offer-prices/updates](../../reference/business-assortment/updateBusinessPrices.md);   * в конкретном магазине — [POST campaigns/{campaignId}/offer-prices/updates](../../reference/assortment/updatePrices.md). * `true` — можно установить только цену, которая действует во всех магазинах кабинета, — [POST businesses/{businessId}/offer-prices/updates](../../reference/business-assortment/updateBusinessPrices.md).
      *
      * @return self
      */

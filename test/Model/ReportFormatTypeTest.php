@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * ReportFormatTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Формат отчета:  * &#x60;FILE&#x60; — файл с электронной таблицей. * &#x60;CSV&#x60; — ZIP-архив с CSV-файлами на каждый лист отчета.
+ * @description Формат отчета:  * &#x60;FILE&#x60; — файл с электронной таблицей (XLSX). * &#x60;CSV&#x60; — ZIP-архив с CSV-файлами на каждый лист отчета. * &#x60;JSON&#x60; — ZIP-архив с JSON-файлами на каждый лист отчета.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

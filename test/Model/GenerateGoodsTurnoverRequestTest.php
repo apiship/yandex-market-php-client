@@ -87,4 +87,13 @@ class GenerateGoodsTurnoverRequestTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "date"
+     */
+    public function testPropertyDate()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

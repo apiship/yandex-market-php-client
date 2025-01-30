@@ -296,6 +296,9 @@ class FeedbackGradesDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if ($this->container['factors'] === null) {
+            $invalidProperties[] = "'factors' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -395,7 +398,7 @@ class FeedbackGradesDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets factors
      *
-     * @return \YandexMarketApi\Model\FeedbackFactorDTO[]|null
+     * @return \YandexMarketApi\Model\FeedbackFactorDTO[]
      */
     public function getFactors()
     {
@@ -405,7 +408,7 @@ class FeedbackGradesDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets factors
      *
-     * @param \YandexMarketApi\Model\FeedbackFactorDTO[]|null $factors Информация об оценках по параметрам, указанных в отзыве.  При создании отзыва автору предлагается поставить оценки магазину по нескольким параметрам: например, за скорость обработки заказа или удобство самовывоза. Набор параметров зависит от того, какой способ покупки (параметр `delivery`) указал автор.
+     * @param \YandexMarketApi\Model\FeedbackFactorDTO[] $factors Информация об оценках по параметрам, указанных в отзыве.  При создании отзыва автору предлагается поставить оценки магазину по нескольким параметрам: например, за скорость обработки заказа или удобство самовывоза. Набор параметров зависит от того, какой способ покупки (параметр `delivery`) указал автор.
      *
      * @return self
      */

@@ -78,7 +78,7 @@ class GetBidsInfoRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'skus' => false
+        'skus' => true
     ];
 
     /**
@@ -318,13 +318,20 @@ class GetBidsInfoRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setSkus($skus)
     {
         if (is_null($skus)) {
-            throw new \InvalidArgumentException('non-nullable skus cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'skus');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('skus', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if ((count($skus) > 1500)) {
+        if (!is_null($skus) && (count($skus) > 1500)) {
             throw new \InvalidArgumentException('invalid value for $skus when calling GetBidsInfoRequest., number of items must be less than or equal to 1500.');
         }
-        if ((count($skus) < 1)) {
+        if (!is_null($skus) && (count($skus) < 1)) {
             throw new \InvalidArgumentException('invalid length for $skus when calling GetBidsInfoRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['skus'] = $skus;

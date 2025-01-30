@@ -98,6 +98,15 @@ class OfferCardDTOTest extends TestCase
     }
 
     /**
+     * Test attribute "parameter_values"
+     */
+    public function testPropertyParameterValues()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "card_status"
      */
     public function testPropertyCardStatus()

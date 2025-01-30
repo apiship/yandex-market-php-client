@@ -122,7 +122,7 @@ class CampaignsApiTest extends TestCase
     /**
      * Test case for getCampaigns
      *
-     * Магазины пользователя.
+     * Список магазинов пользователя.
      *
      */
     public function testGetCampaigns()

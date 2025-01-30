@@ -89,8 +89,8 @@ class OrderShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => false,
 		'shipment_date' => false,
 		'shipment_time' => false,
-		'tracks' => false,
-		'boxes' => false
+		'tracks' => true,
+		'boxes' => true
     ];
 
     /**
@@ -419,7 +419,14 @@ class OrderShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTracks($tracks)
     {
         if (is_null($tracks)) {
-            throw new \InvalidArgumentException('non-nullable tracks cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tracks');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tracks', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tracks'] = $tracks;
 
@@ -446,7 +453,14 @@ class OrderShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBoxes($boxes)
     {
         if (is_null($boxes)) {
-            throw new \InvalidArgumentException('non-nullable boxes cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'boxes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('boxes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['boxes'] = $boxes;
 

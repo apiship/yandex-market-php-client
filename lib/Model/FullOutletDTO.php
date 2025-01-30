@@ -119,7 +119,7 @@ class FullOutletDTO implements ModelInterface, ArrayAccess, \JsonSerializable
 		'address' => false,
 		'phones' => false,
 		'working_schedule' => false,
-		'delivery_rules' => false,
+		'delivery_rules' => true,
 		'storage_period' => false,
 		'id' => false,
 		'status' => false,
@@ -406,6 +406,9 @@ class FullOutletDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['working_schedule'] === null) {
             $invalidProperties[] = "'working_schedule' can't be null";
         }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -689,7 +692,14 @@ class FullOutletDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDeliveryRules($delivery_rules)
     {
         if (is_null($delivery_rules)) {
-            throw new \InvalidArgumentException('non-nullable delivery_rules cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'delivery_rules');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('delivery_rules', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['delivery_rules'] = $delivery_rules;
 
@@ -726,7 +736,7 @@ class FullOutletDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return int|null
+     * @return int
      */
     public function getId()
     {
@@ -736,7 +746,7 @@ class FullOutletDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param int|null $id Идентификатор точки продаж, присвоенный Маркетом.
+     * @param int $id Идентификатор точки продаж, присвоенный Маркетом.
      *
      * @return self
      */

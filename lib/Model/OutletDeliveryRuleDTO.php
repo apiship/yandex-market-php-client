@@ -310,6 +310,22 @@ class OutletDeliveryRuleDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['min_delivery_days']) && ($this->container['min_delivery_days'] > 60)) {
+            $invalidProperties[] = "invalid value for 'min_delivery_days', must be smaller than or equal to 60.";
+        }
+
+        if (!is_null($this->container['min_delivery_days']) && ($this->container['min_delivery_days'] < 0)) {
+            $invalidProperties[] = "invalid value for 'min_delivery_days', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['max_delivery_days']) && ($this->container['max_delivery_days'] > 60)) {
+            $invalidProperties[] = "invalid value for 'max_delivery_days', must be smaller than or equal to 60.";
+        }
+
+        if (!is_null($this->container['max_delivery_days']) && ($this->container['max_delivery_days'] < 0)) {
+            $invalidProperties[] = "invalid value for 'max_delivery_days', must be bigger than or equal to 0.";
+        }
+
         if (!is_null($this->container['order_before']) && ($this->container['order_before'] > 24)) {
             $invalidProperties[] = "invalid value for 'order_before', must be smaller than or equal to 24.";
         }
@@ -355,6 +371,14 @@ class OutletDeliveryRuleDTO implements ModelInterface, ArrayAccess, \JsonSeriali
         if (is_null($min_delivery_days)) {
             throw new \InvalidArgumentException('non-nullable min_delivery_days cannot be null');
         }
+
+        if (($min_delivery_days > 60)) {
+            throw new \InvalidArgumentException('invalid value for $min_delivery_days when calling OutletDeliveryRuleDTO., must be smaller than or equal to 60.');
+        }
+        if (($min_delivery_days < 0)) {
+            throw new \InvalidArgumentException('invalid value for $min_delivery_days when calling OutletDeliveryRuleDTO., must be bigger than or equal to 0.');
+        }
+
         $this->container['min_delivery_days'] = $min_delivery_days;
 
         return $this;
@@ -382,6 +406,14 @@ class OutletDeliveryRuleDTO implements ModelInterface, ArrayAccess, \JsonSeriali
         if (is_null($max_delivery_days)) {
             throw new \InvalidArgumentException('non-nullable max_delivery_days cannot be null');
         }
+
+        if (($max_delivery_days > 60)) {
+            throw new \InvalidArgumentException('invalid value for $max_delivery_days when calling OutletDeliveryRuleDTO., must be smaller than or equal to 60.');
+        }
+        if (($max_delivery_days < 0)) {
+            throw new \InvalidArgumentException('invalid value for $max_delivery_days when calling OutletDeliveryRuleDTO., must be bigger than or equal to 0.');
+        }
+
         $this->container['max_delivery_days'] = $max_delivery_days;
 
         return $this;

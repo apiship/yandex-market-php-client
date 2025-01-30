@@ -78,7 +78,7 @@ class AddOffersToArchiveDTO implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'not_archived_offers' => false
+        'not_archived_offers' => true
     ];
 
     /**
@@ -310,7 +310,14 @@ class AddOffersToArchiveDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setNotArchivedOffers($not_archived_offers)
     {
         if (is_null($not_archived_offers)) {
-            throw new \InvalidArgumentException('non-nullable not_archived_offers cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'not_archived_offers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('not_archived_offers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['not_archived_offers'] = $not_archived_offers;
 

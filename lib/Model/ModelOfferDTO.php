@@ -610,7 +610,7 @@ class ModelOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets in_stock
      *
-     * @param int|null $in_stock {% note warning \"\" %}  Этот параметр устарел. Не используйте его.  {% endnote %}
+     * @param int|null $in_stock {% note warning \"Этот параметр устарел\" %}  Не используйте его.  {% endnote %}
      *
      * @return self
      * @deprecated

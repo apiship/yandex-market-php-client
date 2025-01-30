@@ -103,9 +103,9 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
 		'category_id' => false,
 		'category_name' => false,
 		'weight_dimensions' => false,
-		'warehouses' => false,
-		'tariffs' => false,
-		'pictures' => false
+		'warehouses' => true,
+		'tariffs' => true,
+		'pictures' => true
     ];
 
     /**
@@ -346,6 +346,13 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
             $invalidProperties[] = "invalid value for 'shop_sku', the character length must be bigger than or equal to 1.";
         }
 
+        if (!is_null($this->container['shop_sku']) && !preg_match("/^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $this->container['shop_sku'])) {
+            $invalidProperties[] = "invalid value for 'shop_sku', must be conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.";
+        }
+
+        if (!is_null($this->container['market_sku']) && ($this->container['market_sku'] < 1)) {
+            $invalidProperties[] = "invalid value for 'market_sku', must be bigger than or equal to 1.";
+        }
 
         return $invalidProperties;
     }
@@ -375,7 +382,7 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets shop_sku
      *
-     * @param string|null $shop_sku Ваш SKU — идентификатор товара в вашей системе.  Разрешена любая последовательность длиной до 255 знаков.  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * SKU товара нельзя менять — можно только удалить товар и добавить заново с новым SKU.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
+     * @param string|null $shop_sku Ваш SKU — идентификатор товара в вашей системе.  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  SKU товара можно изменить в кабинете продавца на Маркете. О том, как это сделать, читайте [в Справке Маркета для продавцов](https://yandex.ru/support2/marketplace/ru/assortment/operations/edit-sku).  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
      *
      * @return self
      */
@@ -390,8 +397,8 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         if ((mb_strlen($shop_sku) < 1)) {
             throw new \InvalidArgumentException('invalid length for $shop_sku when calling GoodsStatsGoodsDTO., must be bigger than or equal to 1.');
         }
-        if ((!preg_match("/^[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $shop_sku))) {
-            throw new \InvalidArgumentException("invalid value for \$shop_sku when calling GoodsStatsGoodsDTO., must conform to the pattern /^[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.");
+        if ((!preg_match("/^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $shop_sku))) {
+            throw new \InvalidArgumentException("invalid value for \$shop_sku when calling GoodsStatsGoodsDTO., must conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.");
         }
 
         $this->container['shop_sku'] = $shop_sku;
@@ -421,6 +428,11 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         if (is_null($market_sku)) {
             throw new \InvalidArgumentException('non-nullable market_sku cannot be null');
         }
+
+        if (($market_sku < 1)) {
+            throw new \InvalidArgumentException('invalid value for $market_sku when calling GoodsStatsGoodsDTO., must be bigger than or equal to 1.');
+        }
+
         $this->container['market_sku'] = $market_sku;
 
         return $this;
@@ -581,7 +593,14 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setWarehouses($warehouses)
     {
         if (is_null($warehouses)) {
-            throw new \InvalidArgumentException('non-nullable warehouses cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'warehouses');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('warehouses', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['warehouses'] = $warehouses;
 
@@ -608,7 +627,14 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setTariffs($tariffs)
     {
         if (is_null($tariffs)) {
-            throw new \InvalidArgumentException('non-nullable tariffs cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tariffs');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tariffs', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tariffs'] = $tariffs;
 
@@ -635,7 +661,14 @@ class GoodsStatsGoodsDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setPictures($pictures)
     {
         if (is_null($pictures)) {
-            throw new \InvalidArgumentException('non-nullable pictures cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'pictures');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('pictures', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['pictures'] = $pictures;
 

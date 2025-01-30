@@ -289,6 +289,9 @@ class OfferPriceListResponseDTO implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
+        if ($this->container['offers'] === null) {
+            $invalidProperties[] = "'offers' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -307,7 +310,7 @@ class OfferPriceListResponseDTO implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets offers
      *
-     * @return \YandexMarketApi\Model\OfferPriceResponseDTO[]|null
+     * @return \YandexMarketApi\Model\OfferPriceResponseDTO[]
      */
     public function getOffers()
     {
@@ -317,7 +320,7 @@ class OfferPriceListResponseDTO implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets offers
      *
-     * @param \YandexMarketApi\Model\OfferPriceResponseDTO[]|null $offers Страница списка.
+     * @param \YandexMarketApi\Model\OfferPriceResponseDTO[] $offers Страница списка.
      *
      * @return self
      */

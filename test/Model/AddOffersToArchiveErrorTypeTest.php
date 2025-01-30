@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * AddOffersToArchiveErrorTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Причина, по которой товар не удалось поместить в архив:  * &#x60;OFFER_HAS_STOCKS&#x60; — товар хранится на складе Маркета.
+ * @description Причина, по которой товар не удалось поместить в архив:  * &#x60;OFFER_HAS_STOCKS&#x60; — товар хранится на складе Маркета.  * &#x60;UNKNOWN&#x60; — неизвестная причина ошибки. Скорее всего произошел сбой на стороне Маркета. Если ошибка повторяется долгое время, обратитесь в поддержку.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

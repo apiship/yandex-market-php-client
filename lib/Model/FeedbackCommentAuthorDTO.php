@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * FeedbackCommentAuthorDTO Class Doc Comment
  *
  * @category Class
- * @description Информация об авторе ответа.
+ * @description Информация об авторе комментария.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

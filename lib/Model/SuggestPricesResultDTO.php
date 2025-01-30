@@ -275,6 +275,9 @@ class SuggestPricesResultDTO implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
+        if ($this->container['offers'] === null) {
+            $invalidProperties[] = "'offers' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -293,7 +296,7 @@ class SuggestPricesResultDTO implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets offers
      *
-     * @return \YandexMarketApi\Model\PriceSuggestOfferDTO[]|null
+     * @return \YandexMarketApi\Model\PriceSuggestOfferDTO[]
      */
     public function getOffers()
     {
@@ -303,7 +306,7 @@ class SuggestPricesResultDTO implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets offers
      *
-     * @param \YandexMarketApi\Model\PriceSuggestOfferDTO[]|null $offers Список товаров с ценами для продвижения.
+     * @param \YandexMarketApi\Model\PriceSuggestOfferDTO[] $offers Список товаров с ценами для продвижения.
      *
      * @return self
      */

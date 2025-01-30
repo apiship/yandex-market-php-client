@@ -275,6 +275,9 @@ class UpdateOrderStatusesDTO implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
+        if ($this->container['orders'] === null) {
+            $invalidProperties[] = "'orders' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -293,7 +296,7 @@ class UpdateOrderStatusesDTO implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets orders
      *
-     * @return \YandexMarketApi\Model\UpdateOrderStatusDTO[]|null
+     * @return \YandexMarketApi\Model\UpdateOrderStatusDTO[]
      */
     public function getOrders()
     {
@@ -303,7 +306,7 @@ class UpdateOrderStatusesDTO implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets orders
      *
-     * @param \YandexMarketApi\Model\UpdateOrderStatusDTO[]|null $orders Список с обновленными заказами.
+     * @param \YandexMarketApi\Model\UpdateOrderStatusDTO[] $orders Список с обновленными заказами.
      *
      * @return self
      */

@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OrderItemSubsidyDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Общее вознаграждение партнеру за DBS-доставку и все скидки на товар:  * по промокодам; * по купонам; * по баллам Плюса; * по акциям.  Передается в валюте заказа, для отделения целой части от дробной используется точка.
+ * @description Общее вознаграждение партнеру за все скидки на товар:  * по промокодам, купонам и акциям; * по баллам Плюса.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

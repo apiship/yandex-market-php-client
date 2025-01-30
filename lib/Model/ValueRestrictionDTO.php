@@ -285,6 +285,10 @@ class ValueRestrictionDTO implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['limiting_parameter_id'] === null) {
             $invalidProperties[] = "'limiting_parameter_id' can't be null";
         }
+        if (($this->container['limiting_parameter_id'] < 1)) {
+            $invalidProperties[] = "invalid value for 'limiting_parameter_id', must be bigger than or equal to 1.";
+        }
+
         if ($this->container['limited_values'] === null) {
             $invalidProperties[] = "'limited_values' can't be null";
         }
@@ -325,6 +329,11 @@ class ValueRestrictionDTO implements ModelInterface, ArrayAccess, \JsonSerializa
         if (is_null($limiting_parameter_id)) {
             throw new \InvalidArgumentException('non-nullable limiting_parameter_id cannot be null');
         }
+
+        if (($limiting_parameter_id < 1)) {
+            throw new \InvalidArgumentException('invalid value for $limiting_parameter_id when calling ValueRestrictionDTO., must be bigger than or equal to 1.');
+        }
+
         $this->container['limiting_parameter_id'] = $limiting_parameter_id;
 
         return $this;

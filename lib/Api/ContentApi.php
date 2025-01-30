@@ -475,7 +475,10 @@ class ContentApi
                 'Missing the required parameter $category_id when calling getCategoryContentParameters'
             );
         }
-
+        if ($category_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$category_id" when calling ContentApi.getCategoryContentParameters, must be bigger than or equal to 1.');
+        }
+        
 
         $resourcePath = '/category/{categoryId}/parameters';
         $formParams = [];
@@ -527,6 +530,11 @@ class ContentApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -556,11 +564,11 @@ class ContentApi
     /**
      * Operation getOfferCardsContentStatus
      *
-     * Получение информации о заполненности карточек
+     * Получение информации о заполненности карточек магазина
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  \YandexMarketApi\Model\GetOfferCardsContentStatusRequest $get_offer_cards_content_status_request get_offer_cards_content_status_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferCardsContentStatus'] to see the possible values for this operation
      *
@@ -577,11 +585,11 @@ class ContentApi
     /**
      * Operation getOfferCardsContentStatusWithHttpInfo
      *
-     * Получение информации о заполненности карточек
+     * Получение информации о заполненности карточек магазина
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  \YandexMarketApi\Model\GetOfferCardsContentStatusRequest $get_offer_cards_content_status_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferCardsContentStatus'] to see the possible values for this operation
      *
@@ -818,11 +826,11 @@ class ContentApi
     /**
      * Operation getOfferCardsContentStatusAsync
      *
-     * Получение информации о заполненности карточек
+     * Получение информации о заполненности карточек магазина
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  \YandexMarketApi\Model\GetOfferCardsContentStatusRequest $get_offer_cards_content_status_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferCardsContentStatus'] to see the possible values for this operation
      *
@@ -842,11 +850,11 @@ class ContentApi
     /**
      * Operation getOfferCardsContentStatusAsyncWithHttpInfo
      *
-     * Получение информации о заполненности карточек
+     * Получение информации о заполненности карточек магазина
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  \YandexMarketApi\Model\GetOfferCardsContentStatusRequest $get_offer_cards_content_status_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferCardsContentStatus'] to see the possible values for this operation
      *
@@ -898,8 +906,8 @@ class ContentApi
      * Create request for operation 'getOfferCardsContentStatus'
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  \YandexMarketApi\Model\GetOfferCardsContentStatusRequest $get_offer_cards_content_status_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOfferCardsContentStatus'] to see the possible values for this operation
      *
@@ -915,7 +923,10 @@ class ContentApi
                 'Missing the required parameter $business_id when calling getOfferCardsContentStatus'
             );
         }
-
+        if ($business_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$business_id" when calling ContentApi.getOfferCardsContentStatus, must be bigger than or equal to 1.');
+        }
+        
 
 
 
@@ -995,6 +1006,11 @@ class ContentApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1396,7 +1412,10 @@ class ContentApi
                 'Missing the required parameter $business_id when calling updateOfferContent'
             );
         }
-
+        if ($business_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$business_id" when calling ContentApi.updateOfferContent, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'update_offer_content_request' is set
         if ($update_offer_content_request === null || (is_array($update_offer_content_request) && count($update_offer_content_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -1462,6 +1481,11 @@ class ContentApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();

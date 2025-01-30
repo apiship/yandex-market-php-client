@@ -74,7 +74,7 @@ class ModelsApiTest extends TestCase
     /**
      * Test case for getModel
      *
-     * Информация о модели.
+     * Информация об одной модели.
      *
      */
     public function testGetModel()
@@ -86,7 +86,7 @@ class ModelsApiTest extends TestCase
     /**
      * Test case for getModelOffers
      *
-     * Список предложений для модели.
+     * Список предложений для одной модели.
      *
      */
     public function testGetModelOffers()

@@ -289,6 +289,12 @@ class CalculatedTariffDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        if ($this->container['parameters'] === null) {
+            $invalidProperties[] = "'parameters' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -307,7 +313,7 @@ class CalculatedTariffDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets type
      *
-     * @return \YandexMarketApi\Model\CalculatedTariffType|null
+     * @return \YandexMarketApi\Model\CalculatedTariffType
      */
     public function getType()
     {
@@ -317,7 +323,7 @@ class CalculatedTariffDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets type
      *
-     * @param \YandexMarketApi\Model\CalculatedTariffType|null $type type
+     * @param \YandexMarketApi\Model\CalculatedTariffType $type type
      *
      * @return self
      */
@@ -361,7 +367,7 @@ class CalculatedTariffDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets parameters
      *
-     * @return \YandexMarketApi\Model\TariffParameterDTO[]|null
+     * @return \YandexMarketApi\Model\TariffParameterDTO[]
      */
     public function getParameters()
     {
@@ -371,7 +377,7 @@ class CalculatedTariffDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets parameters
      *
-     * @param \YandexMarketApi\Model\TariffParameterDTO[]|null $parameters Параметры расчета тарифа.
+     * @param \YandexMarketApi\Model\TariffParameterDTO[] $parameters Параметры расчета тарифа.
      *
      * @return self
      */

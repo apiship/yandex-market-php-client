@@ -282,6 +282,9 @@ class OfferCardsContentStatusDTO implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
+        if ($this->container['offer_cards'] === null) {
+            $invalidProperties[] = "'offer_cards' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -300,7 +303,7 @@ class OfferCardsContentStatusDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets offer_cards
      *
-     * @return \YandexMarketApi\Model\OfferCardDTO[]|null
+     * @return \YandexMarketApi\Model\OfferCardDTO[]
      */
     public function getOfferCards()
     {
@@ -310,7 +313,7 @@ class OfferCardsContentStatusDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets offer_cards
      *
-     * @param \YandexMarketApi\Model\OfferCardDTO[]|null $offer_cards Страница списка товаров с информацией о состоянии карточек.
+     * @param \YandexMarketApi\Model\OfferCardDTO[] $offer_cards Страница списка товаров с информацией о состоянии карточек.
      *
      * @return self
      */

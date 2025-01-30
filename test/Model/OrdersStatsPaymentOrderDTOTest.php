@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OrdersStatsPaymentOrderDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Информация о платежном получении.
+ * @description Информация о платежном поручении.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

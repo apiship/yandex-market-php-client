@@ -61,7 +61,8 @@ class SearchShipmentsRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'date_from' => '\DateTime',
         'date_to' => '\DateTime',
         'statuses' => '\YandexMarketApi\Model\ShipmentStatusType[]',
-        'order_ids' => 'int[]'
+        'order_ids' => 'int[]',
+        'cancelled_orders' => 'bool'
     ];
 
     /**
@@ -75,7 +76,8 @@ class SearchShipmentsRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'date_from' => 'date',
         'date_to' => 'date',
         'statuses' => null,
-        'order_ids' => 'int64'
+        'order_ids' => 'int64',
+        'cancelled_orders' => null
     ];
 
     /**
@@ -86,8 +88,9 @@ class SearchShipmentsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     protected static array $openAPINullables = [
         'date_from' => false,
 		'date_to' => false,
-		'statuses' => false,
-		'order_ids' => false
+		'statuses' => true,
+		'order_ids' => true,
+		'cancelled_orders' => false
     ];
 
     /**
@@ -179,7 +182,8 @@ class SearchShipmentsRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'date_from' => 'dateFrom',
         'date_to' => 'dateTo',
         'statuses' => 'statuses',
-        'order_ids' => 'orderIds'
+        'order_ids' => 'orderIds',
+        'cancelled_orders' => 'cancelledOrders'
     ];
 
     /**
@@ -191,7 +195,8 @@ class SearchShipmentsRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'date_from' => 'setDateFrom',
         'date_to' => 'setDateTo',
         'statuses' => 'setStatuses',
-        'order_ids' => 'setOrderIds'
+        'order_ids' => 'setOrderIds',
+        'cancelled_orders' => 'setCancelledOrders'
     ];
 
     /**
@@ -203,7 +208,8 @@ class SearchShipmentsRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'date_from' => 'getDateFrom',
         'date_to' => 'getDateTo',
         'statuses' => 'getStatuses',
-        'order_ids' => 'getOrderIds'
+        'order_ids' => 'getOrderIds',
+        'cancelled_orders' => 'getCancelledOrders'
     ];
 
     /**
@@ -267,6 +273,7 @@ class SearchShipmentsRequest implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('date_to', $data ?? [], null);
         $this->setIfExists('statuses', $data ?? [], null);
         $this->setIfExists('order_ids', $data ?? [], null);
+        $this->setIfExists('cancelled_orders', $data ?? [], true);
     }
 
     /**
@@ -302,6 +309,14 @@ class SearchShipmentsRequest implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['date_to'] === null) {
             $invalidProperties[] = "'date_to' can't be null";
         }
+        if (!is_null($this->container['statuses']) && (count($this->container['statuses']) < 1)) {
+            $invalidProperties[] = "invalid value for 'statuses', number of items must be greater than or equal to 1.";
+        }
+
+        if (!is_null($this->container['order_ids']) && (count($this->container['order_ids']) < 1)) {
+            $invalidProperties[] = "invalid value for 'order_ids', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -391,10 +406,20 @@ class SearchShipmentsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     public function setStatuses($statuses)
     {
         if (is_null($statuses)) {
-            throw new \InvalidArgumentException('non-nullable statuses cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'statuses');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('statuses', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 
+        if (!is_null($statuses) && (count($statuses) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $statuses when calling SearchShipmentsRequest., number of items must be greater than or equal to 1.');
+        }
         $this->container['statuses'] = $statuses;
 
         return $this;
@@ -420,11 +445,48 @@ class SearchShipmentsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     public function setOrderIds($order_ids)
     {
         if (is_null($order_ids)) {
-            throw new \InvalidArgumentException('non-nullable order_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'order_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('order_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 
+        if (!is_null($order_ids) && (count($order_ids) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $order_ids when calling SearchShipmentsRequest., number of items must be greater than or equal to 1.');
+        }
         $this->container['order_ids'] = $order_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets cancelled_orders
+     *
+     * @return bool|null
+     */
+    public function getCancelledOrders()
+    {
+        return $this->container['cancelled_orders'];
+    }
+
+    /**
+     * Sets cancelled_orders
+     *
+     * @param bool|null $cancelled_orders Возвращать ли отмененные заказы.  Значение по умолчанию: `true`. Если возвращать отмененные заказы не нужно, передайте значение `false`.
+     *
+     * @return self
+     */
+    public function setCancelledOrders($cancelled_orders)
+    {
+        if (is_null($cancelled_orders)) {
+            throw new \InvalidArgumentException('non-nullable cancelled_orders cannot be null');
+        }
+        $this->container['cancelled_orders'] = $cancelled_orders;
 
         return $this;
     }

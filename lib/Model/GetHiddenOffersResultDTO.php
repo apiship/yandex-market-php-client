@@ -282,6 +282,9 @@ class GetHiddenOffersResultDTO implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
+        if ($this->container['hidden_offers'] === null) {
+            $invalidProperties[] = "'hidden_offers' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -327,7 +330,7 @@ class GetHiddenOffersResultDTO implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets hidden_offers
      *
-     * @return \YandexMarketApi\Model\HiddenOfferDTO[]|null
+     * @return \YandexMarketApi\Model\HiddenOfferDTO[]
      */
     public function getHiddenOffers()
     {
@@ -337,7 +340,7 @@ class GetHiddenOffersResultDTO implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets hidden_offers
      *
-     * @param \YandexMarketApi\Model\HiddenOfferDTO[]|null $hidden_offers Список скрытых товаров.
+     * @param \YandexMarketApi\Model\HiddenOfferDTO[] $hidden_offers Список скрытых товаров.
      *
      * @return self
      */

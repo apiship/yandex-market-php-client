@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * UpdateBusinessPricesRequestTest Class Doc Comment
  *
  * @category    Class
- * @description Запрос на установку дефолтных цен на товары.
+ * @description Запрос на установку цен, которые действуют во всех магазинах.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

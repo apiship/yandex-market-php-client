@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * GetPriceWithVatDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Цена с указанием ставки НДС и времени последнего обновления.
+ * @description Цена с указанием НДС и времени последнего обновления.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

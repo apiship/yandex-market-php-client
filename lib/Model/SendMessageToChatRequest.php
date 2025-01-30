@@ -314,7 +314,7 @@ class SendMessageToChatRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets message
      *
-     * @param string $message Текст сообщения. Максимальная длина — 4096 символа.
+     * @param string $message Текст сообщения.
      *
      * @return self
      */

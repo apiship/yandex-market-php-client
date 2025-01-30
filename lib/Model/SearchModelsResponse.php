@@ -295,6 +295,9 @@ class SearchModelsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
+        if ($this->container['models'] === null) {
+            $invalidProperties[] = "'models' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -313,7 +316,7 @@ class SearchModelsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets models
      *
-     * @return \YandexMarketApi\Model\ModelDTO[]|null
+     * @return \YandexMarketApi\Model\ModelDTO[]
      */
     public function getModels()
     {
@@ -323,7 +326,7 @@ class SearchModelsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets models
      *
-     * @param \YandexMarketApi\Model\ModelDTO[]|null $models Список моделей товаров.
+     * @param \YandexMarketApi\Model\ModelDTO[] $models Список моделей товаров.
      *
      * @return self
      */

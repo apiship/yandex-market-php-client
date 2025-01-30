@@ -61,7 +61,8 @@ class UpdateOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializa
         'basic_price' => '\YandexMarketApi\Model\UpdatePriceWithDiscountDTO',
         'purchase_price' => '\YandexMarketApi\Model\BasePriceDTO',
         'additional_expenses' => '\YandexMarketApi\Model\BasePriceDTO',
-        'cofinance_price' => '\YandexMarketApi\Model\BasePriceDTO'
+        'cofinance_price' => '\YandexMarketApi\Model\BasePriceDTO',
+        'first_video_as_cover' => 'bool'
     ];
 
     /**
@@ -76,7 +77,8 @@ class UpdateOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializa
         'basic_price' => null,
         'purchase_price' => null,
         'additional_expenses' => null,
-        'cofinance_price' => null
+        'cofinance_price' => null,
+        'first_video_as_cover' => null
     ];
 
     /**
@@ -85,11 +87,12 @@ class UpdateOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'parameter_values' => false,
+        'parameter_values' => true,
 		'basic_price' => false,
 		'purchase_price' => false,
 		'additional_expenses' => false,
-		'cofinance_price' => false
+		'cofinance_price' => false,
+		'first_video_as_cover' => false
     ];
 
     /**
@@ -182,7 +185,8 @@ class UpdateOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializa
         'basic_price' => 'basicPrice',
         'purchase_price' => 'purchasePrice',
         'additional_expenses' => 'additionalExpenses',
-        'cofinance_price' => 'cofinancePrice'
+        'cofinance_price' => 'cofinancePrice',
+        'first_video_as_cover' => 'firstVideoAsCover'
     ];
 
     /**
@@ -195,7 +199,8 @@ class UpdateOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializa
         'basic_price' => 'setBasicPrice',
         'purchase_price' => 'setPurchasePrice',
         'additional_expenses' => 'setAdditionalExpenses',
-        'cofinance_price' => 'setCofinancePrice'
+        'cofinance_price' => 'setCofinancePrice',
+        'first_video_as_cover' => 'setFirstVideoAsCover'
     ];
 
     /**
@@ -208,7 +213,8 @@ class UpdateOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializa
         'basic_price' => 'getBasicPrice',
         'purchase_price' => 'getPurchasePrice',
         'additional_expenses' => 'getAdditionalExpenses',
-        'cofinance_price' => 'getCofinancePrice'
+        'cofinance_price' => 'getCofinancePrice',
+        'first_video_as_cover' => 'getFirstVideoAsCover'
     ];
 
     /**
@@ -273,6 +279,7 @@ class UpdateOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('purchase_price', $data ?? [], null);
         $this->setIfExists('additional_expenses', $data ?? [], null);
         $this->setIfExists('cofinance_price', $data ?? [], null);
+        $this->setIfExists('first_video_as_cover', $data ?? [], null);
     }
 
     /**
@@ -334,17 +341,24 @@ class UpdateOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets parameter_values
      *
-     * @param \YandexMarketApi\Model\ParameterValueDTO[]|null $parameter_values Список характеристик с их значениями.  С `parameterValues` обязательно передавайте `marketCategoryId` — идентификатор категории на Маркете, к которой относятся указанные характеристики товара.  Всегда обновляется целиком.  Максимальное количество характеристик — 300.
+     * @param \YandexMarketApi\Model\ParameterValueDTO[]|null $parameter_values Список характеристик с их значениями.  С `parameterValues` обязательно передавайте `marketCategoryId` — идентификатор категории на Маркете, к которой относятся указанные характеристики товара.  При **изменении** характеристик передавайте только те, значение которых нужно обновить. Если в `marketCategoryId` вы меняете категорию, значения общих характеристик для старой и новой категории сохранятся, передавать их не нужно.  Чтобы **удалить** значение заданной характеристики, передайте ее `parameterId` с пустым `value`.  Максимальное количество характеристик — 300.
      *
      * @return self
      */
     public function setParameterValues($parameter_values)
     {
         if (is_null($parameter_values)) {
-            throw new \InvalidArgumentException('non-nullable parameter_values cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'parameter_values');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parameter_values', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if ((count($parameter_values) > 300)) {
+        if (!is_null($parameter_values) && (count($parameter_values) > 300)) {
             throw new \InvalidArgumentException('invalid value for $parameter_values when calling UpdateOfferDTOAllOf., number of items must be less than or equal to 300.');
         }
         $this->container['parameter_values'] = $parameter_values;
@@ -456,6 +470,33 @@ class UpdateOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable cofinance_price cannot be null');
         }
         $this->container['cofinance_price'] = $cofinance_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets first_video_as_cover
+     *
+     * @return bool|null
+     */
+    public function getFirstVideoAsCover()
+    {
+        return $this->container['first_video_as_cover'];
+    }
+
+    /**
+     * Sets first_video_as_cover
+     *
+     * @param bool|null $first_video_as_cover Использовать первое видео в карточке как видеообложку.  Передайте `true`, чтобы первое видео использовалось как видеообложка, или `false`, чтобы видеообложка не отображалась в карточке товара.
+     *
+     * @return self
+     */
+    public function setFirstVideoAsCover($first_video_as_cover)
+    {
+        if (is_null($first_video_as_cover)) {
+            throw new \InvalidArgumentException('non-nullable first_video_as_cover cannot be null');
+        }
+        $this->container['first_video_as_cover'] = $first_video_as_cover;
 
         return $this;
     }

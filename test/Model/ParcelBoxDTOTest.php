@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * ParcelBoxDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Элемент отображает одно грузовое место. Вложенные поля больше не используются, передавайте элемент пустым в запросах и не обращайте внимание на содержимое в ответах.
+ * @description Параметр отображает одно грузовое место.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

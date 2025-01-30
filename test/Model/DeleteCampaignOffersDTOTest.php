@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * DeleteCampaignOffersDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Список товаров, которые не удалось удалить, потому что они хранятся на складе Маркета.
+ * @description Список товаров, которые не удалось удалить, потому что они не найдены или хранятся на складе Маркета.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

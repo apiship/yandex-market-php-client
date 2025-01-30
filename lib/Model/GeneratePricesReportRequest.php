@@ -88,7 +88,7 @@ class GeneratePricesReportRequest implements ModelInterface, ArrayAccess, \JsonS
     protected static array $openAPINullables = [
         'business_id' => false,
 		'campaign_id' => false,
-		'category_ids' => false,
+		'category_ids' => true,
 		'creation_date_from' => false,
 		'creation_date_to' => false
     ];
@@ -392,7 +392,14 @@ class GeneratePricesReportRequest implements ModelInterface, ArrayAccess, \JsonS
     public function setCategoryIds($category_ids)
     {
         if (is_null($category_ids)) {
-            throw new \InvalidArgumentException('non-nullable category_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['category_ids'] = $category_ids;
 

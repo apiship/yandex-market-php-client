@@ -381,6 +381,7 @@ class OrderLabelDTO implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets url
      *
      * @return string
+     * @deprecated
      */
     public function getUrl()
     {
@@ -390,9 +391,10 @@ class OrderLabelDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets url
      *
-     * @param string $url URL файла с ярлыками‑наклейками на все коробки в заказе.  Соответствует URL, по которому выполняется запрос [GET campaigns/{campaignId}/orders/{orderId}/delivery/labels](../../reference/orders/generateOrderLabels.md).
+     * @param string $url {% note warning \"Этот параметр устарел\" %}  Не используйте его.  {% endnote %}  URL файла с ярлыками‑наклейками на все коробки в заказе.  Соответствует URL, по которому выполняется запрос [GET campaigns/{campaignId}/orders/{orderId}/delivery/labels](../../reference/orders/generateOrderLabels.md).
      *
      * @return self
+     * @deprecated
      */
     public function setUrl($url)
     {

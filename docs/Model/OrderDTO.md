@@ -4,29 +4,27 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Идентификатор заказа. | [optional]
-**status** | [**\YandexMarketApi\Model\OrderStatusType**](OrderStatusType.md) |  | [optional]
-**substatus** | [**\YandexMarketApi\Model\OrderSubstatusType**](OrderSubstatusType.md) |  | [optional]
-**creation_date** | **string** |  | [optional]
-**currency** | [**\YandexMarketApi\Model\CurrencyType**](CurrencyType.md) |  | [optional]
-**items_total** | **float** | Общая сумма заказа в валюте заказа без учета стоимости доставки и вознаграждения партнеру за скидки по промокодам, купонам и акциям (параметр &#x60;subsidyTotal&#x60;).  Для отделения целой части от дробной используется точка. | [optional]
-**total** | **float** | {% note warning \&quot;\&quot; %}  Этот параметр устарел. Чтобы узнать соответствующее значение, сложите значения &#x60;itemsTotal&#x60; и &#x60;deliveryTotal&#x60;.  {% endnote %}  Общая сумма заказа в валюте заказа с учетом стоимости доставки, но без учета вознаграждения партнеру за скидки по промокодам, купонам, кешбэку и акциям (параметр &#x60;subsidyTotal&#x60;).  Для отделения целой части от дробной используется точка. | [optional]
-**delivery_total** | **float** | Стоимость доставки в валюте заказа.  Для отделения целой части от дробной используется точка. | [optional]
-**subsidy_total** | **float** | {% note warning \&quot;\&quot; %}  Этот параметр устарел. Чтобы узнать соответствующее значение, сложите значения всех субсидий в &#x60;subsidies&#x60;.  {% endnote %}  Общее вознаграждение партнеру за DBS-доставку и все скидки:  * по промокодам; * по купонам; * по баллам Плюса; * по акциям.  Передается в валюте, указанной в параметре &#x60;currency&#x60;.  Для отделения целой части от дробной используется точка. | [optional]
-**total_with_subsidy** | **float** | {% note warning \&quot;\&quot; %}  Этот параметр устарел. Чтобы узнать соответствующее значение, сложите значения &#x60;itemsTotal&#x60;, &#x60;deliveryTotal&#x60; и всех субсидий в &#x60;subsidies&#x60;.  {% endnote %}  Сумма стоимости всех товаров в заказе и вознаграждения за них в валюте магазина (сумма параметров &#x60;total&#x60; и &#x60;subsidyTotal&#x60;). | [optional]
-**buyer_items_total** | **float** | Стоимость всех товаров в заказе в валюте покупателя после применения скидок и без учета стоимости доставки. | [optional]
-**buyer_total** | **float** | Стоимость всех товаров в заказе в валюте покупателя после применения скидок и с учетом стоимости доставки. | [optional]
-**buyer_items_total_before_discount** | **float** | Стоимость всех товаров в заказе в валюте покупателя до применения скидок и без учета стоимости доставки. | [optional]
-**buyer_total_before_discount** | **float** | Стоимость всех товаров в заказе в валюте покупателя до применения скидок и с учетом стоимости доставки. | [optional]
-**payment_type** | [**\YandexMarketApi\Model\OrderPaymentType**](OrderPaymentType.md) |  | [optional]
-**payment_method** | [**\YandexMarketApi\Model\OrderPaymentMethodType**](OrderPaymentMethodType.md) |  | [optional]
-**fake** | **bool** | Тип заказа:  * &#x60;false&#x60; — настоящий заказ покупателя.  * &#x60;true&#x60; — [тестовый](../../pushapi/concepts/sandbox.md) заказ Маркета. | [optional]
-**items** | [**\YandexMarketApi\Model\OrderItemDTO[]**](OrderItemDTO.md) | Список товаров в заказе. | [optional]
-**subsidies** | [**\YandexMarketApi\Model\OrderItemSubsidyDTO[]**](OrderItemSubsidyDTO.md) | Список субсидий по типам. | [optional]
-**delivery** | [**\YandexMarketApi\Model\OrderDeliveryDTO**](OrderDeliveryDTO.md) |  | [optional]
-**buyer** | [**\YandexMarketApi\Model\OrderBuyerDTO**](OrderBuyerDTO.md) |  | [optional]
+**id** | **int** | Идентификатор заказа. |
+**status** | [**\YandexMarketApi\Model\OrderStatusType**](OrderStatusType.md) |  |
+**substatus** | [**\YandexMarketApi\Model\OrderSubstatusType**](OrderSubstatusType.md) |  |
+**creation_date** | **string** |  |
+**updated_at** | **string** |  | [optional]
+**currency** | [**\YandexMarketApi\Model\CurrencyType**](CurrencyType.md) |  |
+**items_total** | **float** | Платеж покупателя. |
+**delivery_total** | **float** | Стоимость доставки. |
+**buyer_items_total** | **float** | {% note warning \&quot;Этот параметр устарел\&quot; %}  Не используйте его.  {% endnote %}  Стоимость всех товаров в заказе в валюте покупателя после применения скидок и без учета стоимости доставки. | [optional]
+**buyer_total** | **float** | {% note warning \&quot;Этот параметр устарел\&quot; %}  Не используйте его.  {% endnote %}  Стоимость всех товаров в заказе в валюте покупателя после применения скидок и с учетом стоимости доставки. | [optional]
+**buyer_items_total_before_discount** | **float** | Стоимость всех товаров в заказе в валюте покупателя без учета стоимости доставки и до применения скидок по:  * акциям; * купонам; * промокодам. |
+**buyer_total_before_discount** | **float** | {% note warning \&quot;Этот параметр устарел\&quot; %}  Не используйте его.  {% endnote %}  Стоимость всех товаров в заказе в валюте покупателя до применения скидок и с учетом стоимости доставки (&#x60;buyerItemsTotalBeforeDiscount&#x60; + стоимость доставки). | [optional]
+**payment_type** | [**\YandexMarketApi\Model\OrderPaymentType**](OrderPaymentType.md) |  |
+**payment_method** | [**\YandexMarketApi\Model\OrderPaymentMethodType**](OrderPaymentMethodType.md) |  |
+**fake** | **bool** | Тип заказа:  * &#x60;false&#x60; — настоящий заказ покупателя.  * &#x60;true&#x60; — [тестовый](../../concepts/sandbox.md) заказ Маркета. |
+**items** | [**\YandexMarketApi\Model\OrderItemDTO[]**](OrderItemDTO.md) | Список товаров в заказе. |
+**subsidies** | [**\YandexMarketApi\Model\OrderSubsidyDTO[]**](OrderSubsidyDTO.md) | Список субсидий по типам. | [optional]
+**delivery** | [**\YandexMarketApi\Model\OrderDeliveryDTO**](OrderDeliveryDTO.md) |  |
+**buyer** | [**\YandexMarketApi\Model\OrderBuyerDTO**](OrderBuyerDTO.md) |  |
 **notes** | **string** | Комментарий к заказу. | [optional]
-**tax_system** | [**\YandexMarketApi\Model\OrderTaxSystemType**](OrderTaxSystemType.md) |  | [optional]
+**tax_system** | [**\YandexMarketApi\Model\OrderTaxSystemType**](OrderTaxSystemType.md) |  |
 **cancel_requested** | **bool** | **Только для модели DBS**  Запрошена ли отмена. | [optional]
 **expiry_date** | **string** |  | [optional]
 

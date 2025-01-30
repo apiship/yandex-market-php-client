@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * PriceCompetitivenessTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Привлекательность цены:  * &#x60;OPTIMAL&#x60; — привлекательная; * &#x60;AVERAGE&#x60; — умеренная; * &#x60;LOW&#x60; — непривлекательная.
+ * @description Привлекательность цены:  * &#x60;OPTIMAL&#x60; — привлекательная. * &#x60;AVERAGE&#x60; — умеренная. * &#x60;LOW&#x60; — непривлекательная.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

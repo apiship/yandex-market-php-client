@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OutletVisibilityTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Состояние точки продаж. Возможные значения: * &#x60;HIDDEN&#x60; — точка продаж выключена. * &#x60;VISIBLE&#x60; — точка продаж включена.
+ * @description Состояние точки продаж.  Возможные значения:  * &#x60;HIDDEN&#x60; — точка продаж выключена. * &#x60;VISIBLE&#x60; — точка продаж включена.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -275,6 +275,9 @@ class OrderItemsModificationResultDTO implements ModelInterface, ArrayAccess, \J
     {
         $invalidProperties = [];
 
+        if ($this->container['items'] === null) {
+            $invalidProperties[] = "'items' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -293,7 +296,7 @@ class OrderItemsModificationResultDTO implements ModelInterface, ArrayAccess, \J
     /**
      * Gets items
      *
-     * @return \YandexMarketApi\Model\BriefOrderItemDTO[]|null
+     * @return \YandexMarketApi\Model\BriefOrderItemDTO[]
      */
     public function getItems()
     {
@@ -303,7 +306,7 @@ class OrderItemsModificationResultDTO implements ModelInterface, ArrayAccess, \J
     /**
      * Sets items
      *
-     * @param \YandexMarketApi\Model\BriefOrderItemDTO[]|null $items Список позиций в заказе, подлежащих маркировке.
+     * @param \YandexMarketApi\Model\BriefOrderItemDTO[] $items Список позиций в заказе, подлежащих маркировке.
      *
      * @return self
      */

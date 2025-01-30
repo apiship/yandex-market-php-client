@@ -275,6 +275,9 @@ class ShipmentBoxesDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['boxes'] === null) {
+            $invalidProperties[] = "'boxes' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -293,7 +296,7 @@ class ShipmentBoxesDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets boxes
      *
-     * @return \YandexMarketApi\Model\ParcelBoxDTO[]|null
+     * @return \YandexMarketApi\Model\ParcelBoxDTO[]
      */
     public function getBoxes()
     {
@@ -303,7 +306,7 @@ class ShipmentBoxesDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets boxes
      *
-     * @param \YandexMarketApi\Model\ParcelBoxDTO[]|null $boxes Список грузовых мест. Маркет определил количество мест по длине этого списка.
+     * @param \YandexMarketApi\Model\ParcelBoxDTO[] $boxes Список грузовых мест. По его длине Маркет определил количество мест.
      *
      * @return self
      */

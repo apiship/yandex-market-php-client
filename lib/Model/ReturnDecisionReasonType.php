@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * ReturnDecisionReasonType Class Doc Comment
  *
  * @category Class
- * @description Причины возврата:  * &#x60;BAD_QUALITY&#x60; — бракованный товар (есть недостатки).  * &#x60;DO_NOT_FIT&#x60; — товар не подошел.  * &#x60;WRONG_ITEM&#x60; — привезли не тот товар.  * &#x60;DAMAGE_DELIVERY&#x60; — товар поврежден при доставке.  * &#x60;LOYALTY_FAIL&#x60; — невозможно установить виновного в браке/пересорте.  * &#x60;CONTENT_FAIL&#x60; — ошибочное описание товара по вине Маркета.  * &#x60;UNKNOWN&#x60; — причина не известна.
+ * @description Причины возврата:  * &#x60;BAD_QUALITY&#x60; — бракованный товар (есть недостатки).  * &#x60;DO_NOT_FIT&#x60; — товар не подошел.  * &#x60;WRONG_ITEM&#x60; — привезли не тот товар.  * &#x60;DAMAGE_DELIVERY&#x60; — товар поврежден при доставке.  * &#x60;LOYALTY_FAIL&#x60; — невозможно установить виновного в браке/пересорте.  * &#x60;CONTENT_FAIL&#x60; — ошибочное описание товара по вине Маркета.  * &#x60;DELIVERY_FAIL&#x60; — товар не привезли.  * &#x60;UNKNOWN&#x60; — причина не известна.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -55,6 +55,8 @@ class ReturnDecisionReasonType
 
     public const CONTENT_FAIL = 'CONTENT_FAIL';
 
+    public const DELIVERY_FAIL = 'DELIVERY_FAIL';
+
     public const UNKNOWN = 'UNKNOWN';
 
     /**
@@ -70,6 +72,7 @@ class ReturnDecisionReasonType
             self::DAMAGE_DELIVERY,
             self::LOYALTY_FAIL,
             self::CONTENT_FAIL,
+            self::DELIVERY_FAIL,
             self::UNKNOWN
         ];
     }

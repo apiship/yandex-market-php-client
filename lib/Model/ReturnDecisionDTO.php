@@ -102,7 +102,7 @@ class ReturnDecisionDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
 		'decision_type' => false,
 		'refund_amount' => false,
 		'partner_compensation' => false,
-		'images' => false
+		'images' => true
     ];
 
     /**
@@ -582,7 +582,14 @@ class ReturnDecisionDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setImages($images)
     {
         if (is_null($images)) {
-            throw new \InvalidArgumentException('non-nullable images cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'images');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('images', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['images'] = $images;
 

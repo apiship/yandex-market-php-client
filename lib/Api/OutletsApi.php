@@ -145,7 +145,7 @@ class OutletsApi
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \YandexMarketApi\Model\CreateOutletResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
+     * @return \YandexMarketApi\Model\CreateOutletResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
      */
     public function createOutlet($campaign_id, $change_outlet_request, string $contentType = self::contentTypes['createOutlet'][0])
     {
@@ -164,7 +164,7 @@ class OutletsApi
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \YandexMarketApi\Model\CreateOutletResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \YandexMarketApi\Model\CreateOutletResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createOutletWithHttpInfo($campaign_id, $change_outlet_request, string $contentType = self::contentTypes['createOutlet'][0])
     {
@@ -218,21 +218,6 @@ class OutletsApi
 
                     return [
                         ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\CreateOutletResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\YandexMarketApi\Model\ApiClientDataErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\YandexMarketApi\Model\ApiClientDataErrorResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\YandexMarketApi\Model\ApiClientDataErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -335,14 +320,6 @@ class OutletsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\YandexMarketApi\Model\CreateOutletResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\YandexMarketApi\Model\ApiClientDataErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -486,7 +463,10 @@ class OutletsApi
                 'Missing the required parameter $campaign_id when calling createOutlet'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling OutletsApi.createOutlet, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'change_outlet_request' is set
         if ($change_outlet_request === null || (is_array($change_outlet_request) && count($change_outlet_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -552,6 +532,11 @@ class OutletsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -930,14 +915,20 @@ class OutletsApi
                 'Missing the required parameter $campaign_id when calling deleteOutlet'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling OutletsApi.deleteOutlet, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'outlet_id' is set
         if ($outlet_id === null || (is_array($outlet_id) && count($outlet_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $outlet_id when calling deleteOutlet'
             );
         }
-
+        if ($outlet_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$outlet_id" when calling OutletsApi.deleteOutlet, must be bigger than or equal to 1.');
+        }
+        
 
         $resourcePath = '/campaigns/{campaignId}/outlets/{outletId}';
         $formParams = [];
@@ -997,6 +988,11 @@ class OutletsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1026,7 +1022,7 @@ class OutletsApi
     /**
      * Operation getOutlet
      *
-     * Информация о точке продаж
+     * Информация об одной точке продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $outlet_id Идентификатор точки продаж. (required)
@@ -1045,7 +1041,7 @@ class OutletsApi
     /**
      * Operation getOutletWithHttpInfo
      *
-     * Информация о точке продаж
+     * Информация об одной точке продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $outlet_id Идентификатор точки продаж. (required)
@@ -1284,7 +1280,7 @@ class OutletsApi
     /**
      * Operation getOutletAsync
      *
-     * Информация о точке продаж
+     * Информация об одной точке продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $outlet_id Идентификатор точки продаж. (required)
@@ -1306,7 +1302,7 @@ class OutletsApi
     /**
      * Operation getOutletAsyncWithHttpInfo
      *
-     * Информация о точке продаж
+     * Информация об одной точке продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $outlet_id Идентификатор точки продаж. (required)
@@ -1375,14 +1371,20 @@ class OutletsApi
                 'Missing the required parameter $campaign_id when calling getOutlet'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling OutletsApi.getOutlet, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'outlet_id' is set
         if ($outlet_id === null || (is_array($outlet_id) && count($outlet_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $outlet_id when calling getOutlet'
             );
         }
-
+        if ($outlet_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$outlet_id" when calling OutletsApi.getOutlet, must be bigger than or equal to 1.');
+        }
+        
 
         $resourcePath = '/campaigns/{campaignId}/outlets/{outletId}';
         $formParams = [];
@@ -1442,6 +1444,11 @@ class OutletsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1471,13 +1478,13 @@ class OutletsApi
     /**
      * Operation getOutlets
      *
-     * Информация о точках продаж
+     * Информация о нескольких точках продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
      * @param  int $region_id Идентификатор региона. Если задать идентификатор родительского региона любого уровня, в выходных данных будут отображены точки продаж всех дочерних регионов. Идентификатор региона можно получить c помощью метода [GET regions](../../reference/regions/searchRegionsByName.md). (optional)
      * @param  string $shop_outlet_code Идентификатор точки продаж, присвоенный магазином. (optional)
-     * @param  int $region_id2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Для указания региона используйте &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
+     * @param  int $region_id2 {% note warning \&quot;Этот параметр устарел\&quot; %}  Вместо него используйте &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlets'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -1493,13 +1500,13 @@ class OutletsApi
     /**
      * Operation getOutletsWithHttpInfo
      *
-     * Информация о точках продаж
+     * Информация о нескольких точках продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
      * @param  int $region_id Идентификатор региона. Если задать идентификатор родительского региона любого уровня, в выходных данных будут отображены точки продаж всех дочерних регионов. Идентификатор региона можно получить c помощью метода [GET regions](../../reference/regions/searchRegionsByName.md). (optional)
      * @param  string $shop_outlet_code Идентификатор точки продаж, присвоенный магазином. (optional)
-     * @param  int $region_id2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Для указания региона используйте &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
+     * @param  int $region_id2 {% note warning \&quot;Этот параметр устарел\&quot; %}  Вместо него используйте &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlets'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -1735,13 +1742,13 @@ class OutletsApi
     /**
      * Operation getOutletsAsync
      *
-     * Информация о точках продаж
+     * Информация о нескольких точках продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
      * @param  int $region_id Идентификатор региона. Если задать идентификатор родительского региона любого уровня, в выходных данных будут отображены точки продаж всех дочерних регионов. Идентификатор региона можно получить c помощью метода [GET regions](../../reference/regions/searchRegionsByName.md). (optional)
      * @param  string $shop_outlet_code Идентификатор точки продаж, присвоенный магазином. (optional)
-     * @param  int $region_id2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Для указания региона используйте &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
+     * @param  int $region_id2 {% note warning \&quot;Этот параметр устарел\&quot; %}  Вместо него используйте &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1760,13 +1767,13 @@ class OutletsApi
     /**
      * Operation getOutletsAsyncWithHttpInfo
      *
-     * Информация о точках продаж
+     * Информация о нескольких точках продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
      * @param  int $region_id Идентификатор региона. Если задать идентификатор родительского региона любого уровня, в выходных данных будут отображены точки продаж всех дочерних регионов. Идентификатор региона можно получить c помощью метода [GET regions](../../reference/regions/searchRegionsByName.md). (optional)
      * @param  string $shop_outlet_code Идентификатор точки продаж, присвоенный магазином. (optional)
-     * @param  int $region_id2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Для указания региона используйте &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
+     * @param  int $region_id2 {% note warning \&quot;Этот параметр устарел\&quot; %}  Вместо него используйте &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1817,10 +1824,10 @@ class OutletsApi
      * Create request for operation 'getOutlets'
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
      * @param  int $region_id Идентификатор региона. Если задать идентификатор родительского региона любого уровня, в выходных данных будут отображены точки продаж всех дочерних регионов. Идентификатор региона можно получить c помощью метода [GET regions](../../reference/regions/searchRegionsByName.md). (optional)
      * @param  string $shop_outlet_code Идентификатор точки продаж, присвоенный магазином. (optional)
-     * @param  int $region_id2 {% note warning \&quot;\&quot; %}  Этот параметр устарел. Для указания региона используйте &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
+     * @param  int $region_id2 {% note warning \&quot;Этот параметр устарел\&quot; %}  Вместо него используйте &#x60;region_id&#x60;.  {% endnote %} (optional) (deprecated)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutlets'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1835,7 +1842,10 @@ class OutletsApi
                 'Missing the required parameter $campaign_id when calling getOutlets'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling OutletsApi.getOutlets, must be bigger than or equal to 1.');
+        }
+        
 
 
 
@@ -1927,6 +1937,11 @@ class OutletsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -2310,14 +2325,20 @@ class OutletsApi
                 'Missing the required parameter $campaign_id when calling updateOutlet'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling OutletsApi.updateOutlet, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'outlet_id' is set
         if ($outlet_id === null || (is_array($outlet_id) && count($outlet_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $outlet_id when calling updateOutlet'
             );
         }
-
+        if ($outlet_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$outlet_id" when calling OutletsApi.updateOutlet, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'change_outlet_request' is set
         if ($change_outlet_request === null || (is_array($change_outlet_request) && count($change_outlet_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -2391,6 +2412,11 @@ class OutletsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();

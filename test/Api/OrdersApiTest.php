@@ -74,7 +74,7 @@ class OrdersApiTest extends TestCase
     /**
      * Test case for acceptOrderCancellation
      *
-     * Отмена заказа покупателем (DBS).
+     * Отмена заказа покупателем.
      *
      */
     public function testAcceptOrderCancellation()
@@ -86,7 +86,7 @@ class OrdersApiTest extends TestCase
     /**
      * Test case for getOrder
      *
-     * Информация о заказе.
+     * Информация об одном заказе.
      *
      */
     public function testGetOrder()
@@ -98,7 +98,7 @@ class OrdersApiTest extends TestCase
     /**
      * Test case for getOrders
      *
-     * Информация о заказах.
+     * Информация о нескольких заказах.
      *
      */
     public function testGetOrders()
@@ -122,7 +122,7 @@ class OrdersApiTest extends TestCase
     /**
      * Test case for provideOrderItemIdentifiers
      *
-     * Передача уникальных кодов маркировки единиц товара (DBS).
+     * Передача кодов маркировки единиц товара.
      *
      */
     public function testProvideOrderItemIdentifiers()
@@ -134,7 +134,7 @@ class OrdersApiTest extends TestCase
     /**
      * Test case for setOrderBoxLayout
      *
-     * Подготовка заказа (FBS).
+     * Подготовка заказа.
      *
      */
     public function testSetOrderBoxLayout()
@@ -146,7 +146,7 @@ class OrdersApiTest extends TestCase
     /**
      * Test case for setOrderShipmentBoxes
      *
-     * Передача количества грузовых мест в заказе (DBS).
+     * Передача количества грузовых мест в заказе.
      *
      */
     public function testSetOrderShipmentBoxes()
@@ -158,7 +158,7 @@ class OrdersApiTest extends TestCase
     /**
      * Test case for updateOrderItems
      *
-     * Удаление товара из заказа или уменьшение числа единиц (DBS).
+     * Удаление товара из заказа или уменьшение числа единиц.
      *
      */
     public function testUpdateOrderItems()
@@ -170,7 +170,7 @@ class OrdersApiTest extends TestCase
     /**
      * Test case for updateOrderStatus
      *
-     * Изменение статуса заказа.
+     * Изменение статуса одного заказа.
      *
      */
     public function testUpdateOrderStatus()
@@ -182,7 +182,7 @@ class OrdersApiTest extends TestCase
     /**
      * Test case for updateOrderStatuses
      *
-     * Изменение статусов заказа.
+     * Изменение статусов нескольких заказов.
      *
      */
     public function testUpdateOrderStatuses()

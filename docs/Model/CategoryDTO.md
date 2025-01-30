@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | ID категории. |
+**id** | **int** | Идентификатор категории. |
 **name** | **string** | Название категории. |
 **children** | [**\YandexMarketApi\Model\CategoryDTO[]**](CategoryDTO.md) | Дочерние категории. | [optional]
 

@@ -282,6 +282,9 @@ class GetWarehouseStocksDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
+        if ($this->container['warehouses'] === null) {
+            $invalidProperties[] = "'warehouses' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -327,7 +330,7 @@ class GetWarehouseStocksDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets warehouses
      *
-     * @return \YandexMarketApi\Model\WarehouseOffersDTO[]|null
+     * @return \YandexMarketApi\Model\WarehouseOffersDTO[]
      */
     public function getWarehouses()
     {
@@ -337,7 +340,7 @@ class GetWarehouseStocksDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets warehouses
      *
-     * @param \YandexMarketApi\Model\WarehouseOffersDTO[]|null $warehouses Страница списка складов.
+     * @param \YandexMarketApi\Model\WarehouseOffersDTO[] $warehouses Страница списка складов.
      *
      * @return self
      */

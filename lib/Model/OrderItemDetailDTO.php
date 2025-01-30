@@ -289,6 +289,15 @@ class OrderItemDetailDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
+        if ($this->container['item_count'] === null) {
+            $invalidProperties[] = "'item_count' can't be null";
+        }
+        if ($this->container['item_status'] === null) {
+            $invalidProperties[] = "'item_status' can't be null";
+        }
+        if ($this->container['update_date'] === null) {
+            $invalidProperties[] = "'update_date' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -307,7 +316,7 @@ class OrderItemDetailDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets item_count
      *
-     * @return int|null
+     * @return int
      */
     public function getItemCount()
     {
@@ -317,7 +326,7 @@ class OrderItemDetailDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets item_count
      *
-     * @param int|null $item_count Количество единиц товара.
+     * @param int $item_count Количество единиц товара.
      *
      * @return self
      */
@@ -334,7 +343,7 @@ class OrderItemDetailDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets item_status
      *
-     * @return \YandexMarketApi\Model\OrderItemStatusType|null
+     * @return \YandexMarketApi\Model\OrderItemStatusType
      */
     public function getItemStatus()
     {
@@ -344,7 +353,7 @@ class OrderItemDetailDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets item_status
      *
-     * @param \YandexMarketApi\Model\OrderItemStatusType|null $item_status item_status
+     * @param \YandexMarketApi\Model\OrderItemStatusType $item_status item_status
      *
      * @return self
      */
@@ -361,7 +370,7 @@ class OrderItemDetailDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets update_date
      *
-     * @return string|null
+     * @return string
      */
     public function getUpdateDate()
     {
@@ -371,7 +380,7 @@ class OrderItemDetailDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets update_date
      *
-     * @param string|null $update_date Формат даты: `ДД-ММ-ГГГГ`.
+     * @param string $update_date Формат даты: `ДД-ММ-ГГГГ`.
      *
      * @return self
      */

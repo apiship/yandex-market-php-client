@@ -88,8 +88,8 @@ class GetCampaignOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSeri
         'basic_price' => false,
 		'campaign_price' => false,
 		'status' => false,
-		'errors' => false,
-		'warnings' => false
+		'errors' => true,
+		'warnings' => true
     ];
 
     /**
@@ -418,7 +418,14 @@ class GetCampaignOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSeri
     public function setErrors($errors)
     {
         if (is_null($errors)) {
-            throw new \InvalidArgumentException('non-nullable errors cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'errors');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('errors', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['errors'] = $errors;
 
@@ -445,7 +452,14 @@ class GetCampaignOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSeri
     public function setWarnings($warnings)
     {
         if (is_null($warnings)) {
-            throw new \InvalidArgumentException('non-nullable warnings cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'warnings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('warnings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['warnings'] = $warnings;
 

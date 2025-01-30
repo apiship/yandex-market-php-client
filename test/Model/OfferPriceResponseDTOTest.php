@@ -89,15 +89,6 @@ class OfferPriceResponseDTOTest extends TestCase
     }
 
     /**
-     * Test attribute "feed"
-     */
-    public function testPropertyFeed()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "price"
      */
     public function testPropertyPrice()

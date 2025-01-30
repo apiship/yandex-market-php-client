@@ -106,7 +106,7 @@ class ChangeOutletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 		'address' => false,
 		'phones' => false,
 		'working_schedule' => false,
-		'delivery_rules' => false,
+		'delivery_rules' => true,
 		'storage_period' => false
     ];
 
@@ -646,7 +646,14 @@ class ChangeOutletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setDeliveryRules($delivery_rules)
     {
         if (is_null($delivery_rules)) {
-            throw new \InvalidArgumentException('non-nullable delivery_rules cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'delivery_rules');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('delivery_rules', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['delivery_rules'] = $delivery_rules;
 

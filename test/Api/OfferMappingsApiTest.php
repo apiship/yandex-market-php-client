@@ -86,7 +86,7 @@ class OfferMappingsApiTest extends TestCase
     /**
      * Test case for getSuggestedOfferMappingEntries
      *
-     * Рекомендованные карточки для ваших товаров.
+     * Рекомендованные карточки для товаров.
      *
      */
     public function testGetSuggestedOfferMappingEntries()

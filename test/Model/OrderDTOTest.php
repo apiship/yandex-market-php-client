@@ -116,6 +116,15 @@ class OrderDTOTest extends TestCase
     }
 
     /**
+     * Test attribute "updated_at"
+     */
+    public function testPropertyUpdatedAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "currency"
      */
     public function testPropertyCurrency()
@@ -134,36 +143,9 @@ class OrderDTOTest extends TestCase
     }
 
     /**
-     * Test attribute "total"
-     */
-    public function testPropertyTotal()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "delivery_total"
      */
     public function testPropertyDeliveryTotal()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "subsidy_total"
-     */
-    public function testPropertySubsidyTotal()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "total_with_subsidy"
-     */
-    public function testPropertyTotalWithSubsidy()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

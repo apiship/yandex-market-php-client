@@ -82,9 +82,9 @@ class GetChatsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'order_ids' => false,
-		'types' => false,
-		'statuses' => false
+        'order_ids' => true,
+		'types' => true,
+		'statuses' => true
     ];
 
     /**
@@ -336,11 +336,18 @@ class GetChatsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setOrderIds($order_ids)
     {
         if (is_null($order_ids)) {
-            throw new \InvalidArgumentException('non-nullable order_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'order_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('order_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 
-        if ((count($order_ids) < 1)) {
+        if (!is_null($order_ids) && (count($order_ids) < 1)) {
             throw new \InvalidArgumentException('invalid length for $order_ids when calling GetChatsRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['order_ids'] = $order_ids;
@@ -368,11 +375,18 @@ class GetChatsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTypes($types)
     {
         if (is_null($types)) {
-            throw new \InvalidArgumentException('non-nullable types cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'types');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('types', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 
-        if ((count($types) < 1)) {
+        if (!is_null($types) && (count($types) < 1)) {
             throw new \InvalidArgumentException('invalid length for $types when calling GetChatsRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['types'] = $types;
@@ -400,11 +414,18 @@ class GetChatsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setStatuses($statuses)
     {
         if (is_null($statuses)) {
-            throw new \InvalidArgumentException('non-nullable statuses cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'statuses');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('statuses', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 
-        if ((count($statuses) < 1)) {
+        if (!is_null($statuses) && (count($statuses) < 1)) {
             throw new \InvalidArgumentException('invalid length for $statuses when calling GetChatsRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['statuses'] = $statuses;

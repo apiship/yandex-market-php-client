@@ -87,7 +87,7 @@ class OrderBoxLayoutItemDTO implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => false,
 		'full_count' => false,
 		'partial_count' => false,
-		'instances' => false
+		'instances' => true
     ];
 
     /**
@@ -331,7 +331,7 @@ class OrderBoxLayoutItemDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets id
      *
-     * @param int $id Идентификатор товара в заказе.  {% cut \"Где его взять\" %}  Идентификатор приходит в ответе на запрос [GET campaigns/{campaignId}/orders/{orderId}](../../reference/orders/getOrder.md) и в запросе Маркета [POST order/accept](../../pushapi/reference/orderAccept.md) — параметр `id` в `items`.  {% endcut %}  
+     * @param int $id Идентификатор товара в заказе.  Он приходит в ответе на запрос [GET campaigns/{campaignId}/orders/{orderId}](../../reference/orders/getOrder.md) — параметр `id` в `items`.
      *
      * @return self
      */
@@ -424,7 +424,14 @@ class OrderBoxLayoutItemDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setInstances($instances)
     {
         if (is_null($instances)) {
-            throw new \InvalidArgumentException('non-nullable instances cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'instances');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('instances', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['instances'] = $instances;
 

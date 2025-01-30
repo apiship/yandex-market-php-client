@@ -371,7 +371,7 @@ class ShipmentStatusChangeDTO implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets update_time
      *
-     * @param \DateTime|null $update_time Время последнего изменения статуса отгрузки.
+     * @param \DateTime|null $update_time Время последнего изменения статуса отгрузки.  Формат даты: ISO 8601 со смещением относительно UTC.
      *
      * @return self
      */

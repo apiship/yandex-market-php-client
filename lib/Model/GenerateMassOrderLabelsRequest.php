@@ -59,7 +59,8 @@ class GenerateMassOrderLabelsRequest implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPITypes = [
         'business_id' => 'int',
-        'order_ids' => 'int[]'
+        'order_ids' => 'int[]',
+        'sorting_type' => '\YandexMarketApi\Model\LabelsSortingType'
     ];
 
     /**
@@ -71,7 +72,8 @@ class GenerateMassOrderLabelsRequest implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPIFormats = [
         'business_id' => 'int64',
-        'order_ids' => 'int64'
+        'order_ids' => 'int64',
+        'sorting_type' => null
     ];
 
     /**
@@ -81,7 +83,8 @@ class GenerateMassOrderLabelsRequest implements ModelInterface, ArrayAccess, \Js
       */
     protected static array $openAPINullables = [
         'business_id' => false,
-		'order_ids' => false
+		'order_ids' => false,
+		'sorting_type' => false
     ];
 
     /**
@@ -171,7 +174,8 @@ class GenerateMassOrderLabelsRequest implements ModelInterface, ArrayAccess, \Js
      */
     protected static $attributeMap = [
         'business_id' => 'businessId',
-        'order_ids' => 'orderIds'
+        'order_ids' => 'orderIds',
+        'sorting_type' => 'sortingType'
     ];
 
     /**
@@ -181,7 +185,8 @@ class GenerateMassOrderLabelsRequest implements ModelInterface, ArrayAccess, \Js
      */
     protected static $setters = [
         'business_id' => 'setBusinessId',
-        'order_ids' => 'setOrderIds'
+        'order_ids' => 'setOrderIds',
+        'sorting_type' => 'setSortingType'
     ];
 
     /**
@@ -191,7 +196,8 @@ class GenerateMassOrderLabelsRequest implements ModelInterface, ArrayAccess, \Js
      */
     protected static $getters = [
         'business_id' => 'getBusinessId',
-        'order_ids' => 'getOrderIds'
+        'order_ids' => 'getOrderIds',
+        'sorting_type' => 'getSortingType'
     ];
 
     /**
@@ -253,6 +259,7 @@ class GenerateMassOrderLabelsRequest implements ModelInterface, ArrayAccess, \Js
     {
         $this->setIfExists('business_id', $data ?? [], null);
         $this->setIfExists('order_ids', $data ?? [], null);
+        $this->setIfExists('sorting_type', $data ?? [], null);
     }
 
     /**
@@ -368,6 +375,33 @@ class GenerateMassOrderLabelsRequest implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('invalid length for $order_ids when calling GenerateMassOrderLabelsRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['order_ids'] = $order_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets sorting_type
+     *
+     * @return \YandexMarketApi\Model\LabelsSortingType|null
+     */
+    public function getSortingType()
+    {
+        return $this->container['sorting_type'];
+    }
+
+    /**
+     * Sets sorting_type
+     *
+     * @param \YandexMarketApi\Model\LabelsSortingType|null $sorting_type sorting_type
+     *
+     * @return self
+     */
+    public function setSortingType($sorting_type)
+    {
+        if (is_null($sorting_type)) {
+            throw new \InvalidArgumentException('non-nullable sorting_type cannot be null');
+        }
+        $this->container['sorting_type'] = $sorting_type;
 
         return $this;
     }

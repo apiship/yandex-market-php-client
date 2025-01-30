@@ -512,14 +512,20 @@ class ShipmentsApi
                 'Missing the required parameter $campaign_id when calling confirmShipment'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling ShipmentsApi.confirmShipment, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'shipment_id' is set
         if ($shipment_id === null || (is_array($shipment_id) && count($shipment_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $shipment_id when calling confirmShipment'
             );
         }
-
+        if ($shipment_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$shipment_id" when calling ShipmentsApi.confirmShipment, must be bigger than or equal to 1.');
+        }
+        
 
 
         $resourcePath = '/campaigns/{campaignId}/first-mile/shipments/{shipmentId}/confirm';
@@ -587,6 +593,11 @@ class ShipmentsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -965,14 +976,20 @@ class ShipmentsApi
                 'Missing the required parameter $campaign_id when calling downloadShipmentAct'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling ShipmentsApi.downloadShipmentAct, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'shipment_id' is set
         if ($shipment_id === null || (is_array($shipment_id) && count($shipment_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $shipment_id when calling downloadShipmentAct'
             );
         }
-
+        if ($shipment_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$shipment_id" when calling ShipmentsApi.downloadShipmentAct, must be bigger than or equal to 1.');
+        }
+        
 
         $resourcePath = '/campaigns/{campaignId}/first-mile/shipments/{shipmentId}/act';
         $formParams = [];
@@ -1032,6 +1049,11 @@ class ShipmentsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1410,14 +1432,20 @@ class ShipmentsApi
                 'Missing the required parameter $campaign_id when calling downloadShipmentDiscrepancyAct'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling ShipmentsApi.downloadShipmentDiscrepancyAct, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'shipment_id' is set
         if ($shipment_id === null || (is_array($shipment_id) && count($shipment_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $shipment_id when calling downloadShipmentDiscrepancyAct'
             );
         }
-
+        if ($shipment_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$shipment_id" when calling ShipmentsApi.downloadShipmentDiscrepancyAct, must be bigger than or equal to 1.');
+        }
+        
 
         $resourcePath = '/campaigns/{campaignId}/first-mile/shipments/{shipmentId}/discrepancy-act';
         $formParams = [];
@@ -1477,6 +1505,11 @@ class ShipmentsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1855,14 +1888,20 @@ class ShipmentsApi
                 'Missing the required parameter $campaign_id when calling downloadShipmentInboundAct'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling ShipmentsApi.downloadShipmentInboundAct, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'shipment_id' is set
         if ($shipment_id === null || (is_array($shipment_id) && count($shipment_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $shipment_id when calling downloadShipmentInboundAct'
             );
         }
-
+        if ($shipment_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$shipment_id" when calling ShipmentsApi.downloadShipmentInboundAct, must be bigger than or equal to 1.');
+        }
+        
 
         $resourcePath = '/campaigns/{campaignId}/first-mile/shipments/{shipmentId}/inbound-act';
         $formParams = [];
@@ -1922,6 +1961,11 @@ class ShipmentsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1951,7 +1995,7 @@ class ShipmentsApi
     /**
      * Operation downloadShipmentPalletLabels
      *
-     * Ярлыки на все упаковки в отгрузке
+     * Ярлыки для доверительной приемки (FBS)
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
@@ -1971,7 +2015,7 @@ class ShipmentsApi
     /**
      * Operation downloadShipmentPalletLabelsWithHttpInfo
      *
-     * Ярлыки на все упаковки в отгрузке
+     * Ярлыки для доверительной приемки (FBS)
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
@@ -2211,7 +2255,7 @@ class ShipmentsApi
     /**
      * Operation downloadShipmentPalletLabelsAsync
      *
-     * Ярлыки на все упаковки в отгрузке
+     * Ярлыки для доверительной приемки (FBS)
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
@@ -2234,7 +2278,7 @@ class ShipmentsApi
     /**
      * Operation downloadShipmentPalletLabelsAsyncWithHttpInfo
      *
-     * Ярлыки на все упаковки в отгрузке
+     * Ярлыки для доверительной приемки (FBS)
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
@@ -2305,14 +2349,20 @@ class ShipmentsApi
                 'Missing the required parameter $campaign_id when calling downloadShipmentPalletLabels'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling ShipmentsApi.downloadShipmentPalletLabels, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'shipment_id' is set
         if ($shipment_id === null || (is_array($shipment_id) && count($shipment_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $shipment_id when calling downloadShipmentPalletLabels'
             );
         }
-
+        if ($shipment_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$shipment_id" when calling ShipmentsApi.downloadShipmentPalletLabels, must be bigger than or equal to 1.');
+        }
+        
 
 
         $resourcePath = '/campaigns/{campaignId}/first-mile/shipments/{shipmentId}/pallet/labels';
@@ -2382,6 +2432,11 @@ class ShipmentsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -2760,8 +2815,14 @@ class ShipmentsApi
                 'Missing the required parameter $campaign_id when calling downloadShipmentReceptionTransferAct'
             );
         }
-
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling ShipmentsApi.downloadShipmentReceptionTransferAct, must be bigger than or equal to 1.');
+        }
+        
+        if ($warehouse_id !== null && $warehouse_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$warehouse_id" when calling ShipmentsApi.downloadShipmentReceptionTransferAct, must be bigger than or equal to 1.');
+        }
+        
 
         $resourcePath = '/campaigns/{campaignId}/shipments/reception-transfer-act';
         $formParams = [];
@@ -2822,6 +2883,11 @@ class ShipmentsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -3200,14 +3266,20 @@ class ShipmentsApi
                 'Missing the required parameter $campaign_id when calling downloadShipmentTransportationWaybill'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling ShipmentsApi.downloadShipmentTransportationWaybill, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'shipment_id' is set
         if ($shipment_id === null || (is_array($shipment_id) && count($shipment_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $shipment_id when calling downloadShipmentTransportationWaybill'
             );
         }
-
+        if ($shipment_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$shipment_id" when calling ShipmentsApi.downloadShipmentTransportationWaybill, must be bigger than or equal to 1.');
+        }
+        
 
         $resourcePath = '/campaigns/{campaignId}/first-mile/shipments/{shipmentId}/transportation-waybill';
         $formParams = [];
@@ -3267,6 +3339,11 @@ class ShipmentsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -3296,38 +3373,40 @@ class ShipmentsApi
     /**
      * Operation getShipment
      *
-     * Получение информации об отгрузке
+     * Получение информации об одной отгрузке
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  bool $cancelled_orders Возвращать ли отмененные заказы.  Значение по умолчанию: &#x60;true&#x60;. Если возвращать отмененные заказы не нужно, передайте значение &#x60;false&#x60;. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \YandexMarketApi\Model\GetShipmentResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
      */
-    public function getShipment($campaign_id, $shipment_id, string $contentType = self::contentTypes['getShipment'][0])
+    public function getShipment($campaign_id, $shipment_id, $cancelled_orders = true, string $contentType = self::contentTypes['getShipment'][0])
     {
-        list($response) = $this->getShipmentWithHttpInfo($campaign_id, $shipment_id, $contentType);
+        list($response) = $this->getShipmentWithHttpInfo($campaign_id, $shipment_id, $cancelled_orders, $contentType);
         return $response;
     }
 
     /**
      * Operation getShipmentWithHttpInfo
      *
-     * Получение информации об отгрузке
+     * Получение информации об одной отгрузке
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  bool $cancelled_orders Возвращать ли отмененные заказы.  Значение по умолчанию: &#x60;true&#x60;. Если возвращать отмененные заказы не нужно, передайте значение &#x60;false&#x60;. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \YandexMarketApi\Model\GetShipmentResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShipmentWithHttpInfo($campaign_id, $shipment_id, string $contentType = self::contentTypes['getShipment'][0])
+    public function getShipmentWithHttpInfo($campaign_id, $shipment_id, $cancelled_orders = true, string $contentType = self::contentTypes['getShipment'][0])
     {
-        $request = $this->getShipmentRequest($campaign_id, $shipment_id, $contentType);
+        $request = $this->getShipmentRequest($campaign_id, $shipment_id, $cancelled_orders, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3554,18 +3633,19 @@ class ShipmentsApi
     /**
      * Operation getShipmentAsync
      *
-     * Получение информации об отгрузке
+     * Получение информации об одной отгрузке
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  bool $cancelled_orders Возвращать ли отмененные заказы.  Значение по умолчанию: &#x60;true&#x60;. Если возвращать отмененные заказы не нужно, передайте значение &#x60;false&#x60;. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShipmentAsync($campaign_id, $shipment_id, string $contentType = self::contentTypes['getShipment'][0])
+    public function getShipmentAsync($campaign_id, $shipment_id, $cancelled_orders = true, string $contentType = self::contentTypes['getShipment'][0])
     {
-        return $this->getShipmentAsyncWithHttpInfo($campaign_id, $shipment_id, $contentType)
+        return $this->getShipmentAsyncWithHttpInfo($campaign_id, $shipment_id, $cancelled_orders, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3576,19 +3656,20 @@ class ShipmentsApi
     /**
      * Operation getShipmentAsyncWithHttpInfo
      *
-     * Получение информации об отгрузке
+     * Получение информации об одной отгрузке
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  bool $cancelled_orders Возвращать ли отмененные заказы.  Значение по умолчанию: &#x60;true&#x60;. Если возвращать отмененные заказы не нужно, передайте значение &#x60;false&#x60;. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShipmentAsyncWithHttpInfo($campaign_id, $shipment_id, string $contentType = self::contentTypes['getShipment'][0])
+    public function getShipmentAsyncWithHttpInfo($campaign_id, $shipment_id, $cancelled_orders = true, string $contentType = self::contentTypes['getShipment'][0])
     {
         $returnType = '\YandexMarketApi\Model\GetShipmentResponse';
-        $request = $this->getShipmentRequest($campaign_id, $shipment_id, $contentType);
+        $request = $this->getShipmentRequest($campaign_id, $shipment_id, $cancelled_orders, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3631,12 +3712,13 @@ class ShipmentsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
+     * @param  bool $cancelled_orders Возвращать ли отмененные заказы.  Значение по умолчанию: &#x60;true&#x60;. Если возвращать отмененные заказы не нужно, передайте значение &#x60;false&#x60;. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getShipment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getShipmentRequest($campaign_id, $shipment_id, string $contentType = self::contentTypes['getShipment'][0])
+    public function getShipmentRequest($campaign_id, $shipment_id, $cancelled_orders = true, string $contentType = self::contentTypes['getShipment'][0])
     {
 
         // verify the required parameter 'campaign_id' is set
@@ -3645,13 +3727,20 @@ class ShipmentsApi
                 'Missing the required parameter $campaign_id when calling getShipment'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling ShipmentsApi.getShipment, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'shipment_id' is set
         if ($shipment_id === null || (is_array($shipment_id) && count($shipment_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $shipment_id when calling getShipment'
             );
         }
+        if ($shipment_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$shipment_id" when calling ShipmentsApi.getShipment, must be bigger than or equal to 1.');
+        }
+        
 
 
         $resourcePath = '/campaigns/{campaignId}/first-mile/shipments/{shipmentId}';
@@ -3661,6 +3750,15 @@ class ShipmentsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $cancelled_orders,
+            'cancelledOrders', // param base name
+            'boolean', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -3712,6 +3810,11 @@ class ShipmentsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -3741,7 +3844,7 @@ class ShipmentsApi
     /**
      * Operation getShipmentOrdersInfo
      *
-     * Получение информации о ярлыках
+     * Получение информации о возможности печати ярлыков (FBS)
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
@@ -3760,7 +3863,7 @@ class ShipmentsApi
     /**
      * Operation getShipmentOrdersInfoWithHttpInfo
      *
-     * Получение информации о ярлыках
+     * Получение информации о возможности печати ярлыков (FBS)
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
@@ -3999,7 +4102,7 @@ class ShipmentsApi
     /**
      * Operation getShipmentOrdersInfoAsync
      *
-     * Получение информации о ярлыках
+     * Получение информации о возможности печати ярлыков (FBS)
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
@@ -4021,7 +4124,7 @@ class ShipmentsApi
     /**
      * Operation getShipmentOrdersInfoAsyncWithHttpInfo
      *
-     * Получение информации о ярлыках
+     * Получение информации о возможности печати ярлыков (FBS)
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $shipment_id Идентификатор отгрузки. (required)
@@ -4090,14 +4193,20 @@ class ShipmentsApi
                 'Missing the required parameter $campaign_id when calling getShipmentOrdersInfo'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling ShipmentsApi.getShipmentOrdersInfo, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'shipment_id' is set
         if ($shipment_id === null || (is_array($shipment_id) && count($shipment_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $shipment_id when calling getShipmentOrdersInfo'
             );
         }
-
+        if ($shipment_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$shipment_id" when calling ShipmentsApi.getShipmentOrdersInfo, must be bigger than or equal to 1.');
+        }
+        
 
         $resourcePath = '/campaigns/{campaignId}/first-mile/shipments/{shipmentId}/orders/info';
         $formParams = [];
@@ -4157,6 +4266,11 @@ class ShipmentsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -4186,12 +4300,12 @@ class ShipmentsApi
     /**
      * Operation searchShipments
      *
-     * Получение информации об отгрузках
+     * Получение информации о нескольких отгрузках
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\SearchShipmentsRequest $search_shipments_request search_shipments_request (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchShipments'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -4207,12 +4321,12 @@ class ShipmentsApi
     /**
      * Operation searchShipmentsWithHttpInfo
      *
-     * Получение информации об отгрузках
+     * Получение информации о нескольких отгрузках
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\SearchShipmentsRequest $search_shipments_request (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchShipments'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -4448,12 +4562,12 @@ class ShipmentsApi
     /**
      * Operation searchShipmentsAsync
      *
-     * Получение информации об отгрузках
+     * Получение информации о нескольких отгрузках
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\SearchShipmentsRequest $search_shipments_request (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchShipments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4472,12 +4586,12 @@ class ShipmentsApi
     /**
      * Operation searchShipmentsAsyncWithHttpInfo
      *
-     * Получение информации об отгрузках
+     * Получение информации о нескольких отгрузках
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\SearchShipmentsRequest $search_shipments_request (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchShipments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4529,8 +4643,8 @@ class ShipmentsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\SearchShipmentsRequest $search_shipments_request (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchShipments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4545,7 +4659,10 @@ class ShipmentsApi
                 'Missing the required parameter $campaign_id when calling searchShipments'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling ShipmentsApi.searchShipments, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'search_shipments_request' is set
         if ($search_shipments_request === null || (is_array($search_shipments_request) && count($search_shipments_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -4631,6 +4748,11 @@ class ShipmentsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -5014,14 +5136,20 @@ class ShipmentsApi
                 'Missing the required parameter $campaign_id when calling setShipmentPalletsCount'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling ShipmentsApi.setShipmentPalletsCount, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'shipment_id' is set
         if ($shipment_id === null || (is_array($shipment_id) && count($shipment_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $shipment_id when calling setShipmentPalletsCount'
             );
         }
-
+        if ($shipment_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$shipment_id" when calling ShipmentsApi.setShipmentPalletsCount, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'set_shipment_pallets_count_request' is set
         if ($set_shipment_pallets_count_request === null || (is_array($set_shipment_pallets_count_request) && count($set_shipment_pallets_count_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -5095,6 +5223,11 @@ class ShipmentsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -5478,14 +5611,20 @@ class ShipmentsApi
                 'Missing the required parameter $campaign_id when calling transferOrdersFromShipment'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling ShipmentsApi.transferOrdersFromShipment, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'shipment_id' is set
         if ($shipment_id === null || (is_array($shipment_id) && count($shipment_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $shipment_id when calling transferOrdersFromShipment'
             );
         }
-
+        if ($shipment_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$shipment_id" when calling ShipmentsApi.transferOrdersFromShipment, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'transfer_orders_from_shipment_request' is set
         if ($transfer_orders_from_shipment_request === null || (is_array($transfer_orders_from_shipment_request) && count($transfer_orders_from_shipment_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -5559,6 +5698,11 @@ class ShipmentsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();

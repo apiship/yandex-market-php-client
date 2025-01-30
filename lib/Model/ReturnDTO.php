@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * ReturnDTO Class Doc Comment
  *
  * @category Class
- * @description Возврат заказа.
+ * @description Возврат заказа.  Параметров &#x60;logisticPickupPoint&#x60;, &#x60;shipmentRecipientType&#x60; и &#x60;shipmentStatus&#x60; может не быть в случае возврата:   * С опцией **Быстрый возврат денег за дешевый брак**, когда товар остается у покупателя (&#x60;fastReturn&#x3D;true&#x60;).   * По заказу от бизнеса, если:     * статус возврата &#x60;STARTED_BY_USER&#x60; или &#x60;WAITING_FOR_DECISION&#x60;;     * возврат отменен до передачи товара.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -352,6 +352,18 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['order_id'] === null) {
+            $invalidProperties[] = "'order_id' can't be null";
+        }
+        if ($this->container['items'] === null) {
+            $invalidProperties[] = "'items' can't be null";
+        }
+        if ($this->container['return_type'] === null) {
+            $invalidProperties[] = "'return_type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -370,7 +382,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return int|null
+     * @return int
      */
     public function getId()
     {
@@ -380,7 +392,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param int|null $id Идентификатор возврата.
+     * @param int $id Идентификатор возврата.
      *
      * @return self
      */
@@ -397,7 +409,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets order_id
      *
-     * @return int|null
+     * @return int
      */
     public function getOrderId()
     {
@@ -407,7 +419,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order_id
      *
-     * @param int|null $order_id Номер заказа.
+     * @param int $order_id Номер заказа.
      *
      * @return self
      */
@@ -434,7 +446,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets creation_date
      *
-     * @param \DateTime|null $creation_date Дата создания возврата клиентом.
+     * @param \DateTime|null $creation_date Дата создания возврата клиентом.  Формат даты: ISO 8601 со смещением относительно UTC.
      *
      * @return self
      */
@@ -461,7 +473,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets update_date
      *
-     * @param \DateTime|null $update_date Дата обновления возврата.
+     * @param \DateTime|null $update_date Дата обновления возврата.  Формат даты: ISO 8601 со смещением относительно UTC.
      *
      * @return self
      */
@@ -613,7 +625,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets items
      *
-     * @return \YandexMarketApi\Model\ReturnItemDTO[]|null
+     * @return \YandexMarketApi\Model\ReturnItemDTO[]
      */
     public function getItems()
     {
@@ -623,7 +635,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets items
      *
-     * @param \YandexMarketApi\Model\ReturnItemDTO[]|null $items Список товаров в возврате.
+     * @param \YandexMarketApi\Model\ReturnItemDTO[] $items Список товаров в возврате.
      *
      * @return self
      */
@@ -640,7 +652,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets return_type
      *
-     * @return \YandexMarketApi\Model\ReturnType|null
+     * @return \YandexMarketApi\Model\ReturnType
      */
     public function getReturnType()
     {
@@ -650,7 +662,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets return_type
      *
-     * @param \YandexMarketApi\Model\ReturnType|null $return_type return_type
+     * @param \YandexMarketApi\Model\ReturnType $return_type return_type
      *
      * @return self
      */

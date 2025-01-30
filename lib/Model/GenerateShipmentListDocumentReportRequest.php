@@ -84,7 +84,7 @@ class GenerateShipmentListDocumentReportRequest implements ModelInterface, Array
     protected static array $openAPINullables = [
         'campaign_id' => false,
 		'shipment_id' => false,
-		'order_ids' => false
+		'order_ids' => true
     ];
 
     /**
@@ -381,7 +381,14 @@ class GenerateShipmentListDocumentReportRequest implements ModelInterface, Array
     public function setOrderIds($order_ids)
     {
         if (is_null($order_ids)) {
-            throw new \InvalidArgumentException('non-nullable order_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'order_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('order_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['order_ids'] = $order_ids;
 

@@ -83,7 +83,7 @@ class GetOfferRecommendationsRequest implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'offer_ids' => false,
+        'offer_ids' => true,
 		'cofinance_price_filter' => false,
 		'recommended_cofinance_price_filter' => false,
 		'competitiveness_filter' => false
@@ -330,7 +330,14 @@ class GetOfferRecommendationsRequest implements ModelInterface, ArrayAccess, \Js
     public function setOfferIds($offer_ids)
     {
         if (is_null($offer_ids)) {
-            throw new \InvalidArgumentException('non-nullable offer_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'offer_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('offer_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['offer_ids'] = $offer_ids;
 

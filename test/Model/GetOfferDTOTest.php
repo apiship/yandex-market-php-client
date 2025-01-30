@@ -242,6 +242,15 @@ class GetOfferDTOTest extends TestCase
     }
 
     /**
+     * Test attribute "commodity_codes"
+     */
+    public function testPropertyCommodityCodes()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "certificates"
      */
     public function testPropertyCertificates()
@@ -371,6 +380,15 @@ class GetOfferDTOTest extends TestCase
      * Test attribute "selling_programs"
      */
     public function testPropertySellingPrograms()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "media_files"
+     */
+    public function testPropertyMediaFiles()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -289,6 +289,9 @@ class FeedIndexLogsResultDTO implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
+        if ($this->container['index_log_records'] === null) {
+            $invalidProperties[] = "'index_log_records' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -334,7 +337,7 @@ class FeedIndexLogsResultDTO implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets index_log_records
      *
-     * @return \YandexMarketApi\Model\FeedIndexLogsRecordDTO[]|null
+     * @return \YandexMarketApi\Model\FeedIndexLogsRecordDTO[]
      */
     public function getIndexLogRecords()
     {
@@ -344,7 +347,7 @@ class FeedIndexLogsResultDTO implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets index_log_records
      *
-     * @param \YandexMarketApi\Model\FeedIndexLogsRecordDTO[]|null $index_log_records Список отчетов по индексации прайс-листа.
+     * @param \YandexMarketApi\Model\FeedIndexLogsRecordDTO[] $index_log_records Список отчетов по индексации прайс-листа.
      *
      * @return self
      */

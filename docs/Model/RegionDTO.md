@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Идентификатор региона. | [optional]
+**id** | **int** | Идентификатор региона. |
 **name** | **string** | Название региона. |
 **type** | [**\YandexMarketApi\Model\RegionType**](RegionType.md) |  |
 **parent** | [**\YandexMarketApi\Model\RegionDTO**](RegionDTO.md) |  | [optional]

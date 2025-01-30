@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * ParameterTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Тип данных:  * &#x60;TEXT&#x60; — текст; * &#x60;ENUM&#x60; — список возможных значений; * &#x60;BOOLEAN&#x60; — &#x60;true&#x60; или &#x60;false&#x60;; * &#x60;NUMERIC&#x60; — число.
+ * @description Тип данных:  * &#x60;TEXT&#x60; — текст. * &#x60;ENUM&#x60; — список возможных значений. * &#x60;BOOLEAN&#x60; — &#x60;true&#x60; или &#x60;false&#x60;. * &#x60;NUMERIC&#x60; — число.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

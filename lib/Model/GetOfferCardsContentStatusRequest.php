@@ -81,9 +81,9 @@ class GetOfferCardsContentStatusRequest implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'offer_ids' => false,
-		'card_statuses' => false,
-		'category_ids' => false
+        'offer_ids' => true,
+		'card_statuses' => true,
+		'category_ids' => true
     ];
 
     /**
@@ -331,10 +331,17 @@ class GetOfferCardsContentStatusRequest implements ModelInterface, ArrayAccess, 
     public function setOfferIds($offer_ids)
     {
         if (is_null($offer_ids)) {
-            throw new \InvalidArgumentException('non-nullable offer_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'offer_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('offer_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if ((count($offer_ids) > 200)) {
+        if (!is_null($offer_ids) && (count($offer_ids) > 200)) {
             throw new \InvalidArgumentException('invalid value for $offer_ids when calling GetOfferCardsContentStatusRequest., number of items must be less than or equal to 200.');
         }
         $this->container['offer_ids'] = $offer_ids;
@@ -362,7 +369,14 @@ class GetOfferCardsContentStatusRequest implements ModelInterface, ArrayAccess, 
     public function setCardStatuses($card_statuses)
     {
         if (is_null($card_statuses)) {
-            throw new \InvalidArgumentException('non-nullable card_statuses cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'card_statuses');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('card_statuses', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 
@@ -391,10 +405,17 @@ class GetOfferCardsContentStatusRequest implements ModelInterface, ArrayAccess, 
     public function setCategoryIds($category_ids)
     {
         if (is_null($category_ids)) {
-            throw new \InvalidArgumentException('non-nullable category_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if ((count($category_ids) > 200)) {
+        if (!is_null($category_ids) && (count($category_ids) > 200)) {
             throw new \InvalidArgumentException('invalid value for $category_ids when calling GetOfferCardsContentStatusRequest., number of items must be less than or equal to 200.');
         }
         $this->container['category_ids'] = $category_ids;

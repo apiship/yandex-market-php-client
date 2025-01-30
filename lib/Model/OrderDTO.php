@@ -62,6 +62,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => '\YandexMarketApi\Model\OrderStatusType',
         'substatus' => '\YandexMarketApi\Model\OrderSubstatusType',
         'creation_date' => 'string',
+        'updated_at' => 'string',
         'currency' => '\YandexMarketApi\Model\CurrencyType',
         'items_total' => 'float',
         'delivery_total' => 'float',
@@ -94,6 +95,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => null,
         'substatus' => null,
         'creation_date' => 'date-dd-MM-yyyy-HH-mm-ss',
+        'updated_at' => 'date-dd-MM-yyyy-HH-mm-ss',
         'currency' => null,
         'items_total' => 'decimal',
         'delivery_total' => 'decimal',
@@ -124,6 +126,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
 		'status' => false,
 		'substatus' => false,
 		'creation_date' => false,
+		'updated_at' => false,
 		'currency' => false,
 		'items_total' => false,
 		'delivery_total' => false,
@@ -135,7 +138,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
 		'payment_method' => false,
 		'fake' => false,
 		'items' => false,
-		'subsidies' => false,
+		'subsidies' => true,
 		'delivery' => false,
 		'buyer' => false,
 		'notes' => false,
@@ -234,6 +237,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'status',
         'substatus' => 'substatus',
         'creation_date' => 'creationDate',
+        'updated_at' => 'updatedAt',
         'currency' => 'currency',
         'items_total' => 'itemsTotal',
         'delivery_total' => 'deliveryTotal',
@@ -264,6 +268,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'setStatus',
         'substatus' => 'setSubstatus',
         'creation_date' => 'setCreationDate',
+        'updated_at' => 'setUpdatedAt',
         'currency' => 'setCurrency',
         'items_total' => 'setItemsTotal',
         'delivery_total' => 'setDeliveryTotal',
@@ -294,6 +299,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'getStatus',
         'substatus' => 'getSubstatus',
         'creation_date' => 'getCreationDate',
+        'updated_at' => 'getUpdatedAt',
         'currency' => 'getCurrency',
         'items_total' => 'getItemsTotal',
         'delivery_total' => 'getDeliveryTotal',
@@ -375,6 +381,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('substatus', $data ?? [], null);
         $this->setIfExists('creation_date', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('items_total', $data ?? [], null);
         $this->setIfExists('delivery_total', $data ?? [], null);
@@ -422,6 +429,51 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
+        if ($this->container['substatus'] === null) {
+            $invalidProperties[] = "'substatus' can't be null";
+        }
+        if ($this->container['creation_date'] === null) {
+            $invalidProperties[] = "'creation_date' can't be null";
+        }
+        if ($this->container['currency'] === null) {
+            $invalidProperties[] = "'currency' can't be null";
+        }
+        if ($this->container['items_total'] === null) {
+            $invalidProperties[] = "'items_total' can't be null";
+        }
+        if ($this->container['delivery_total'] === null) {
+            $invalidProperties[] = "'delivery_total' can't be null";
+        }
+        if ($this->container['buyer_items_total_before_discount'] === null) {
+            $invalidProperties[] = "'buyer_items_total_before_discount' can't be null";
+        }
+        if ($this->container['payment_type'] === null) {
+            $invalidProperties[] = "'payment_type' can't be null";
+        }
+        if ($this->container['payment_method'] === null) {
+            $invalidProperties[] = "'payment_method' can't be null";
+        }
+        if ($this->container['fake'] === null) {
+            $invalidProperties[] = "'fake' can't be null";
+        }
+        if ($this->container['items'] === null) {
+            $invalidProperties[] = "'items' can't be null";
+        }
+        if ($this->container['delivery'] === null) {
+            $invalidProperties[] = "'delivery' can't be null";
+        }
+        if ($this->container['buyer'] === null) {
+            $invalidProperties[] = "'buyer' can't be null";
+        }
+        if ($this->container['tax_system'] === null) {
+            $invalidProperties[] = "'tax_system' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -440,7 +492,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return int|null
+     * @return int
      */
     public function getId()
     {
@@ -450,7 +502,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param int|null $id Идентификатор заказа.
+     * @param int $id Идентификатор заказа.
      *
      * @return self
      */
@@ -467,7 +519,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return \YandexMarketApi\Model\OrderStatusType|null
+     * @return \YandexMarketApi\Model\OrderStatusType
      */
     public function getStatus()
     {
@@ -477,7 +529,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param \YandexMarketApi\Model\OrderStatusType|null $status status
+     * @param \YandexMarketApi\Model\OrderStatusType $status status
      *
      * @return self
      */
@@ -494,7 +546,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets substatus
      *
-     * @return \YandexMarketApi\Model\OrderSubstatusType|null
+     * @return \YandexMarketApi\Model\OrderSubstatusType
      */
     public function getSubstatus()
     {
@@ -504,7 +556,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets substatus
      *
-     * @param \YandexMarketApi\Model\OrderSubstatusType|null $substatus substatus
+     * @param \YandexMarketApi\Model\OrderSubstatusType $substatus substatus
      *
      * @return self
      */
@@ -521,7 +573,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets creation_date
      *
-     * @return string|null
+     * @return string
      */
     public function getCreationDate()
     {
@@ -531,7 +583,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets creation_date
      *
-     * @param string|null $creation_date creation_date
+     * @param string $creation_date creation_date
      *
      * @return self
      */
@@ -546,9 +598,36 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets updated_at
+     *
+     * @return string|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param string|null $updated_at updated_at
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        if (is_null($updated_at)) {
+            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+        }
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
      * Gets currency
      *
-     * @return \YandexMarketApi\Model\CurrencyType|null
+     * @return \YandexMarketApi\Model\CurrencyType
      */
     public function getCurrency()
     {
@@ -558,7 +637,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets currency
      *
-     * @param \YandexMarketApi\Model\CurrencyType|null $currency currency
+     * @param \YandexMarketApi\Model\CurrencyType $currency currency
      *
      * @return self
      */
@@ -575,7 +654,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets items_total
      *
-     * @return float|null
+     * @return float
      */
     public function getItemsTotal()
     {
@@ -585,7 +664,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets items_total
      *
-     * @param float|null $items_total Платеж покупателя.
+     * @param float $items_total Платеж покупателя.
      *
      * @return self
      */
@@ -602,7 +681,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets delivery_total
      *
-     * @return float|null
+     * @return float
      */
     public function getDeliveryTotal()
     {
@@ -612,7 +691,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets delivery_total
      *
-     * @param float|null $delivery_total Стоимость доставки.
+     * @param float $delivery_total Стоимость доставки.
      *
      * @return self
      */
@@ -640,7 +719,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyer_items_total
      *
-     * @param float|null $buyer_items_total {% note warning \"\" %}  Этот параметр устарел.  {% endnote %}  Стоимость всех товаров в заказе в валюте покупателя после применения скидок и без учета стоимости доставки.
+     * @param float|null $buyer_items_total {% note warning \"Этот параметр устарел\" %}  Не используйте его.  {% endnote %}  Стоимость всех товаров в заказе в валюте покупателя после применения скидок и без учета стоимости доставки.
      *
      * @return self
      * @deprecated
@@ -669,7 +748,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyer_total
      *
-     * @param float|null $buyer_total {% note warning \"\" %}  Этот параметр устарел.  {% endnote %}  Стоимость всех товаров в заказе в валюте покупателя после применения скидок и с учетом стоимости доставки.
+     * @param float|null $buyer_total {% note warning \"Этот параметр устарел\" %}  Не используйте его.  {% endnote %}  Стоимость всех товаров в заказе в валюте покупателя после применения скидок и с учетом стоимости доставки.
      *
      * @return self
      * @deprecated
@@ -687,7 +766,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets buyer_items_total_before_discount
      *
-     * @return float|null
+     * @return float
      */
     public function getBuyerItemsTotalBeforeDiscount()
     {
@@ -697,7 +776,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyer_items_total_before_discount
      *
-     * @param float|null $buyer_items_total_before_discount Цена продажи. Стоимость всех товаров в заказе в валюте покупателя до применения скидок и без учета стоимости доставки.
+     * @param float $buyer_items_total_before_discount Стоимость всех товаров в заказе в валюте покупателя без учета стоимости доставки и до применения скидок по:  * акциям; * купонам; * промокодам.
      *
      * @return self
      */
@@ -725,7 +804,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyer_total_before_discount
      *
-     * @param float|null $buyer_total_before_discount {% note warning \"\" %}  Этот параметр устарел.  {% endnote %}  Стоимость всех товаров в заказе в валюте покупателя до применения скидок и с учетом стоимости доставки (`buyerItemsTotalBeforeDiscount` + стоимость доставки).
+     * @param float|null $buyer_total_before_discount {% note warning \"Этот параметр устарел\" %}  Не используйте его.  {% endnote %}  Стоимость всех товаров в заказе в валюте покупателя до применения скидок и с учетом стоимости доставки (`buyerItemsTotalBeforeDiscount` + стоимость доставки).
      *
      * @return self
      * @deprecated
@@ -743,7 +822,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets payment_type
      *
-     * @return \YandexMarketApi\Model\OrderPaymentType|null
+     * @return \YandexMarketApi\Model\OrderPaymentType
      */
     public function getPaymentType()
     {
@@ -753,7 +832,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_type
      *
-     * @param \YandexMarketApi\Model\OrderPaymentType|null $payment_type payment_type
+     * @param \YandexMarketApi\Model\OrderPaymentType $payment_type payment_type
      *
      * @return self
      */
@@ -770,7 +849,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets payment_method
      *
-     * @return \YandexMarketApi\Model\OrderPaymentMethodType|null
+     * @return \YandexMarketApi\Model\OrderPaymentMethodType
      */
     public function getPaymentMethod()
     {
@@ -780,7 +859,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_method
      *
-     * @param \YandexMarketApi\Model\OrderPaymentMethodType|null $payment_method payment_method
+     * @param \YandexMarketApi\Model\OrderPaymentMethodType $payment_method payment_method
      *
      * @return self
      */
@@ -797,7 +876,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets fake
      *
-     * @return bool|null
+     * @return bool
      */
     public function getFake()
     {
@@ -807,7 +886,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fake
      *
-     * @param bool|null $fake Тип заказа:  * `false` — настоящий заказ покупателя.  * `true` — [тестовый](../../pushapi/concepts/sandbox.md) заказ Маркета.
+     * @param bool $fake Тип заказа:  * `false` — настоящий заказ покупателя.  * `true` — [тестовый](../../concepts/sandbox.md) заказ Маркета.
      *
      * @return self
      */
@@ -824,7 +903,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets items
      *
-     * @return \YandexMarketApi\Model\OrderItemDTO[]|null
+     * @return \YandexMarketApi\Model\OrderItemDTO[]
      */
     public function getItems()
     {
@@ -834,7 +913,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets items
      *
-     * @param \YandexMarketApi\Model\OrderItemDTO[]|null $items Список товаров в заказе.
+     * @param \YandexMarketApi\Model\OrderItemDTO[] $items Список товаров в заказе.
      *
      * @return self
      */
@@ -868,7 +947,14 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSubsidies($subsidies)
     {
         if (is_null($subsidies)) {
-            throw new \InvalidArgumentException('non-nullable subsidies cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'subsidies');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subsidies', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['subsidies'] = $subsidies;
 
@@ -878,7 +964,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets delivery
      *
-     * @return \YandexMarketApi\Model\OrderDeliveryDTO|null
+     * @return \YandexMarketApi\Model\OrderDeliveryDTO
      */
     public function getDelivery()
     {
@@ -888,7 +974,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets delivery
      *
-     * @param \YandexMarketApi\Model\OrderDeliveryDTO|null $delivery delivery
+     * @param \YandexMarketApi\Model\OrderDeliveryDTO $delivery delivery
      *
      * @return self
      */
@@ -905,7 +991,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets buyer
      *
-     * @return \YandexMarketApi\Model\OrderBuyerDTO|null
+     * @return \YandexMarketApi\Model\OrderBuyerDTO
      */
     public function getBuyer()
     {
@@ -915,7 +1001,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyer
      *
-     * @param \YandexMarketApi\Model\OrderBuyerDTO|null $buyer buyer
+     * @param \YandexMarketApi\Model\OrderBuyerDTO $buyer buyer
      *
      * @return self
      */
@@ -959,7 +1045,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tax_system
      *
-     * @return \YandexMarketApi\Model\OrderTaxSystemType|null
+     * @return \YandexMarketApi\Model\OrderTaxSystemType
      */
     public function getTaxSystem()
     {
@@ -969,7 +1055,7 @@ class OrderDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tax_system
      *
-     * @param \YandexMarketApi\Model\OrderTaxSystemType|null $tax_system tax_system
+     * @param \YandexMarketApi\Model\OrderTaxSystemType $tax_system tax_system
      *
      * @return self
      */
