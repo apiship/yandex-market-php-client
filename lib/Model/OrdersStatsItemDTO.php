@@ -104,10 +104,10 @@ class OrdersStatsItemDTO implements ModelInterface, ArrayAccess, \JsonSerializab
 		'market_sku' => false,
 		'shop_sku' => false,
 		'count' => false,
-		'prices' => false,
+		'prices' => true,
 		'warehouse' => false,
-		'details' => false,
-		'cis_list' => false,
+		'details' => true,
+		'cis_list' => true,
 		'initial_count' => false,
 		'bid_fee' => false,
 		'cofinance_threshold' => false,
@@ -352,16 +352,20 @@ class OrdersStatsItemDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['shop_sku']) && (mb_strlen($this->container['shop_sku']) > 80)) {
-            $invalidProperties[] = "invalid value for 'shop_sku', the character length must be smaller than or equal to 80.";
+        if (!is_null($this->container['market_sku']) && ($this->container['market_sku'] < 1)) {
+            $invalidProperties[] = "invalid value for 'market_sku', must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['shop_sku']) && (mb_strlen($this->container['shop_sku']) > 255)) {
+            $invalidProperties[] = "invalid value for 'shop_sku', the character length must be smaller than or equal to 255.";
         }
 
         if (!is_null($this->container['shop_sku']) && (mb_strlen($this->container['shop_sku']) < 1)) {
             $invalidProperties[] = "invalid value for 'shop_sku', the character length must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['shop_sku']) && !preg_match("/^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/", $this->container['shop_sku'])) {
-            $invalidProperties[] = "invalid value for 'shop_sku', must be conform to the pattern /^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/.";
+        if (!is_null($this->container['shop_sku']) && !preg_match("/^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $this->container['shop_sku'])) {
+            $invalidProperties[] = "invalid value for 'shop_sku', must be conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.";
         }
 
         if (!is_null($this->container['bid_fee']) && ($this->container['bid_fee'] > 10000)) {
@@ -436,6 +440,11 @@ class OrdersStatsItemDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         if (is_null($market_sku)) {
             throw new \InvalidArgumentException('non-nullable market_sku cannot be null');
         }
+
+        if (($market_sku < 1)) {
+            throw new \InvalidArgumentException('invalid value for $market_sku when calling OrdersStatsItemDTO., must be bigger than or equal to 1.');
+        }
+
         $this->container['market_sku'] = $market_sku;
 
         return $this;
@@ -454,7 +463,7 @@ class OrdersStatsItemDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets shop_sku
      *
-     * @param string|null $shop_sku Ваш SKU — идентификатор товара в вашей системе.  Разрешена любая последовательность длиной до 80 знаков. В нее могут входить английские и русские буквы, цифры и символы `. , / \\ ( ) [ ] - = _`  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * SKU товара нельзя менять — можно только удалить товар и добавить заново с новым SKU.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
+     * @param string|null $shop_sku Ваш SKU — идентификатор товара в вашей системе.  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  SKU товара можно изменить в кабинете продавца на Маркете. О том, как это сделать, читайте [в Справке Маркета для продавцов](https://yandex.ru/support2/marketplace/ru/assortment/operations/edit-sku).  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
      *
      * @return self
      */
@@ -463,14 +472,14 @@ class OrdersStatsItemDTO implements ModelInterface, ArrayAccess, \JsonSerializab
         if (is_null($shop_sku)) {
             throw new \InvalidArgumentException('non-nullable shop_sku cannot be null');
         }
-        if ((mb_strlen($shop_sku) > 80)) {
-            throw new \InvalidArgumentException('invalid length for $shop_sku when calling OrdersStatsItemDTO., must be smaller than or equal to 80.');
+        if ((mb_strlen($shop_sku) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $shop_sku when calling OrdersStatsItemDTO., must be smaller than or equal to 255.');
         }
         if ((mb_strlen($shop_sku) < 1)) {
             throw new \InvalidArgumentException('invalid length for $shop_sku when calling OrdersStatsItemDTO., must be bigger than or equal to 1.');
         }
-        if ((!preg_match("/^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/", $shop_sku))) {
-            throw new \InvalidArgumentException("invalid value for \$shop_sku when calling OrdersStatsItemDTO., must conform to the pattern /^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/.");
+        if ((!preg_match("/^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $shop_sku))) {
+            throw new \InvalidArgumentException("invalid value for \$shop_sku when calling OrdersStatsItemDTO., must conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.");
         }
 
         $this->container['shop_sku'] = $shop_sku;
@@ -525,7 +534,14 @@ class OrdersStatsItemDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setPrices($prices)
     {
         if (is_null($prices)) {
-            throw new \InvalidArgumentException('non-nullable prices cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'prices');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('prices', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['prices'] = $prices;
 
@@ -579,7 +595,14 @@ class OrdersStatsItemDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setDetails($details)
     {
         if (is_null($details)) {
-            throw new \InvalidArgumentException('non-nullable details cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'details');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('details', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['details'] = $details;
 
@@ -606,7 +629,14 @@ class OrdersStatsItemDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setCisList($cis_list)
     {
         if (is_null($cis_list)) {
-            throw new \InvalidArgumentException('non-nullable cis_list cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'cis_list');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('cis_list', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['cis_list'] = $cis_list;
 

@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OfferMappingKindType Class Doc Comment
  *
  * @category Class
- * @description Вид маппинга.
+ * @description Вид маппинга: * &#x60;ALL&#x60; — все товары. * &#x60;ACTIVE&#x60; — готовые к продаже товары.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

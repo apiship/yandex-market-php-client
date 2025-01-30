@@ -128,14 +128,15 @@ class FeedbacksApi
      * Новые и обновленные отзывы о магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  \DateTime $from_date Начальная дата обновления отзывов.  Если параметр указан, возвращаются отзывы, которые были написаны или обновлены с этой даты.  Формат даты: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedbackAndCommentUpdates'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \YandexMarketApi\Model\GetFeedbackListResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
+     * @deprecated
      */
     public function getFeedbackAndCommentUpdates($campaign_id, $page_token = null, $limit = null, $from_date = null, string $contentType = self::contentTypes['getFeedbackAndCommentUpdates'][0])
     {
@@ -149,14 +150,15 @@ class FeedbacksApi
      * Новые и обновленные отзывы о магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  \DateTime $from_date Начальная дата обновления отзывов.  Если параметр указан, возвращаются отзывы, которые были написаны или обновлены с этой даты.  Формат даты: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedbackAndCommentUpdates'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \YandexMarketApi\Model\GetFeedbackListResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getFeedbackAndCommentUpdatesWithHttpInfo($campaign_id, $page_token = null, $limit = null, $from_date = null, string $contentType = self::contentTypes['getFeedbackAndCommentUpdates'][0])
     {
@@ -390,13 +392,14 @@ class FeedbacksApi
      * Новые и обновленные отзывы о магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  \DateTime $from_date Начальная дата обновления отзывов.  Если параметр указан, возвращаются отзывы, которые были написаны или обновлены с этой даты.  Формат даты: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedbackAndCommentUpdates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getFeedbackAndCommentUpdatesAsync($campaign_id, $page_token = null, $limit = null, $from_date = null, string $contentType = self::contentTypes['getFeedbackAndCommentUpdates'][0])
     {
@@ -414,13 +417,14 @@ class FeedbacksApi
      * Новые и обновленные отзывы о магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  \DateTime $from_date Начальная дата обновления отзывов.  Если параметр указан, возвращаются отзывы, которые были написаны или обновлены с этой даты.  Формат даты: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedbackAndCommentUpdates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getFeedbackAndCommentUpdatesAsyncWithHttpInfo($campaign_id, $page_token = null, $limit = null, $from_date = null, string $contentType = self::contentTypes['getFeedbackAndCommentUpdates'][0])
     {
@@ -467,13 +471,14 @@ class FeedbacksApi
      * Create request for operation 'getFeedbackAndCommentUpdates'
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  \DateTime $from_date Начальная дата обновления отзывов.  Если параметр указан, возвращаются отзывы, которые были написаны или обновлены с этой даты.  Формат даты: &#x60;ГГГГ-ММ-ДД&#x60;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedbackAndCommentUpdates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getFeedbackAndCommentUpdatesRequest($campaign_id, $page_token = null, $limit = null, $from_date = null, string $contentType = self::contentTypes['getFeedbackAndCommentUpdates'][0])
     {
@@ -484,7 +489,10 @@ class FeedbacksApi
                 'Missing the required parameter $campaign_id when calling getFeedbackAndCommentUpdates'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling FeedbacksApi.getFeedbackAndCommentUpdates, must be bigger than or equal to 1.');
+        }
+        
 
 
 
@@ -566,6 +574,11 @@ class FeedbacksApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();

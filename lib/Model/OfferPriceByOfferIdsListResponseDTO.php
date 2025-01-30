@@ -282,6 +282,9 @@ class OfferPriceByOfferIdsListResponseDTO implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['offers'] === null) {
+            $invalidProperties[] = "'offers' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -300,7 +303,7 @@ class OfferPriceByOfferIdsListResponseDTO implements ModelInterface, ArrayAccess
     /**
      * Gets offers
      *
-     * @return \YandexMarketApi\Model\OfferPriceByOfferIdsResponseDTO[]|null
+     * @return \YandexMarketApi\Model\OfferPriceByOfferIdsResponseDTO[]
      */
     public function getOffers()
     {
@@ -310,7 +313,7 @@ class OfferPriceByOfferIdsListResponseDTO implements ModelInterface, ArrayAccess
     /**
      * Sets offers
      *
-     * @param \YandexMarketApi\Model\OfferPriceByOfferIdsResponseDTO[]|null $offers Страница списка цен.
+     * @param \YandexMarketApi\Model\OfferPriceByOfferIdsResponseDTO[] $offers Страница списка цен.
      *
      * @return self
      */

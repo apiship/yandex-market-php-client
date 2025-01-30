@@ -302,6 +302,9 @@ class TariffDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
+        if ($this->container['parameters'] === null) {
+            $invalidProperties[] = "'parameters' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -358,7 +361,7 @@ class TariffDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets percent
      *
-     * @param float|null $percent {% note alert \"Это поле устарело\" %}  Не используйте его — это может привести к ошибкам.  {% endnote %}  Значение тарифа в процентах.
+     * @param float|null $percent {% note warning \"Этот параметр устарел\" %}  Не используйте его.  {% endnote %}  Значение тарифа в процентах.
      *
      * @return self
      * @deprecated
@@ -403,7 +406,7 @@ class TariffDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets parameters
      *
-     * @return \YandexMarketApi\Model\TariffParameterDTO[]|null
+     * @return \YandexMarketApi\Model\TariffParameterDTO[]
      */
     public function getParameters()
     {
@@ -413,7 +416,7 @@ class TariffDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets parameters
      *
-     * @param \YandexMarketApi\Model\TariffParameterDTO[]|null $parameters Параметры расчета тарифа.
+     * @param \YandexMarketApi\Model\TariffParameterDTO[] $parameters Параметры расчета тарифа.
      *
      * @return self
      */

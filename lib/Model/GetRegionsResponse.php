@@ -281,6 +281,9 @@ class GetRegionsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
+        if ($this->container['regions'] === null) {
+            $invalidProperties[] = "'regions' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -299,7 +302,7 @@ class GetRegionsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets regions
      *
-     * @return \YandexMarketApi\Model\RegionDTO[]|null
+     * @return \YandexMarketApi\Model\RegionDTO[]
      */
     public function getRegions()
     {
@@ -309,7 +312,7 @@ class GetRegionsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets regions
      *
-     * @param \YandexMarketApi\Model\RegionDTO[]|null $regions Регион доставки.
+     * @param \YandexMarketApi\Model\RegionDTO[] $regions Регион доставки.
      *
      * @return self
      */

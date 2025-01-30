@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**outlets** | [**\YandexMarketApi\Model\FullOutletDTO[]**](FullOutletDTO.md) | Информация о точках продаж. | [optional]
+**outlets** | [**\YandexMarketApi\Model\FullOutletDTO[]**](FullOutletDTO.md) | Информация о точках продаж. |
 **paging** | [**\YandexMarketApi\Model\ScrollingPagerDTO**](ScrollingPagerDTO.md) |  | [optional]
 **pager** | [**\YandexMarketApi\Model\FlippingPagerDTO**](FlippingPagerDTO.md) |  | [optional]
 

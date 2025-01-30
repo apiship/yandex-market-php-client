@@ -81,7 +81,7 @@ class CategoryContentParametersDTO implements ModelInterface, ArrayAccess, \Json
       */
     protected static array $openAPINullables = [
         'category_id' => false,
-		'parameters' => false
+		'parameters' => true
     ];
 
     /**
@@ -285,6 +285,10 @@ class CategoryContentParametersDTO implements ModelInterface, ArrayAccess, \Json
         if ($this->container['category_id'] === null) {
             $invalidProperties[] = "'category_id' can't be null";
         }
+        if (($this->container['category_id'] < 1)) {
+            $invalidProperties[] = "invalid value for 'category_id', must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -313,7 +317,7 @@ class CategoryContentParametersDTO implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets category_id
      *
-     * @param int $category_id Идентификатор категории на Маркете. Чтобы узнать идентификатор категории, к которой относится товар, воспользуйтесь запросом [POST categories/tree](../../reference/categories/getCategoriesTree.md).
+     * @param int $category_id Идентификатор категории на Маркете.  При изменении категории убедитесь, что характеристики товара и их значения в параметре `parameterValues` вы передаете для новой категории.  Список категорий Маркета можно получить с помощью запроса  [POST categories/tree](../../reference/categories/getCategoriesTree.md).
      *
      * @return self
      */
@@ -322,6 +326,11 @@ class CategoryContentParametersDTO implements ModelInterface, ArrayAccess, \Json
         if (is_null($category_id)) {
             throw new \InvalidArgumentException('non-nullable category_id cannot be null');
         }
+
+        if (($category_id < 1)) {
+            throw new \InvalidArgumentException('invalid value for $category_id when calling CategoryContentParametersDTO., must be bigger than or equal to 1.');
+        }
+
         $this->container['category_id'] = $category_id;
 
         return $this;
@@ -347,7 +356,14 @@ class CategoryContentParametersDTO implements ModelInterface, ArrayAccess, \Json
     public function setParameters($parameters)
     {
         if (is_null($parameters)) {
-            throw new \InvalidArgumentException('non-nullable parameters cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'parameters');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parameters', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['parameters'] = $parameters;
 

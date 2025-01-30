@@ -98,7 +98,7 @@ class OutletsApiTest extends TestCase
     /**
      * Test case for getOutlet
      *
-     * Информация о точке продаж.
+     * Информация об одной точке продаж.
      *
      */
     public function testGetOutlet()
@@ -110,7 +110,7 @@ class OutletsApiTest extends TestCase
     /**
      * Test case for getOutlets
      *
-     * Информация о точках продаж.
+     * Информация о нескольких точках продаж.
      *
      */
     public function testGetOutlets()

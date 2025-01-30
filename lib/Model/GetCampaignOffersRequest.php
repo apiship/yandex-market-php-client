@@ -86,11 +86,11 @@ class GetCampaignOffersRequest implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'offer_ids' => false,
-		'statuses' => false,
-		'category_ids' => false,
-		'vendor_names' => false,
-		'tags' => false
+        'offer_ids' => true,
+		'statuses' => true,
+		'category_ids' => true,
+		'vendor_names' => true,
+		'tags' => true
     ];
 
     /**
@@ -307,6 +307,26 @@ class GetCampaignOffersRequest implements ModelInterface, ArrayAccess, \JsonSeri
             $invalidProperties[] = "invalid value for 'offer_ids', number of items must be less than or equal to 200.";
         }
 
+        if (!is_null($this->container['offer_ids']) && (count($this->container['offer_ids']) < 1)) {
+            $invalidProperties[] = "invalid value for 'offer_ids', number of items must be greater than or equal to 1.";
+        }
+
+        if (!is_null($this->container['statuses']) && (count($this->container['statuses']) < 1)) {
+            $invalidProperties[] = "invalid value for 'statuses', number of items must be greater than or equal to 1.";
+        }
+
+        if (!is_null($this->container['category_ids']) && (count($this->container['category_ids']) < 1)) {
+            $invalidProperties[] = "invalid value for 'category_ids', number of items must be greater than or equal to 1.";
+        }
+
+        if (!is_null($this->container['vendor_names']) && (count($this->container['vendor_names']) < 1)) {
+            $invalidProperties[] = "invalid value for 'vendor_names', number of items must be greater than or equal to 1.";
+        }
+
+        if (!is_null($this->container['tags']) && (count($this->container['tags']) < 1)) {
+            $invalidProperties[] = "invalid value for 'tags', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -335,18 +355,28 @@ class GetCampaignOffersRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets offer_ids
      *
-     * @param string[]|null $offer_ids Идентификаторы товаров, информация о которых нужна. <br><br> ⚠️ Не используйте это поле одновременно с фильтрами по статусам карточек, категориям, брендам или тегам. Если вы хотите воспользоваться фильтрами, оставьте поле пустым.
+     * @param string[]|null $offer_ids Идентификаторы товаров, информация о которых нужна.  {% note warning \"Такой список возвращается только целиком\" %}  Не используйте это поле одновременно с фильтрами по статусам карточек, категориям, брендам или тегам. Если вы хотите воспользоваться фильтрами, оставьте поле пустым.  Если вы запрашиваете информацию по конкретным SKU, не заполняйте:  * `page_token` * `limit`  {% endnote %}   
      *
      * @return self
      */
     public function setOfferIds($offer_ids)
     {
         if (is_null($offer_ids)) {
-            throw new \InvalidArgumentException('non-nullable offer_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'offer_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('offer_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if ((count($offer_ids) > 200)) {
+        if (!is_null($offer_ids) && (count($offer_ids) > 200)) {
             throw new \InvalidArgumentException('invalid value for $offer_ids when calling GetCampaignOffersRequest., number of items must be less than or equal to 200.');
+        }
+        if (!is_null($offer_ids) && (count($offer_ids) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $offer_ids when calling GetCampaignOffersRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['offer_ids'] = $offer_ids;
 
@@ -373,7 +403,19 @@ class GetCampaignOffersRequest implements ModelInterface, ArrayAccess, \JsonSeri
     public function setStatuses($statuses)
     {
         if (is_null($statuses)) {
-            throw new \InvalidArgumentException('non-nullable statuses cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'statuses');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('statuses', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+
+        if (!is_null($statuses) && (count($statuses) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $statuses when calling GetCampaignOffersRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['statuses'] = $statuses;
 
@@ -400,7 +442,19 @@ class GetCampaignOffersRequest implements ModelInterface, ArrayAccess, \JsonSeri
     public function setCategoryIds($category_ids)
     {
         if (is_null($category_ids)) {
-            throw new \InvalidArgumentException('non-nullable category_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+
+        if (!is_null($category_ids) && (count($category_ids) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $category_ids when calling GetCampaignOffersRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['category_ids'] = $category_ids;
 
@@ -427,7 +481,19 @@ class GetCampaignOffersRequest implements ModelInterface, ArrayAccess, \JsonSeri
     public function setVendorNames($vendor_names)
     {
         if (is_null($vendor_names)) {
-            throw new \InvalidArgumentException('non-nullable vendor_names cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'vendor_names');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('vendor_names', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+
+        if (!is_null($vendor_names) && (count($vendor_names) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $vendor_names when calling GetCampaignOffersRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['vendor_names'] = $vendor_names;
 
@@ -454,7 +520,19 @@ class GetCampaignOffersRequest implements ModelInterface, ArrayAccess, \JsonSeri
     public function setTags($tags)
     {
         if (is_null($tags)) {
-            throw new \InvalidArgumentException('non-nullable tags cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tags');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tags', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+
+        if (!is_null($tags) && (count($tags) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $tags when calling GetCampaignOffersRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['tags'] = $tags;
 

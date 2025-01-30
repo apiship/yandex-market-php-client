@@ -89,45 +89,9 @@ class OfferPriceDTOTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "feed"
-     */
-    public function testPropertyFeed()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "price"
      */
     public function testPropertyPrice()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "market_sku"
-     */
-    public function testPropertyMarketSku()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "shop_sku"
-     */
-    public function testPropertyShopSku()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

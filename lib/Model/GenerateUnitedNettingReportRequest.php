@@ -103,9 +103,9 @@ class GenerateUnitedNettingReportRequest implements ModelInterface, ArrayAccess,
 		'date_to' => false,
 		'bank_order_id' => false,
 		'bank_order_date_time' => false,
-		'placement_programs' => false,
-		'inns' => false,
-		'campaign_ids' => false
+		'placement_programs' => true,
+		'inns' => true,
+		'campaign_ids' => true
     ];
 
     /**
@@ -396,7 +396,7 @@ class GenerateUnitedNettingReportRequest implements ModelInterface, ArrayAccess,
     /**
      * Sets date_time_from
      *
-     * @param \DateTime|null $date_time_from {% note alert \"Это поле устарело\" %}  Не используйте его — это может привести к ошибкам.  {% endnote %}  Начало периода, включительно.
+     * @param \DateTime|null $date_time_from {% note warning \"Этот параметр устарел\" %}  Не используйте его.  {% endnote %}  Начало периода, включительно.
      *
      * @return self
      */
@@ -423,7 +423,7 @@ class GenerateUnitedNettingReportRequest implements ModelInterface, ArrayAccess,
     /**
      * Sets date_time_to
      *
-     * @param \DateTime|null $date_time_to {% note alert \"Это поле устарело\" %}  Не используйте его — это может привести к ошибкам.  {% endnote %}  Конец периода, включительно. Максимальный период — 1 год.
+     * @param \DateTime|null $date_time_to {% note warning \"Этот параметр устарел\" %}  Не используйте его.  {% endnote %}  Конец периода, включительно. Максимальный период — 3 месяца.
      *
      * @return self
      */
@@ -477,7 +477,7 @@ class GenerateUnitedNettingReportRequest implements ModelInterface, ArrayAccess,
     /**
      * Sets date_to
      *
-     * @param \DateTime|null $date_to Конец периода, включительно. Максимальный период — 1 год.
+     * @param \DateTime|null $date_to Конец периода, включительно. Максимальный период — 3 месяца.
      *
      * @return self
      */
@@ -565,7 +565,14 @@ class GenerateUnitedNettingReportRequest implements ModelInterface, ArrayAccess,
     public function setPlacementPrograms($placement_programs)
     {
         if (is_null($placement_programs)) {
-            throw new \InvalidArgumentException('non-nullable placement_programs cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'placement_programs');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('placement_programs', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['placement_programs'] = $placement_programs;
 
@@ -592,7 +599,14 @@ class GenerateUnitedNettingReportRequest implements ModelInterface, ArrayAccess,
     public function setInns($inns)
     {
         if (is_null($inns)) {
-            throw new \InvalidArgumentException('non-nullable inns cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'inns');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('inns', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['inns'] = $inns;
 
@@ -619,7 +633,14 @@ class GenerateUnitedNettingReportRequest implements ModelInterface, ArrayAccess,
     public function setCampaignIds($campaign_ids)
     {
         if (is_null($campaign_ids)) {
-            throw new \InvalidArgumentException('non-nullable campaign_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_ids'] = $campaign_ids;
 

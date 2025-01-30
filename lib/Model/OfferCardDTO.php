@@ -60,6 +60,7 @@ class OfferCardDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'offer_id' => 'string',
         'mapping' => '\YandexMarketApi\Model\GetMappingDTO',
+        'parameter_values' => '\YandexMarketApi\Model\ParameterValueDTO[]',
         'card_status' => '\YandexMarketApi\Model\OfferCardStatusType',
         'content_rating' => 'int',
         'recommendations' => '\YandexMarketApi\Model\OfferCardRecommendationDTO[]',
@@ -77,6 +78,7 @@ class OfferCardDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'offer_id' => null,
         'mapping' => null,
+        'parameter_values' => null,
         'card_status' => null,
         'content_rating' => 'int32',
         'recommendations' => null,
@@ -92,11 +94,12 @@ class OfferCardDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'offer_id' => false,
 		'mapping' => false,
+		'parameter_values' => true,
 		'card_status' => false,
 		'content_rating' => false,
-		'recommendations' => false,
-		'errors' => false,
-		'warnings' => false
+		'recommendations' => true,
+		'errors' => true,
+		'warnings' => true
     ];
 
     /**
@@ -187,6 +190,7 @@ class OfferCardDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'offer_id' => 'offerId',
         'mapping' => 'mapping',
+        'parameter_values' => 'parameterValues',
         'card_status' => 'cardStatus',
         'content_rating' => 'contentRating',
         'recommendations' => 'recommendations',
@@ -202,6 +206,7 @@ class OfferCardDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'offer_id' => 'setOfferId',
         'mapping' => 'setMapping',
+        'parameter_values' => 'setParameterValues',
         'card_status' => 'setCardStatus',
         'content_rating' => 'setContentRating',
         'recommendations' => 'setRecommendations',
@@ -217,6 +222,7 @@ class OfferCardDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'offer_id' => 'getOfferId',
         'mapping' => 'getMapping',
+        'parameter_values' => 'getParameterValues',
         'card_status' => 'getCardStatus',
         'content_rating' => 'getContentRating',
         'recommendations' => 'getRecommendations',
@@ -283,6 +289,7 @@ class OfferCardDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('offer_id', $data ?? [], null);
         $this->setIfExists('mapping', $data ?? [], null);
+        $this->setIfExists('parameter_values', $data ?? [], null);
         $this->setIfExists('card_status', $data ?? [], null);
         $this->setIfExists('content_rating', $data ?? [], null);
         $this->setIfExists('recommendations', $data ?? [], null);
@@ -320,13 +327,14 @@ class OfferCardDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['offer_id'] === null) {
             $invalidProperties[] = "'offer_id' can't be null";
         }
-        if ((mb_strlen($this->container['offer_id']) > 80)) {
-            $invalidProperties[] = "invalid value for 'offer_id', the character length must be smaller than or equal to 80.";
+        if ((mb_strlen($this->container['offer_id']) > 255)) {
+            $invalidProperties[] = "invalid value for 'offer_id', the character length must be smaller than or equal to 255.";
         }
 
         if ((mb_strlen($this->container['offer_id']) < 1)) {
             $invalidProperties[] = "invalid value for 'offer_id', the character length must be bigger than or equal to 1.";
         }
+
 
 
         return $invalidProperties;
@@ -357,7 +365,7 @@ class OfferCardDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets offer_id
      *
-     * @param string $offer_id Ваш SKU — идентификатор товара в вашей системе.  Разрешена любая последовательность длиной до 80 знаков. В нее могут входить английские и русские буквы, цифры и символы `. , / \\ ( ) [ ] - = _`  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * SKU товара нельзя менять — можно только удалить товар и добавить заново с новым SKU.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
+     * @param string $offer_id Ваш SKU — идентификатор товара в вашей системе.  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  SKU товара можно изменить в кабинете продавца на Маркете. О том, как это сделать, читайте [в Справке Маркета для продавцов](https://yandex.ru/support2/marketplace/ru/assortment/operations/edit-sku).  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
      *
      * @return self
      */
@@ -366,14 +374,14 @@ class OfferCardDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($offer_id)) {
             throw new \InvalidArgumentException('non-nullable offer_id cannot be null');
         }
-        if ((mb_strlen($offer_id) > 80)) {
-            throw new \InvalidArgumentException('invalid length for $offer_id when calling OfferCardDTO., must be smaller than or equal to 80.');
+        if ((mb_strlen($offer_id) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $offer_id when calling OfferCardDTO., must be smaller than or equal to 255.');
         }
         if ((mb_strlen($offer_id) < 1)) {
             throw new \InvalidArgumentException('invalid length for $offer_id when calling OfferCardDTO., must be bigger than or equal to 1.');
         }
-        if ((!preg_match("/^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/", $offer_id))) {
-            throw new \InvalidArgumentException("invalid value for \$offer_id when calling OfferCardDTO., must conform to the pattern /^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/.");
+        if ((!preg_match("/^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $offer_id))) {
+            throw new \InvalidArgumentException("invalid value for \$offer_id when calling OfferCardDTO., must conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.");
         }
 
         $this->container['offer_id'] = $offer_id;
@@ -404,6 +412,40 @@ class OfferCardDTO implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable mapping cannot be null');
         }
         $this->container['mapping'] = $mapping;
+
+        return $this;
+    }
+
+    /**
+     * Gets parameter_values
+     *
+     * @return \YandexMarketApi\Model\ParameterValueDTO[]|null
+     */
+    public function getParameterValues()
+    {
+        return $this->container['parameter_values'];
+    }
+
+    /**
+     * Sets parameter_values
+     *
+     * @param \YandexMarketApi\Model\ParameterValueDTO[]|null $parameter_values Список характеристик с их значениями.
+     *
+     * @return self
+     */
+    public function setParameterValues($parameter_values)
+    {
+        if (is_null($parameter_values)) {
+            array_push($this->openAPINullablesSetToNull, 'parameter_values');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parameter_values', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['parameter_values'] = $parameter_values;
 
         return $this;
     }
@@ -482,7 +524,14 @@ class OfferCardDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRecommendations($recommendations)
     {
         if (is_null($recommendations)) {
-            throw new \InvalidArgumentException('non-nullable recommendations cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'recommendations');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('recommendations', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['recommendations'] = $recommendations;
 
@@ -509,7 +558,14 @@ class OfferCardDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setErrors($errors)
     {
         if (is_null($errors)) {
-            throw new \InvalidArgumentException('non-nullable errors cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'errors');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('errors', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['errors'] = $errors;
 
@@ -536,7 +592,14 @@ class OfferCardDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setWarnings($warnings)
     {
         if (is_null($warnings)) {
-            throw new \InvalidArgumentException('non-nullable warnings cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'warnings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('warnings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['warnings'] = $warnings;
 

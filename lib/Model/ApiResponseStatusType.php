@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * ApiResponseStatusType Class Doc Comment
  *
  * @category Class
- * @description Тип ответа.
+ * @description Тип ответа. Возможные значения: * &#x60;OK&#x60; — ошибок нет. * &#x60;ERROR&#x60; — при обработке запроса произошла ошибка.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

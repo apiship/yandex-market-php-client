@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * ReturnDecisionSubreasonType Class Doc Comment
  *
  * @category Class
- * @description Детали причин возврата:   * &#x60;DO_NOT_FIT&#x60;:     * &#x60;USER_DID_NOT_LIKE&#x60; — товар не понравился.     * &#x60;USER_CHANGED_MIND&#x60; — передумал покупать.     * &#x60;DELIVERED_TOO_LONG&#x60; — длительный срок доставки, поэтому передумал.    * &#x60;BAD_QUALITY&#x60;:     * &#x60;BAD_PACKAGE&#x60; — упаковка товара была нарушена.     * &#x60;DAMAGED&#x60; — царапины, сколы.     * &#x60;NOT_WORKING&#x60; — не включается / не работает.     * &#x60;INCOMPLETENESS&#x60; — некомплект (не хватает детали в наборе, к товару).    * &#x60;WRONG_ITEM&#x60;:     * &#x60;WRONG_ITEM&#x60; — не тот товар.     * &#x60;WRONG_COLOR&#x60; — не соответствует по цвету.     * &#x60;DID_NOT_MATCH_DESCRIPTION&#x60; — не соответствует заявленным характеристикам/описанию.
+ * @description Детали причин возврата:   * &#x60;DO_NOT_FIT&#x60;:     * &#x60;USER_DID_NOT_LIKE&#x60; — товар не понравился.     * &#x60;USER_CHANGED_MIND&#x60; — передумал покупать.     * &#x60;DELIVERED_TOO_LONG&#x60; — передумал покупать из-за длительного срока доставки.    * &#x60;BAD_QUALITY&#x60;:     * &#x60;BAD_PACKAGE&#x60; — заводская упаковка повреждена.     * &#x60;DAMAGED&#x60; — царапины, сколы.     * &#x60;NOT_WORKING&#x60; — не включается, не работает.     * &#x60;INCOMPLETENESS&#x60; — некомплект (не хватает детали в наборе, к товару).     * &#x60;WRAPPING_DAMAGED&#x60; — транспортная упаковка повреждена.     * &#x60;ITEM_WAS_USED&#x60; — следы использования на товаре.     * &#x60;BROKEN&#x60; — товар разбит.     * &#x60;BAD_FLOWERS&#x60; — некачественные цветы.    * &#x60;WRONG_ITEM&#x60;:     * &#x60;WRONG_ITEM&#x60; — не тот товар.     * &#x60;WRONG_COLOR&#x60; — цвет не соответствует заявленному.     * &#x60;DID_NOT_MATCH_DESCRIPTION&#x60; — описание или характеристики не соответствуют заявленным.     * &#x60;WRONG_ORDER&#x60; — доставили чужой заказ.     * &#x60;WRONG_AMOUNT_DELIVERED&#x60; — неверное количество товара.     * &#x60;PARCEL_MISSING&#x60; — часть заказа отсутствует.     * &#x60;INCOMPLETE&#x60; — заказ не привезли полностью.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -63,6 +63,22 @@ class ReturnDecisionSubreasonType
 
     public const DID_NOT_MATCH_DESCRIPTION = 'DID_NOT_MATCH_DESCRIPTION';
 
+    public const WRONG_ORDER = 'WRONG_ORDER';
+
+    public const WRONG_AMOUNT_DELIVERED = 'WRONG_AMOUNT_DELIVERED';
+
+    public const WRAPPING_DAMAGED = 'WRAPPING_DAMAGED';
+
+    public const ITEM_WAS_USED = 'ITEM_WAS_USED';
+
+    public const BROKEN = 'BROKEN';
+
+    public const BAD_FLOWERS = 'BAD_FLOWERS';
+
+    public const PARCEL_MISSING = 'PARCEL_MISSING';
+
+    public const INCOMPLETE = 'INCOMPLETE';
+
     public const UNKNOWN = 'UNKNOWN';
 
     /**
@@ -82,6 +98,14 @@ class ReturnDecisionSubreasonType
             self::WRONG_ITEM,
             self::WRONG_COLOR,
             self::DID_NOT_MATCH_DESCRIPTION,
+            self::WRONG_ORDER,
+            self::WRONG_AMOUNT_DELIVERED,
+            self::WRAPPING_DAMAGED,
+            self::ITEM_WAS_USED,
+            self::BROKEN,
+            self::BAD_FLOWERS,
+            self::PARCEL_MISSING,
+            self::INCOMPLETE,
             self::UNKNOWN
         ];
     }

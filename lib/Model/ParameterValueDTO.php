@@ -299,9 +299,10 @@ class ParameterValueDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
         if ($this->container['parameter_id'] === null) {
             $invalidProperties[] = "'parameter_id' can't be null";
         }
-        if ($this->container['value'] === null) {
-            $invalidProperties[] = "'value' can't be null";
+        if (($this->container['parameter_id'] < 1)) {
+            $invalidProperties[] = "invalid value for 'parameter_id', must be bigger than or equal to 1.";
         }
+
         return $invalidProperties;
     }
 
@@ -339,6 +340,11 @@ class ParameterValueDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
         if (is_null($parameter_id)) {
             throw new \InvalidArgumentException('non-nullable parameter_id cannot be null');
         }
+
+        if (($parameter_id < 1)) {
+            throw new \InvalidArgumentException('invalid value for $parameter_id when calling ParameterValueDTO., must be bigger than or equal to 1.');
+        }
+
         $this->container['parameter_id'] = $parameter_id;
 
         return $this;
@@ -384,7 +390,7 @@ class ParameterValueDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets value_id
      *
-     * @param int|null $value_id Идентификатор значения.  Обязательно передавайте идентификатор, если передаете значение из перечня допустимых значений, полученного от Маркета.  Только для характеристик типа `ENUM`.
+     * @param int|null $value_id Идентификатор значения.  Обязательно указывайте идентификатор, если передаете значение из перечня допустимых значений, полученного от Маркета.  Только для характеристик типа `ENUM`.
      *
      * @return self
      */
@@ -401,7 +407,7 @@ class ParameterValueDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets value
      *
-     * @return string
+     * @return string|null
      */
     public function getValue()
     {
@@ -411,7 +417,7 @@ class ParameterValueDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets value
      *
-     * @param string $value Значение.
+     * @param string|null $value Значение.
      *
      * @return self
      */

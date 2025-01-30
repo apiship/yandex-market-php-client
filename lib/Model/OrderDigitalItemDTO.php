@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderDigitalItemDTO Class Doc Comment
  *
  * @category Class
- * @description Ключ цифрового товара.
+ * @description Цифровой товар.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -60,6 +60,7 @@ class OrderDigitalItemDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'id' => 'int',
         'code' => 'string',
+        'codes' => 'string[]',
         'slip' => 'string',
         'activate_till' => '\DateTime'
     ];
@@ -74,6 +75,7 @@ class OrderDigitalItemDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPIFormats = [
         'id' => 'int64',
         'code' => null,
+        'codes' => null,
         'slip' => null,
         'activate_till' => 'date'
     ];
@@ -86,6 +88,7 @@ class OrderDigitalItemDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static array $openAPINullables = [
         'id' => false,
 		'code' => false,
+		'codes' => true,
 		'slip' => false,
 		'activate_till' => false
     ];
@@ -178,6 +181,7 @@ class OrderDigitalItemDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $attributeMap = [
         'id' => 'id',
         'code' => 'code',
+        'codes' => 'codes',
         'slip' => 'slip',
         'activate_till' => 'activate_till'
     ];
@@ -190,6 +194,7 @@ class OrderDigitalItemDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $setters = [
         'id' => 'setId',
         'code' => 'setCode',
+        'codes' => 'setCodes',
         'slip' => 'setSlip',
         'activate_till' => 'setActivateTill'
     ];
@@ -202,6 +207,7 @@ class OrderDigitalItemDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $getters = [
         'id' => 'getId',
         'code' => 'getCode',
+        'codes' => 'getCodes',
         'slip' => 'getSlip',
         'activate_till' => 'getActivateTill'
     ];
@@ -265,6 +271,7 @@ class OrderDigitalItemDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('code', $data ?? [], null);
+        $this->setIfExists('codes', $data ?? [], null);
         $this->setIfExists('slip', $data ?? [], null);
         $this->setIfExists('activate_till', $data ?? [], null);
     }
@@ -299,12 +306,21 @@ class OrderDigitalItemDTO implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
+        if (!is_null($this->container['codes']) && (count($this->container['codes']) > 5000)) {
+            $invalidProperties[] = "invalid value for 'codes', number of items must be less than or equal to 5000.";
         }
+
+        if (!is_null($this->container['codes']) && (count($this->container['codes']) < 1)) {
+            $invalidProperties[] = "invalid value for 'codes', number of items must be greater than or equal to 1.";
+        }
+
         if ($this->container['slip'] === null) {
             $invalidProperties[] = "'slip' can't be null";
         }
+        if ((mb_strlen($this->container['slip']) > 10000)) {
+            $invalidProperties[] = "invalid value for 'slip', the character length must be smaller than or equal to 10000.";
+        }
+
         if ($this->container['activate_till'] === null) {
             $invalidProperties[] = "'activate_till' can't be null";
         }
@@ -336,7 +352,7 @@ class OrderDigitalItemDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets id
      *
-     * @param int $id Идентификатор товара в заказе.  Он приходит в ответе на запрос [GET campaigns/{campaignId}/orders/{orderId}](../../reference/orders/getOrder.md) и в запросе Маркета [POST order/accept](../../pushapi/reference/orderAccept.md) — параметр `id` в `items`.
+     * @param int $id Идентификатор товара в заказе.  Он приходит в ответе на запрос [GET campaigns/{campaignId}/orders/{orderId}](../../reference/orders/getOrder.md) — параметр `id` в `items`.
      *
      * @return self
      */
@@ -353,7 +369,8 @@ class OrderDigitalItemDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets code
      *
-     * @return string
+     * @return string|null
+     * @deprecated
      */
     public function getCode()
     {
@@ -363,9 +380,10 @@ class OrderDigitalItemDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets code
      *
-     * @param string $code Сам ключ.
+     * @param string|null $code {% note warning \"Этот параметр устарел\" %}  Вместо него используйте `codes`. Совместное использование обоих параметров приведет к ошибке.  {% endnote %}  Сам ключ.
      *
      * @return self
+     * @deprecated
      */
     public function setCode($code)
     {
@@ -373,6 +391,47 @@ class OrderDigitalItemDTO implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable code cannot be null');
         }
         $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets codes
+     *
+     * @return string[]|null
+     */
+    public function getCodes()
+    {
+        return $this->container['codes'];
+    }
+
+    /**
+     * Sets codes
+     *
+     * @param string[]|null $codes Ключи, относящиеся к товару.
+     *
+     * @return self
+     */
+    public function setCodes($codes)
+    {
+        if (is_null($codes)) {
+            array_push($this->openAPINullablesSetToNull, 'codes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('codes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($codes) && (count($codes) > 5000)) {
+            throw new \InvalidArgumentException('invalid value for $codes when calling OrderDigitalItemDTO., number of items must be less than or equal to 5000.');
+        }
+        if (!is_null($codes) && (count($codes) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $codes when calling OrderDigitalItemDTO., number of items must be greater than or equal to 1.');
+        }
+        $this->container['codes'] = $codes;
 
         return $this;
     }
@@ -399,6 +458,10 @@ class OrderDigitalItemDTO implements ModelInterface, ArrayAccess, \JsonSerializa
         if (is_null($slip)) {
             throw new \InvalidArgumentException('non-nullable slip cannot be null');
         }
+        if ((mb_strlen($slip) > 10000)) {
+            throw new \InvalidArgumentException('invalid length for $slip when calling OrderDigitalItemDTO., must be smaller than or equal to 10000.');
+        }
+
         $this->container['slip'] = $slip;
 
         return $this;
@@ -417,7 +480,7 @@ class OrderDigitalItemDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets activate_till
      *
-     * @param \DateTime $activate_till Дата, до которой нужно активировать ключ. Если ключ действует бессрочно, укажите любую дату в отдаленном будущем.  Формат даты: `ГГГГ-ММ-ДД`.
+     * @param \DateTime $activate_till Дата, до которой нужно активировать ключи. Если ключи действуют бессрочно, укажите любую дату в отдаленном будущем.  Формат даты: `ГГГГ-ММ-ДД`.
      *
      * @return self
      */

@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * SetReturnDecisionRequestTest Class Doc Comment
  *
  * @category    Class
- * @description Решения по позиции в возврате.
+ * @description Решения по товару в возврате.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -132,4 +132,13 @@ class CalculateTariffsOfferDTOTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "quantity"
+     */
+    public function testPropertyQuantity()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

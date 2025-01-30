@@ -57,7 +57,8 @@ class UpdateOfferMappingsRequest implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'offer_mappings' => '\YandexMarketApi\Model\UpdateOfferMappingDTO[]'
+        'offer_mappings' => '\YandexMarketApi\Model\UpdateOfferMappingDTO[]',
+        'only_partner_media_content' => 'bool'
     ];
 
     /**
@@ -68,7 +69,8 @@ class UpdateOfferMappingsRequest implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'offer_mappings' => null
+        'offer_mappings' => null,
+        'only_partner_media_content' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class UpdateOfferMappingsRequest implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'offer_mappings' => false
+        'offer_mappings' => false,
+		'only_partner_media_content' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class UpdateOfferMappingsRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'offer_mappings' => 'offerMappings'
+        'offer_mappings' => 'offerMappings',
+        'only_partner_media_content' => 'onlyPartnerMediaContent'
     ];
 
     /**
@@ -175,7 +179,8 @@ class UpdateOfferMappingsRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'offer_mappings' => 'setOfferMappings'
+        'offer_mappings' => 'setOfferMappings',
+        'only_partner_media_content' => 'setOnlyPartnerMediaContent'
     ];
 
     /**
@@ -184,7 +189,8 @@ class UpdateOfferMappingsRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'offer_mappings' => 'getOfferMappings'
+        'offer_mappings' => 'getOfferMappings',
+        'only_partner_media_content' => 'getOnlyPartnerMediaContent'
     ];
 
     /**
@@ -245,6 +251,7 @@ class UpdateOfferMappingsRequest implements ModelInterface, ArrayAccess, \JsonSe
     public function __construct(array $data = null)
     {
         $this->setIfExists('offer_mappings', $data ?? [], null);
+        $this->setIfExists('only_partner_media_content', $data ?? [], null);
     }
 
     /**
@@ -330,6 +337,33 @@ class UpdateOfferMappingsRequest implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('invalid length for $offer_mappings when calling UpdateOfferMappingsRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['offer_mappings'] = $offer_mappings;
+
+        return $this;
+    }
+
+    /**
+     * Gets only_partner_media_content
+     *
+     * @return bool|null
+     */
+    public function getOnlyPartnerMediaContent()
+    {
+        return $this->container['only_partner_media_content'];
+    }
+
+    /**
+     * Sets only_partner_media_content
+     *
+     * @param bool|null $only_partner_media_content Будут ли использоваться только переданные вами данные о товарах.  Значение по умолчанию: `false`. Чтобы удалить данные, которые добавил Маркет, передайте значение `true`.
+     *
+     * @return self
+     */
+    public function setOnlyPartnerMediaContent($only_partner_media_content)
+    {
+        if (is_null($only_partner_media_content)) {
+            throw new \InvalidArgumentException('non-nullable only_partner_media_content cannot be null');
+        }
+        $this->container['only_partner_media_content'] = $only_partner_media_content;
 
         return $this;
     }

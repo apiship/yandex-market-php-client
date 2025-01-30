@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * ChatMessageSenderType Class Doc Comment
  *
  * @category Class
- * @description Кто отправил сообщение:  * &#x60;PARTNER&#x60; — магазин; * &#x60;CUSTOMER&#x60; — покупатель; * &#x60;MARKET&#x60; — Маркет; * &#x60;SUPPORT&#x60; — сотрудник службы поддержки Маркета.
+ * @description Кто отправил сообщение:  * &#x60;PARTNER&#x60; — магазин. * &#x60;CUSTOMER&#x60; — покупатель. * &#x60;MARKET&#x60; — Маркет. * &#x60;SUPPORT&#x60; — сотрудник службы поддержки Маркета.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

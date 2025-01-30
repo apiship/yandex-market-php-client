@@ -84,7 +84,7 @@ class CategoryDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'id' => false,
 		'name' => false,
-		'children' => false
+		'children' => true
     ];
 
     /**
@@ -323,7 +323,7 @@ class CategoryDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param int $id ID категории.
+     * @param int $id Идентификатор категории.
      *
      * @return self
      */
@@ -384,7 +384,14 @@ class CategoryDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setChildren($children)
     {
         if (is_null($children)) {
-            throw new \InvalidArgumentException('non-nullable children cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'children');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('children', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['children'] = $children;
 

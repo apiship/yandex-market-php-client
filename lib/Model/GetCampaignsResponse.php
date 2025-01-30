@@ -282,6 +282,9 @@ class GetCampaignsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
+        if ($this->container['campaigns'] === null) {
+            $invalidProperties[] = "'campaigns' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -300,7 +303,7 @@ class GetCampaignsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets campaigns
      *
-     * @return \YandexMarketApi\Model\CampaignDTO[]|null
+     * @return \YandexMarketApi\Model\CampaignDTO[]
      */
     public function getCampaigns()
     {
@@ -310,7 +313,7 @@ class GetCampaignsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets campaigns
      *
-     * @param \YandexMarketApi\Model\CampaignDTO[]|null $campaigns Список с информацией по каждому магазину.
+     * @param \YandexMarketApi\Model\CampaignDTO[] $campaigns Список с информацией по каждому магазину.
      *
      * @return self
      */

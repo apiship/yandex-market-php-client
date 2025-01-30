@@ -114,4 +114,13 @@ class GenerateUnitedOrdersRequestTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "promo_id"
+     */
+    public function testPropertyPromoId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

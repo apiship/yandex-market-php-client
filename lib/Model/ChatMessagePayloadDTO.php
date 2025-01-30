@@ -292,6 +292,10 @@ class ChatMessagePayloadDTO implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
+        if ((mb_strlen($this->container['name']) < 1)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
+        }
+
         if ($this->container['url'] === null) {
             $invalidProperties[] = "'url' can't be null";
         }
@@ -335,6 +339,11 @@ class ChatMessagePayloadDTO implements ModelInterface, ArrayAccess, \JsonSeriali
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
+
+        if ((mb_strlen($name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling ChatMessagePayloadDTO., must be bigger than or equal to 1.');
+        }
+
         $this->container['name'] = $name;
 
         return $this;

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**offers** | [**\YandexMarketApi\Model\OfferPriceResponseDTO[]**](OfferPriceResponseDTO.md) | Страница списка. | [optional]
+**offers** | [**\YandexMarketApi\Model\OfferPriceResponseDTO[]**](OfferPriceResponseDTO.md) | Страница списка. |
 **paging** | [**\YandexMarketApi\Model\ScrollingPagerDTO**](ScrollingPagerDTO.md) |  | [optional]
 **total** | **int** | Количество всех цен магазина, измененных через API. | [optional]
 

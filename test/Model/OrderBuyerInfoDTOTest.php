@@ -132,4 +132,13 @@ class OrderBuyerInfoDTOTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "trusted"
+     */
+    public function testPropertyTrusted()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

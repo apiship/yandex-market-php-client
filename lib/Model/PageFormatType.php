@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * PageFormatType Class Doc Comment
  *
  * @category Class
- * @description Параметр управляет размещением ярлыков на странице: * &#x60;A7&#x60; — в PDF-файле будут страницы формата близкому к A7. На каждой странице размещается ярлык размером 75 × 120 мм (80,4 × 125,6 мм с учетом полей). * &#x60;A4&#x60; — в PDF-файле будут страницы формата A4. На каждой странице размещаются восемь ярлыков размером 70,6 × 99,1 мм без полей.
+ * @description Размещение ярлыков на странице PDF-файла:  * &#x60;A9_HORIZONTALLY&#x60; — ярлык размером 58 × 40 мм без полей, близок к формату A9. Доступен только для продавцов из России.    {% cut \&quot;Пример ярлыка\&quot; %}    ![Изображение горизонтального ярлыка формата A9](../../_images/label-A9-horizontally.png)    {% endcut %}  * &#x60;A9&#x60; — ярлык размером 40 × 58 мм без полей, близок к формату A9. Доступен только для продавцов из России.    {% cut \&quot;Пример ярлыка\&quot; %}    ![Изображение вертикального ярлыка формата A9](../../_images/label-A9.png)    {% endcut %}  * &#x60;A7&#x60; — ярлык размером 75 × 120 мм (80,4 × 125,6 мм с учетом полей), близок к формату A7.    {% cut \&quot;Пример ярлыка\&quot; %}    ![Изображение ярлыка формата A7](../../_images/label-A7.jpg)    {% endcut %}  * &#x60;A4&#x60; — на листе A4 располагается ярлык того формата, который выбран в кабинете продавца на Маркете — перейдите на страницу **Заказы** → **Заказы и отгрузки** → на вкладке нужной модели работы нажмите кнопку **Формат ярлыков**.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,6 +43,10 @@ class PageFormatType
     /**
      * Possible values of this enum
      */
+    public const A9_HORIZONTALLY = 'A9_HORIZONTALLY';
+
+    public const A9 = 'A9';
+
     public const A7 = 'A7';
 
     public const A4 = 'A4';
@@ -54,6 +58,8 @@ class PageFormatType
     public static function getAllowableEnumValues()
     {
         return [
+            self::A9_HORIZONTALLY,
+            self::A9,
             self::A7,
             self::A4
         ];

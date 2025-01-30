@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * DeleteCampaignOffersDTO Class Doc Comment
  *
  * @category Class
- * @description Список товаров, которые не удалось удалить, потому что они хранятся на складе Маркета.
+ * @description Список товаров, которые не удалось удалить, потому что они не найдены или хранятся на складе Маркета.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -78,7 +78,7 @@ class DeleteCampaignOffersDTO implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'not_deleted_offer_ids' => false
+        'not_deleted_offer_ids' => true
     ];
 
     /**
@@ -310,7 +310,14 @@ class DeleteCampaignOffersDTO implements ModelInterface, ArrayAccess, \JsonSeria
     public function setNotDeletedOfferIds($not_deleted_offer_ids)
     {
         if (is_null($not_deleted_offer_ids)) {
-            throw new \InvalidArgumentException('non-nullable not_deleted_offer_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'not_deleted_offer_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('not_deleted_offer_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['not_deleted_offer_ids'] = $not_deleted_offer_ids;
 

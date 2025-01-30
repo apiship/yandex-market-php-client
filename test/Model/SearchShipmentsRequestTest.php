@@ -114,4 +114,13 @@ class SearchShipmentsRequestTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "cancelled_orders"
+     */
+    public function testPropertyCancelledOrders()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

@@ -63,7 +63,8 @@ class OrderBuyerInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
         'first_name' => 'string',
         'middle_name' => 'string',
         'type' => '\YandexMarketApi\Model\OrderBuyerType',
-        'phone' => 'string'
+        'phone' => 'string',
+        'trusted' => 'bool'
     ];
 
     /**
@@ -79,7 +80,8 @@ class OrderBuyerInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
         'first_name' => null,
         'middle_name' => null,
         'type' => null,
-        'phone' => null
+        'phone' => null,
+        'trusted' => null
     ];
 
     /**
@@ -93,7 +95,8 @@ class OrderBuyerInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
 		'first_name' => false,
 		'middle_name' => false,
 		'type' => false,
-		'phone' => false
+		'phone' => false,
+		'trusted' => false
     ];
 
     /**
@@ -187,7 +190,8 @@ class OrderBuyerInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
         'first_name' => 'firstName',
         'middle_name' => 'middleName',
         'type' => 'type',
-        'phone' => 'phone'
+        'phone' => 'phone',
+        'trusted' => 'trusted'
     ];
 
     /**
@@ -201,7 +205,8 @@ class OrderBuyerInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
         'first_name' => 'setFirstName',
         'middle_name' => 'setMiddleName',
         'type' => 'setType',
-        'phone' => 'setPhone'
+        'phone' => 'setPhone',
+        'trusted' => 'setTrusted'
     ];
 
     /**
@@ -215,7 +220,8 @@ class OrderBuyerInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
         'first_name' => 'getFirstName',
         'middle_name' => 'getMiddleName',
         'type' => 'getType',
-        'phone' => 'getPhone'
+        'phone' => 'getPhone',
+        'trusted' => 'getTrusted'
     ];
 
     /**
@@ -281,6 +287,7 @@ class OrderBuyerInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('middle_name', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
+        $this->setIfExists('trusted', $data ?? [], null);
     }
 
     /**
@@ -310,6 +317,9 @@ class OrderBuyerInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -436,7 +446,7 @@ class OrderBuyerInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets type
      *
-     * @return \YandexMarketApi\Model\OrderBuyerType|null
+     * @return \YandexMarketApi\Model\OrderBuyerType
      */
     public function getType()
     {
@@ -446,7 +456,7 @@ class OrderBuyerInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets type
      *
-     * @param \YandexMarketApi\Model\OrderBuyerType|null $type type
+     * @param \YandexMarketApi\Model\OrderBuyerType $type type
      *
      * @return self
      */
@@ -473,7 +483,7 @@ class OrderBuyerInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets phone
      *
-     * @param string|null $phone Подменный номер телефона покупателя. Подробнее о таких номерах читайте [в Справке для продавцов](https://yandex.ru/support2/marketplace/ru/orders/dbs/call#fake-number).  Формат номера: `+<код_страны><код_региона><номер_телефона>`.
+     * @param string|null $phone Подменный номер телефона покупателя. Подробнее о таких номерах читайте [в Справке Маркета для продавцов](https://yandex.ru/support2/marketplace/ru/orders/dbs/call#fake-number).  Формат номера: `+<код_страны><код_региона><номер_телефона>`.
      *
      * @return self
      */
@@ -483,6 +493,33 @@ class OrderBuyerInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable phone cannot be null');
         }
         $this->container['phone'] = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets trusted
+     *
+     * @return bool|null
+     */
+    public function getTrusted()
+    {
+        return $this->container['trusted'];
+    }
+
+    /**
+     * Sets trusted
+     *
+     * @param bool|null $trusted Проверенный покупатель.  Если параметр `trusted` вернулся со значением `true`, Маркет уже проверил покупателя — не звоните ему. Обработайте заказ как обычно и передайте его курьеру или отвезите в ПВЗ.  При необходимости свяжитесь с покупателем в чате. [Как это сделать](../../step-by-step/chats.md)  Подробнее о звонках покупателю читайте [в Справке Маркета для продавцов](https://yandex.ru/support/marketplace/ru/orders/dbs/call).
+     *
+     * @return self
+     */
+    public function setTrusted($trusted)
+    {
+        if (is_null($trusted)) {
+            throw new \InvalidArgumentException('non-nullable trusted cannot be null');
+        }
+        $this->container['trusted'] = $trusted;
 
         return $this;
     }

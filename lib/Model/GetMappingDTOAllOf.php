@@ -411,7 +411,7 @@ class GetMappingDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets market_category_id
      *
-     * @param int|null $market_category_id Идентификатор категории карточки на Маркете.  Может отсутствовать в ответе, если Маркет еще не определил категорию товара.
+     * @param int|null $market_category_id Идентификатор категории на Маркете, в которую попал товар.  Может отсутствовать в ответе, если Маркет еще не определил категорию товара.
      *
      * @return self
      */

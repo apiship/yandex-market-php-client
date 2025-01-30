@@ -278,6 +278,14 @@ class ProvideOrderDigitalCodesRequest implements ModelInterface, ArrayAccess, \J
         if ($this->container['items'] === null) {
             $invalidProperties[] = "'items' can't be null";
         }
+        if ((count($this->container['items']) > 100)) {
+            $invalidProperties[] = "invalid value for 'items', number of items must be less than or equal to 100.";
+        }
+
+        if ((count($this->container['items']) < 1)) {
+            $invalidProperties[] = "invalid value for 'items', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -306,7 +314,7 @@ class ProvideOrderDigitalCodesRequest implements ModelInterface, ArrayAccess, \J
     /**
      * Sets items
      *
-     * @param \YandexMarketApi\Model\OrderDigitalItemDTO[] $items Список проданных ключей.  Если в заказе есть несколько **одинаковых** товаров (например, несколько ключей к одной и той же подписке), передайте каждый в виде отдельного элемента массива. `id` у этих элементов должен быть один и тот же.
+     * @param \YandexMarketApi\Model\OrderDigitalItemDTO[] $items Список проданных товаров.  Если в заказе есть несколько **одинаковых** товаров (например, несколько ключей к одной и той же подписке), передайте ключи в виде массива к этому товару. Параметр `id` у этих элементов должен быть один и тот же.
      *
      * @return self
      */
@@ -314,6 +322,13 @@ class ProvideOrderDigitalCodesRequest implements ModelInterface, ArrayAccess, \J
     {
         if (is_null($items)) {
             throw new \InvalidArgumentException('non-nullable items cannot be null');
+        }
+
+        if ((count($items) > 100)) {
+            throw new \InvalidArgumentException('invalid value for $items when calling ProvideOrderDigitalCodesRequest., number of items must be less than or equal to 100.');
+        }
+        if ((count($items) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $items when calling ProvideOrderDigitalCodesRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['items'] = $items;
 

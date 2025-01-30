@@ -491,7 +491,10 @@ class FeedsApi
                 'Missing the required parameter $campaign_id when calling getFeed'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling FeedsApi.getFeed, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'feed_id' is set
         if ($feed_id === null || (is_array($feed_id) && count($feed_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -558,6 +561,11 @@ class FeedsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -591,9 +599,9 @@ class FeedsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  \DateTime $published_time_from Начальная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Значение по умолчанию: последние восемь дней со времени отправки запроса. (optional)
-     * @param  \DateTime $published_time_to Конечная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-31T00:42:42+03:00&#x60;.  Значение по умолчанию: дата и время отправки запроса.  {% note info %}  Если во время переключения между страницами выходных данных на Яндекс Маркете появятся новые результаты индексации прайс-листа, вы не получите часть данных. Чтобы этого не произошло, зафиксируйте выходные данные с помощью входного параметра &#x60;published_time_to&#x60;. Значение параметра не должно быть датой из будущего.  {% endnote %} (optional)
+     * @param  \DateTime $published_time_to Конечная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-31T00:42:42+03:00&#x60;.  Значение по умолчанию: дата и время отправки запроса.  {% note info \&quot;Вы не получите часть данных\&quot; %}  Если во время переключения между страницами выходных данных на Яндекс Маркете появятся новые результаты индексации прайс-листа. Чтобы этого не произошло, зафиксируйте выходные данные с помощью входного параметра &#x60;published_time_to&#x60;. Значение параметра не должно быть датой из будущего.  {% endnote %} (optional)
      * @param  FeedIndexLogsStatusType $status Статус индексации и проверки прайс-листа на соответствие техническим требованиям.  Возможные значения: * &#x60;ERROR&#x60; — произошли ошибки. * &#x60;OK&#x60; — обработан без ошибок. * &#x60;WARNING&#x60; — наблюдались некритичные проблемы. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedIndexLogs'] to see the possible values for this operation
      *
@@ -615,9 +623,9 @@ class FeedsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  \DateTime $published_time_from Начальная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Значение по умолчанию: последние восемь дней со времени отправки запроса. (optional)
-     * @param  \DateTime $published_time_to Конечная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-31T00:42:42+03:00&#x60;.  Значение по умолчанию: дата и время отправки запроса.  {% note info %}  Если во время переключения между страницами выходных данных на Яндекс Маркете появятся новые результаты индексации прайс-листа, вы не получите часть данных. Чтобы этого не произошло, зафиксируйте выходные данные с помощью входного параметра &#x60;published_time_to&#x60;. Значение параметра не должно быть датой из будущего.  {% endnote %} (optional)
+     * @param  \DateTime $published_time_to Конечная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-31T00:42:42+03:00&#x60;.  Значение по умолчанию: дата и время отправки запроса.  {% note info \&quot;Вы не получите часть данных\&quot; %}  Если во время переключения между страницами выходных данных на Яндекс Маркете появятся новые результаты индексации прайс-листа. Чтобы этого не произошло, зафиксируйте выходные данные с помощью входного параметра &#x60;published_time_to&#x60;. Значение параметра не должно быть датой из будущего.  {% endnote %} (optional)
      * @param  FeedIndexLogsStatusType $status Статус индексации и проверки прайс-листа на соответствие техническим требованиям.  Возможные значения: * &#x60;ERROR&#x60; — произошли ошибки. * &#x60;OK&#x60; — обработан без ошибок. * &#x60;WARNING&#x60; — наблюдались некритичные проблемы. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedIndexLogs'] to see the possible values for this operation
      *
@@ -859,9 +867,9 @@ class FeedsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  \DateTime $published_time_from Начальная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Значение по умолчанию: последние восемь дней со времени отправки запроса. (optional)
-     * @param  \DateTime $published_time_to Конечная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-31T00:42:42+03:00&#x60;.  Значение по умолчанию: дата и время отправки запроса.  {% note info %}  Если во время переключения между страницами выходных данных на Яндекс Маркете появятся новые результаты индексации прайс-листа, вы не получите часть данных. Чтобы этого не произошло, зафиксируйте выходные данные с помощью входного параметра &#x60;published_time_to&#x60;. Значение параметра не должно быть датой из будущего.  {% endnote %} (optional)
+     * @param  \DateTime $published_time_to Конечная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-31T00:42:42+03:00&#x60;.  Значение по умолчанию: дата и время отправки запроса.  {% note info \&quot;Вы не получите часть данных\&quot; %}  Если во время переключения между страницами выходных данных на Яндекс Маркете появятся новые результаты индексации прайс-листа. Чтобы этого не произошло, зафиксируйте выходные данные с помощью входного параметра &#x60;published_time_to&#x60;. Значение параметра не должно быть датой из будущего.  {% endnote %} (optional)
      * @param  FeedIndexLogsStatusType $status Статус индексации и проверки прайс-листа на соответствие техническим требованиям.  Возможные значения: * &#x60;ERROR&#x60; — произошли ошибки. * &#x60;OK&#x60; — обработан без ошибок. * &#x60;WARNING&#x60; — наблюдались некритичные проблемы. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedIndexLogs'] to see the possible values for this operation
      *
@@ -886,9 +894,9 @@ class FeedsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  \DateTime $published_time_from Начальная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Значение по умолчанию: последние восемь дней со времени отправки запроса. (optional)
-     * @param  \DateTime $published_time_to Конечная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-31T00:42:42+03:00&#x60;.  Значение по умолчанию: дата и время отправки запроса.  {% note info %}  Если во время переключения между страницами выходных данных на Яндекс Маркете появятся новые результаты индексации прайс-листа, вы не получите часть данных. Чтобы этого не произошло, зафиксируйте выходные данные с помощью входного параметра &#x60;published_time_to&#x60;. Значение параметра не должно быть датой из будущего.  {% endnote %} (optional)
+     * @param  \DateTime $published_time_to Конечная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-31T00:42:42+03:00&#x60;.  Значение по умолчанию: дата и время отправки запроса.  {% note info \&quot;Вы не получите часть данных\&quot; %}  Если во время переключения между страницами выходных данных на Яндекс Маркете появятся новые результаты индексации прайс-листа. Чтобы этого не произошло, зафиксируйте выходные данные с помощью входного параметра &#x60;published_time_to&#x60;. Значение параметра не должно быть датой из будущего.  {% endnote %} (optional)
      * @param  FeedIndexLogsStatusType $status Статус индексации и проверки прайс-листа на соответствие техническим требованиям.  Возможные значения: * &#x60;ERROR&#x60; — произошли ошибки. * &#x60;OK&#x60; — обработан без ошибок. * &#x60;WARNING&#x60; — наблюдались некритичные проблемы. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedIndexLogs'] to see the possible values for this operation
      *
@@ -942,9 +950,9 @@ class FeedsApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $feed_id Идентификатор прайс-листа. (required)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  \DateTime $published_time_from Начальная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-21T00:42:42+03:00&#x60;.  Значение по умолчанию: последние восемь дней со времени отправки запроса. (optional)
-     * @param  \DateTime $published_time_to Конечная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-31T00:42:42+03:00&#x60;.  Значение по умолчанию: дата и время отправки запроса.  {% note info %}  Если во время переключения между страницами выходных данных на Яндекс Маркете появятся новые результаты индексации прайс-листа, вы не получите часть данных. Чтобы этого не произошло, зафиксируйте выходные данные с помощью входного параметра &#x60;published_time_to&#x60;. Значение параметра не должно быть датой из будущего.  {% endnote %} (optional)
+     * @param  \DateTime $published_time_to Конечная дата. Используется для фильтрации записей — по дате и времени публикации предложений на Яндекс Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, &#x60;2017-11-31T00:42:42+03:00&#x60;.  Значение по умолчанию: дата и время отправки запроса.  {% note info \&quot;Вы не получите часть данных\&quot; %}  Если во время переключения между страницами выходных данных на Яндекс Маркете появятся новые результаты индексации прайс-листа. Чтобы этого не произошло, зафиксируйте выходные данные с помощью входного параметра &#x60;published_time_to&#x60;. Значение параметра не должно быть датой из будущего.  {% endnote %} (optional)
      * @param  FeedIndexLogsStatusType $status Статус индексации и проверки прайс-листа на соответствие техническим требованиям.  Возможные значения: * &#x60;ERROR&#x60; — произошли ошибки. * &#x60;OK&#x60; — обработан без ошибок. * &#x60;WARNING&#x60; — наблюдались некритичные проблемы. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFeedIndexLogs'] to see the possible values for this operation
      *
@@ -961,7 +969,10 @@ class FeedsApi
                 'Missing the required parameter $campaign_id when calling getFeedIndexLogs'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling FeedsApi.getFeedIndexLogs, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'feed_id' is set
         if ($feed_id === null || (is_array($feed_id) && count($feed_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1068,6 +1079,11 @@ class FeedsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1446,7 +1462,10 @@ class FeedsApi
                 'Missing the required parameter $campaign_id when calling getFeeds'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling FeedsApi.getFeeds, must be bigger than or equal to 1.');
+        }
+        
 
         $resourcePath = '/campaigns/{campaignId}/feeds';
         $formParams = [];
@@ -1498,6 +1517,11 @@ class FeedsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1881,7 +1905,10 @@ class FeedsApi
                 'Missing the required parameter $campaign_id when calling refreshFeed'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling FeedsApi.refreshFeed, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'feed_id' is set
         if ($feed_id === null || (is_array($feed_id) && count($feed_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1948,6 +1975,11 @@ class FeedsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -2359,7 +2391,10 @@ class FeedsApi
                 'Missing the required parameter $campaign_id when calling setFeedParams'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling FeedsApi.setFeedParams, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'feed_id' is set
         if ($feed_id === null || (is_array($feed_id) && count($feed_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -2440,6 +2475,11 @@ class FeedsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();

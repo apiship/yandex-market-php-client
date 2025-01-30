@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * ReportSubStatusType Class Doc Comment
  *
  * @category Class
- * @description Подстатус генерации отчета: * &#x60;NO_DATA&#x60; — для такого отчета нет данных; * &#x60;TOO_LARGE&#x60; — отчет превысил допустимый размер — укажите меньший период времени или уточните условия запроса.
+ * @description Подстатус генерации отчета: * &#x60;NO_DATA&#x60; — для такого отчета нет данных. * &#x60;TOO_LARGE&#x60; — отчет превысил допустимый размер — укажите меньший период времени или уточните условия запроса. * &#x60;RESOURCE_NOT_FOUND&#x60; — для такого отчета не удалось найти часть сущностей.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -47,6 +47,8 @@ class ReportSubStatusType
 
     public const TOO_LARGE = 'TOO_LARGE';
 
+    public const RESOURCE_NOT_FOUND = 'RESOURCE_NOT_FOUND';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -55,7 +57,8 @@ class ReportSubStatusType
     {
         return [
             self::NO_DATA,
-            self::TOO_LARGE
+            self::TOO_LARGE,
+            self::RESOURCE_NOT_FOUND
         ];
     }
 }

@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OrderSubsidyTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Тип субсидии, которые дает Маркет:  * &#x60;SBER_SPASIBO&#x60; — компенсация при оплате заказа бонусами СберСпасибо. Не используется с июля 2021 года.  * &#x60;YANDEX_CASHBACK&#x60; — компенсация при оплате заказа баллами Плюса.  * &#x60;SUBSIDY&#x60; — компенсация скидки:   * по промокодам;   * по купонам;   * по акциям.  * &#x60;DELIVERY&#x60; — компенсация стоимости доставки магазину, который работает по модели DBS.
+ * @description Тип субсидии:  * &#x60;YANDEX_CASHBACK&#x60; — скидка по подписке Яндекс Плюс.  * &#x60;SUBSIDY&#x60; — скидка Маркета (по акциям, промокодам, купонам и т. д.)  * &#x60;DELIVERY&#x60; — скидка за доставку (DBS).
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

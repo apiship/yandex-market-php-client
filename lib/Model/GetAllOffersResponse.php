@@ -275,6 +275,9 @@ class GetAllOffersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
+        if ($this->container['offers'] === null) {
+            $invalidProperties[] = "'offers' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -293,7 +296,7 @@ class GetAllOffersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets offers
      *
-     * @return \YandexMarketApi\Model\OfferDTO[]|null
+     * @return \YandexMarketApi\Model\OfferDTO[]
      */
     public function getOffers()
     {
@@ -303,7 +306,7 @@ class GetAllOffersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets offers
      *
-     * @param \YandexMarketApi\Model\OfferDTO[]|null $offers Список предложений магазина.
+     * @param \YandexMarketApi\Model\OfferDTO[] $offers Список предложений магазина.
      *
      * @return self
      */

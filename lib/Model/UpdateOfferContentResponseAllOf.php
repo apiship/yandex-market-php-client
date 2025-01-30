@@ -77,7 +77,7 @@ class UpdateOfferContentResponseAllOf implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'results' => false
+        'results' => true
     ];
 
     /**
@@ -302,14 +302,21 @@ class UpdateOfferContentResponseAllOf implements ModelInterface, ArrayAccess, \J
     /**
      * Sets results
      *
-     * @param \YandexMarketApi\Model\UpdateOfferContentResultDTO[]|null $results Ошибки и предупреждения, возникшие при обработке переданных значений. Каждый элемент списка соответствует одному товару.  Поле не передается, если все в порядке.
+     * @param \YandexMarketApi\Model\UpdateOfferContentResultDTO[]|null $results Ошибки и предупреждения, которые появились при обработке переданных значений. Каждый элемент списка соответствует одному товару.  Если ошибок и предупреждений нет, поле не передается.
      *
      * @return self
      */
     public function setResults($results)
     {
         if (is_null($results)) {
-            throw new \InvalidArgumentException('non-nullable results cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'results');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('results', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['results'] = $results;
 

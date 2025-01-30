@@ -86,8 +86,8 @@ class SkuBidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonS
     protected static array $openAPINullables = [
         'sku' => false,
 		'bid' => false,
-		'bid_recommendations' => false,
-		'price_recommendations' => false
+		'bid_recommendations' => true,
+		'price_recommendations' => true
     ];
 
     /**
@@ -299,16 +299,16 @@ class SkuBidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonS
         if ($this->container['sku'] === null) {
             $invalidProperties[] = "'sku' can't be null";
         }
-        if ((mb_strlen($this->container['sku']) > 80)) {
-            $invalidProperties[] = "invalid value for 'sku', the character length must be smaller than or equal to 80.";
+        if ((mb_strlen($this->container['sku']) > 255)) {
+            $invalidProperties[] = "invalid value for 'sku', the character length must be smaller than or equal to 255.";
         }
 
         if ((mb_strlen($this->container['sku']) < 1)) {
             $invalidProperties[] = "invalid value for 'sku', the character length must be bigger than or equal to 1.";
         }
 
-        if (!preg_match("/^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/", $this->container['sku'])) {
-            $invalidProperties[] = "invalid value for 'sku', must be conform to the pattern /^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/.";
+        if (!preg_match("/^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $this->container['sku'])) {
+            $invalidProperties[] = "invalid value for 'sku', must be conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.";
         }
 
         if ($this->container['bid'] === null) {
@@ -350,7 +350,7 @@ class SkuBidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets sku
      *
-     * @param string $sku Ваш SKU — идентификатор товара в вашей системе.  Разрешена любая последовательность длиной до 80 знаков. В нее могут входить английские и русские буквы, цифры и символы `. , / \\ ( ) [ ] - = _`  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * SKU товара нельзя менять — можно только удалить товар и добавить заново с новым SKU.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
+     * @param string $sku Ваш SKU — идентификатор товара в вашей системе.  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  SKU товара можно изменить в кабинете продавца на Маркете. О том, как это сделать, читайте [в Справке Маркета для продавцов](https://yandex.ru/support2/marketplace/ru/assortment/operations/edit-sku).  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
      *
      * @return self
      */
@@ -359,14 +359,14 @@ class SkuBidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($sku)) {
             throw new \InvalidArgumentException('non-nullable sku cannot be null');
         }
-        if ((mb_strlen($sku) > 80)) {
-            throw new \InvalidArgumentException('invalid length for $sku when calling SkuBidRecommendationItemDTO., must be smaller than or equal to 80.');
+        if ((mb_strlen($sku) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $sku when calling SkuBidRecommendationItemDTO., must be smaller than or equal to 255.');
         }
         if ((mb_strlen($sku) < 1)) {
             throw new \InvalidArgumentException('invalid length for $sku when calling SkuBidRecommendationItemDTO., must be bigger than or equal to 1.');
         }
-        if ((!preg_match("/^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/", $sku))) {
-            throw new \InvalidArgumentException("invalid value for \$sku when calling SkuBidRecommendationItemDTO., must conform to the pattern /^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/.");
+        if ((!preg_match("/^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $sku))) {
+            throw new \InvalidArgumentException("invalid value for \$sku when calling SkuBidRecommendationItemDTO., must conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.");
         }
 
         $this->container['sku'] = $sku;
@@ -422,14 +422,21 @@ class SkuBidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets bid_recommendations
      *
-     * @param \YandexMarketApi\Model\BidRecommendationItemDTO[]|null $bid_recommendations Список рекомендованных ставок с соответствующими долями показов. Чем больше ставка, тем большую долю показов она помогает получить.
+     * @param \YandexMarketApi\Model\BidRecommendationItemDTO[]|null $bid_recommendations Список рекомендованных ставок с соответствующими долями показов и доступными дополнительными инструментами продвижения.  Чем больше ставка, тем большую долю показов она помогает получить и тем больше дополнительных инструментов продвижения доступно.
      *
      * @return self
      */
     public function setBidRecommendations($bid_recommendations)
     {
         if (is_null($bid_recommendations)) {
-            throw new \InvalidArgumentException('non-nullable bid_recommendations cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'bid_recommendations');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bid_recommendations', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['bid_recommendations'] = $bid_recommendations;
 
@@ -440,6 +447,7 @@ class SkuBidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonS
      * Gets price_recommendations
      *
      * @return \YandexMarketApi\Model\PriceRecommendationItemDTO[]|null
+     * @deprecated
      */
     public function getPriceRecommendations()
     {
@@ -449,14 +457,22 @@ class SkuBidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets price_recommendations
      *
-     * @param \YandexMarketApi\Model\PriceRecommendationItemDTO[]|null $price_recommendations Рекомендованные цены.
+     * @param \YandexMarketApi\Model\PriceRecommendationItemDTO[]|null $price_recommendations {% note warning \"Этот параметр устарел\" %}  Не используйте его.  {% endnote %}  Рекомендованные цены.
      *
      * @return self
+     * @deprecated
      */
     public function setPriceRecommendations($price_recommendations)
     {
         if (is_null($price_recommendations)) {
-            throw new \InvalidArgumentException('non-nullable price_recommendations cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'price_recommendations');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price_recommendations', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['price_recommendations'] = $price_recommendations;
 

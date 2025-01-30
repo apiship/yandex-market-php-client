@@ -90,7 +90,7 @@ class RegionDTO implements ModelInterface, ArrayAccess, \JsonSerializable
 		'name' => false,
 		'type' => false,
 		'parent' => false,
-		'children' => false
+		'children' => true
     ];
 
     /**
@@ -303,6 +303,9 @@ class RegionDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
@@ -327,7 +330,7 @@ class RegionDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return int|null
+     * @return int
      */
     public function getId()
     {
@@ -337,7 +340,7 @@ class RegionDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param int|null $id Идентификатор региона.
+     * @param int $id Идентификатор региона.
      *
      * @return self
      */
@@ -452,7 +455,14 @@ class RegionDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setChildren($children)
     {
         if (is_null($children)) {
-            throw new \InvalidArgumentException('non-nullable children cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'children');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('children', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['children'] = $children;
 

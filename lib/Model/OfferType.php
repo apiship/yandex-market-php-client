@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OfferType Class Doc Comment
  *
  * @category Class
- * @description Особый тип товара:  * &#x60;MEDICINE&#x60; — лекарства. * &#x60;BOOK&#x60; — бумажные и электронные книги. * &#x60;AUDIOBOOK&#x60; — аудиокниги. * &#x60;ARTIST_TITLE&#x60; — музыкальная и видеопродукция. * &#x60;ON_DEMAND&#x60; — товары на заказ.  {% note info \&quot;Если ваш товар — книга\&quot; %}  Укажите год издания в характеристиках товара. [Подробнее о параметре](../../reference/business-assortment/updateOfferMappings.md#offerparamdto)  {% endnote %}
+ * @description Особый тип товара:  * &#x60;DEFAULT&#x60; — товары, для которых вы передавали особый тип ранее и хотите убрать его. * &#x60;MEDICINE&#x60; — лекарства. * &#x60;BOOK&#x60; — бумажные и электронные книги. * &#x60;AUDIOBOOK&#x60; — аудиокниги. * &#x60;ARTIST_TITLE&#x60; — музыкальная и видеопродукция. * &#x60;ON_DEMAND&#x60; — товары на заказ. * &#x60;ALCOHOL&#x60; — алкоголь.  {% note info \&quot;Если ваш товар — книга\&quot; %}  Укажите год издания в характеристиках товара. [Подробнее о параметре](../../reference/business-assortment/updateOfferMappings.md#offerparamdto)  {% endnote %}
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -55,6 +55,8 @@ class OfferType
 
     public const ON_DEMAND = 'ON_DEMAND';
 
+    public const ALCOHOL = 'ALCOHOL';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -67,7 +69,8 @@ class OfferType
             self::BOOK,
             self::AUDIOBOOK,
             self::ARTIST_TITLE,
-            self::ON_DEMAND
+            self::ON_DEMAND,
+            self::ALCOHOL
         ];
     }
 }

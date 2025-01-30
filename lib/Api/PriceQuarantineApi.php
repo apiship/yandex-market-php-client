@@ -134,7 +134,7 @@ class PriceQuarantineApi
     /**
      * Operation confirmBusinessPrices
      *
-     * Подтверждение цены товара, попавшего в карантин (основная цена)
+     * Удаление товара из карантина по цене в кабинете
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\ConfirmPricesRequest $confirm_prices_request confirm_prices_request (required)
@@ -153,7 +153,7 @@ class PriceQuarantineApi
     /**
      * Operation confirmBusinessPricesWithHttpInfo
      *
-     * Подтверждение цены товара, попавшего в карантин (основная цена)
+     * Удаление товара из карантина по цене в кабинете
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\ConfirmPricesRequest $confirm_prices_request (required)
@@ -415,7 +415,7 @@ class PriceQuarantineApi
     /**
      * Operation confirmBusinessPricesAsync
      *
-     * Подтверждение цены товара, попавшего в карантин (основная цена)
+     * Удаление товара из карантина по цене в кабинете
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\ConfirmPricesRequest $confirm_prices_request (required)
@@ -437,7 +437,7 @@ class PriceQuarantineApi
     /**
      * Operation confirmBusinessPricesAsyncWithHttpInfo
      *
-     * Подтверждение цены товара, попавшего в карантин (основная цена)
+     * Удаление товара из карантина по цене в кабинете
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\ConfirmPricesRequest $confirm_prices_request (required)
@@ -506,7 +506,10 @@ class PriceQuarantineApi
                 'Missing the required parameter $business_id when calling confirmBusinessPrices'
             );
         }
-
+        if ($business_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$business_id" when calling PriceQuarantineApi.confirmBusinessPrices, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'confirm_prices_request' is set
         if ($confirm_prices_request === null || (is_array($confirm_prices_request) && count($confirm_prices_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -572,6 +575,11 @@ class PriceQuarantineApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -601,7 +609,7 @@ class PriceQuarantineApi
     /**
      * Operation confirmCampaignPrices
      *
-     * Подтверждение цены товара, попавшего в карантин (цена в магазине)
+     * Удаление товара из карантина по цене в магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\ConfirmPricesRequest $confirm_prices_request confirm_prices_request (required)
@@ -620,7 +628,7 @@ class PriceQuarantineApi
     /**
      * Operation confirmCampaignPricesWithHttpInfo
      *
-     * Подтверждение цены товара, попавшего в карантин (цена в магазине)
+     * Удаление товара из карантина по цене в магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\ConfirmPricesRequest $confirm_prices_request (required)
@@ -882,7 +890,7 @@ class PriceQuarantineApi
     /**
      * Operation confirmCampaignPricesAsync
      *
-     * Подтверждение цены товара, попавшего в карантин (цена в магазине)
+     * Удаление товара из карантина по цене в магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\ConfirmPricesRequest $confirm_prices_request (required)
@@ -904,7 +912,7 @@ class PriceQuarantineApi
     /**
      * Operation confirmCampaignPricesAsyncWithHttpInfo
      *
-     * Подтверждение цены товара, попавшего в карантин (цена в магазине)
+     * Удаление товара из карантина по цене в магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\ConfirmPricesRequest $confirm_prices_request (required)
@@ -973,7 +981,10 @@ class PriceQuarantineApi
                 'Missing the required parameter $campaign_id when calling confirmCampaignPrices'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling PriceQuarantineApi.confirmCampaignPrices, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'confirm_prices_request' is set
         if ($confirm_prices_request === null || (is_array($confirm_prices_request) && count($confirm_prices_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -1039,6 +1050,11 @@ class PriceQuarantineApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1068,12 +1084,12 @@ class PriceQuarantineApi
     /**
      * Operation getBusinessQuarantineOffers
      *
-     * Список товаров, находящихся в карантине (основная цена)
+     * Список товаров, находящихся в карантине по цене в кабинете
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetQuarantineOffersRequest $get_quarantine_offers_request get_quarantine_offers_request (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessQuarantineOffers'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -1089,12 +1105,12 @@ class PriceQuarantineApi
     /**
      * Operation getBusinessQuarantineOffersWithHttpInfo
      *
-     * Список товаров, находящихся в карантине (основная цена)
+     * Список товаров, находящихся в карантине по цене в кабинете
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetQuarantineOffersRequest $get_quarantine_offers_request (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessQuarantineOffers'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -1330,12 +1346,12 @@ class PriceQuarantineApi
     /**
      * Operation getBusinessQuarantineOffersAsync
      *
-     * Список товаров, находящихся в карантине (основная цена)
+     * Список товаров, находящихся в карантине по цене в кабинете
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetQuarantineOffersRequest $get_quarantine_offers_request (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessQuarantineOffers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1354,12 +1370,12 @@ class PriceQuarantineApi
     /**
      * Operation getBusinessQuarantineOffersAsyncWithHttpInfo
      *
-     * Список товаров, находящихся в карантине (основная цена)
+     * Список товаров, находящихся в карантине по цене в кабинете
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetQuarantineOffersRequest $get_quarantine_offers_request (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessQuarantineOffers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1411,8 +1427,8 @@ class PriceQuarantineApi
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetQuarantineOffersRequest $get_quarantine_offers_request (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessQuarantineOffers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1427,7 +1443,10 @@ class PriceQuarantineApi
                 'Missing the required parameter $business_id when calling getBusinessQuarantineOffers'
             );
         }
-
+        if ($business_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$business_id" when calling PriceQuarantineApi.getBusinessQuarantineOffers, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'get_quarantine_offers_request' is set
         if ($get_quarantine_offers_request === null || (is_array($get_quarantine_offers_request) && count($get_quarantine_offers_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -1513,6 +1532,11 @@ class PriceQuarantineApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1542,12 +1566,12 @@ class PriceQuarantineApi
     /**
      * Operation getCampaignQuarantineOffers
      *
-     * Список товаров, находящихся в карантине (цена в магазине)
+     * Список товаров, находящихся в карантине по цене в магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetQuarantineOffersRequest $get_quarantine_offers_request get_quarantine_offers_request (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignQuarantineOffers'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -1563,12 +1587,12 @@ class PriceQuarantineApi
     /**
      * Operation getCampaignQuarantineOffersWithHttpInfo
      *
-     * Список товаров, находящихся в карантине (цена в магазине)
+     * Список товаров, находящихся в карантине по цене в магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetQuarantineOffersRequest $get_quarantine_offers_request (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignQuarantineOffers'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -1804,12 +1828,12 @@ class PriceQuarantineApi
     /**
      * Operation getCampaignQuarantineOffersAsync
      *
-     * Список товаров, находящихся в карантине (цена в магазине)
+     * Список товаров, находящихся в карантине по цене в магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetQuarantineOffersRequest $get_quarantine_offers_request (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignQuarantineOffers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1828,12 +1852,12 @@ class PriceQuarantineApi
     /**
      * Operation getCampaignQuarantineOffersAsyncWithHttpInfo
      *
-     * Список товаров, находящихся в карантине (цена в магазине)
+     * Список товаров, находящихся в карантине по цене в магазине
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetQuarantineOffersRequest $get_quarantine_offers_request (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignQuarantineOffers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1885,8 +1909,8 @@ class PriceQuarantineApi
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetQuarantineOffersRequest $get_quarantine_offers_request (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignQuarantineOffers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1901,7 +1925,10 @@ class PriceQuarantineApi
                 'Missing the required parameter $campaign_id when calling getCampaignQuarantineOffers'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling PriceQuarantineApi.getCampaignQuarantineOffers, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'get_quarantine_offers_request' is set
         if ($get_quarantine_offers_request === null || (is_array($get_quarantine_offers_request) && count($get_quarantine_offers_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -1987,6 +2014,11 @@ class PriceQuarantineApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();

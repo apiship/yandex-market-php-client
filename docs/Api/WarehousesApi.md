@@ -16,7 +16,7 @@ getFulfillmentWarehouses(): \YandexMarketApi\Model\GetFulfillmentWarehousesRespo
 
 Идентификаторы складов Маркета (FBY)
 
-Возвращает список складов Маркета (FBY) с их идентификаторами.  |**⚙️ Лимит:** 100 запросов в минуту| |-|
+{% include notitle [access](../../_auto/method_scopes/getFulfillmentWarehouses.md) %}  Возвращает список складов Маркета с их идентификаторами.  |**⚙️ Лимит:** 100 запросов в минуту| |-|
 
 ### Example
 
@@ -24,6 +24,11 @@ getFulfillmentWarehouses(): \YandexMarketApi\Model\GetFulfillmentWarehousesRespo
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: ApiKey
+$config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKey('Api-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Api-Key', 'Bearer');
 
 // Configure OAuth2 access token for authorization: OAuth
 $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -54,7 +59,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth](../../README.md#OAuth)
+[ApiKey](../../README.md#ApiKey), [OAuth](../../README.md#OAuth)
 
 ### HTTP request headers
 
@@ -73,7 +78,7 @@ getWarehouses($business_id): \YandexMarketApi\Model\GetWarehousesResponse
 
 Список складов и групп складов
 
-Возвращает список складов и, если склады объединены, список групп складов. [Что такое группы складов и зачем они нужны](https://yandex.ru/support/marketplace/assortment/operations/stocks.html#unified-stocks)  Среди прочего запрос позволяет определить идентификатор, который нужно использовать при передаче остатков для группы складов.  |**⚙️ Лимит:** 100 запросов в минуту| |-|
+{% include notitle [access](../../_auto/method_scopes/getWarehouses.md) %}  Возвращает список складов и, если склады объединены, список групп складов. [Что такое группы складов и зачем они нужны](https://yandex.ru/support/marketplace/assortment/operations/stocks.html#unified-stocks)  Среди прочего запрос позволяет определить идентификатор, который нужно использовать при передаче остатков для группы складов.  |**⚙️ Лимит:** 100 запросов в минуту| |-|
 
 ### Example
 
@@ -81,6 +86,11 @@ getWarehouses($business_id): \YandexMarketApi\Model\GetWarehousesResponse
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: ApiKey
+$config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKey('Api-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Api-Key', 'Bearer');
 
 // Configure OAuth2 access token for authorization: OAuth
 $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -114,7 +124,7 @@ try {
 
 ### Authorization
 
-[OAuth](../../README.md#OAuth)
+[ApiKey](../../README.md#ApiKey), [OAuth](../../README.md#OAuth)
 
 ### HTTP request headers
 

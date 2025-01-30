@@ -292,13 +292,14 @@ class BaseCampaignOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializ
         if ($this->container['offer_id'] === null) {
             $invalidProperties[] = "'offer_id' can't be null";
         }
-        if ((mb_strlen($this->container['offer_id']) > 80)) {
-            $invalidProperties[] = "invalid value for 'offer_id', the character length must be smaller than or equal to 80.";
+        if ((mb_strlen($this->container['offer_id']) > 255)) {
+            $invalidProperties[] = "invalid value for 'offer_id', the character length must be smaller than or equal to 255.";
         }
 
         if ((mb_strlen($this->container['offer_id']) < 1)) {
             $invalidProperties[] = "invalid value for 'offer_id', the character length must be bigger than or equal to 1.";
         }
+
 
         return $invalidProperties;
     }
@@ -328,7 +329,7 @@ class BaseCampaignOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets offer_id
      *
-     * @param string $offer_id Ваш SKU — идентификатор товара в вашей системе.  Разрешена любая последовательность длиной до 80 знаков. В нее могут входить английские и русские буквы, цифры и символы `. , / \\ ( ) [ ] - = _`  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * SKU товара нельзя менять — можно только удалить товар и добавить заново с новым SKU.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
+     * @param string $offer_id Ваш SKU — идентификатор товара в вашей системе.  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  SKU товара можно изменить в кабинете продавца на Маркете. О том, как это сделать, читайте [в Справке Маркета для продавцов](https://yandex.ru/support2/marketplace/ru/assortment/operations/edit-sku).  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
      *
      * @return self
      */
@@ -337,14 +338,14 @@ class BaseCampaignOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializ
         if (is_null($offer_id)) {
             throw new \InvalidArgumentException('non-nullable offer_id cannot be null');
         }
-        if ((mb_strlen($offer_id) > 80)) {
-            throw new \InvalidArgumentException('invalid length for $offer_id when calling BaseCampaignOfferDTO., must be smaller than or equal to 80.');
+        if ((mb_strlen($offer_id) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $offer_id when calling BaseCampaignOfferDTO., must be smaller than or equal to 255.');
         }
         if ((mb_strlen($offer_id) < 1)) {
             throw new \InvalidArgumentException('invalid length for $offer_id when calling BaseCampaignOfferDTO., must be bigger than or equal to 1.');
         }
-        if ((!preg_match("/^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/", $offer_id))) {
-            throw new \InvalidArgumentException("invalid value for \$offer_id when calling BaseCampaignOfferDTO., must conform to the pattern /^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/.");
+        if ((!preg_match("/^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $offer_id))) {
+            throw new \InvalidArgumentException("invalid value for \$offer_id when calling BaseCampaignOfferDTO., must conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.");
         }
 
         $this->container['offer_id'] = $offer_id;

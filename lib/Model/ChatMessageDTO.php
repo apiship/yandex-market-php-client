@@ -90,7 +90,7 @@ class ChatMessageDTO implements ModelInterface, ArrayAccess, \JsonSerializable
 		'created_at' => false,
 		'sender' => false,
 		'message' => false,
-		'payload' => false
+		'payload' => true
     ];
 
     /**
@@ -367,7 +367,7 @@ class ChatMessageDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Дата и время создания сообщения.  Формат даты: ISO 8601 со смещением относительно UTC. Например, 2017-11-21T00:00:00+03:00.
+     * @param \DateTime $created_at Дата и время создания сообщения.  Формат даты: ISO 8601 со смещением относительно UTC.
      *
      * @return self
      */
@@ -455,7 +455,14 @@ class ChatMessageDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPayload($payload)
     {
         if (is_null($payload)) {
-            throw new \InvalidArgumentException('non-nullable payload cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'payload');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('payload', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['payload'] = $payload;
 

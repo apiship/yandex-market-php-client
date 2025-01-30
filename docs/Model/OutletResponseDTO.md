@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Идентификатор точки продаж, присвоенный Яндекс Маркетом. | [optional]
+**id** | **int** | Идентификатор точки продаж, присвоенный Маркетом. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

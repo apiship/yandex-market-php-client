@@ -81,7 +81,7 @@ class ApiServerErrorResponse implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static array $openAPINullables = [
         'status' => false,
-		'errors' => false
+		'errors' => true
     ];
 
     /**
@@ -344,7 +344,14 @@ class ApiServerErrorResponse implements ModelInterface, ArrayAccess, \JsonSerial
     public function setErrors($errors)
     {
         if (is_null($errors)) {
-            throw new \InvalidArgumentException('non-nullable errors cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'errors');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('errors', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['errors'] = $errors;
 

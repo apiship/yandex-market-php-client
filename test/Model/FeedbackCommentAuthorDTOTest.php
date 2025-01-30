@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * FeedbackCommentAuthorDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Информация об авторе ответа.
+ * @description Информация об авторе комментария.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -504,6 +504,11 @@ class WarehousesApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -877,7 +882,10 @@ class WarehousesApi
                 'Missing the required parameter $business_id when calling getWarehouses'
             );
         }
-
+        if ($business_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$business_id" when calling WarehousesApi.getWarehouses, must be bigger than or equal to 1.');
+        }
+        
 
         $resourcePath = '/businesses/{businessId}/warehouses';
         $formParams = [];
@@ -929,6 +937,11 @@ class WarehousesApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();

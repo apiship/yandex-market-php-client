@@ -282,6 +282,9 @@ class GetCampaignOffersResultDTO implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
+        if ($this->container['offers'] === null) {
+            $invalidProperties[] = "'offers' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -327,7 +330,7 @@ class GetCampaignOffersResultDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets offers
      *
-     * @return \YandexMarketApi\Model\GetCampaignOfferDTO[]|null
+     * @return \YandexMarketApi\Model\GetCampaignOfferDTO[]
      */
     public function getOffers()
     {
@@ -337,7 +340,7 @@ class GetCampaignOffersResultDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets offers
      *
-     * @param \YandexMarketApi\Model\GetCampaignOfferDTO[]|null $offers Страница списка товаров.
+     * @param \YandexMarketApi\Model\GetCampaignOfferDTO[] $offers Страница списка товаров.
      *
      * @return self
      */

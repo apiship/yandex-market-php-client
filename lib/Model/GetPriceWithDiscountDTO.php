@@ -400,7 +400,7 @@ class GetPriceWithDiscountDTO implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets discount_base
      *
-     * @param float|null $discount_base Цена до скидки.  Число должно быть целым. Вы можете указать цену со скидкой от 5 до 75%.  Передавайте этот параметр при каждом обновлении цены, если предоставляете скидку на товар.
+     * @param float|null $discount_base Зачеркнутая цена.  Число должно быть целым. Вы можете указать цену со скидкой от 5 до 99%.  Передавайте этот параметр при каждом обновлении цены, если предоставляете скидку на товар.
      *
      * @return self
      */

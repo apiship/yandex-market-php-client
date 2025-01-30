@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * ReturnDTO Class Doc Comment
  *
  * @category Class
- * @description Возврат заказа.
+ * @description Возврат заказа.  Параметров &#x60;logisticPickupPoint&#x60;, &#x60;shipmentRecipientType&#x60; и &#x60;shipmentStatus&#x60; может не быть в случае возврата:   * С опцией **Быстрый возврат денег за дешевый брак**, когда товар остается у покупателя (&#x60;fastReturn&#x3D;true&#x60;).   * По заказу от бизнеса, если:     * статус возврата &#x60;STARTED_BY_USER&#x60; или &#x60;WAITING_FOR_DECISION&#x60;;     * возврат отменен до передачи товара.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -68,7 +68,8 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipment_status' => '\YandexMarketApi\Model\ReturnShipmentStatusType',
         'refund_amount' => 'int',
         'items' => '\YandexMarketApi\Model\ReturnItemDTO[]',
-        'return_type' => '\YandexMarketApi\Model\ReturnType'
+        'return_type' => '\YandexMarketApi\Model\ReturnType',
+        'fast_return' => 'bool'
     ];
 
     /**
@@ -89,7 +90,8 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipment_status' => null,
         'refund_amount' => 'int64',
         'items' => null,
-        'return_type' => null
+        'return_type' => null,
+        'fast_return' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
 		'shipment_status' => false,
 		'refund_amount' => false,
 		'items' => false,
-		'return_type' => false
+		'return_type' => false,
+		'fast_return' => false
     ];
 
     /**
@@ -207,7 +210,8 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipment_status' => 'shipmentStatus',
         'refund_amount' => 'refundAmount',
         'items' => 'items',
-        'return_type' => 'returnType'
+        'return_type' => 'returnType',
+        'fast_return' => 'fastReturn'
     ];
 
     /**
@@ -226,7 +230,8 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipment_status' => 'setShipmentStatus',
         'refund_amount' => 'setRefundAmount',
         'items' => 'setItems',
-        'return_type' => 'setReturnType'
+        'return_type' => 'setReturnType',
+        'fast_return' => 'setFastReturn'
     ];
 
     /**
@@ -245,7 +250,8 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'shipment_status' => 'getShipmentStatus',
         'refund_amount' => 'getRefundAmount',
         'items' => 'getItems',
-        'return_type' => 'getReturnType'
+        'return_type' => 'getReturnType',
+        'fast_return' => 'getFastReturn'
     ];
 
     /**
@@ -316,6 +322,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('refund_amount', $data ?? [], null);
         $this->setIfExists('items', $data ?? [], null);
         $this->setIfExists('return_type', $data ?? [], null);
+        $this->setIfExists('fast_return', $data ?? [], null);
     }
 
     /**
@@ -345,6 +352,18 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['order_id'] === null) {
+            $invalidProperties[] = "'order_id' can't be null";
+        }
+        if ($this->container['items'] === null) {
+            $invalidProperties[] = "'items' can't be null";
+        }
+        if ($this->container['return_type'] === null) {
+            $invalidProperties[] = "'return_type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -363,7 +382,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return int|null
+     * @return int
      */
     public function getId()
     {
@@ -373,7 +392,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param int|null $id Идентификатор возврата.
+     * @param int $id Идентификатор возврата.
      *
      * @return self
      */
@@ -390,7 +409,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets order_id
      *
-     * @return int|null
+     * @return int
      */
     public function getOrderId()
     {
@@ -400,7 +419,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order_id
      *
-     * @param int|null $order_id Номер заказа.
+     * @param int $order_id Номер заказа.
      *
      * @return self
      */
@@ -427,7 +446,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets creation_date
      *
-     * @param \DateTime|null $creation_date Дата создания возврата клиентом.
+     * @param \DateTime|null $creation_date Дата создания возврата клиентом.  Формат даты: ISO 8601 со смещением относительно UTC.
      *
      * @return self
      */
@@ -454,7 +473,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets update_date
      *
-     * @param \DateTime|null $update_date Дата обновления возврата.
+     * @param \DateTime|null $update_date Дата обновления возврата.  Формат даты: ISO 8601 со смещением относительно UTC.
      *
      * @return self
      */
@@ -606,7 +625,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets items
      *
-     * @return \YandexMarketApi\Model\ReturnItemDTO[]|null
+     * @return \YandexMarketApi\Model\ReturnItemDTO[]
      */
     public function getItems()
     {
@@ -616,7 +635,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets items
      *
-     * @param \YandexMarketApi\Model\ReturnItemDTO[]|null $items Список товаров в возврате.
+     * @param \YandexMarketApi\Model\ReturnItemDTO[] $items Список товаров в возврате.
      *
      * @return self
      */
@@ -633,7 +652,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets return_type
      *
-     * @return \YandexMarketApi\Model\ReturnType|null
+     * @return \YandexMarketApi\Model\ReturnType
      */
     public function getReturnType()
     {
@@ -643,7 +662,7 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets return_type
      *
-     * @param \YandexMarketApi\Model\ReturnType|null $return_type return_type
+     * @param \YandexMarketApi\Model\ReturnType $return_type return_type
      *
      * @return self
      */
@@ -653,6 +672,33 @@ class ReturnDTO implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable return_type cannot be null');
         }
         $this->container['return_type'] = $return_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets fast_return
+     *
+     * @return bool|null
+     */
+    public function getFastReturn()
+    {
+        return $this->container['fast_return'];
+    }
+
+    /**
+     * Sets fast_return
+     *
+     * @param bool|null $fast_return Используется ли опция **Быстрый возврат денег за дешевый брак**.
+     *
+     * @return self
+     */
+    public function setFastReturn($fast_return)
+    {
+        if (is_null($fast_return)) {
+            throw new \InvalidArgumentException('non-nullable fast_return cannot be null');
+        }
+        $this->container['fast_return'] = $fast_return;
 
         return $this;
     }

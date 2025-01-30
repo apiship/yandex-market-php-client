@@ -289,6 +289,13 @@ class PartnerShipmentWarehouseDTO implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if (($this->container['id'] < 1)) {
+            $invalidProperties[] = "invalid value for 'id', must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -307,7 +314,7 @@ class PartnerShipmentWarehouseDTO implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets id
      *
-     * @return int|null
+     * @return int
      */
     public function getId()
     {
@@ -317,7 +324,7 @@ class PartnerShipmentWarehouseDTO implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets id
      *
-     * @param int|null $id Идентификатор склада отправления.
+     * @param int $id Идентификатор склада отправления.
      *
      * @return self
      */
@@ -326,6 +333,11 @@ class PartnerShipmentWarehouseDTO implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
+
+        if (($id < 1)) {
+            throw new \InvalidArgumentException('invalid value for $id when calling PartnerShipmentWarehouseDTO., must be bigger than or equal to 1.');
+        }
+
         $this->container['id'] = $id;
 
         return $this;

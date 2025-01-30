@@ -303,6 +303,9 @@ class OrderBuyerDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -429,7 +432,7 @@ class OrderBuyerDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return \YandexMarketApi\Model\OrderBuyerType|null
+     * @return \YandexMarketApi\Model\OrderBuyerType
      */
     public function getType()
     {
@@ -439,7 +442,7 @@ class OrderBuyerDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param \YandexMarketApi\Model\OrderBuyerType|null $type type
+     * @param \YandexMarketApi\Model\OrderBuyerType $type type
      *
      * @return self
      */

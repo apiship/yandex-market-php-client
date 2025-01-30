@@ -144,19 +144,19 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
 		'description' => false,
 		'id' => false,
 		'feed_id' => false,
-		'barcodes' => false,
-		'urls' => false,
-		'pictures' => false,
+		'barcodes' => true,
+		'urls' => true,
+		'pictures' => true,
 		'manufacturer' => false,
-		'manufacturer_countries' => false,
+		'manufacturer_countries' => true,
 		'min_shipment' => false,
 		'transport_unit_size' => false,
 		'quantum_of_supply' => false,
 		'delivery_duration_days' => false,
 		'box_count' => false,
-		'customs_commodity_codes' => false,
+		'customs_commodity_codes' => true,
 		'weight_dimensions' => false,
-		'supply_schedule_days' => false,
+		'supply_schedule_days' => true,
 		'shelf_life_days' => false,
 		'life_time_days' => false,
 		'guarantee_period_days' => false,
@@ -482,32 +482,32 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 256.";
         }
 
-        if (!is_null($this->container['shop_sku']) && (mb_strlen($this->container['shop_sku']) > 80)) {
-            $invalidProperties[] = "invalid value for 'shop_sku', the character length must be smaller than or equal to 80.";
+        if (!is_null($this->container['shop_sku']) && (mb_strlen($this->container['shop_sku']) > 255)) {
+            $invalidProperties[] = "invalid value for 'shop_sku', the character length must be smaller than or equal to 255.";
         }
 
         if (!is_null($this->container['shop_sku']) && (mb_strlen($this->container['shop_sku']) < 1)) {
             $invalidProperties[] = "invalid value for 'shop_sku', the character length must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['shop_sku']) && !preg_match("/^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/", $this->container['shop_sku'])) {
-            $invalidProperties[] = "invalid value for 'shop_sku', must be conform to the pattern /^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/.";
+        if (!is_null($this->container['shop_sku']) && !preg_match("/^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $this->container['shop_sku'])) {
+            $invalidProperties[] = "invalid value for 'shop_sku', must be conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.";
         }
 
         if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 6000)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 6000.";
         }
 
-        if (!is_null($this->container['id']) && (mb_strlen($this->container['id']) > 80)) {
-            $invalidProperties[] = "invalid value for 'id', the character length must be smaller than or equal to 80.";
+        if (!is_null($this->container['id']) && (mb_strlen($this->container['id']) > 255)) {
+            $invalidProperties[] = "invalid value for 'id', the character length must be smaller than or equal to 255.";
         }
 
         if (!is_null($this->container['id']) && (mb_strlen($this->container['id']) < 1)) {
             $invalidProperties[] = "invalid value for 'id', the character length must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['id']) && !preg_match("/^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/", $this->container['id'])) {
-            $invalidProperties[] = "invalid value for 'id', must be conform to the pattern /^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/.";
+        if (!is_null($this->container['id']) && !preg_match("/^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $this->container['id'])) {
+            $invalidProperties[] = "invalid value for 'id', must be conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.";
         }
 
         return $invalidProperties;
@@ -538,7 +538,7 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets name
      *
-     * @param string|null $name Составляйте название по схеме: тип + бренд или производитель + модель + особенности, если есть (например, цвет, размер или вес) и количество в упаковке.  Не включайте в название условия продажи (например, «скидка», «бесплатная доставка» и т. д.), эмоциональные характеристики («хит», «супер» и т. д.). Не пишите слова большими буквами — кроме устоявшихся названий брендов и моделей.  Оптимальная длина — 50–60 символов, максимальная — 256.  [Рекомендации и правила](https://yandex.ru/support/marketplace/assortment/fields/title.html)
+     * @param string|null $name Составляйте название по схеме: тип + бренд или производитель + модель + особенности, если есть (например, цвет, размер или вес) и количество в упаковке.  Не включайте в название условия продажи (например, «скидка», «бесплатная доставка» и т. д.), эмоциональные характеристики («хит», «супер» и т. д.). Не пишите слова большими буквами — кроме устоявшихся названий брендов и моделей.  Оптимальная длина — 50–60 символов.  [Рекомендации и правила](https://yandex.ru/support/marketplace/assortment/fields/title.html)
      *
      * @return self
      */
@@ -569,7 +569,7 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets shop_sku
      *
-     * @param string|null $shop_sku Ваш SKU — идентификатор товара в вашей системе.  Разрешена любая последовательность длиной до 80 знаков. В нее могут входить английские и русские буквы, цифры и символы `. , / \\ ( ) [ ] - = _`  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * SKU товара нельзя менять — можно только удалить товар и добавить заново с новым SKU.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
+     * @param string|null $shop_sku Ваш SKU — идентификатор товара в вашей системе.  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  SKU товара можно изменить в кабинете продавца на Маркете. О том, как это сделать, читайте [в Справке Маркета для продавцов](https://yandex.ru/support2/marketplace/ru/assortment/operations/edit-sku).  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
      *
      * @return self
      */
@@ -578,14 +578,14 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
         if (is_null($shop_sku)) {
             throw new \InvalidArgumentException('non-nullable shop_sku cannot be null');
         }
-        if ((mb_strlen($shop_sku) > 80)) {
-            throw new \InvalidArgumentException('invalid length for $shop_sku when calling MappingsOfferInfoDTO., must be smaller than or equal to 80.');
+        if ((mb_strlen($shop_sku) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $shop_sku when calling MappingsOfferInfoDTO., must be smaller than or equal to 255.');
         }
         if ((mb_strlen($shop_sku) < 1)) {
             throw new \InvalidArgumentException('invalid length for $shop_sku when calling MappingsOfferInfoDTO., must be bigger than or equal to 1.');
         }
-        if ((!preg_match("/^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/", $shop_sku))) {
-            throw new \InvalidArgumentException("invalid value for \$shop_sku when calling MappingsOfferInfoDTO., must conform to the pattern /^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/.");
+        if ((!preg_match("/^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $shop_sku))) {
+            throw new \InvalidArgumentException("invalid value for \$shop_sku when calling MappingsOfferInfoDTO., must conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.");
         }
 
         $this->container['shop_sku'] = $shop_sku;
@@ -597,6 +597,7 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
      * Gets category
      *
      * @return string|null
+     * @deprecated
      */
     public function getCategory()
     {
@@ -606,9 +607,10 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets category
      *
-     * @param string|null $category Категория товара в вашем магазине. Значение будет использовано для определения категории товара на Маркете в случае, если вы не передали категорию в параметре  marketCategoryId.  Указывайте конкретные категории — например, набор ножей лучше отнести к категории **Столовые приборы**, а не просто **Посуда**.  Выбирайте категории, которые описывают товар, а не абстрактный признак — например, **Духи**, а не **Подарки**.  Значение будет использовано для определения категории товара на Маркете в случае, если вы не передали категорию в параметре `marketCategoryId`.
+     * @param string|null $category {% note warning \"Этот параметр устарел\" %}  Вместо него используйте `marketCategoryId`.  {% endnote %}  Категория товара в вашем магазине.
      *
      * @return self
+     * @deprecated
      */
     public function setCategory($category)
     {
@@ -687,7 +689,7 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets description
      *
-     * @param string|null $description Подробное описание товара: например, его преимущества и особенности.  Не давайте в описании инструкций по установке и сборке. Не используйте слова «скидка», «распродажа», «дешевый», «подарок» (кроме подарочных категорий), «бесплатно», «акция», «специальная цена», «новинка», «new», «аналог», «заказ», «хит». Не указывайте никакой контактной информации и не давайте ссылок.  Можно использовать теги:  * \\<h>, \\<h1>, \\<h2> и так далее — для заголовков; * \\<br> и \\<p> — для переноса строки; * \\<ol> — для нумерованного списка; * \\<ul> — для маркированного списка; * \\<li> — для создания элементов списка (должен находиться внутри \\<ol> или \\<ul>); * \\<div> — поддерживается, но не влияет на отображение текста.  Оптимальная длина — 400–600 символов, максимальная — 6000.  [Рекомендации и правила](https://yandex.ru/support/marketplace/assortment/fields/description.html)
+     * @param string|null $description Подробное описание товара: например, его преимущества и особенности.  Не давайте в описании инструкций по установке и сборке. Не используйте слова «скидка», «распродажа», «дешевый», «подарок» (кроме подарочных категорий), «бесплатно», «акция», «специальная цена», «новинка», «new», «аналог», «заказ», «хит». Не указывайте никакой контактной информации и не давайте ссылок.  Можно использовать теги:  * \\<h>, \\<h1>, \\<h2> и так далее — для заголовков; * \\<br> и \\<p> — для переноса строки; * \\<ol> — для нумерованного списка; * \\<ul> — для маркированного списка; * \\<li> — для создания элементов списка (должен находиться внутри \\<ol> или \\<ul>); * \\<div> — поддерживается, но не влияет на отображение текста.  Оптимальная длина — 400–600 символов.  [Рекомендации и правила](https://yandex.ru/support/marketplace/assortment/fields/description.html)
      *
      * @return self
      */
@@ -696,9 +698,7 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
         if (is_null($description)) {
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
-        if ((mb_strlen($description) > 6000)) {
-            throw new \InvalidArgumentException('invalid length for $description when calling MappingsOfferInfoDTO., must be smaller than or equal to 6000.');
-        }
+
 
         $this->container['description'] = $description;
 
@@ -718,7 +718,7 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets id
      *
-     * @param string|null $id Ваш SKU — идентификатор товара в вашей системе.  Разрешена любая последовательность длиной до 80 знаков. В нее могут входить английские и русские буквы, цифры и символы `. , / \\ ( ) [ ] - = _`  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * SKU товара нельзя менять — можно только удалить товар и добавить заново с новым SKU.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
+     * @param string|null $id Ваш SKU — идентификатор товара в вашей системе.  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  SKU товара можно изменить в кабинете продавца на Маркете. О том, как это сделать, читайте [в Справке Маркета для продавцов](https://yandex.ru/support2/marketplace/ru/assortment/operations/edit-sku).  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
      *
      * @return self
      */
@@ -727,14 +727,14 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        if ((mb_strlen($id) > 80)) {
-            throw new \InvalidArgumentException('invalid length for $id when calling MappingsOfferInfoDTO., must be smaller than or equal to 80.');
+        if ((mb_strlen($id) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $id when calling MappingsOfferInfoDTO., must be smaller than or equal to 255.');
         }
         if ((mb_strlen($id) < 1)) {
             throw new \InvalidArgumentException('invalid length for $id when calling MappingsOfferInfoDTO., must be bigger than or equal to 1.');
         }
-        if ((!preg_match("/^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/", $id))) {
-            throw new \InvalidArgumentException("invalid value for \$id when calling MappingsOfferInfoDTO., must conform to the pattern /^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/.");
+        if ((!preg_match("/^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $id))) {
+            throw new \InvalidArgumentException("invalid value for \$id when calling MappingsOfferInfoDTO., must conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.");
         }
 
         $this->container['id'] = $id;
@@ -789,7 +789,14 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setBarcodes($barcodes)
     {
         if (is_null($barcodes)) {
-            throw new \InvalidArgumentException('non-nullable barcodes cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'barcodes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('barcodes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['barcodes'] = $barcodes;
 
@@ -816,7 +823,14 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setUrls($urls)
     {
         if (is_null($urls)) {
-            throw new \InvalidArgumentException('non-nullable urls cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'urls');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('urls', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['urls'] = $urls;
 
@@ -836,14 +850,21 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets pictures
      *
-     * @param string[]|null $pictures Ссылки (URL) изображений товара в хорошем качестве.  Можно указать до 10 ссылок. При этом изображение по первой ссылке будет основным. Оно используется в качестве изображения товара в поиске Маркета и на карточке товара. Другие изображения товара доступны в режиме просмотра увеличенных изображений.  Обязательный параметр.  Должен содержать хотя бы один вложенный параметр `picture`.
+     * @param string[]|null $pictures Ссылки (URL) изображений товара в хорошем качестве.  Можно указать до 30 ссылок. При этом изображение по первой ссылке будет основным. Оно используется в качестве изображения товара в поиске Маркета и на карточке товара. Другие изображения товара доступны в режиме просмотра увеличенных изображений.  Обязательный параметр.  Должен содержать хотя бы один вложенный параметр `picture`.
      *
      * @return self
      */
     public function setPictures($pictures)
     {
         if (is_null($pictures)) {
-            throw new \InvalidArgumentException('non-nullable pictures cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'pictures');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('pictures', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['pictures'] = $pictures;
 
@@ -897,7 +918,14 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setManufacturerCountries($manufacturer_countries)
     {
         if (is_null($manufacturer_countries)) {
-            throw new \InvalidArgumentException('non-nullable manufacturer_countries cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'manufacturer_countries');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('manufacturer_countries', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['manufacturer_countries'] = $manufacturer_countries;
 
@@ -1059,7 +1087,14 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setCustomsCommodityCodes($customs_commodity_codes)
     {
         if (is_null($customs_commodity_codes)) {
-            throw new \InvalidArgumentException('non-nullable customs_commodity_codes cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'customs_commodity_codes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customs_commodity_codes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['customs_commodity_codes'] = $customs_commodity_codes;
 
@@ -1113,7 +1148,14 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setSupplyScheduleDays($supply_schedule_days)
     {
         if (is_null($supply_schedule_days)) {
-            throw new \InvalidArgumentException('non-nullable supply_schedule_days cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'supply_schedule_days');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('supply_schedule_days', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['supply_schedule_days'] = $supply_schedule_days;
 
@@ -1133,7 +1175,7 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets shelf_life_days
      *
-     * @param int|null $shelf_life_days {% note alert %}  Параметр устарел и не рекомендуется к использованию. Вместо него используйте параметр `shelfLife`. Совместное использование обоих параметров приведет к ошибке.  {% endnote %}  Срок годности: через сколько дней товар станет непригоден для использования.
+     * @param int|null $shelf_life_days {% note warning \"Этот параметр устарел\" %}  Вместо него используйте `shelfLife`. Совместное использование обоих параметров приведет к ошибке.  {% endnote %}  Срок годности: через сколько дней товар станет непригоден для использования.
      *
      * @return self
      */
@@ -1160,7 +1202,7 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets life_time_days
      *
-     * @param int|null $life_time_days {% note alert %}  Параметр устарел и не рекомендуется к использованию. Вместо него используйте параметр `lifeTime`. Совместное использование обоих параметров приведет к ошибке.  {% endnote %}  Срок службы: сколько дней товар будет исправно выполнять свою функцию, а изготовитель — нести ответственность за его существенные недостатки.
+     * @param int|null $life_time_days {% note warning \"Этот параметр устарел\" %}  Вместо него используйте `lifeTime`. Совместное использование обоих параметров приведет к ошибке.  {% endnote %}  Срок службы: сколько дней товар будет исправно выполнять свою функцию, а изготовитель — нести ответственность за его существенные недостатки.
      *
      * @return self
      */

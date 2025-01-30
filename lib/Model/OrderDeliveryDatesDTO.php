@@ -303,6 +303,9 @@ class OrderDeliveryDatesDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
+        if ($this->container['from_date'] === null) {
+            $invalidProperties[] = "'from_date' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -321,7 +324,7 @@ class OrderDeliveryDatesDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets from_date
      *
-     * @return string|null
+     * @return string
      */
     public function getFromDate()
     {
@@ -331,7 +334,7 @@ class OrderDeliveryDatesDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets from_date
      *
-     * @param string|null $from_date Формат даты: `ДД-ММ-ГГГГ`.
+     * @param string $from_date Формат даты: `ДД-ММ-ГГГГ`.
      *
      * @return self
      */

@@ -573,7 +573,7 @@ class OfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets discount
      *
-     * @param int|null $discount Скидка на предложение, в %.
+     * @param int|null $discount Скидка на предложение в процентах.
      *
      * @return self
      */
@@ -654,7 +654,7 @@ class OfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets model_id
      *
-     * @param int $model_id Идентификатор модели Маркета, с которой соотнесено предложение.  Если предложение не соотнесено ни с какой карточкой модели, то параметр `modelid` содержит значение `0`.  {% note info %}  Идентификатор модели присутствует в URL карточки модели в виде значения параметра `product`. Например: `https://market.yandex.ru/product/13584121`.  {% endnote %}
+     * @param int $model_id Идентификатор модели Маркета, с которой соотнесено предложение.  Если предложение не соотнесено ни с какой карточкой модели, то параметр `modelid` содержит значение `0`.  {% note info \"Где отображается идентификатор модели\" %}  В URL карточки модели в виде значения параметра `product`. Например: `https://market.yandex.ru/product/13584121`.  {% endnote %}
      *
      * @return self
      */
@@ -735,7 +735,7 @@ class OfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets bid
      *
-     * @param float|null $bid Ставка на клик. deprecated.
+     * @param float|null $bid {% note warning \"Этот параметр устарел\" %}  Не используйте его.  {% endnote %}  Ставка на клик.
      *
      * @return self
      */
@@ -762,7 +762,7 @@ class OfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cbid
      *
-     * @param float|null $cbid Ставка на клик. deprecated.
+     * @param float|null $cbid {% note warning \"Этот параметр устарел\" %}  Не используйте его.  {% endnote %}  Ставка на клик.
      *
      * @return self
      */
@@ -789,7 +789,7 @@ class OfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fee
      *
-     * @param float|null $fee Процент комиссии на товар при продаже по CPA. deprecated.
+     * @param float|null $fee {% note warning \"Этот параметр устарел\" %}  Не используйте его.  {% endnote %}  Процент комиссии на товар при продаже по CPA.
      *
      * @return self
      */

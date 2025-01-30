@@ -106,7 +106,7 @@ class ChangeOutletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 		'address' => false,
 		'phones' => false,
 		'working_schedule' => false,
-		'delivery_rules' => false,
+		'delivery_rules' => true,
 		'storage_period' => false
     ];
 
@@ -472,7 +472,7 @@ class ChangeOutletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets is_main
      *
-     * @param bool|null $is_main Признак основной точки продаж. Возможные значения: * `false` — неосновная точка продаж. * `true` — основная точка продаж.
+     * @param bool|null $is_main Признак основной точки продаж.  Возможные значения:  * `false` — неосновная точка продаж. * `true` — основная точка продаж.
      *
      * @return self
      */
@@ -639,14 +639,21 @@ class ChangeOutletRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets delivery_rules
      *
-     * @param \YandexMarketApi\Model\OutletDeliveryRuleDTO[]|null $delivery_rules Информация об условиях доставки для данной точки продаж. Обязательный параметр, если параметр `type=DEPOT` или `type=MIXED`.
+     * @param \YandexMarketApi\Model\OutletDeliveryRuleDTO[]|null $delivery_rules Информация об условиях доставки для данной точки продаж.  Обязательный параметр, если параметр `type=DEPOT` или `type=MIXED`.
      *
      * @return self
      */
     public function setDeliveryRules($delivery_rules)
     {
         if (is_null($delivery_rules)) {
-            throw new \InvalidArgumentException('non-nullable delivery_rules cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'delivery_rules');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('delivery_rules', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['delivery_rules'] = $delivery_rules;
 

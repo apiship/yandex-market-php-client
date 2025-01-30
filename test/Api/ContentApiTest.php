@@ -86,7 +86,7 @@ class ContentApiTest extends TestCase
     /**
      * Test case for getOfferCardsContentStatus
      *
-     * Получение информации о заполненности карточек.
+     * Получение информации о заполненности карточек магазина.
      *
      */
     public function testGetOfferCardsContentStatus()

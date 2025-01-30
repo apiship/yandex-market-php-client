@@ -76,6 +76,7 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'life_time' => '\YandexMarketApi\Model\TimePeriodDTO',
         'guarantee_period' => '\YandexMarketApi\Model\TimePeriodDTO',
         'customs_commodity_code' => 'string',
+        'commodity_codes' => '\YandexMarketApi\Model\CommodityCodeDTO[]',
         'certificates' => 'string[]',
         'box_count' => 'int',
         'condition' => '\YandexMarketApi\Model\OfferConditionDTO',
@@ -84,9 +85,12 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'adult' => 'bool',
         'age' => '\YandexMarketApi\Model\AgeDTO',
         'params' => '\YandexMarketApi\Model\OfferParamDTO[]',
+        'parameter_values' => '\YandexMarketApi\Model\ParameterValueDTO[]',
+        'basic_price' => '\YandexMarketApi\Model\UpdatePriceWithDiscountDTO',
         'purchase_price' => '\YandexMarketApi\Model\BasePriceDTO',
         'additional_expenses' => '\YandexMarketApi\Model\BasePriceDTO',
-        'cofinance_price' => '\YandexMarketApi\Model\BasePriceDTO'
+        'cofinance_price' => '\YandexMarketApi\Model\BasePriceDTO',
+        'first_video_as_cover' => 'bool'
     ];
 
     /**
@@ -115,6 +119,7 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'life_time' => null,
         'guarantee_period' => null,
         'customs_commodity_code' => null,
+        'commodity_codes' => null,
         'certificates' => null,
         'box_count' => 'int32',
         'condition' => null,
@@ -123,9 +128,12 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'adult' => null,
         'age' => null,
         'params' => null,
+        'parameter_values' => null,
+        'basic_price' => null,
         'purchase_price' => null,
         'additional_expenses' => null,
-        'cofinance_price' => null
+        'cofinance_price' => null,
+        'first_video_as_cover' => null
     ];
 
     /**
@@ -138,31 +146,35 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
 		'name' => false,
 		'market_category_id' => false,
 		'category' => false,
-		'pictures' => false,
-		'videos' => false,
-		'manuals' => false,
+		'pictures' => true,
+		'videos' => true,
+		'manuals' => true,
 		'vendor' => false,
-		'barcodes' => false,
+		'barcodes' => true,
 		'description' => false,
-		'manufacturer_countries' => false,
+		'manufacturer_countries' => true,
 		'weight_dimensions' => false,
 		'vendor_code' => false,
-		'tags' => false,
+		'tags' => true,
 		'shelf_life' => false,
 		'life_time' => false,
 		'guarantee_period' => false,
 		'customs_commodity_code' => false,
-		'certificates' => false,
+		'commodity_codes' => true,
+		'certificates' => true,
 		'box_count' => false,
 		'condition' => false,
 		'type' => false,
 		'downloadable' => false,
 		'adult' => false,
 		'age' => false,
-		'params' => false,
+		'params' => true,
+		'parameter_values' => true,
+		'basic_price' => false,
 		'purchase_price' => false,
 		'additional_expenses' => false,
-		'cofinance_price' => false
+		'cofinance_price' => false,
+		'first_video_as_cover' => false
     ];
 
     /**
@@ -269,6 +281,7 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'life_time' => 'lifeTime',
         'guarantee_period' => 'guaranteePeriod',
         'customs_commodity_code' => 'customsCommodityCode',
+        'commodity_codes' => 'commodityCodes',
         'certificates' => 'certificates',
         'box_count' => 'boxCount',
         'condition' => 'condition',
@@ -277,9 +290,12 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'adult' => 'adult',
         'age' => 'age',
         'params' => 'params',
+        'parameter_values' => 'parameterValues',
+        'basic_price' => 'basicPrice',
         'purchase_price' => 'purchasePrice',
         'additional_expenses' => 'additionalExpenses',
-        'cofinance_price' => 'cofinancePrice'
+        'cofinance_price' => 'cofinancePrice',
+        'first_video_as_cover' => 'firstVideoAsCover'
     ];
 
     /**
@@ -306,6 +322,7 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'life_time' => 'setLifeTime',
         'guarantee_period' => 'setGuaranteePeriod',
         'customs_commodity_code' => 'setCustomsCommodityCode',
+        'commodity_codes' => 'setCommodityCodes',
         'certificates' => 'setCertificates',
         'box_count' => 'setBoxCount',
         'condition' => 'setCondition',
@@ -314,9 +331,12 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'adult' => 'setAdult',
         'age' => 'setAge',
         'params' => 'setParams',
+        'parameter_values' => 'setParameterValues',
+        'basic_price' => 'setBasicPrice',
         'purchase_price' => 'setPurchasePrice',
         'additional_expenses' => 'setAdditionalExpenses',
-        'cofinance_price' => 'setCofinancePrice'
+        'cofinance_price' => 'setCofinancePrice',
+        'first_video_as_cover' => 'setFirstVideoAsCover'
     ];
 
     /**
@@ -343,6 +363,7 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'life_time' => 'getLifeTime',
         'guarantee_period' => 'getGuaranteePeriod',
         'customs_commodity_code' => 'getCustomsCommodityCode',
+        'commodity_codes' => 'getCommodityCodes',
         'certificates' => 'getCertificates',
         'box_count' => 'getBoxCount',
         'condition' => 'getCondition',
@@ -351,9 +372,12 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         'adult' => 'getAdult',
         'age' => 'getAge',
         'params' => 'getParams',
+        'parameter_values' => 'getParameterValues',
+        'basic_price' => 'getBasicPrice',
         'purchase_price' => 'getPurchasePrice',
         'additional_expenses' => 'getAdditionalExpenses',
-        'cofinance_price' => 'getCofinancePrice'
+        'cofinance_price' => 'getCofinancePrice',
+        'first_video_as_cover' => 'getFirstVideoAsCover'
     ];
 
     /**
@@ -431,6 +455,7 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('life_time', $data ?? [], null);
         $this->setIfExists('guarantee_period', $data ?? [], null);
         $this->setIfExists('customs_commodity_code', $data ?? [], null);
+        $this->setIfExists('commodity_codes', $data ?? [], null);
         $this->setIfExists('certificates', $data ?? [], null);
         $this->setIfExists('box_count', $data ?? [], null);
         $this->setIfExists('condition', $data ?? [], null);
@@ -439,9 +464,12 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('adult', $data ?? [], null);
         $this->setIfExists('age', $data ?? [], null);
         $this->setIfExists('params', $data ?? [], null);
+        $this->setIfExists('parameter_values', $data ?? [], null);
+        $this->setIfExists('basic_price', $data ?? [], null);
         $this->setIfExists('purchase_price', $data ?? [], null);
         $this->setIfExists('additional_expenses', $data ?? [], null);
         $this->setIfExists('cofinance_price', $data ?? [], null);
+        $this->setIfExists('first_video_as_cover', $data ?? [], null);
     }
 
     /**
@@ -474,13 +502,14 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['offer_id'] === null) {
             $invalidProperties[] = "'offer_id' can't be null";
         }
-        if ((mb_strlen($this->container['offer_id']) > 80)) {
-            $invalidProperties[] = "invalid value for 'offer_id', the character length must be smaller than or equal to 80.";
+        if ((mb_strlen($this->container['offer_id']) > 255)) {
+            $invalidProperties[] = "invalid value for 'offer_id', the character length must be smaller than or equal to 255.";
         }
 
         if ((mb_strlen($this->container['offer_id']) < 1)) {
             $invalidProperties[] = "invalid value for 'offer_id', the character length must be bigger than or equal to 1.";
         }
+
 
 
         if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 256)) {
@@ -497,6 +526,10 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 6000)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 6000.";
+        }
+
+        if (!is_null($this->container['parameter_values']) && (count($this->container['parameter_values']) > 300)) {
+            $invalidProperties[] = "invalid value for 'parameter_values', number of items must be less than or equal to 300.";
         }
 
         return $invalidProperties;
@@ -527,7 +560,7 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets offer_id
      *
-     * @param string $offer_id Ваш SKU — идентификатор товара в вашей системе.  Разрешена любая последовательность длиной до 80 знаков. В нее могут входить английские и русские буквы, цифры и символы `. , / \\ ( ) [ ] - = _`  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * SKU товара нельзя менять — можно только удалить товар и добавить заново с новым SKU.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
+     * @param string $offer_id Ваш SKU — идентификатор товара в вашей системе.  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  SKU товара можно изменить в кабинете продавца на Маркете. О том, как это сделать, читайте [в Справке Маркета для продавцов](https://yandex.ru/support2/marketplace/ru/assortment/operations/edit-sku).  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
      *
      * @return self
      */
@@ -536,14 +569,14 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($offer_id)) {
             throw new \InvalidArgumentException('non-nullable offer_id cannot be null');
         }
-        if ((mb_strlen($offer_id) > 80)) {
-            throw new \InvalidArgumentException('invalid length for $offer_id when calling UpdateOfferDTO., must be smaller than or equal to 80.');
+        if ((mb_strlen($offer_id) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $offer_id when calling UpdateOfferDTO., must be smaller than or equal to 255.');
         }
         if ((mb_strlen($offer_id) < 1)) {
             throw new \InvalidArgumentException('invalid length for $offer_id when calling UpdateOfferDTO., must be bigger than or equal to 1.');
         }
-        if ((!preg_match("/^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/", $offer_id))) {
-            throw new \InvalidArgumentException("invalid value for \$offer_id when calling UpdateOfferDTO., must conform to the pattern /^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/.");
+        if ((!preg_match("/^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $offer_id))) {
+            throw new \InvalidArgumentException("invalid value for \$offer_id when calling UpdateOfferDTO., must conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.");
         }
 
         $this->container['offer_id'] = $offer_id;
@@ -564,7 +597,7 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Составляйте название по схеме: тип + бренд или производитель + модель + особенности, если есть (например, цвет, размер или вес) и количество в упаковке.  Не включайте в название условия продажи (например, «скидка», «бесплатная доставка» и т. д.), эмоциональные характеристики («хит», «супер» и т. д.). Не пишите слова большими буквами — кроме устоявшихся названий брендов и моделей.  Оптимальная длина — 50–60 символов, максимальная — 256.  [Рекомендации и правила](https://yandex.ru/support/marketplace/assortment/fields/title.html)
+     * @param string|null $name Составляйте название по схеме: тип + бренд или производитель + модель + особенности, если есть (например, цвет, размер или вес) и количество в упаковке.  Не включайте в название условия продажи (например, «скидка», «бесплатная доставка» и т. д.), эмоциональные характеристики («хит», «супер» и т. д.). Не пишите слова большими буквами — кроме устоявшихся названий брендов и моделей.  Оптимальная длина — 50–60 символов.  [Рекомендации и правила](https://yandex.ru/support/marketplace/assortment/fields/title.html)
      *
      * @return self
      */
@@ -595,7 +628,7 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets market_category_id
      *
-     * @param int|null $market_category_id Идентификатор категории на Маркете, к которой вы относите свой товар.  Если не указать `marketCategoryId`, то маркетная категория будет определена автоматически.  Список категорий Маркета можно получить с помощью запроса  [POST categories/tree](../../reference/categories/getCategoriesTree.md).
+     * @param int|null $market_category_id Идентификатор категории на Маркете, к которой вы относите свой товар.  Если не указать `marketCategoryId`, то маркетная категория будет определена автоматически.  При изменении категории убедитесь, что характеристики товара и их значения в параметре `parameterValues` вы передаете для новой категории.  Список категорий Маркета можно получить с помощью запроса  [POST categories/tree](../../reference/categories/getCategoriesTree.md).
      *
      * @return self
      */
@@ -613,6 +646,7 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets category
      *
      * @return string|null
+     * @deprecated
      */
     public function getCategory()
     {
@@ -622,9 +656,10 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets category
      *
-     * @param string|null $category Категория товара в вашем магазине. Значение будет использовано для определения категории товара на Маркете в случае, если вы не передали категорию в параметре  marketCategoryId.  Указывайте конкретные категории — например, набор ножей лучше отнести к категории **Столовые приборы**, а не просто **Посуда**.  Выбирайте категории, которые описывают товар, а не абстрактный признак — например, **Духи**, а не **Подарки**.  Значение будет использовано для определения категории товара на Маркете в случае, если вы не передали категорию в параметре `marketCategoryId`.
+     * @param string|null $category {% note warning \"Этот параметр устарел\" %}  Вместо него используйте `marketCategoryId`.  {% endnote %}  Категория товара в вашем магазине.
      *
      * @return self
+     * @deprecated
      */
     public function setCategory($category)
     {
@@ -649,14 +684,21 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pictures
      *
-     * @param string[]|null $pictures Ссылки на изображения товара. Изображение по первой ссылке считается основным, остальные дополнительными.  **Требования к ссылкам**  * Ссылок может быть до 10. * Указывайте ссылку целиком, включая протокол http или https. * Максимальная длина — 512 символов. * Русские буквы в URL можно. * Можно использовать прямые ссылки на изображения и на Яндекс Диск. Ссылки на Яндекс Диске нужно копировать с помощью функции **Поделиться**. Относительные ссылки и ссылки на другие облачные хранилища — не работают.  ✅ `https://example-shop.ru/images/sku12345.jpg`  ✅ `https://yadi.sk/i/NaBoRsimVOLov`  ❌ `/images/sku12345.jpg`  ❌ `https://www.dropbox.com/s/818f/tovar.jpg`  Ссылки на изображение должны быть постоянными. Нельзя использовать динамические ссылки, меняющиеся от выгрузки к выгрузке.  Если нужно заменить изображение, выложите новое изображение по новой ссылке, а ссылку на старое удалите. Если просто заменить изображение по старой ссылке, оно не обновится.  [Требования к изображениям](https://yandex.ru/support/marketplace/assortment/fields/images.html)
+     * @param string[]|null $pictures Ссылки на изображения товара. Изображение по первой ссылке считается основным, остальные дополнительными.  **Требования к ссылкам**  * Ссылок может быть до 30. * Указывайте ссылку целиком, включая протокол http или https. * Максимальная длина — 512 символов. * Русские буквы в URL можно. * Можно использовать прямые ссылки на изображения и на Яндекс Диск. Ссылки на Яндекс Диске нужно копировать с помощью функции **Поделиться**. Относительные ссылки и ссылки на другие облачные хранилища — не работают.  ✅ `https://example-shop.ru/images/sku12345.jpg`  ✅ `https://yadi.sk/i/NaBoRsimVOLov`  ❌ `/images/sku12345.jpg`  ❌ `https://www.dropbox.com/s/818f/tovar.jpg`  Ссылки на изображение должны быть постоянными. Нельзя использовать динамические ссылки, меняющиеся от выгрузки к выгрузке.  Если нужно заменить изображение, выложите новое изображение по новой ссылке, а ссылку на старое удалите. Если просто заменить изображение по старой ссылке, оно не обновится.  [Требования к изображениям](https://yandex.ru/support/marketplace/assortment/fields/images.html)
      *
      * @return self
      */
     public function setPictures($pictures)
     {
         if (is_null($pictures)) {
-            throw new \InvalidArgumentException('non-nullable pictures cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'pictures');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('pictures', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['pictures'] = $pictures;
 
@@ -683,10 +725,17 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setVideos($videos)
     {
         if (is_null($videos)) {
-            throw new \InvalidArgumentException('non-nullable videos cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'videos');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('videos', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if ((count($videos) > 6)) {
+        if (!is_null($videos) && (count($videos) > 6)) {
             throw new \InvalidArgumentException('invalid value for $videos when calling UpdateOfferDTO., number of items must be less than or equal to 6.');
         }
         $this->container['videos'] = $videos;
@@ -714,10 +763,17 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setManuals($manuals)
     {
         if (is_null($manuals)) {
-            throw new \InvalidArgumentException('non-nullable manuals cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'manuals');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('manuals', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if ((count($manuals) > 6)) {
+        if (!is_null($manuals) && (count($manuals) > 6)) {
             throw new \InvalidArgumentException('invalid value for $manuals when calling UpdateOfferDTO., number of items must be less than or equal to 6.');
         }
         $this->container['manuals'] = $manuals;
@@ -772,7 +828,14 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBarcodes($barcodes)
     {
         if (is_null($barcodes)) {
-            throw new \InvalidArgumentException('non-nullable barcodes cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'barcodes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('barcodes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['barcodes'] = $barcodes;
 
@@ -792,7 +855,7 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets description
      *
-     * @param string|null $description Подробное описание товара: например, его преимущества и особенности.  Не давайте в описании инструкций по установке и сборке. Не используйте слова «скидка», «распродажа», «дешевый», «подарок» (кроме подарочных категорий), «бесплатно», «акция», «специальная цена», «новинка», «new», «аналог», «заказ», «хит». Не указывайте никакой контактной информации и не давайте ссылок.  Можно использовать теги:  * \\<h>, \\<h1>, \\<h2> и так далее — для заголовков; * \\<br> и \\<p> — для переноса строки; * \\<ol> — для нумерованного списка; * \\<ul> — для маркированного списка; * \\<li> — для создания элементов списка (должен находиться внутри \\<ol> или \\<ul>); * \\<div> — поддерживается, но не влияет на отображение текста.  Оптимальная длина — 400–600 символов, максимальная — 6000.  [Рекомендации и правила](https://yandex.ru/support/marketplace/assortment/fields/description.html)
+     * @param string|null $description Подробное описание товара: например, его преимущества и особенности.  Не давайте в описании инструкций по установке и сборке. Не используйте слова «скидка», «распродажа», «дешевый», «подарок» (кроме подарочных категорий), «бесплатно», «акция», «специальная цена», «новинка», «new», «аналог», «заказ», «хит». Не указывайте никакой контактной информации и не давайте ссылок.  Можно использовать теги:  * \\<h>, \\<h1>, \\<h2> и так далее — для заголовков; * \\<br> и \\<p> — для переноса строки; * \\<ol> — для нумерованного списка; * \\<ul> — для маркированного списка; * \\<li> — для создания элементов списка (должен находиться внутри \\<ol> или \\<ul>); * \\<div> — поддерживается, но не влияет на отображение текста.  Оптимальная длина — 400–600 символов.  [Рекомендации и правила](https://yandex.ru/support/marketplace/assortment/fields/description.html)
      *
      * @return self
      */
@@ -800,9 +863,6 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($description)) {
             throw new \InvalidArgumentException('non-nullable description cannot be null');
-        }
-        if ((mb_strlen($description) > 6000)) {
-            throw new \InvalidArgumentException('invalid length for $description when calling UpdateOfferDTO., must be smaller than or equal to 6000.');
         }
 
         $this->container['description'] = $description;
@@ -830,7 +890,14 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setManufacturerCountries($manufacturer_countries)
     {
         if (is_null($manufacturer_countries)) {
-            throw new \InvalidArgumentException('non-nullable manufacturer_countries cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'manufacturer_countries');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('manufacturer_countries', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['manufacturer_countries'] = $manufacturer_countries;
 
@@ -911,7 +978,14 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTags($tags)
     {
         if (is_null($tags)) {
-            throw new \InvalidArgumentException('non-nullable tags cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tags');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tags', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tags'] = $tags;
 
@@ -1003,6 +1077,7 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets customs_commodity_code
      *
      * @return string|null
+     * @deprecated
      */
     public function getCustomsCommodityCode()
     {
@@ -1012,9 +1087,10 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets customs_commodity_code
      *
-     * @param string|null $customs_commodity_code Код товара в единой Товарной номенклатуре внешнеэкономической деятельности (ТН ВЭД) — 10 или 14 цифр без пробелов.  Обязательно укажите, если он есть.
+     * @param string|null $customs_commodity_code {% note warning \"Этот параметр устарел\" %}  Вместо него используйте `commodityCodes` с типом `CUSTOMS_COMMODITY_CODE`.  {% endnote %}  Код товара в единой Товарной номенклатуре внешнеэкономической деятельности (ТН ВЭД) — 10 или 14 цифр без пробелов.  Обязательно укажите, если он есть.
      *
      * @return self
+     * @deprecated
      */
     public function setCustomsCommodityCode($customs_commodity_code)
     {
@@ -1022,6 +1098,40 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable customs_commodity_code cannot be null');
         }
         $this->container['customs_commodity_code'] = $customs_commodity_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets commodity_codes
+     *
+     * @return \YandexMarketApi\Model\CommodityCodeDTO[]|null
+     */
+    public function getCommodityCodes()
+    {
+        return $this->container['commodity_codes'];
+    }
+
+    /**
+     * Sets commodity_codes
+     *
+     * @param \YandexMarketApi\Model\CommodityCodeDTO[]|null $commodity_codes Товарные коды.
+     *
+     * @return self
+     */
+    public function setCommodityCodes($commodity_codes)
+    {
+        if (is_null($commodity_codes)) {
+            array_push($this->openAPINullablesSetToNull, 'commodity_codes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('commodity_codes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['commodity_codes'] = $commodity_codes;
 
         return $this;
     }
@@ -1046,7 +1156,14 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCertificates($certificates)
     {
         if (is_null($certificates)) {
-            throw new \InvalidArgumentException('non-nullable certificates cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'certificates');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('certificates', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['certificates'] = $certificates;
 
@@ -1219,6 +1336,7 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets params
      *
      * @return \YandexMarketApi\Model\OfferParamDTO[]|null
+     * @deprecated
      */
     public function getParams()
     {
@@ -1228,16 +1346,89 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets params
      *
-     * @param \YandexMarketApi\Model\OfferParamDTO[]|null $params Характеристики, которые есть только у товаров конкретной категории — например, диаметр колес велосипеда или материал подошвы обуви.
+     * @param \YandexMarketApi\Model\OfferParamDTO[]|null $params {% note warning \"Этот параметр устарел\" %}  При передаче характеристик используйте `parameterValues`.  {% endnote %}  Характеристики, которые есть только у товаров конкретной категории — например, диаметр колес велосипеда или материал подошвы обуви.
      *
      * @return self
+     * @deprecated
      */
     public function setParams($params)
     {
         if (is_null($params)) {
-            throw new \InvalidArgumentException('non-nullable params cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'params');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('params', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['params'] = $params;
+
+        return $this;
+    }
+
+    /**
+     * Gets parameter_values
+     *
+     * @return \YandexMarketApi\Model\ParameterValueDTO[]|null
+     */
+    public function getParameterValues()
+    {
+        return $this->container['parameter_values'];
+    }
+
+    /**
+     * Sets parameter_values
+     *
+     * @param \YandexMarketApi\Model\ParameterValueDTO[]|null $parameter_values Список характеристик с их значениями.  С `parameterValues` обязательно передавайте `marketCategoryId` — идентификатор категории на Маркете, к которой относятся указанные характеристики товара.  При **изменении** характеристик передавайте только те, значение которых нужно обновить. Если в `marketCategoryId` вы меняете категорию, значения общих характеристик для старой и новой категории сохранятся, передавать их не нужно.  Чтобы **удалить** значение заданной характеристики, передайте ее `parameterId` с пустым `value`.  Максимальное количество характеристик — 300.
+     *
+     * @return self
+     */
+    public function setParameterValues($parameter_values)
+    {
+        if (is_null($parameter_values)) {
+            array_push($this->openAPINullablesSetToNull, 'parameter_values');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parameter_values', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($parameter_values) && (count($parameter_values) > 300)) {
+            throw new \InvalidArgumentException('invalid value for $parameter_values when calling UpdateOfferDTO., number of items must be less than or equal to 300.');
+        }
+        $this->container['parameter_values'] = $parameter_values;
+
+        return $this;
+    }
+
+    /**
+     * Gets basic_price
+     *
+     * @return \YandexMarketApi\Model\UpdatePriceWithDiscountDTO|null
+     */
+    public function getBasicPrice()
+    {
+        return $this->container['basic_price'];
+    }
+
+    /**
+     * Sets basic_price
+     *
+     * @param \YandexMarketApi\Model\UpdatePriceWithDiscountDTO|null $basic_price basic_price
+     *
+     * @return self
+     */
+    public function setBasicPrice($basic_price)
+    {
+        if (is_null($basic_price)) {
+            throw new \InvalidArgumentException('non-nullable basic_price cannot be null');
+        }
+        $this->container['basic_price'] = $basic_price;
 
         return $this;
     }
@@ -1319,6 +1510,33 @@ class UpdateOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable cofinance_price cannot be null');
         }
         $this->container['cofinance_price'] = $cofinance_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets first_video_as_cover
+     *
+     * @return bool|null
+     */
+    public function getFirstVideoAsCover()
+    {
+        return $this->container['first_video_as_cover'];
+    }
+
+    /**
+     * Sets first_video_as_cover
+     *
+     * @param bool|null $first_video_as_cover Использовать первое видео в карточке как видеообложку.  Передайте `true`, чтобы первое видео использовалось как видеообложка, или `false`, чтобы видеообложка не отображалась в карточке товара.
+     *
+     * @return self
+     */
+    public function setFirstVideoAsCover($first_video_as_cover)
+    {
+        if (is_null($first_video_as_cover)) {
+            throw new \InvalidArgumentException('non-nullable first_video_as_cover cannot be null');
+        }
+        $this->container['first_video_as_cover'] = $first_video_as_cover;
 
         return $this;
     }

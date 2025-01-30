@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderPaymentMethodType Class Doc Comment
  *
  * @category Class
- * @description Способ оплаты заказа.  Возможные значения, если выбрана оплата при оформлении заказа (&#x60;\&quot;paymentType\&quot;: \&quot;PREPAID\&quot;&#x60;):  * &#x60;YANDEX&#x60; — банковской картой.  * &#x60;APPLE_PAY&#x60; — Apple Pay.  * &#x60;GOOGLE_PAY&#x60; — Google Pay.  * &#x60;CREDIT&#x60; — в кредит.  * &#x60;TINKOFF_CREDIT&#x60; — в кредит в Тинькофф Банке.  * &#x60;TINKOFF_INSTALLMENTS&#x60; — рассрочка в Тинькофф Банке.  * &#x60;EXTERNAL_CERTIFICATE&#x60; — подарочным сертификатом (например, из приложения «Сбербанк Онлайн»).  * &#x60;SBP&#x60; — через систему быстрых платежей.  * &#x60;B2B_ACCOUNT_PREPAYMENT&#x60; — заказ оплачивает организация.   Возможные значения, если выбрана оплата при получении заказа (&#x60;\&quot;paymentType\&quot;: \&quot;POSTPAID\&quot;&#x60;):  * &#x60;CARD_ON_DELIVERY&#x60; — банковской картой.  * &#x60;CASH_ON_DELIVERY&#x60; — наличными.  * &#x60;B2B_ACCOUNT_POSTPAYMENT&#x60; — заказ оплачивает организация после доставки.  Значение по умолчанию: &#x60;CASH_ON_DELIVERY&#x60;.  * &#x60;UNKNOWN&#x60; — неизвестный тип.
+ * @description Способ оплаты заказа:  * Значения, если выбрана оплата при оформлении заказа (&#x60;\&quot;paymentType\&quot;: \&quot;PREPAID\&quot;&#x60;):    * &#x60;YANDEX&#x60; — банковской картой.    * &#x60;APPLE_PAY&#x60; — Apple Pay.    * &#x60;GOOGLE_PAY&#x60; — Google Pay.    * &#x60;CREDIT&#x60; — в кредит.    * &#x60;TINKOFF_CREDIT&#x60; — в кредит в Тинькофф Банке.    * &#x60;TINKOFF_INSTALLMENTS&#x60; — рассрочка в Тинькофф Банке.    * &#x60;EXTERNAL_CERTIFICATE&#x60; — подарочным сертификатом (например, из приложения «Сбербанк Онлайн»).    * &#x60;SBP&#x60; — через систему быстрых платежей.    * &#x60;B2B_ACCOUNT_PREPAYMENT&#x60; — заказ оплачивает организация.   * Значения, если выбрана оплата при получении заказа (&#x60;\&quot;paymentType\&quot;: \&quot;POSTPAID\&quot;&#x60;):    * &#x60;CARD_ON_DELIVERY&#x60; — банковской картой.    * &#x60;BOUND_CARD_ON_DELIVERY&#x60; — привязанной картой при получении.    * &#x60;CASH_ON_DELIVERY&#x60; — наличными.    * &#x60;B2B_ACCOUNT_POSTPAYMENT&#x60; — заказ оплачивает организация после доставки.  * &#x60;UNKNOWN&#x60; — неизвестный тип.  Значение по умолчанию: &#x60;CASH_ON_DELIVERY&#x60;.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -46,6 +46,8 @@ class OrderPaymentMethodType
     public const CASH_ON_DELIVERY = 'CASH_ON_DELIVERY';
 
     public const CARD_ON_DELIVERY = 'CARD_ON_DELIVERY';
+
+    public const BOUND_CARD_ON_DELIVERY = 'BOUND_CARD_ON_DELIVERY';
 
     public const YANDEX = 'YANDEX';
 
@@ -78,6 +80,7 @@ class OrderPaymentMethodType
         return [
             self::CASH_ON_DELIVERY,
             self::CARD_ON_DELIVERY,
+            self::BOUND_CARD_ON_DELIVERY,
             self::YANDEX,
             self::APPLE_PAY,
             self::EXTERNAL_CERTIFICATE,

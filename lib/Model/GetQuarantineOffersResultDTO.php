@@ -282,6 +282,9 @@ class GetQuarantineOffersResultDTO implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
+        if ($this->container['offers'] === null) {
+            $invalidProperties[] = "'offers' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -327,7 +330,7 @@ class GetQuarantineOffersResultDTO implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets offers
      *
-     * @return \YandexMarketApi\Model\QuarantineOfferDTO[]|null
+     * @return \YandexMarketApi\Model\QuarantineOfferDTO[]
      */
     public function getOffers()
     {
@@ -337,7 +340,7 @@ class GetQuarantineOffersResultDTO implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets offers
      *
-     * @param \YandexMarketApi\Model\QuarantineOfferDTO[]|null $offers Страница списка товаров в карантине.
+     * @param \YandexMarketApi\Model\QuarantineOfferDTO[] $offers Страница списка товаров в карантине.
      *
      * @return self
      */

@@ -86,11 +86,11 @@ class GetQuarantineOffersRequest implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'offer_ids' => false,
-		'card_statuses' => false,
-		'category_ids' => false,
-		'vendor_names' => false,
-		'tags' => false
+        'offer_ids' => true,
+		'card_statuses' => true,
+		'category_ids' => true,
+		'vendor_names' => true,
+		'tags' => true
     ];
 
     /**
@@ -303,6 +303,30 @@ class GetQuarantineOffersRequest implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['offer_ids']) && (count($this->container['offer_ids']) > 500)) {
+            $invalidProperties[] = "invalid value for 'offer_ids', number of items must be less than or equal to 500.";
+        }
+
+        if (!is_null($this->container['offer_ids']) && (count($this->container['offer_ids']) < 1)) {
+            $invalidProperties[] = "invalid value for 'offer_ids', number of items must be greater than or equal to 1.";
+        }
+
+        if (!is_null($this->container['card_statuses']) && (count($this->container['card_statuses']) < 1)) {
+            $invalidProperties[] = "invalid value for 'card_statuses', number of items must be greater than or equal to 1.";
+        }
+
+        if (!is_null($this->container['category_ids']) && (count($this->container['category_ids']) < 1)) {
+            $invalidProperties[] = "invalid value for 'category_ids', number of items must be greater than or equal to 1.";
+        }
+
+        if (!is_null($this->container['vendor_names']) && (count($this->container['vendor_names']) < 1)) {
+            $invalidProperties[] = "invalid value for 'vendor_names', number of items must be greater than or equal to 1.";
+        }
+
+        if (!is_null($this->container['tags']) && (count($this->container['tags']) < 1)) {
+            $invalidProperties[] = "invalid value for 'tags', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -338,7 +362,21 @@ class GetQuarantineOffersRequest implements ModelInterface, ArrayAccess, \JsonSe
     public function setOfferIds($offer_ids)
     {
         if (is_null($offer_ids)) {
-            throw new \InvalidArgumentException('non-nullable offer_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'offer_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('offer_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($offer_ids) && (count($offer_ids) > 500)) {
+            throw new \InvalidArgumentException('invalid value for $offer_ids when calling GetQuarantineOffersRequest., number of items must be less than or equal to 500.');
+        }
+        if (!is_null($offer_ids) && (count($offer_ids) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $offer_ids when calling GetQuarantineOffersRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['offer_ids'] = $offer_ids;
 
@@ -365,7 +403,19 @@ class GetQuarantineOffersRequest implements ModelInterface, ArrayAccess, \JsonSe
     public function setCardStatuses($card_statuses)
     {
         if (is_null($card_statuses)) {
-            throw new \InvalidArgumentException('non-nullable card_statuses cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'card_statuses');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('card_statuses', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+
+        if (!is_null($card_statuses) && (count($card_statuses) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $card_statuses when calling GetQuarantineOffersRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['card_statuses'] = $card_statuses;
 
@@ -392,7 +442,19 @@ class GetQuarantineOffersRequest implements ModelInterface, ArrayAccess, \JsonSe
     public function setCategoryIds($category_ids)
     {
         if (is_null($category_ids)) {
-            throw new \InvalidArgumentException('non-nullable category_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+
+        if (!is_null($category_ids) && (count($category_ids) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $category_ids when calling GetQuarantineOffersRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['category_ids'] = $category_ids;
 
@@ -419,7 +481,19 @@ class GetQuarantineOffersRequest implements ModelInterface, ArrayAccess, \JsonSe
     public function setVendorNames($vendor_names)
     {
         if (is_null($vendor_names)) {
-            throw new \InvalidArgumentException('non-nullable vendor_names cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'vendor_names');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('vendor_names', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+
+        if (!is_null($vendor_names) && (count($vendor_names) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $vendor_names when calling GetQuarantineOffersRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['vendor_names'] = $vendor_names;
 
@@ -446,7 +520,19 @@ class GetQuarantineOffersRequest implements ModelInterface, ArrayAccess, \JsonSe
     public function setTags($tags)
     {
         if (is_null($tags)) {
-            throw new \InvalidArgumentException('non-nullable tags cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tags');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tags', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+
+        if (!is_null($tags) && (count($tags) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $tags when calling GetQuarantineOffersRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['tags'] = $tags;
 

@@ -370,7 +370,7 @@ class ShipmentInfoDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets status_update_time
      *
-     * @param \DateTime|null $status_update_time Время последнего изменения статуса отгрузки.
+     * @param \DateTime|null $status_update_time Время последнего изменения статуса отгрузки  Формат даты: ISO 8601 со смещением относительно UTC.
      *
      * @return self
      */

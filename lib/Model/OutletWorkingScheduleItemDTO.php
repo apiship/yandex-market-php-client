@@ -305,15 +305,15 @@ class OutletWorkingScheduleItemDTO implements ModelInterface, ArrayAccess, \Json
         if ($this->container['start_time'] === null) {
             $invalidProperties[] = "'start_time' can't be null";
         }
-        if ((mb_strlen($this->container['start_time']) < 1)) {
-            $invalidProperties[] = "invalid value for 'start_time', the character length must be bigger than or equal to 1.";
+        if (!preg_match("/^([0-1][0-9]|2[0-3]):[0-5][0-9]$/", $this->container['start_time'])) {
+            $invalidProperties[] = "invalid value for 'start_time', must be conform to the pattern /^([0-1][0-9]|2[0-3]):[0-5][0-9]$/.";
         }
 
         if ($this->container['end_time'] === null) {
             $invalidProperties[] = "'end_time' can't be null";
         }
-        if ((mb_strlen($this->container['end_time']) < 1)) {
-            $invalidProperties[] = "invalid value for 'end_time', the character length must be bigger than or equal to 1.";
+        if (!preg_match("/^([0-1][0-9]|2[0-3]):[0-5][0-9]$/", $this->container['end_time'])) {
+            $invalidProperties[] = "invalid value for 'end_time', must be conform to the pattern /^([0-1][0-9]|2[0-3]):[0-5][0-9]$/.";
         }
 
         return $invalidProperties;
@@ -398,7 +398,7 @@ class OutletWorkingScheduleItemDTO implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets start_time
      *
-     * @param string $start_time Точка продаж работает c указанного часа. Формат: `ЧЧ:ММ`.
+     * @param string $start_time Точка продаж работает c указанного часа.  Формат: `ЧЧ:ММ`.
      *
      * @return self
      */
@@ -408,8 +408,8 @@ class OutletWorkingScheduleItemDTO implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable start_time cannot be null');
         }
 
-        if ((mb_strlen($start_time) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $start_time when calling OutletWorkingScheduleItemDTO., must be bigger than or equal to 1.');
+        if ((!preg_match("/^([0-1][0-9]|2[0-3]):[0-5][0-9]$/", $start_time))) {
+            throw new \InvalidArgumentException("invalid value for \$start_time when calling OutletWorkingScheduleItemDTO., must conform to the pattern /^([0-1][0-9]|2[0-3]):[0-5][0-9]$/.");
         }
 
         $this->container['start_time'] = $start_time;
@@ -430,7 +430,7 @@ class OutletWorkingScheduleItemDTO implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets end_time
      *
-     * @param string $end_time Точка продаж работает до указанного часа. Формат: `ЧЧ:ММ`.
+     * @param string $end_time Точка продаж работает до указанного часа.  Формат: `ЧЧ:ММ`.
      *
      * @return self
      */
@@ -440,8 +440,8 @@ class OutletWorkingScheduleItemDTO implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable end_time cannot be null');
         }
 
-        if ((mb_strlen($end_time) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $end_time when calling OutletWorkingScheduleItemDTO., must be bigger than or equal to 1.');
+        if ((!preg_match("/^([0-1][0-9]|2[0-3]):[0-5][0-9]$/", $end_time))) {
+            throw new \InvalidArgumentException("invalid value for \$end_time when calling OutletWorkingScheduleItemDTO., must conform to the pattern /^([0-1][0-9]|2[0-3]):[0-5][0-9]$/.");
         }
 
         $this->container['end_time'] = $end_time;

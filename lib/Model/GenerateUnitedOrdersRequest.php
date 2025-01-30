@@ -61,7 +61,8 @@ class GenerateUnitedOrdersRequest implements ModelInterface, ArrayAccess, \JsonS
         'business_id' => 'int',
         'date_from' => '\DateTime',
         'date_to' => '\DateTime',
-        'campaign_ids' => 'int[]'
+        'campaign_ids' => 'int[]',
+        'promo_id' => 'string'
     ];
 
     /**
@@ -75,7 +76,8 @@ class GenerateUnitedOrdersRequest implements ModelInterface, ArrayAccess, \JsonS
         'business_id' => 'int64',
         'date_from' => 'date',
         'date_to' => 'date',
-        'campaign_ids' => 'int64'
+        'campaign_ids' => 'int64',
+        'promo_id' => null
     ];
 
     /**
@@ -87,7 +89,8 @@ class GenerateUnitedOrdersRequest implements ModelInterface, ArrayAccess, \JsonS
         'business_id' => false,
 		'date_from' => false,
 		'date_to' => false,
-		'campaign_ids' => false
+		'campaign_ids' => true,
+		'promo_id' => false
     ];
 
     /**
@@ -179,7 +182,8 @@ class GenerateUnitedOrdersRequest implements ModelInterface, ArrayAccess, \JsonS
         'business_id' => 'businessId',
         'date_from' => 'dateFrom',
         'date_to' => 'dateTo',
-        'campaign_ids' => 'campaignIds'
+        'campaign_ids' => 'campaignIds',
+        'promo_id' => 'promoId'
     ];
 
     /**
@@ -191,7 +195,8 @@ class GenerateUnitedOrdersRequest implements ModelInterface, ArrayAccess, \JsonS
         'business_id' => 'setBusinessId',
         'date_from' => 'setDateFrom',
         'date_to' => 'setDateTo',
-        'campaign_ids' => 'setCampaignIds'
+        'campaign_ids' => 'setCampaignIds',
+        'promo_id' => 'setPromoId'
     ];
 
     /**
@@ -203,7 +208,8 @@ class GenerateUnitedOrdersRequest implements ModelInterface, ArrayAccess, \JsonS
         'business_id' => 'getBusinessId',
         'date_from' => 'getDateFrom',
         'date_to' => 'getDateTo',
-        'campaign_ids' => 'getCampaignIds'
+        'campaign_ids' => 'getCampaignIds',
+        'promo_id' => 'getPromoId'
     ];
 
     /**
@@ -267,6 +273,7 @@ class GenerateUnitedOrdersRequest implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('date_from', $data ?? [], null);
         $this->setIfExists('date_to', $data ?? [], null);
         $this->setIfExists('campaign_ids', $data ?? [], null);
+        $this->setIfExists('promo_id', $data ?? [], null);
     }
 
     /**
@@ -421,9 +428,43 @@ class GenerateUnitedOrdersRequest implements ModelInterface, ArrayAccess, \JsonS
     public function setCampaignIds($campaign_ids)
     {
         if (is_null($campaign_ids)) {
-            throw new \InvalidArgumentException('non-nullable campaign_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_ids'] = $campaign_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets promo_id
+     *
+     * @return string|null
+     */
+    public function getPromoId()
+    {
+        return $this->container['promo_id'];
+    }
+
+    /**
+     * Sets promo_id
+     *
+     * @param string|null $promo_id Идентификатор акции, товары из которой нужны в отчете.
+     *
+     * @return self
+     */
+    public function setPromoId($promo_id)
+    {
+        if (is_null($promo_id)) {
+            throw new \InvalidArgumentException('non-nullable promo_id cannot be null');
+        }
+        $this->container['promo_id'] = $promo_id;
 
         return $this;
     }

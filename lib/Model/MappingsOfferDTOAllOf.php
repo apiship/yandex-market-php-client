@@ -302,7 +302,7 @@ class MappingsOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets price
      *
-     * @param float|null $price Цена товара в рублях.
+     * @param float|null $price Цена на товар.
      *
      * @return self
      */

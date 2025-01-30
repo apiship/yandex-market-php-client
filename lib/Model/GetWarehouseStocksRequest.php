@@ -84,7 +84,7 @@ class GetWarehouseStocksRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static array $openAPINullables = [
         'with_turnover' => false,
 		'archived' => false,
-		'offer_ids' => false
+		'offer_ids' => true
     ];
 
     /**
@@ -293,6 +293,10 @@ class GetWarehouseStocksRequest implements ModelInterface, ArrayAccess, \JsonSer
             $invalidProperties[] = "invalid value for 'offer_ids', number of items must be less than or equal to 500.";
         }
 
+        if (!is_null($this->container['offer_ids']) && (count($this->container['offer_ids']) < 1)) {
+            $invalidProperties[] = "invalid value for 'offer_ids', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -321,7 +325,7 @@ class GetWarehouseStocksRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets with_turnover
      *
-     * @param bool|null $with_turnover Возвращать ли информацию по оборачиваемости (FBY).  Значение по умолчанию — `false`. Передавайте `true`, если информация нужна.
+     * @param bool|null $with_turnover **Только для модели FBY**  Возвращать ли информацию по оборачиваемости.  Значение по умолчанию: `false`. Если информация нужна, передайте значение `true`.
      *
      * @return self
      */
@@ -375,18 +379,28 @@ class GetWarehouseStocksRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets offer_ids
      *
-     * @param string[]|null $offer_ids Фильтр по вашим SKU товаров.  Возвращается информация об остатках всех переданных SKU, включая товары в архиве.  {% note warning \"Такой список возвращается только целиком\" %}  Если вы запрашиваете информацию по конкретным SKU, не заполняйте:  * `page_token`; * `limit`; * `archived`.  {% endnote %}   
+     * @param string[]|null $offer_ids Фильтр по вашим SKU товаров.  Возвращается информация об остатках всех переданных SKU, включая товары в архиве.  {% note warning \"Такой список возвращается только целиком\" %}  Если вы запрашиваете информацию по конкретным SKU, не заполняйте:  * `page_token` * `limit` * `archived`  {% endnote %}   
      *
      * @return self
      */
     public function setOfferIds($offer_ids)
     {
         if (is_null($offer_ids)) {
-            throw new \InvalidArgumentException('non-nullable offer_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'offer_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('offer_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if ((count($offer_ids) > 500)) {
+        if (!is_null($offer_ids) && (count($offer_ids) > 500)) {
             throw new \InvalidArgumentException('invalid value for $offer_ids when calling GetWarehouseStocksRequest., number of items must be less than or equal to 500.');
+        }
+        if (!is_null($offer_ids) && (count($offer_ids) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $offer_ids when calling GetWarehouseStocksRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['offer_ids'] = $offer_ids;
 

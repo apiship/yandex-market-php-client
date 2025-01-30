@@ -348,7 +348,7 @@ class OfferCardRecommendationDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets percent
      *
-     * @param int|null $percent Процент выполнения рекомендации. Указывается для рекомендаций некоторых типов.
+     * @param int|null $percent Процент выполнения рекомендации.  Указывается для рекомендаций некоторых типов:  * `PICTURE_COUNT`. * `VIDEO_COUNT`. * `MAIN`. * `ADDITIONAL`. * `DISTINCTIVE`.
      *
      * @return self
      */

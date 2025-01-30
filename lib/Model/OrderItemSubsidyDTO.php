@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderItemSubsidyDTO Class Doc Comment
  *
  * @category Class
- * @description Общее вознаграждение партнеру за DBS-доставку и все скидки на товар:  * по промокодам; * по купонам; * по баллам Плюса; * по акциям.  Передается в валюте заказа, для отделения целой части от дробной используется точка.
+ * @description Общее вознаграждение партнеру за все скидки на товар:  * по промокодам, купонам и акциям; * по баллам Плюса.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,7 +58,7 @@ class OrderItemSubsidyDTO implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\YandexMarketApi\Model\OrderSubsidyType',
+        'type' => '\YandexMarketApi\Model\OrderItemSubsidyType',
         'amount' => 'float'
     ];
 
@@ -282,6 +282,12 @@ class OrderItemSubsidyDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -300,7 +306,7 @@ class OrderItemSubsidyDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets type
      *
-     * @return \YandexMarketApi\Model\OrderSubsidyType|null
+     * @return \YandexMarketApi\Model\OrderItemSubsidyType
      */
     public function getType()
     {
@@ -310,7 +316,7 @@ class OrderItemSubsidyDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets type
      *
-     * @param \YandexMarketApi\Model\OrderSubsidyType|null $type type
+     * @param \YandexMarketApi\Model\OrderItemSubsidyType $type type
      *
      * @return self
      */
@@ -327,7 +333,7 @@ class OrderItemSubsidyDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets amount
      *
-     * @return float|null
+     * @return float
      */
     public function getAmount()
     {
@@ -337,7 +343,7 @@ class OrderItemSubsidyDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets amount
      *
-     * @param float|null $amount Сумма субсидии.
+     * @param float $amount Сумма субсидии.
      *
      * @return self
      */

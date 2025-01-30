@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderItemInstanceType Class Doc Comment
  *
  * @category Class
- * @description Вид маркировки товара.  * &#x60;CIS&#x60; — КИЗ, идентификатор \&quot;четный знак\&quot;.  * &#x60;UIN&#x60; — УИН, уникальный идентификационный номер.  * &#x60;RNPT&#x60; — РНПТ, регистрационный номер партии товара.  * &#x60;GTD&#x60; — номер ГТД, грузовой таможенной декларации.
+ * @description Вид маркировки товара:  * &#x60;CIS&#x60; — КИЗ, идентификатор единицы товара [в системе «Честный ЗНАК»](https://честныйзнак.рф/). Обязателен для заполнения.  * &#x60;CIS_OPTIONAL&#x60; — КИЗ, идентификатор единицы товара [в системе «Честный ЗНАК»](https://честныйзнак.рф/). Необязателен для заполнения, но в ближайшее время потребуется его передача.  * &#x60;UIN&#x60; — УИН, уникальный идентификационный номер.  * &#x60;RNPT&#x60; — РНПТ, регистрационный номер партии товара.  * &#x60;GTD&#x60; — номер ГТД, грузовой таможенной декларации.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -44,6 +44,8 @@ class OrderItemInstanceType
      * Possible values of this enum
      */
     public const CIS = 'CIS';
+
+    public const CIS_OPTIONAL = 'CIS_OPTIONAL';
 
     public const UIN = 'UIN';
 
@@ -59,6 +61,7 @@ class OrderItemInstanceType
     {
         return [
             self::CIS,
+            self::CIS_OPTIONAL,
             self::UIN,
             self::RNPT,
             self::GTD

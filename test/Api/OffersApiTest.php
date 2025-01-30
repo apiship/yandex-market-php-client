@@ -98,7 +98,7 @@ class OffersApiTest extends TestCase
     /**
      * Test case for getCampaignOffers
      *
-     * Список товаров, размещенных в заданном магазине, с параметрами размещения.
+     * Информация о товарах, которые размещены в заданном магазине.
      *
      */
     public function testGetCampaignOffers()
@@ -134,7 +134,7 @@ class OffersApiTest extends TestCase
     /**
      * Test case for updateCampaignOffers
      *
-     * Настройка размещения товаров в магазине.
+     * Изменение условий продажи товаров в магазине.
      *
      */
     public function testUpdateCampaignOffers()

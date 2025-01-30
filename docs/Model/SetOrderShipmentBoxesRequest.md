@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**boxes** | [**\YandexMarketApi\Model\ParcelBoxDTO[]**](ParcelBoxDTO.md) | Список грузовых мест. Маркет определяет количество мест по длине этого списка. |
+**boxes** | [**\YandexMarketApi\Model\ParcelBoxRequestDTO[]**](ParcelBoxRequestDTO.md) | Список грузовых мест. По его длине Маркет определяет количество мест. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

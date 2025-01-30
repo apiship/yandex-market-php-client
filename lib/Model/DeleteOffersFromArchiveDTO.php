@@ -78,7 +78,7 @@ class DeleteOffersFromArchiveDTO implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'not_unarchived_offer_ids' => false
+        'not_unarchived_offer_ids' => true
     ];
 
     /**
@@ -310,7 +310,14 @@ class DeleteOffersFromArchiveDTO implements ModelInterface, ArrayAccess, \JsonSe
     public function setNotUnarchivedOfferIds($not_unarchived_offer_ids)
     {
         if (is_null($not_unarchived_offer_ids)) {
-            throw new \InvalidArgumentException('non-nullable not_unarchived_offer_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'not_unarchived_offer_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('not_unarchived_offer_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['not_unarchived_offer_ids'] = $not_unarchived_offer_ids;
 

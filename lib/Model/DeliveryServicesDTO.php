@@ -275,6 +275,9 @@ class DeliveryServicesDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if ($this->container['delivery_service'] === null) {
+            $invalidProperties[] = "'delivery_service' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -293,7 +296,7 @@ class DeliveryServicesDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets delivery_service
      *
-     * @return \YandexMarketApi\Model\DeliveryServiceInfoDTO[]|null
+     * @return \YandexMarketApi\Model\DeliveryServiceInfoDTO[]
      */
     public function getDeliveryService()
     {
@@ -303,7 +306,7 @@ class DeliveryServicesDTO implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets delivery_service
      *
-     * @param \YandexMarketApi\Model\DeliveryServiceInfoDTO[]|null $delivery_service Информация о службе доставки.
+     * @param \YandexMarketApi\Model\DeliveryServiceInfoDTO[] $delivery_service Информация о службе доставки.
      *
      * @return self
      */

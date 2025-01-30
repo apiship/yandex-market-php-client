@@ -242,6 +242,15 @@ class BaseOfferDTOTest extends TestCase
     }
 
     /**
+     * Test attribute "commodity_codes"
+     */
+    public function testPropertyCommodityCodes()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "certificates"
      */
     public function testPropertyCertificates()

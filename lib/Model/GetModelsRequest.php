@@ -275,6 +275,13 @@ class GetModelsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['models'] === null) {
+            $invalidProperties[] = "'models' can't be null";
+        }
+        if ((count($this->container['models']) < 1)) {
+            $invalidProperties[] = "invalid value for 'models', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -293,7 +300,7 @@ class GetModelsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets models
      *
-     * @return int[]|null
+     * @return int[]
      */
     public function getModels()
     {
@@ -303,7 +310,7 @@ class GetModelsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets models
      *
-     * @param int[]|null $models Список моделей.
+     * @param int[] $models Список моделей.
      *
      * @return self
      */
@@ -311,6 +318,11 @@ class GetModelsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($models)) {
             throw new \InvalidArgumentException('non-nullable models cannot be null');
+        }
+
+
+        if ((count($models) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $models when calling GetModelsRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['models'] = $models;
 

@@ -72,6 +72,18 @@ class CategoriesApiTest extends TestCase
     }
 
     /**
+     * Test case for getCategoriesMaxSaleQuantum
+     *
+     * Лимит на установку кванта продажи и минимального количества товаров в заказе.
+     *
+     */
+    public function testGetCategoriesMaxSaleQuantum()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getCategoriesTree
      *
      * Дерево категорий.

@@ -98,7 +98,7 @@ class RegionsApiTest extends TestCase
     /**
      * Test case for searchRegionsByName
      *
-     * Метод для поиска регионов по их имени.
+     * Поиск регионов по их имени.
      *
      */
     public function testSearchRegionsByName()

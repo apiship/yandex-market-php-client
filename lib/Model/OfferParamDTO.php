@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OfferParamDTO Class Doc Comment
  *
  * @category Class
- * @description Параметры товара.  {% note tip \&quot;\&quot; %}  Используйте [POST businesses/{businessId}/offer-cards/update](../../reference/content/updateOfferContent.md) для передачи характеристик товара, которые специфичны для его категории. Так переданные характеристики с большей вероятностью попадут на карточку.  {% endnote %}
+ * @description Параметры товара.  Если у товара несколько значений одного параметра, передайте их с одним и тем же &#x60;name&#x60;, но разными &#x60;value&#x60;.  {% cut \&quot;Пример\&quot; %}  &#x60;&#x60;&#x60;json \&quot;params\&quot;: [   {     \&quot;name\&quot;: \&quot;Цвет для фильтра\&quot;,     \&quot;value\&quot;: \&quot;Зеленый\&quot;   },   {     \&quot;name\&quot;: \&quot;Цвет для фильтра\&quot;,     \&quot;value\&quot;: \&quot;Желтый\&quot;   } ] &#x60;&#x60;&#x60;  {% endcut %}
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

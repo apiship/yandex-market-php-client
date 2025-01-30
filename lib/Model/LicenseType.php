@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * LicenseType Class Doc Comment
  *
  * @category Class
- * @description Тип лицензии: * &#x60;ALCOHOL&#x60; — лицензия на розничную продажу алкогольной продукции.
+ * @description Тип лицензии:  * &#x60;ALCOHOL&#x60; — лицензия на розничную продажу алкогольной продукции. * &#x60;UNKNOWN&#x60; — неизвестный тип лицензии.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

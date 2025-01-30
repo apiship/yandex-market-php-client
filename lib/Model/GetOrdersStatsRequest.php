@@ -94,8 +94,8 @@ class GetOrdersStatsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 		'date_to' => false,
 		'update_from' => false,
 		'update_to' => false,
-		'orders' => false,
-		'statuses' => false,
+		'orders' => true,
+		'statuses' => true,
 		'has_cis' => false
     ];
 
@@ -372,7 +372,7 @@ class GetOrdersStatsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets date_to
      *
-     * @param \DateTime|null $date_to Конечная дата, когда заказ был сформирован. Формат даты: `ГГГГ‑ММ‑ДД`. Нельзя использовать вместе с параметрами `updateFrom` и `updateTo`.
+     * @param \DateTime|null $date_to Конечная дата, когда заказ был сформирован.  Формат даты: `ГГГГ‑ММ‑ДД`.  Нельзя использовать вместе с параметрами `updateFrom` и `updateTo`.
      *
      * @return self
      */
@@ -399,7 +399,7 @@ class GetOrdersStatsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets update_from
      *
-     * @param \DateTime|null $update_from Начальная дата периода, за который были изменения статуса заказа. Формат даты: `ГГГГ‑ММ‑ДД`. Нельзя использовать вместе с параметрами `dateFrom` и `dateTo`.
+     * @param \DateTime|null $update_from Начальная дата периода, за который были изменения в заказе (например, статуса или информации о платежах).  Формат даты: `ГГГГ‑ММ‑ДД`.  Нельзя использовать вместе с параметрами `dateFrom` и `dateTo`.
      *
      * @return self
      */
@@ -426,7 +426,7 @@ class GetOrdersStatsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets update_to
      *
-     * @param \DateTime|null $update_to Конечная дата периода, за который были изменения статуса заказа. Формат даты: `ГГГГ‑ММ‑ДД`. Нельзя использовать вместе с параметрами `dateFrom` и `dateTo`.
+     * @param \DateTime|null $update_to Конечная дата периода, за который были изменения в заказе (например, статуса или информации о платежах).  Формат даты: `ГГГГ‑ММ‑ДД`.  Нельзя использовать вместе с параметрами `dateFrom` и `dateTo`.
      *
      * @return self
      */
@@ -460,7 +460,14 @@ class GetOrdersStatsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setOrders($orders)
     {
         if (is_null($orders)) {
-            throw new \InvalidArgumentException('non-nullable orders cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'orders');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('orders', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['orders'] = $orders;
 
@@ -487,7 +494,14 @@ class GetOrdersStatsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setStatuses($statuses)
     {
         if (is_null($statuses)) {
-            throw new \InvalidArgumentException('non-nullable statuses cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'statuses');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('statuses', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['statuses'] = $statuses;
 

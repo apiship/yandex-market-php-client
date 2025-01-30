@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * BriefOrderItemInstanceDTO Class Doc Comment
  *
  * @category Class
- * @description Идентификатор единицы товара.  Заполните только одно поле в зависимости от того, в какой системе маркирован товар.  Подробно о работе с маркируемыми товарами рассказано [в Справке](https://yandex.ru/support/marketplace/orders/cz.html).
+ * @description Идентификатор единицы товара.  Заполните только одно поле в зависимости от того, в какой системе маркирован товар.  Подробно о работе с маркируемыми товарами рассказано [в Справке Маркета для продавцов](https://yandex.ru/support/marketplace/orders/cz.html).
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -324,7 +324,7 @@ class BriefOrderItemInstanceDTO implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets cis
      *
-     * @param string|null $cis Код идентификации единицы товара [в системе «Честный ЗНАК»](https://честныйзнак.рф/).  {% note warning %}  Не экранируйте косую черту в коде символа-разделителя `\\u001d`!  ✅ `01030410947874432155Qbag!\\u001d93Zjqw`  ❌ `01030410947874432155Qbag!\\\\u001d93Zjqw`  Косые черты и кавычки в других местах экранируйте по правилам JSON: `\\\\` и `\\\"`  {% endnote %}
+     * @param string|null $cis Код идентификации единицы товара [в системе «Честный ЗНАК»](https://честныйзнак.рф/).  {% note warning \"Не экранируйте косую черту в коде символа-разделителя `\\u001d`\" %}  ✅ `01030410947874432155Qbag!\\u001d93Zjqw`  ❌ `01030410947874432155Qbag!\\\\u001d93Zjqw`  Косые черты и кавычки в других местах экранируйте по правилам JSON: `\\\\` и `\\\"`  {% endnote %}
      *
      * @return self
      */

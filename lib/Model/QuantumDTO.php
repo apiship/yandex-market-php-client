@@ -282,10 +282,6 @@ class QuantumDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['min_quantity']) && ($this->container['min_quantity'] > 100)) {
-            $invalidProperties[] = "invalid value for 'min_quantity', must be smaller than or equal to 100.";
-        }
-
         if (!is_null($this->container['min_quantity']) && ($this->container['min_quantity'] < 1)) {
             $invalidProperties[] = "invalid value for 'min_quantity', must be bigger than or equal to 1.";
         }
@@ -336,9 +332,6 @@ class QuantumDTO implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable min_quantity cannot be null');
         }
 
-        if (($min_quantity > 100)) {
-            throw new \InvalidArgumentException('invalid value for $min_quantity when calling QuantumDTO., must be smaller than or equal to 100.');
-        }
         if (($min_quantity < 1)) {
             throw new \InvalidArgumentException('invalid value for $min_quantity when calling QuantumDTO., must be bigger than or equal to 1.');
         }

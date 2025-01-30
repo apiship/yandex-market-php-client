@@ -77,7 +77,7 @@ class GetSuggestedOfferMappingsRequest implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'offers' => false
+        'offers' => true
     ];
 
     /**
@@ -274,6 +274,14 @@ class GetSuggestedOfferMappingsRequest implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['offers']) && (count($this->container['offers']) > 500)) {
+            $invalidProperties[] = "invalid value for 'offers', number of items must be less than or equal to 500.";
+        }
+
+        if (!is_null($this->container['offers']) && (count($this->container['offers']) < 1)) {
+            $invalidProperties[] = "invalid value for 'offers', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -309,7 +317,21 @@ class GetSuggestedOfferMappingsRequest implements ModelInterface, ArrayAccess, \
     public function setOffers($offers)
     {
         if (is_null($offers)) {
-            throw new \InvalidArgumentException('non-nullable offers cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'offers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('offers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($offers) && (count($offers) > 500)) {
+            throw new \InvalidArgumentException('invalid value for $offers when calling GetSuggestedOfferMappingsRequest., number of items must be less than or equal to 500.');
+        }
+        if (!is_null($offers) && (count($offers) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $offers when calling GetSuggestedOfferMappingsRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['offers'] = $offers;
 

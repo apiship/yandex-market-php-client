@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * BidRecommendationItemDTO Class Doc Comment
  *
  * @category Class
- * @description Рекомендованная ставка и возможная доля показов.
+ * @description Рекомендованная ставка, возможная доля показов и доступные дополнительные инструменты продвижения.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,7 +59,8 @@ class BidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPITypes = [
         'bid' => 'int',
-        'show_percent' => 'int'
+        'show_percent' => 'int',
+        'benefits' => '\YandexMarketApi\Model\BenefitType[]'
     ];
 
     /**
@@ -71,7 +72,8 @@ class BidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPIFormats = [
         'bid' => 'int32',
-        'show_percent' => 'int64'
+        'show_percent' => 'int64',
+        'benefits' => null
     ];
 
     /**
@@ -81,7 +83,8 @@ class BidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static array $openAPINullables = [
         'bid' => false,
-		'show_percent' => false
+		'show_percent' => false,
+		'benefits' => true
     ];
 
     /**
@@ -171,7 +174,8 @@ class BidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $attributeMap = [
         'bid' => 'bid',
-        'show_percent' => 'showPercent'
+        'show_percent' => 'showPercent',
+        'benefits' => 'benefits'
     ];
 
     /**
@@ -181,7 +185,8 @@ class BidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $setters = [
         'bid' => 'setBid',
-        'show_percent' => 'setShowPercent'
+        'show_percent' => 'setShowPercent',
+        'benefits' => 'setBenefits'
     ];
 
     /**
@@ -191,7 +196,8 @@ class BidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $getters = [
         'bid' => 'getBid',
-        'show_percent' => 'getShowPercent'
+        'show_percent' => 'getShowPercent',
+        'benefits' => 'getBenefits'
     ];
 
     /**
@@ -253,6 +259,7 @@ class BidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $this->setIfExists('bid', $data ?? [], null);
         $this->setIfExists('show_percent', $data ?? [], null);
+        $this->setIfExists('benefits', $data ?? [], null);
     }
 
     /**
@@ -302,6 +309,10 @@ class BidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonSeri
 
         if (($this->container['show_percent'] < 0)) {
             $invalidProperties[] = "invalid value for 'show_percent', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['benefits']) && (count($this->container['benefits']) < 1)) {
+            $invalidProperties[] = "invalid value for 'benefits', number of items must be greater than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -385,6 +396,45 @@ class BidRecommendationItemDTO implements ModelInterface, ArrayAccess, \JsonSeri
         }
 
         $this->container['show_percent'] = $show_percent;
+
+        return $this;
+    }
+
+    /**
+     * Gets benefits
+     *
+     * @return \YandexMarketApi\Model\BenefitType[]|null
+     */
+    public function getBenefits()
+    {
+        return $this->container['benefits'];
+    }
+
+    /**
+     * Sets benefits
+     *
+     * @param \YandexMarketApi\Model\BenefitType[]|null $benefits Список доступных субсидий.  Чтобы получить необходимый инструмент продвижения, установите ставку, которая будет рекомендована для этого инструмента или выше.
+     *
+     * @return self
+     */
+    public function setBenefits($benefits)
+    {
+        if (is_null($benefits)) {
+            array_push($this->openAPINullablesSetToNull, 'benefits');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('benefits', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+
+        if (!is_null($benefits) && (count($benefits) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $benefits when calling BidRecommendationItemDTO., number of items must be greater than or equal to 1.');
+        }
+        $this->container['benefits'] = $benefits;
 
         return $this;
     }

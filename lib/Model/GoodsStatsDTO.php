@@ -275,6 +275,9 @@ class GoodsStatsDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['shop_skus'] === null) {
+            $invalidProperties[] = "'shop_skus' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -293,7 +296,7 @@ class GoodsStatsDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets shop_skus
      *
-     * @return \YandexMarketApi\Model\GoodsStatsGoodsDTO[]|null
+     * @return \YandexMarketApi\Model\GoodsStatsGoodsDTO[]
      */
     public function getShopSkus()
     {
@@ -303,7 +306,7 @@ class GoodsStatsDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets shop_skus
      *
-     * @param \YandexMarketApi\Model\GoodsStatsGoodsDTO[]|null $shop_skus Список товаров.
+     * @param \YandexMarketApi\Model\GoodsStatsGoodsDTO[] $shop_skus Список товаров.
      *
      * @return self
      */

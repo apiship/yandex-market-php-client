@@ -278,6 +278,14 @@ class ConfirmPricesRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         if ($this->container['offer_ids'] === null) {
             $invalidProperties[] = "'offer_ids' can't be null";
         }
+        if ((count($this->container['offer_ids']) > 200)) {
+            $invalidProperties[] = "invalid value for 'offer_ids', number of items must be less than or equal to 200.";
+        }
+
+        if ((count($this->container['offer_ids']) < 1)) {
+            $invalidProperties[] = "invalid value for 'offer_ids', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -314,6 +322,13 @@ class ConfirmPricesRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         if (is_null($offer_ids)) {
             throw new \InvalidArgumentException('non-nullable offer_ids cannot be null');
+        }
+
+        if ((count($offer_ids) > 200)) {
+            throw new \InvalidArgumentException('invalid value for $offer_ids when calling ConfirmPricesRequest., number of items must be less than or equal to 200.');
+        }
+        if ((count($offer_ids) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $offer_ids when calling ConfirmPricesRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['offer_ids'] = $offer_ids;
 

@@ -53,8 +53,6 @@ class FeedIndexLogsErrorType
 
     public const TOO_MANY_REJECTED_OFFERS = 'TOO_MANY_REJECTED_OFFERS';
 
-    public const NOT_INDEXED = 'NOT_INDEXED';
-
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -66,8 +64,7 @@ class FeedIndexLogsErrorType
             self::DOWNLOAD_HTTP_ERROR,
             self::PARSE_ERROR,
             self::PARSE_XML_ERROR,
-            self::TOO_MANY_REJECTED_OFFERS,
-            self::NOT_INDEXED
+            self::TOO_MANY_REJECTED_OFFERS
         ];
     }
 }

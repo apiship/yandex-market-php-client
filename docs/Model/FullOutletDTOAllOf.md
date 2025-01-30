@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Идентификатор точки продаж, присвоенный Яндекс Маркетом. | [optional]
+**id** | **int** | Идентификатор точки продаж, присвоенный Маркетом. | [optional]
 **status** | [**\YandexMarketApi\Model\OutletStatusType**](OutletStatusType.md) |  | [optional]
 **region** | [**\YandexMarketApi\Model\RegionDTO**](RegionDTO.md) |  | [optional]
 **shop_outlet_id** | **string** | Идентификатор точки продаж, заданный магазином. | [optional]

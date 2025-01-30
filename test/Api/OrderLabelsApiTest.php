@@ -74,7 +74,7 @@ class OrderLabelsApiTest extends TestCase
     /**
      * Test case for generateOrderLabel
      *
-     * Ярлык‑наклейка для коробки в заказе.
+     * Готовый ярлык‑наклейка для коробки в заказе.
      *
      */
     public function testGenerateOrderLabel()
@@ -86,7 +86,7 @@ class OrderLabelsApiTest extends TestCase
     /**
      * Test case for generateOrderLabels
      *
-     * Ярлыки‑наклейки на все грузовые места в заказе.
+     * Готовые ярлыки‑наклейки на все коробки в одном заказе.
      *
      */
     public function testGenerateOrderLabels()
@@ -98,7 +98,7 @@ class OrderLabelsApiTest extends TestCase
     /**
      * Test case for getOrderLabelsData
      *
-     * Информация на ярлыках‑наклейках.
+     * Данные для самостоятельного изготовления ярлыков.
      *
      */
     public function testGetOrderLabelsData()

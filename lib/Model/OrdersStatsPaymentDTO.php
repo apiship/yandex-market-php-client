@@ -365,7 +365,7 @@ class OrdersStatsPaymentDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets date
      *
-     * @param \DateTime|null $date Дата денежного перевода. Формат даты: `ГГГГ-ММ-ДД`.
+     * @param \DateTime|null $date Дата денежного перевода.  Формат даты: `ГГГГ-ММ-ДД`.
      *
      * @return self
      */

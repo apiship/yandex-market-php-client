@@ -306,6 +306,9 @@ class OrderItemPromoDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        if ($this->container['subsidy'] === null) {
+            $invalidProperties[] = "'subsidy' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -378,7 +381,7 @@ class OrderItemPromoDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets subsidy
      *
-     * @return float|null
+     * @return float
      */
     public function getSubsidy()
     {
@@ -388,7 +391,7 @@ class OrderItemPromoDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets subsidy
      *
-     * @param float|null $subsidy Вознаграждение партнеру от Маркета за товар, проданный в рамках акции.  Передается в валюте заказа, для отделения целой части от дробной используется точка.
+     * @param float $subsidy Вознаграждение партнеру от Маркета за товар, проданный в рамках акции.
      *
      * @return self
      */

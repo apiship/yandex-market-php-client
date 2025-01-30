@@ -87,4 +87,13 @@ class UpdateOfferMappingsRequestTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "only_partner_media_content"
+     */
+    public function testPropertyOnlyPartnerMediaContent()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

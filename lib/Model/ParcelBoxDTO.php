@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * ParcelBoxDTO Class Doc Comment
  *
  * @category Class
- * @description Элемент отображает одно грузовое место. Вложенные поля больше не используются, передавайте элемент пустым в запросах и не обращайте внимание на содержимое в ответах.
+ * @description Параметр отображает одно грузовое место.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -314,7 +314,7 @@ class ParcelBoxDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param int|null $id Поле больше не используется. Не передавайте его в запросах и не обращайте на него внимания в ответах.
+     * @param int|null $id Идентификатор коробки в составе заказа.
      *
      * @return self
      */
@@ -341,7 +341,7 @@ class ParcelBoxDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fulfilment_id
      *
-     * @param string|null $fulfilment_id Поле больше не используется. Не передавайте его в запросах и не обращайте на него внимания в ответах.
+     * @param string|null $fulfilment_id {% note warning \"Этот параметр устарел\" %}  Не используйте его.  {% endnote %}
      *
      * @return self
      */

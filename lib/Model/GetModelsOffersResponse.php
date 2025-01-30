@@ -289,6 +289,9 @@ class GetModelsOffersResponse implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
+        if ($this->container['models'] === null) {
+            $invalidProperties[] = "'models' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -307,7 +310,7 @@ class GetModelsOffersResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets models
      *
-     * @return \YandexMarketApi\Model\EnrichedModelDTO[]|null
+     * @return \YandexMarketApi\Model\EnrichedModelDTO[]
      */
     public function getModels()
     {
@@ -317,7 +320,7 @@ class GetModelsOffersResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets models
      *
-     * @param \YandexMarketApi\Model\EnrichedModelDTO[]|null $models Список моделей товаров.
+     * @param \YandexMarketApi\Model\EnrichedModelDTO[] $models Список моделей товаров.
      *
      * @return self
      */

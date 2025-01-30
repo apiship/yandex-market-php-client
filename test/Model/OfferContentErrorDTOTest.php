@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OfferContentErrorDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Сообщение об ошибке.
+ * @description Текст ошибки или предупреждения.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

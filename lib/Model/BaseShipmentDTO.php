@@ -359,6 +359,43 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if (($this->container['id'] < 1)) {
+            $invalidProperties[] = "invalid value for 'id', must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['plan_interval_from'] === null) {
+            $invalidProperties[] = "'plan_interval_from' can't be null";
+        }
+        if ($this->container['plan_interval_to'] === null) {
+            $invalidProperties[] = "'plan_interval_to' can't be null";
+        }
+        if ($this->container['order_ids'] === null) {
+            $invalidProperties[] = "'order_ids' can't be null";
+        }
+        if ($this->container['draft_count'] === null) {
+            $invalidProperties[] = "'draft_count' can't be null";
+        }
+        if (($this->container['draft_count'] < 0)) {
+            $invalidProperties[] = "invalid value for 'draft_count', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['planned_count'] === null) {
+            $invalidProperties[] = "'planned_count' can't be null";
+        }
+        if (($this->container['planned_count'] < 0)) {
+            $invalidProperties[] = "invalid value for 'planned_count', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['fact_count'] === null) {
+            $invalidProperties[] = "'fact_count' can't be null";
+        }
+        if (($this->container['fact_count'] < 0)) {
+            $invalidProperties[] = "invalid value for 'fact_count', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -377,7 +414,7 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return int|null
+     * @return int
      */
     public function getId()
     {
@@ -387,7 +424,7 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param int|null $id Идентификатор отгрузки.
+     * @param int $id Идентификатор отгрузки.
      *
      * @return self
      */
@@ -396,6 +433,11 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
+
+        if (($id < 1)) {
+            throw new \InvalidArgumentException('invalid value for $id when calling BaseShipmentDTO., must be bigger than or equal to 1.');
+        }
+
         $this->container['id'] = $id;
 
         return $this;
@@ -404,7 +446,7 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets plan_interval_from
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getPlanIntervalFrom()
     {
@@ -414,7 +456,7 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets plan_interval_from
      *
-     * @param \DateTime|null $plan_interval_from Начало планового интервала отгрузки.
+     * @param \DateTime $plan_interval_from Начало планового интервала отгрузки.  Формат даты: ISO 8601 со смещением относительно UTC.
      *
      * @return self
      */
@@ -431,7 +473,7 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets plan_interval_to
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getPlanIntervalTo()
     {
@@ -441,7 +483,7 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets plan_interval_to
      *
-     * @param \DateTime|null $plan_interval_to Конец планового интервала отгрузки.
+     * @param \DateTime $plan_interval_to Конец планового интервала отгрузки.  Формат даты: ISO 8601 со смещением относительно UTC.
      *
      * @return self
      */
@@ -620,7 +662,7 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets order_ids
      *
-     * @return int[]|null
+     * @return int[]
      */
     public function getOrderIds()
     {
@@ -630,7 +672,7 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order_ids
      *
-     * @param int[]|null $order_ids Идентификаторы заказов в отгрузке.
+     * @param int[] $order_ids Идентификаторы заказов в отгрузке.
      *
      * @return self
      */
@@ -649,7 +691,7 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets draft_count
      *
-     * @return int|null
+     * @return int
      */
     public function getDraftCount()
     {
@@ -659,7 +701,7 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets draft_count
      *
-     * @param int|null $draft_count Количество заказов, запланированных к отгрузке.
+     * @param int $draft_count Количество заказов, которое Маркет запланировал к отгрузке.
      *
      * @return self
      */
@@ -668,6 +710,11 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($draft_count)) {
             throw new \InvalidArgumentException('non-nullable draft_count cannot be null');
         }
+
+        if (($draft_count < 0)) {
+            throw new \InvalidArgumentException('invalid value for $draft_count when calling BaseShipmentDTO., must be bigger than or equal to 0.');
+        }
+
         $this->container['draft_count'] = $draft_count;
 
         return $this;
@@ -676,7 +723,7 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets planned_count
      *
-     * @return int|null
+     * @return int
      */
     public function getPlannedCount()
     {
@@ -686,7 +733,7 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets planned_count
      *
-     * @param int|null $planned_count Количество отгруженных заказов.
+     * @param int $planned_count Количество заказов, которое Маркет подтвердил к отгрузке.
      *
      * @return self
      */
@@ -695,6 +742,11 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($planned_count)) {
             throw new \InvalidArgumentException('non-nullable planned_count cannot be null');
         }
+
+        if (($planned_count < 0)) {
+            throw new \InvalidArgumentException('invalid value for $planned_count when calling BaseShipmentDTO., must be bigger than or equal to 0.');
+        }
+
         $this->container['planned_count'] = $planned_count;
 
         return $this;
@@ -703,7 +755,7 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets fact_count
      *
-     * @return int|null
+     * @return int
      */
     public function getFactCount()
     {
@@ -713,7 +765,7 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fact_count
      *
-     * @param int|null $fact_count Количество заказов, принятых в сортировочном центре или пункте приема.
+     * @param int $fact_count Количество заказов, принятых в сортировочном центре или пункте приема.
      *
      * @return self
      */
@@ -722,6 +774,11 @@ class BaseShipmentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($fact_count)) {
             throw new \InvalidArgumentException('non-nullable fact_count cannot be null');
         }
+
+        if (($fact_count < 0)) {
+            throw new \InvalidArgumentException('invalid value for $fact_count when calling BaseShipmentDTO., must be bigger than or equal to 0.');
+        }
+
         $this->container['fact_count'] = $fact_count;
 
         return $this;

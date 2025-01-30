@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * UpdateOfferContentResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Описывает проблемы, возникшие при сохранении товара.
+ * @description Описывает проблемы, которые появились при сохранении товара.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -13,8 +13,8 @@
     "homepage": "https://apiship.ru",
     "authors": [
         {
-          "name": "ApiShip",
-          "email": "info@apiship.ru"
+            "name": "ApiShip",
+            "email": "info@apiship.ru"
         }
     ],
     "license": "MIT",

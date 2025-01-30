@@ -310,6 +310,25 @@ class OutletLicenseDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['outlet_id'] === null) {
+            $invalidProperties[] = "'outlet_id' can't be null";
+        }
+        if (($this->container['outlet_id'] < 1)) {
+            $invalidProperties[] = "invalid value for 'outlet_id', must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['license_type'] === null) {
+            $invalidProperties[] = "'license_type' can't be null";
+        }
+        if ($this->container['number'] === null) {
+            $invalidProperties[] = "'number' can't be null";
+        }
+        if ($this->container['date_of_issue'] === null) {
+            $invalidProperties[] = "'date_of_issue' can't be null";
+        }
+        if ($this->container['date_of_expiry'] === null) {
+            $invalidProperties[] = "'date_of_expiry' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -355,7 +374,7 @@ class OutletLicenseDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets outlet_id
      *
-     * @return int|null
+     * @return int
      */
     public function getOutletId()
     {
@@ -365,7 +384,7 @@ class OutletLicenseDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets outlet_id
      *
-     * @param int|null $outlet_id Идентификатор точки продаж, для которой действительна лицензия.
+     * @param int $outlet_id Идентификатор точки продаж, для которой действительна лицензия.
      *
      * @return self
      */
@@ -374,6 +393,11 @@ class OutletLicenseDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($outlet_id)) {
             throw new \InvalidArgumentException('non-nullable outlet_id cannot be null');
         }
+
+        if (($outlet_id < 1)) {
+            throw new \InvalidArgumentException('invalid value for $outlet_id when calling OutletLicenseDTO., must be bigger than or equal to 1.');
+        }
+
         $this->container['outlet_id'] = $outlet_id;
 
         return $this;
@@ -382,7 +406,7 @@ class OutletLicenseDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets license_type
      *
-     * @return \YandexMarketApi\Model\LicenseType|null
+     * @return \YandexMarketApi\Model\LicenseType
      */
     public function getLicenseType()
     {
@@ -392,7 +416,7 @@ class OutletLicenseDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets license_type
      *
-     * @param \YandexMarketApi\Model\LicenseType|null $license_type license_type
+     * @param \YandexMarketApi\Model\LicenseType $license_type license_type
      *
      * @return self
      */
@@ -409,7 +433,7 @@ class OutletLicenseDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets number
      *
-     * @return string|null
+     * @return string
      */
     public function getNumber()
     {
@@ -419,7 +443,7 @@ class OutletLicenseDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets number
      *
-     * @param string|null $number Номер лицензии.
+     * @param string $number Номер лицензии.
      *
      * @return self
      */
@@ -436,7 +460,7 @@ class OutletLicenseDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets date_of_issue
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getDateOfIssue()
     {
@@ -446,7 +470,7 @@ class OutletLicenseDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets date_of_issue
      *
-     * @param \DateTime|null $date_of_issue Дата выдачи лицензии.  Формат даты: ISO 8601 со смещением относительно UTC. Нужно передать дату, указанную на лицензии, время `00:00:00` и часовой пояс, соответствующий региону точки продаж. Например, если лицензия для точки продаж в Москве выдана 13 ноября 2017 года, то параметр должен иметь значение `2017-11-13T00:00:00+03:00`.  Обязательный параметр.  Не может быть позже даты окончания срока действия, указанной в параметре `dateOfExpiry`.
+     * @param \DateTime $date_of_issue Дата выдачи лицензии.  Формат даты: ISO 8601 со смещением относительно UTC. Нужно передать дату, указанную на лицензии, время `00:00:00` и часовой пояс, соответствующий региону точки продаж. Например, если лицензия для точки продаж в Москве выдана 13 ноября 2017 года, то параметр должен иметь значение `2017-11-13T00:00:00+03:00`.  Не может быть позже даты окончания срока действия, указанной в параметре `dateOfExpiry`.
      *
      * @return self
      */
@@ -463,7 +487,7 @@ class OutletLicenseDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets date_of_expiry
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getDateOfExpiry()
     {
@@ -473,7 +497,7 @@ class OutletLicenseDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets date_of_expiry
      *
-     * @param \DateTime|null $date_of_expiry Дата окончания действия лицензии.  Формат даты: ISO 8601 со смещением относительно UTC. Нужно передать дату, указанную на лицензии, время `00:00:00` и часовой пояс, соответствующий региону точки продаж. Например, если действие лицензии для точки продаж в Москве заканчивается 20 ноября 2022 года, то параметр должен иметь значение `2022-11-20T00:00:00+03:00`.  Обязательный параметр.  Не может быть раньше даты выдачи, указанной в параметре `dateOfIssue`.
+     * @param \DateTime $date_of_expiry Дата окончания действия лицензии.  Формат даты: ISO 8601 со смещением относительно UTC. Нужно передать дату, указанную на лицензии, время `00:00:00` и часовой пояс, соответствующий региону точки продаж. Например, если действие лицензии для точки продаж в Москве заканчивается 20 ноября 2022 года, то параметр должен иметь значение `2022-11-20T00:00:00+03:00`.  Не может быть раньше даты выдачи, указанной в параметре `dateOfIssue`.
      *
      * @return self
      */

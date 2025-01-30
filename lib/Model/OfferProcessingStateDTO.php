@@ -81,7 +81,7 @@ class OfferProcessingStateDTO implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static array $openAPINullables = [
         'status' => false,
-		'notes' => false
+		'notes' => true
     ];
 
     /**
@@ -344,7 +344,14 @@ class OfferProcessingStateDTO implements ModelInterface, ArrayAccess, \JsonSeria
     public function setNotes($notes)
     {
         if (is_null($notes)) {
-            throw new \InvalidArgumentException('non-nullable notes cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'notes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('notes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['notes'] = $notes;
 

@@ -57,7 +57,8 @@ class OrderBuyerInfoDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'phone' => 'string'
+        'phone' => 'string',
+        'trusted' => 'bool'
     ];
 
     /**
@@ -68,7 +69,8 @@ class OrderBuyerInfoDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'phone' => null
+        'phone' => null,
+        'trusted' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class OrderBuyerInfoDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'phone' => false
+        'phone' => false,
+		'trusted' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class OrderBuyerInfoDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'phone' => 'phone'
+        'phone' => 'phone',
+        'trusted' => 'trusted'
     ];
 
     /**
@@ -175,7 +179,8 @@ class OrderBuyerInfoDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'phone' => 'setPhone'
+        'phone' => 'setPhone',
+        'trusted' => 'setTrusted'
     ];
 
     /**
@@ -184,7 +189,8 @@ class OrderBuyerInfoDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'phone' => 'getPhone'
+        'phone' => 'getPhone',
+        'trusted' => 'getTrusted'
     ];
 
     /**
@@ -245,6 +251,7 @@ class OrderBuyerInfoDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerial
     public function __construct(array $data = null)
     {
         $this->setIfExists('phone', $data ?? [], null);
+        $this->setIfExists('trusted', $data ?? [], null);
     }
 
     /**
@@ -302,7 +309,7 @@ class OrderBuyerInfoDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets phone
      *
-     * @param string|null $phone Подменный номер телефона покупателя. Подробнее о таких номерах читайте [в Справке для продавцов](https://yandex.ru/support2/marketplace/ru/orders/dbs/call#fake-number).  Формат номера: `+<код_страны><код_региона><номер_телефона>`.
+     * @param string|null $phone Подменный номер телефона покупателя. Подробнее о таких номерах читайте [в Справке Маркета для продавцов](https://yandex.ru/support2/marketplace/ru/orders/dbs/call#fake-number).  Формат номера: `+<код_страны><код_региона><номер_телефона>`.
      *
      * @return self
      */
@@ -312,6 +319,33 @@ class OrderBuyerInfoDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable phone cannot be null');
         }
         $this->container['phone'] = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets trusted
+     *
+     * @return bool|null
+     */
+    public function getTrusted()
+    {
+        return $this->container['trusted'];
+    }
+
+    /**
+     * Sets trusted
+     *
+     * @param bool|null $trusted Проверенный покупатель.  Если параметр `trusted` вернулся со значением `true`, Маркет уже проверил покупателя — не звоните ему. Обработайте заказ как обычно и передайте его курьеру или отвезите в ПВЗ.  При необходимости свяжитесь с покупателем в чате. [Как это сделать](../../step-by-step/chats.md)  Подробнее о звонках покупателю читайте [в Справке Маркета для продавцов](https://yandex.ru/support/marketplace/ru/orders/dbs/call).
+     *
+     * @return self
+     */
+    public function setTrusted($trusted)
+    {
+        if (is_null($trusted)) {
+            throw new \InvalidArgumentException('non-nullable trusted cannot be null');
+        }
+        $this->container['trusted'] = $trusted;
 
         return $this;
     }

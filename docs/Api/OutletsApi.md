@@ -6,8 +6,8 @@ All URIs are relative to https://api.partner.market.yandex.ru, except if the ope
 | ------------- | ------------- | ------------- |
 | [**createOutlet()**](OutletsApi.md#createOutlet) | **POST** /campaigns/{campaignId}/outlets | Создание точки продаж |
 | [**deleteOutlet()**](OutletsApi.md#deleteOutlet) | **DELETE** /campaigns/{campaignId}/outlets/{outletId} | Удаление точки продаж |
-| [**getOutlet()**](OutletsApi.md#getOutlet) | **GET** /campaigns/{campaignId}/outlets/{outletId} | Информация о точке продаж |
-| [**getOutlets()**](OutletsApi.md#getOutlets) | **GET** /campaigns/{campaignId}/outlets | Информация о точках продаж |
+| [**getOutlet()**](OutletsApi.md#getOutlet) | **GET** /campaigns/{campaignId}/outlets/{outletId} | Информация об одной точке продаж |
+| [**getOutlets()**](OutletsApi.md#getOutlets) | **GET** /campaigns/{campaignId}/outlets | Информация о нескольких точках продаж |
 | [**updateOutlet()**](OutletsApi.md#updateOutlet) | **PUT** /campaigns/{campaignId}/outlets/{outletId} | Изменение информации о точке продаж |
 
 
@@ -19,7 +19,7 @@ createOutlet($campaign_id, $change_outlet_request): \YandexMarketApi\Model\Creat
 
 Создание точки продаж
 
-Создает точку продаж магазина на Маркете.  В течение суток этим и другими запросами о точках продаж, кроме запроса [GET delivery/services](../../reference/orders/getDeliveryServices.md), можно получить и изменить информацию об определенном суммарном количестве точек продаж. Оно зависит от количества точек продаж магазина.  |**⚙️ Лимит:** 100 000 запросов в час| |-|
+{% include notitle [access](../../_auto/method_scopes/createOutlet.md) %}  Создает точку продаж магазина на Маркете.  |**⚙️ Лимит:** 100 000 запросов в час| |-|
 
 ### Example
 
@@ -27,6 +27,11 @@ createOutlet($campaign_id, $change_outlet_request): \YandexMarketApi\Model\Creat
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: ApiKey
+$config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKey('Api-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Api-Key', 'Bearer');
 
 // Configure OAuth2 access token for authorization: OAuth
 $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -62,7 +67,7 @@ try {
 
 ### Authorization
 
-[OAuth](../../README.md#OAuth)
+[ApiKey](../../README.md#ApiKey), [OAuth](../../README.md#OAuth)
 
 ### HTTP request headers
 
@@ -81,7 +86,7 @@ deleteOutlet($campaign_id, $outlet_id): \YandexMarketApi\Model\EmptyApiResponse
 
 Удаление точки продаж
 
-Удаляет точку продаж магазина на Маркете.  В течение суток этим и другими запросами о точках продаж, кроме запроса [GET delivery/services](../../reference/orders/getDeliveryServices.md), можно получить и изменить информацию об определенном суммарном количестве точек продаж. Оно зависит от количества точек продаж магазина.  |**⚙️ Лимит:** 100 000 запросов в час| |-|
+{% include notitle [access](../../_auto/method_scopes/deleteOutlet.md) %}  Удаляет точку продаж магазина на Маркете.  |**⚙️ Лимит:** 100 000 запросов в час| |-|
 
 ### Example
 
@@ -89,6 +94,11 @@ deleteOutlet($campaign_id, $outlet_id): \YandexMarketApi\Model\EmptyApiResponse
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: ApiKey
+$config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKey('Api-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Api-Key', 'Bearer');
 
 // Configure OAuth2 access token for authorization: OAuth
 $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -101,7 +111,7 @@ $apiInstance = new YandexMarketApi\Api\OutletsApi(
     $config
 );
 $campaign_id = 56; // int | Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html)
-$outlet_id = 56; // int | Идентификатор точки продаж
+$outlet_id = 56; // int | Идентификатор точки продаж.
 
 try {
     $result = $apiInstance->deleteOutlet($campaign_id, $outlet_id);
@@ -116,7 +126,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **campaign_id** | **int**| Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) | |
-| **outlet_id** | **int**| Идентификатор точки продаж | |
+| **outlet_id** | **int**| Идентификатор точки продаж. | |
 
 ### Return type
 
@@ -124,7 +134,7 @@ try {
 
 ### Authorization
 
-[OAuth](../../README.md#OAuth)
+[ApiKey](../../README.md#ApiKey), [OAuth](../../README.md#OAuth)
 
 ### HTTP request headers
 
@@ -141,9 +151,9 @@ try {
 getOutlet($campaign_id, $outlet_id): \YandexMarketApi\Model\GetOutletResponse
 ```
 
-Информация о точке продаж
+Информация об одной точке продаж
 
-Возвращает информацию о точках продаж магазина.  В течение суток этим и другими запросами о точках продаж, кроме запроса [GET delivery/services](../../reference/orders/getDeliveryServices.md), можно получить и изменить информацию об определенном суммарном количестве точек продаж. Оно зависит от количества точек продаж магазина.  |**⚙️ Лимит:** 100 000 запросов в час| |-|
+{% include notitle [access](../../_auto/method_scopes/getOutlet.md) %}  Возвращает информацию о точках продаж магазина.  |**⚙️ Лимит:** 100 000 запросов в час| |-|
 
 ### Example
 
@@ -151,6 +161,11 @@ getOutlet($campaign_id, $outlet_id): \YandexMarketApi\Model\GetOutletResponse
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: ApiKey
+$config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKey('Api-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Api-Key', 'Bearer');
 
 // Configure OAuth2 access token for authorization: OAuth
 $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -163,7 +178,7 @@ $apiInstance = new YandexMarketApi\Api\OutletsApi(
     $config
 );
 $campaign_id = 56; // int | Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html)
-$outlet_id = 56; // int | Идентификатор точки продаж
+$outlet_id = 56; // int | Идентификатор точки продаж.
 
 try {
     $result = $apiInstance->getOutlet($campaign_id, $outlet_id);
@@ -178,7 +193,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **campaign_id** | **int**| Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) | |
-| **outlet_id** | **int**| Идентификатор точки продаж | |
+| **outlet_id** | **int**| Идентификатор точки продаж. | |
 
 ### Return type
 
@@ -186,7 +201,7 @@ try {
 
 ### Authorization
 
-[OAuth](../../README.md#OAuth)
+[ApiKey](../../README.md#ApiKey), [OAuth](../../README.md#OAuth)
 
 ### HTTP request headers
 
@@ -203,9 +218,9 @@ try {
 getOutlets($campaign_id, $page_token, $region_id, $shop_outlet_code, $region_id2): \YandexMarketApi\Model\GetOutletsResponse
 ```
 
-Информация о точках продаж
+Информация о нескольких точках продаж
 
-Возвращает список точек продаж магазина.  В течение суток этим и другими запросами о точках продаж, кроме запроса [GET delivery/services](../../reference/orders/getDeliveryServices.md), можно получить и изменить информацию об определенном суммарном количестве точек продаж. Оно зависит от количества точек продаж магазина.  |**⚙️ Лимит:** 100 000 запросов в час| |-|
+{% include notitle [access](../../_auto/method_scopes/getOutlets.md) %}  Возвращает список точек продаж магазина.  |**⚙️ Лимит:** 100 000 запросов в час| |-|
 
 ### Example
 
@@ -213,6 +228,11 @@ getOutlets($campaign_id, $page_token, $region_id, $shop_outlet_code, $region_id2
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: ApiKey
+$config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKey('Api-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Api-Key', 'Bearer');
 
 // Configure OAuth2 access token for authorization: OAuth
 $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -225,10 +245,10 @@ $apiInstance = new YandexMarketApi\Api\OutletsApi(
     $config
 );
 $campaign_id = 56; // int | Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html)
-$page_token = eyBuZXh0SWQ6IDIzNDIgfQ==; // string | Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра `nextPageToken`, полученное при последнем запросе.  Если задан `page_token`, параметры `offset`, `page_number` и `page_size` игнорируются.
+$page_token = eyBuZXh0SWQ6IDIzNDIgfQ==; // string | Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра `nextPageToken`, полученное при последнем запросе.  Если задан `page_token` и в запросе есть параметры `page_number` и `page_size`, они игнорируются.
 $region_id = 56; // int | Идентификатор региона. Если задать идентификатор родительского региона любого уровня, в выходных данных будут отображены точки продаж всех дочерних регионов. Идентификатор региона можно получить c помощью метода [GET regions](../../reference/regions/searchRegionsByName.md).
 $shop_outlet_code = 'shop_outlet_code_example'; // string | Идентификатор точки продаж, присвоенный магазином.
-$region_id2 = 56; // int | {% note alert %}  Параметр устарел и не рекомендуется к использованию. Идентификатор региона укажите в параметре `region_id`.  {% endnote %}
+$region_id2 = 56; // int | {% note warning \"Этот параметр устарел\" %}  Вместо него используйте `region_id`.  {% endnote %}
 
 try {
     $result = $apiInstance->getOutlets($campaign_id, $page_token, $region_id, $shop_outlet_code, $region_id2);
@@ -243,10 +263,10 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **campaign_id** | **int**| Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) | |
-| **page_token** | **string**| Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. | [optional] |
+| **page_token** | **string**| Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. | [optional] |
 | **region_id** | **int**| Идентификатор региона. Если задать идентификатор родительского региона любого уровня, в выходных данных будут отображены точки продаж всех дочерних регионов. Идентификатор региона можно получить c помощью метода [GET regions](../../reference/regions/searchRegionsByName.md). | [optional] |
 | **shop_outlet_code** | **string**| Идентификатор точки продаж, присвоенный магазином. | [optional] |
-| **region_id2** | **int**| {% note alert %}  Параметр устарел и не рекомендуется к использованию. Идентификатор региона укажите в параметре &#x60;region_id&#x60;.  {% endnote %} | [optional] |
+| **region_id2** | **int**| {% note warning \&quot;Этот параметр устарел\&quot; %}  Вместо него используйте &#x60;region_id&#x60;.  {% endnote %} | [optional] |
 
 ### Return type
 
@@ -254,7 +274,7 @@ try {
 
 ### Authorization
 
-[OAuth](../../README.md#OAuth)
+[ApiKey](../../README.md#ApiKey), [OAuth](../../README.md#OAuth)
 
 ### HTTP request headers
 
@@ -273,7 +293,7 @@ updateOutlet($campaign_id, $outlet_id, $change_outlet_request): \YandexMarketApi
 
 Изменение информации о точке продаж
 
-Изменяет информацию о точке продаж магазина на Маркете.  В течение суток этим и другими запросами о точках продаж, кроме запроса [GET delivery/services](../../reference/orders/getDeliveryServices.md), можно получить и изменить информацию об определенном суммарном количестве точек продаж. Оно зависит от количества точек продаж магазина.  |**⚙️ Лимит:** 100 000 запросов в час| |-|
+{% include notitle [access](../../_auto/method_scopes/updateOutlet.md) %}  Изменяет информацию о точке продаж магазина на Маркете.  |**⚙️ Лимит:** 100 000 запросов в час| |-|
 
 ### Example
 
@@ -281,6 +301,11 @@ updateOutlet($campaign_id, $outlet_id, $change_outlet_request): \YandexMarketApi
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: ApiKey
+$config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKey('Api-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Api-Key', 'Bearer');
 
 // Configure OAuth2 access token for authorization: OAuth
 $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -293,7 +318,7 @@ $apiInstance = new YandexMarketApi\Api\OutletsApi(
     $config
 );
 $campaign_id = 56; // int | Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html)
-$outlet_id = 56; // int | Идентификатор точки продаж
+$outlet_id = 56; // int | Идентификатор точки продаж.
 $change_outlet_request = new \YandexMarketApi\Model\ChangeOutletRequest(); // \YandexMarketApi\Model\ChangeOutletRequest
 
 try {
@@ -309,7 +334,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **campaign_id** | **int**| Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) | |
-| **outlet_id** | **int**| Идентификатор точки продаж | |
+| **outlet_id** | **int**| Идентификатор точки продаж. | |
 | **change_outlet_request** | [**\YandexMarketApi\Model\ChangeOutletRequest**](../Model/ChangeOutletRequest.md)|  | |
 
 ### Return type
@@ -318,7 +343,7 @@ try {
 
 ### Authorization
 
-[OAuth](../../README.md#OAuth)
+[ApiKey](../../README.md#ApiKey), [OAuth](../../README.md#OAuth)
 
 ### HTTP request headers
 

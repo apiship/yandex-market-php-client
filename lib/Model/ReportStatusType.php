@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * ReportStatusType Class Doc Comment
  *
  * @category Class
- * @description Статус генерации отчета:  * &#x60;PENDING&#x60; — отчет ожидает генерации; * &#x60;PROCESSING&#x60; — отчет генерируется; * &#x60;FAILED&#x60; — во время генерации произошла ошибка; * &#x60;DONE&#x60; — отчет готов.
+ * @description Статус генерации отчета:  * &#x60;PENDING&#x60; — отчет ожидает генерации. * &#x60;PROCESSING&#x60; — отчет генерируется. * &#x60;FAILED&#x60; — во время генерации произошла ошибка. * &#x60;DONE&#x60; — отчет готов.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

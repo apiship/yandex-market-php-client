@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * GenerateReportResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Ответ на запрос генерации отчёта.
+ * @description Ответ на запрос генерации отчета.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

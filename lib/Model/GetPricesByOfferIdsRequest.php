@@ -78,7 +78,7 @@ class GetPricesByOfferIdsRequest implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'offer_ids' => false
+        'offer_ids' => true
     ];
 
     /**
@@ -275,6 +275,14 @@ class GetPricesByOfferIdsRequest implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['offer_ids']) && (count($this->container['offer_ids']) > 2000)) {
+            $invalidProperties[] = "invalid value for 'offer_ids', number of items must be less than or equal to 2000.";
+        }
+
+        if (!is_null($this->container['offer_ids']) && (count($this->container['offer_ids']) < 1)) {
+            $invalidProperties[] = "invalid value for 'offer_ids', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -303,14 +311,28 @@ class GetPricesByOfferIdsRequest implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets offer_ids
      *
-     * @param string[]|null $offer_ids Список SKU.
+     * @param string[]|null $offer_ids Список SKU.  {% note warning \"Такой список возвращается только целиком\" %}  Если вы запрашиваете информацию по конкретным SKU, не заполняйте:  * `page_token` * `limit`  {% endnote %}   
      *
      * @return self
      */
     public function setOfferIds($offer_ids)
     {
         if (is_null($offer_ids)) {
-            throw new \InvalidArgumentException('non-nullable offer_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'offer_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('offer_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($offer_ids) && (count($offer_ids) > 2000)) {
+            throw new \InvalidArgumentException('invalid value for $offer_ids when calling GetPricesByOfferIdsRequest., number of items must be less than or equal to 2000.');
+        }
+        if (!is_null($offer_ids) && (count($offer_ids) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $offer_ids when calling GetPricesByOfferIdsRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['offer_ids'] = $offer_ids;
 

@@ -74,7 +74,7 @@ class OrderDeliveryApiTest extends TestCase
     /**
      * Test case for getOrderBuyerInfo
      *
-     * Информация о покупателе — физическом лице (DBS).
+     * Информация о покупателе — физическом лице.
      *
      */
     public function testGetOrderBuyerInfo()
@@ -98,7 +98,7 @@ class OrderDeliveryApiTest extends TestCase
     /**
      * Test case for setOrderDeliveryTrackCode
      *
-     * Передача трек‑номера посылки (DBS).
+     * Передача трек‑номера посылки.
      *
      */
     public function testSetOrderDeliveryTrackCode()
@@ -122,7 +122,7 @@ class OrderDeliveryApiTest extends TestCase
     /**
      * Test case for verifyOrderEac
      *
-     * Передача кода проверки.
+     * Передача кода подтверждения.
      *
      */
     public function testVerifyOrderEac()

@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * PlacementTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Модель, по которой работает магазин:  * &#x60;FBS&#x60; — FBS или Экспресс; * &#x60;FBY&#x60; — FBY; * &#x60;DBS&#x60; — DBS.
+ * @description Модель, по которой работает магазин:  * &#x60;FBS&#x60; — FBS или Экспресс. * &#x60;FBY&#x60; — FBY. * &#x60;DBS&#x60; — DBS.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

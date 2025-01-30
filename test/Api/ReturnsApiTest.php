@@ -74,7 +74,7 @@ class ReturnsApiTest extends TestCase
     /**
      * Test case for getReturn
      *
-     * Информация о возврате или невыкупе.
+     * Информация о невыкупе или возврате.
      *
      */
     public function testGetReturn()
@@ -110,7 +110,7 @@ class ReturnsApiTest extends TestCase
     /**
      * Test case for getReturns
      *
-     * Список возвратов и невыкупов.
+     * Список невыкупов и возвратов.
      *
      */
     public function testGetReturns()
@@ -122,7 +122,7 @@ class ReturnsApiTest extends TestCase
     /**
      * Test case for setReturnDecision
      *
-     * Принятие/изменение решения по позиции в возврате.
+     * Принятие или изменение решения по возврату.
      *
      */
     public function testSetReturnDecision()
@@ -134,7 +134,7 @@ class ReturnsApiTest extends TestCase
     /**
      * Test case for submitReturnDecision
      *
-     * Подтверждение решения по возвратным позициям.
+     * Подтверждение решения по возврату.
      *
      */
     public function testSubmitReturnDecision()

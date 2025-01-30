@@ -143,6 +143,15 @@ class GetOfferDTOAllOfTest extends TestCase
     }
 
     /**
+     * Test attribute "media_files"
+     */
+    public function testPropertyMediaFiles()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "archived"
      */
     public function testPropertyArchived()

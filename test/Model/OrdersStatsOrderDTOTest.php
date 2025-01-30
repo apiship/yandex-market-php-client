@@ -186,4 +186,13 @@ class OrdersStatsOrderDTOTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "subsidies"
+     */
+    public function testPropertySubsidies()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

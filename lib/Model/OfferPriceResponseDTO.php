@@ -59,7 +59,6 @@ class OfferPriceResponseDTO implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'feed' => '\YandexMarketApi\Model\OfferPriceFeedDTO',
         'price' => '\YandexMarketApi\Model\PriceDTO',
         'market_sku' => 'int',
         'updated_at' => '\DateTime'
@@ -74,7 +73,6 @@ class OfferPriceResponseDTO implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'feed' => null,
         'price' => null,
         'market_sku' => 'int64',
         'updated_at' => 'date-time'
@@ -87,7 +85,6 @@ class OfferPriceResponseDTO implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'feed' => false,
 		'price' => false,
 		'market_sku' => false,
 		'updated_at' => false
@@ -180,7 +177,6 @@ class OfferPriceResponseDTO implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'feed' => 'feed',
         'price' => 'price',
         'market_sku' => 'marketSku',
         'updated_at' => 'updatedAt'
@@ -193,7 +189,6 @@ class OfferPriceResponseDTO implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $setters = [
         'id' => 'setId',
-        'feed' => 'setFeed',
         'price' => 'setPrice',
         'market_sku' => 'setMarketSku',
         'updated_at' => 'setUpdatedAt'
@@ -206,7 +201,6 @@ class OfferPriceResponseDTO implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $getters = [
         'id' => 'getId',
-        'feed' => 'getFeed',
         'price' => 'getPrice',
         'market_sku' => 'getMarketSku',
         'updated_at' => 'getUpdatedAt'
@@ -270,7 +264,6 @@ class OfferPriceResponseDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('feed', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
         $this->setIfExists('market_sku', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
@@ -302,6 +295,10 @@ class OfferPriceResponseDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['market_sku']) && ($this->container['market_sku'] < 1)) {
+            $invalidProperties[] = "invalid value for 'market_sku', must be bigger than or equal to 1.";
+        }
 
         return $invalidProperties;
     }
@@ -341,33 +338,6 @@ class OfferPriceResponseDTO implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets feed
-     *
-     * @return \YandexMarketApi\Model\OfferPriceFeedDTO|null
-     */
-    public function getFeed()
-    {
-        return $this->container['feed'];
-    }
-
-    /**
-     * Sets feed
-     *
-     * @param \YandexMarketApi\Model\OfferPriceFeedDTO|null $feed feed
-     *
-     * @return self
-     */
-    public function setFeed($feed)
-    {
-        if (is_null($feed)) {
-            throw new \InvalidArgumentException('non-nullable feed cannot be null');
-        }
-        $this->container['feed'] = $feed;
 
         return $this;
     }
@@ -421,6 +391,11 @@ class OfferPriceResponseDTO implements ModelInterface, ArrayAccess, \JsonSeriali
         if (is_null($market_sku)) {
             throw new \InvalidArgumentException('non-nullable market_sku cannot be null');
         }
+
+        if (($market_sku < 1)) {
+            throw new \InvalidArgumentException('invalid value for $market_sku when calling OfferPriceResponseDTO., must be bigger than or equal to 1.');
+        }
+
         $this->container['market_sku'] = $market_sku;
 
         return $this;

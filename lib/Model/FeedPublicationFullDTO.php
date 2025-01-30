@@ -310,7 +310,7 @@ class FeedPublicationFullDTO implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets file_time
      *
-     * @param \DateTime|null $file_time Дата и время, которые магазин указал в прайс-листе. Формат даты: ISO 8601 со смещением относительно UTC. Например, `2017-11-21T00:42:42+03:00`.
+     * @param \DateTime|null $file_time Дата и время, которые магазин указал в прайс-листе.  Формат даты: ISO 8601 со смещением относительно UTC. Например, `2017-11-21T00:42:42+03:00`.
      *
      * @return self
      */
@@ -337,7 +337,7 @@ class FeedPublicationFullDTO implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets published_time
      *
-     * @param \DateTime|null $published_time Дата и время публикации предложений из прайс-листа на Маркете. Формат даты: ISO 8601 со смещением относительно UTC. Например, `2017-11-21T00:42:42+03:00`.
+     * @param \DateTime|null $published_time Дата и время публикации предложений из прайс-листа на Маркете.  Формат даты: ISO 8601 со смещением относительно UTC. Например, `2017-11-21T00:42:42+03:00`.
      *
      * @return self
      */

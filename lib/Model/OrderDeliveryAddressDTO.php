@@ -401,7 +401,7 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets country
      *
-     * @param string|null $country Страна.  Обязательный параметр.
+     * @param string|null $country Страна.
      *
      * @return self
      */
@@ -455,7 +455,7 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets city
      *
-     * @param string|null $city Город или населенный пункт.  Обязательный параметр.
+     * @param string|null $city Город или населенный пункт.
      *
      * @return self
      */
@@ -536,7 +536,7 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets street
      *
-     * @param string|null $street Улица.  Обязательный параметр.
+     * @param string|null $street Улица.
      *
      * @return self
      */
@@ -563,7 +563,7 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets house
      *
-     * @param string|null $house Дом или владение.  Обязательный параметр.
+     * @param string|null $house Дом или владение.
      *
      * @return self
      */
@@ -725,7 +725,7 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets phone
      *
-     * @param string|null $phone Телефон получателя заказа.  Обязательный параметр.
+     * @param string|null $phone Телефон получателя заказа.
      *
      * @return self
      */
@@ -752,7 +752,7 @@ class OrderDeliveryAddressDTO implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets recipient
      *
-     * @param string|null $recipient Фамилия, имя и отчество получателя заказа.  Обязательный параметр.
+     * @param string|null $recipient Фамилия, имя и отчество получателя заказа.
      *
      * @return self
      */

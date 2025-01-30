@@ -275,6 +275,10 @@ class GetChatHistoryRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['message_id_from']) && ($this->container['message_id_from'] < 1)) {
+            $invalidProperties[] = "invalid value for 'message_id_from', must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -312,6 +316,11 @@ class GetChatHistoryRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         if (is_null($message_id_from)) {
             throw new \InvalidArgumentException('non-nullable message_id_from cannot be null');
         }
+
+        if (($message_id_from < 1)) {
+            throw new \InvalidArgumentException('invalid value for $message_id_from when calling GetChatHistoryRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['message_id_from'] = $message_id_from;
 
         return $this;

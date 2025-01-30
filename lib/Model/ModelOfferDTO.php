@@ -366,7 +366,7 @@ class ModelOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets discount
      *
-     * @param int|null $discount Скидка на предложение, в %.
+     * @param int|null $discount Скидка на предложение в процентах.
      *
      * @return self
      */
@@ -528,7 +528,7 @@ class ModelOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets shipping_cost
      *
-     * @param float|null $shipping_cost Стоимость доставки товара в регион.  Если значение параметра — `0`, доставка осуществляется бесплатно. Если значение параметра — `-1`, магазин не осуществляет доставку этого товара (самовывоз). Если стоимость доставки неизвестна, параметр не выводится.
+     * @param float|null $shipping_cost Стоимость доставки товара в регион:  * `0` — доставка осуществляется бесплатно. * `-1` — магазин не осуществляет доставку этого товара (самовывоз).  Если стоимость доставки неизвестна, параметр не выводится.
      *
      * @return self
      */
@@ -610,7 +610,7 @@ class ModelOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets in_stock
      *
-     * @param int|null $in_stock {% note alert %}  Параметр устарел и не рекомендуется к использованию.  {% endnote %}
+     * @param int|null $in_stock {% note warning \"Этот параметр устарел\" %}  Не используйте его.  {% endnote %}
      *
      * @return self
      * @deprecated

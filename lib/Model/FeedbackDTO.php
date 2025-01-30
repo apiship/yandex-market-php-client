@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * FeedbackDTO Class Doc Comment
  *
  * @category Class
- * @description Отзыв пользователя Яндекс.Маркета об указанном магазине.
+ * @description Отзыв пользователя Яндекс Маркета об указанном магазине.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -366,6 +366,9 @@ class FeedbackDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['comments'] === null) {
+            $invalidProperties[] = "'comments' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -573,7 +576,7 @@ class FeedbackDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets comments
      *
-     * @return \YandexMarketApi\Model\FeedbackCommentDTO[]|null
+     * @return \YandexMarketApi\Model\FeedbackCommentDTO[]
      */
     public function getComments()
     {
@@ -583,7 +586,7 @@ class FeedbackDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets comments
      *
-     * @param \YandexMarketApi\Model\FeedbackCommentDTO[]|null $comments Переписка автора отзыва с магазином.
+     * @param \YandexMarketApi\Model\FeedbackCommentDTO[] $comments Переписка автора отзыва с магазином.
      *
      * @return self
      */
@@ -664,7 +667,7 @@ class FeedbackDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets verified
      *
-     * @param bool|null $verified Является ли отзыв рекомендованным:  * `true` — да. * `false` — нет.  {% note alert %}  Параметр устарел и не рекомендуется к использованию.  {% endnote %}
+     * @param bool|null $verified {% note warning \"Этот параметр устарел\" %}  Не используйте его.  {% endnote %}  Является ли отзыв рекомендованным:  * `true` — да. * `false` — нет.
      *
      * @return self
      */

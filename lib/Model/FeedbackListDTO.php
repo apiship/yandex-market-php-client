@@ -35,7 +35,7 @@ use \YandexMarketApi\ObjectSerializer;
  * FeedbackListDTO Class Doc Comment
  *
  * @category Class
- * @description Отзывы пользователей Яндекс.Маркета об указанном магазине.
+ * @description Отзывы пользователей Яндекс Маркета об указанном магазине.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -282,6 +282,9 @@ class FeedbackListDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['feedback_list'] === null) {
+            $invalidProperties[] = "'feedback_list' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -327,7 +330,7 @@ class FeedbackListDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets feedback_list
      *
-     * @return \YandexMarketApi\Model\FeedbackDTO[]|null
+     * @return \YandexMarketApi\Model\FeedbackDTO[]
      */
     public function getFeedbackList()
     {
@@ -337,7 +340,7 @@ class FeedbackListDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets feedback_list
      *
-     * @param \YandexMarketApi\Model\FeedbackDTO[]|null $feedback_list Список отзывов.  Содержит не более 20 отзывов.
+     * @param \YandexMarketApi\Model\FeedbackDTO[] $feedback_list Список отзывов.  Содержит не более 20 отзывов.
      *
      * @return self
      */

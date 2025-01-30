@@ -59,7 +59,8 @@ class GetOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'pager' => '\YandexMarketApi\Model\FlippingPagerDTO',
-        'orders' => '\YandexMarketApi\Model\OrderDTO[]'
+        'orders' => '\YandexMarketApi\Model\OrderDTO[]',
+        'paging' => '\YandexMarketApi\Model\ForwardScrollingPagerDTO'
     ];
 
     /**
@@ -71,7 +72,8 @@ class GetOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPIFormats = [
         'pager' => null,
-        'orders' => null
+        'orders' => null,
+        'paging' => null
     ];
 
     /**
@@ -81,7 +83,8 @@ class GetOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static array $openAPINullables = [
         'pager' => false,
-		'orders' => false
+		'orders' => false,
+		'paging' => false
     ];
 
     /**
@@ -171,7 +174,8 @@ class GetOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $attributeMap = [
         'pager' => 'pager',
-        'orders' => 'orders'
+        'orders' => 'orders',
+        'paging' => 'paging'
     ];
 
     /**
@@ -181,7 +185,8 @@ class GetOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $setters = [
         'pager' => 'setPager',
-        'orders' => 'setOrders'
+        'orders' => 'setOrders',
+        'paging' => 'setPaging'
     ];
 
     /**
@@ -191,7 +196,8 @@ class GetOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $getters = [
         'pager' => 'getPager',
-        'orders' => 'getOrders'
+        'orders' => 'getOrders',
+        'paging' => 'getPaging'
     ];
 
     /**
@@ -253,6 +259,7 @@ class GetOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $this->setIfExists('pager', $data ?? [], null);
         $this->setIfExists('orders', $data ?? [], null);
+        $this->setIfExists('paging', $data ?? [], null);
     }
 
     /**
@@ -281,6 +288,13 @@ class GetOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if ($this->container['orders'] === null) {
+            $invalidProperties[] = "'orders' can't be null";
+        }
+        if ((count($this->container['orders']) > 50)) {
+            $invalidProperties[] = "invalid value for 'orders', number of items must be less than or equal to 50.";
+        }
 
         return $invalidProperties;
     }
@@ -327,7 +341,7 @@ class GetOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets orders
      *
-     * @return \YandexMarketApi\Model\OrderDTO[]|null
+     * @return \YandexMarketApi\Model\OrderDTO[]
      */
     public function getOrders()
     {
@@ -337,7 +351,7 @@ class GetOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets orders
      *
-     * @param \YandexMarketApi\Model\OrderDTO[]|null $orders Модель заказа.
+     * @param \YandexMarketApi\Model\OrderDTO[] $orders Модель заказа.
      *
      * @return self
      */
@@ -346,7 +360,38 @@ class GetOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         if (is_null($orders)) {
             throw new \InvalidArgumentException('non-nullable orders cannot be null');
         }
+
+        if ((count($orders) > 50)) {
+            throw new \InvalidArgumentException('invalid value for $orders when calling GetOrdersResponse., number of items must be less than or equal to 50.');
+        }
         $this->container['orders'] = $orders;
+
+        return $this;
+    }
+
+    /**
+     * Gets paging
+     *
+     * @return \YandexMarketApi\Model\ForwardScrollingPagerDTO|null
+     */
+    public function getPaging()
+    {
+        return $this->container['paging'];
+    }
+
+    /**
+     * Sets paging
+     *
+     * @param \YandexMarketApi\Model\ForwardScrollingPagerDTO|null $paging paging
+     *
+     * @return self
+     */
+    public function setPaging($paging)
+    {
+        if (is_null($paging)) {
+            throw new \InvalidArgumentException('non-nullable paging cannot be null');
+        }
+        $this->container['paging'] = $paging;
 
         return $this;
     }

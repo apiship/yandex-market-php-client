@@ -275,6 +275,9 @@ class GetCampaignLoginsResponse implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
+        if ($this->container['logins'] === null) {
+            $invalidProperties[] = "'logins' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -293,7 +296,7 @@ class GetCampaignLoginsResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets logins
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getLogins()
     {
@@ -303,7 +306,7 @@ class GetCampaignLoginsResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets logins
      *
-     * @param string[]|null $logins Список логинов.
+     * @param string[] $logins Список логинов.
      *
      * @return self
      */

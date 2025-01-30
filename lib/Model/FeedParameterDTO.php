@@ -84,7 +84,7 @@ class FeedParameterDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'deleted' => false,
 		'name' => false,
-		'values' => false
+		'values' => true
     ];
 
     /**
@@ -347,7 +347,7 @@ class FeedParameterDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name Название параметра.  Возможное значение: - `reparseIntervalMinutes` — период скачивания прайс-листа. Маркет будет скачивать прайс-лист через количество минут, указанное в параметре `value`. Например, при `value=1440`, Маркет будет скачивать прайс-лист один раз в сутки.  {% note alert %}  Несмотря на установленное значение, Маркет скачает прайс-лист один раз в сутки.  {% endnote %}  Обязательный параметр.
+     * @param string $name Название параметра.  Возможное значение: - `reparseIntervalMinutes` — период скачивания прайс-листа. Маркет будет скачивать прайс-лист через количество минут, указанное в параметре `value`. Например, при `value=1440`, Маркет будет скачивать прайс-лист один раз в сутки.  Несмотря на установленное значение, Маркет скачает прайс-лист один раз в сутки.  Обязательный параметр.
      *
      * @return self
      */
@@ -381,7 +381,14 @@ class FeedParameterDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setValues($values)
     {
         if (is_null($values)) {
-            throw new \InvalidArgumentException('non-nullable values cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'values');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('values', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['values'] = $values;
 

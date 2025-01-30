@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OfferRecommendationInfoDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Рекомендации, касающиеся цены товара.
+ * @description Рекомендации, касающиеся цены на товар.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

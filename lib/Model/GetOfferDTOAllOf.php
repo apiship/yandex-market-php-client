@@ -64,6 +64,7 @@ class GetOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'card_status' => '\YandexMarketApi\Model\OfferCardStatusType',
         'campaigns' => '\YandexMarketApi\Model\OfferCampaignStatusDTO[]',
         'selling_programs' => '\YandexMarketApi\Model\OfferSellingProgramDTO[]',
+        'media_files' => '\YandexMarketApi\Model\OfferMediaFilesDTO',
         'archived' => 'bool'
     ];
 
@@ -82,6 +83,7 @@ class GetOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'card_status' => null,
         'campaigns' => null,
         'selling_programs' => null,
+        'media_files' => null,
         'archived' => null
     ];
 
@@ -96,8 +98,9 @@ class GetOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
 		'additional_expenses' => false,
 		'cofinance_price' => false,
 		'card_status' => false,
-		'campaigns' => false,
-		'selling_programs' => false,
+		'campaigns' => true,
+		'selling_programs' => true,
+		'media_files' => false,
 		'archived' => false
     ];
 
@@ -194,6 +197,7 @@ class GetOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'card_status' => 'cardStatus',
         'campaigns' => 'campaigns',
         'selling_programs' => 'sellingPrograms',
+        'media_files' => 'mediaFiles',
         'archived' => 'archived'
     ];
 
@@ -210,6 +214,7 @@ class GetOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'card_status' => 'setCardStatus',
         'campaigns' => 'setCampaigns',
         'selling_programs' => 'setSellingPrograms',
+        'media_files' => 'setMediaFiles',
         'archived' => 'setArchived'
     ];
 
@@ -226,6 +231,7 @@ class GetOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'card_status' => 'getCardStatus',
         'campaigns' => 'getCampaigns',
         'selling_programs' => 'getSellingPrograms',
+        'media_files' => 'getMediaFiles',
         'archived' => 'getArchived'
     ];
 
@@ -293,6 +299,7 @@ class GetOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('card_status', $data ?? [], null);
         $this->setIfExists('campaigns', $data ?? [], null);
         $this->setIfExists('selling_programs', $data ?? [], null);
+        $this->setIfExists('media_files', $data ?? [], null);
         $this->setIfExists('archived', $data ?? [], null);
     }
 
@@ -493,7 +500,14 @@ class GetOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCampaigns($campaigns)
     {
         if (is_null($campaigns)) {
-            throw new \InvalidArgumentException('non-nullable campaigns cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaigns');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaigns', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaigns'] = $campaigns;
 
@@ -520,9 +534,43 @@ class GetOfferDTOAllOf implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSellingPrograms($selling_programs)
     {
         if (is_null($selling_programs)) {
-            throw new \InvalidArgumentException('non-nullable selling_programs cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'selling_programs');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('selling_programs', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['selling_programs'] = $selling_programs;
+
+        return $this;
+    }
+
+    /**
+     * Gets media_files
+     *
+     * @return \YandexMarketApi\Model\OfferMediaFilesDTO|null
+     */
+    public function getMediaFiles()
+    {
+        return $this->container['media_files'];
+    }
+
+    /**
+     * Sets media_files
+     *
+     * @param \YandexMarketApi\Model\OfferMediaFilesDTO|null $media_files media_files
+     *
+     * @return self
+     */
+    public function setMediaFiles($media_files)
+    {
+        if (is_null($media_files)) {
+            throw new \InvalidArgumentException('non-nullable media_files cannot be null');
+        }
+        $this->container['media_files'] = $media_files;
 
         return $this;
     }

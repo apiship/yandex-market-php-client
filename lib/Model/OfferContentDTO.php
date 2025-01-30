@@ -292,8 +292,8 @@ class OfferContentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['offer_id'] === null) {
             $invalidProperties[] = "'offer_id' can't be null";
         }
-        if ((mb_strlen($this->container['offer_id']) > 80)) {
-            $invalidProperties[] = "invalid value for 'offer_id', the character length must be smaller than or equal to 80.";
+        if ((mb_strlen($this->container['offer_id']) > 255)) {
+            $invalidProperties[] = "invalid value for 'offer_id', the character length must be smaller than or equal to 255.";
         }
 
         if ((mb_strlen($this->container['offer_id']) < 1)) {
@@ -301,9 +301,14 @@ class OfferContentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
 
+
         if ($this->container['category_id'] === null) {
             $invalidProperties[] = "'category_id' can't be null";
         }
+        if (($this->container['category_id'] < 1)) {
+            $invalidProperties[] = "invalid value for 'category_id', must be bigger than or equal to 1.";
+        }
+
         if ($this->container['parameter_values'] === null) {
             $invalidProperties[] = "'parameter_values' can't be null";
         }
@@ -343,7 +348,7 @@ class OfferContentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets offer_id
      *
-     * @param string $offer_id Ваш SKU — идентификатор товара в вашей системе.  Разрешена любая последовательность длиной до 80 знаков. В нее могут входить английские и русские буквы, цифры и символы `. , / \\ ( ) [ ] - = _`  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * SKU товара нельзя менять — можно только удалить товар и добавить заново с новым SKU.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
+     * @param string $offer_id Ваш SKU — идентификатор товара в вашей системе.  Правила использования SKU:  * У каждого товара SKU должен быть свой.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  SKU товара можно изменить в кабинете продавца на Маркете. О том, как это сделать, читайте [в Справке Маркета для продавцов](https://yandex.ru/support2/marketplace/ru/assortment/operations/edit-sku).  [Что такое SKU и как его назначать](https://yandex.ru/support/marketplace/assortment/add/index.html#fields)
      *
      * @return self
      */
@@ -352,14 +357,14 @@ class OfferContentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($offer_id)) {
             throw new \InvalidArgumentException('non-nullable offer_id cannot be null');
         }
-        if ((mb_strlen($offer_id) > 80)) {
-            throw new \InvalidArgumentException('invalid length for $offer_id when calling OfferContentDTO., must be smaller than or equal to 80.');
+        if ((mb_strlen($offer_id) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $offer_id when calling OfferContentDTO., must be smaller than or equal to 255.');
         }
         if ((mb_strlen($offer_id) < 1)) {
             throw new \InvalidArgumentException('invalid length for $offer_id when calling OfferContentDTO., must be bigger than or equal to 1.');
         }
-        if ((!preg_match("/^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/", $offer_id))) {
-            throw new \InvalidArgumentException("invalid value for \$offer_id when calling OfferContentDTO., must conform to the pattern /^[0-9a-zа-яА-ЯA-ZёËëЁ.,\\\\\/()\\[\\]\\-=_]{1,80}$/.");
+        if ((!preg_match("/^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/", $offer_id))) {
+            throw new \InvalidArgumentException("invalid value for \$offer_id when calling OfferContentDTO., must conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.");
         }
 
         $this->container['offer_id'] = $offer_id;
@@ -380,7 +385,7 @@ class OfferContentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets category_id
      *
-     * @param int $category_id Идентификатор категории на Маркете. Чтобы узнать идентификатор категории, к которой относится товар, воспользуйтесь запросом [POST categories/tree](../../reference/categories/getCategoriesTree.md).
+     * @param int $category_id Идентификатор категории на Маркете.  При изменении категории убедитесь, что характеристики товара и их значения в параметре `parameterValues` вы передаете для новой категории.  Список категорий Маркета можно получить с помощью запроса  [POST categories/tree](../../reference/categories/getCategoriesTree.md).
      *
      * @return self
      */
@@ -389,6 +394,11 @@ class OfferContentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($category_id)) {
             throw new \InvalidArgumentException('non-nullable category_id cannot be null');
         }
+
+        if (($category_id < 1)) {
+            throw new \InvalidArgumentException('invalid value for $category_id when calling OfferContentDTO., must be bigger than or equal to 1.');
+        }
+
         $this->container['category_id'] = $category_id;
 
         return $this;
@@ -407,7 +417,7 @@ class OfferContentDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets parameter_values
      *
-     * @param \YandexMarketApi\Model\ParameterValueDTO[] $parameter_values Список характеристик с их значениями. Обновляется всегда целиком. Максимальное количество — 300.
+     * @param \YandexMarketApi\Model\ParameterValueDTO[] $parameter_values Список характеристик с их значениями.  С `parameterValues` обязательно передавайте `categoryId` — идентификатор категории на Маркете, к которой относятся указанные характеристики товара.  При **изменении** характеристик передавайте только те, значение которых нужно обновить. Если в `categoryId` вы меняете категорию, значения общих характеристик для старой и новой категории сохранятся, передавать их не нужно.  Чтобы **удалить** значение заданной характеристики, передайте ее `parameterId` с пустым `value`.
      *
      * @return self
      */

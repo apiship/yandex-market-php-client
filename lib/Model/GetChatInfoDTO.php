@@ -313,6 +313,10 @@ class GetChatInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['chat_id'] === null) {
             $invalidProperties[] = "'chat_id' can't be null";
         }
+        if (($this->container['chat_id'] < 1)) {
+            $invalidProperties[] = "invalid value for 'chat_id', must be bigger than or equal to 1.";
+        }
+
         if ($this->container['order_id'] === null) {
             $invalidProperties[] = "'order_id' can't be null";
         }
@@ -365,6 +369,11 @@ class GetChatInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($chat_id)) {
             throw new \InvalidArgumentException('non-nullable chat_id cannot be null');
         }
+
+        if (($chat_id < 1)) {
+            throw new \InvalidArgumentException('invalid value for $chat_id when calling GetChatInfoDTO., must be bigger than or equal to 1.');
+        }
+
         $this->container['chat_id'] = $chat_id;
 
         return $this;
@@ -464,7 +473,7 @@ class GetChatInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Дата и время создания чата.  Формат даты: ISO 8601 со смещением относительно UTC. Например, 2017-11-21T00:00:00+03:00.
+     * @param \DateTime $created_at Дата и время создания чата.  Формат даты: ISO 8601 со смещением относительно UTC.
      *
      * @return self
      */
@@ -491,7 +500,7 @@ class GetChatInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets updated_at
      *
-     * @param \DateTime $updated_at Дата и время последнего сообщения в чате.
+     * @param \DateTime $updated_at Дата и время последнего сообщения в чате.  Формат даты: ISO 8601 со смещением относительно UTC.
      *
      * @return self
      */

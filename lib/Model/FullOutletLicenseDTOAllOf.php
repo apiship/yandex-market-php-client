@@ -336,7 +336,7 @@ class FullOutletLicenseDTOAllOf implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets check_comment
      *
-     * @param string|null $check_comment Причина, по которой лицензия не прошла проверку. Параметр возвращается, только если параметр `checkStatus` имеет значение `FAIL`.
+     * @param string|null $check_comment Причина, по которой лицензия не прошла проверку.  Параметр возвращается, только если параметр `checkStatus` имеет значение `FAIL`.
      *
      * @return self
      */

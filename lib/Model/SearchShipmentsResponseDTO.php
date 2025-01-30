@@ -282,6 +282,9 @@ class SearchShipmentsResponseDTO implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
+        if ($this->container['shipments'] === null) {
+            $invalidProperties[] = "'shipments' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -300,7 +303,7 @@ class SearchShipmentsResponseDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets shipments
      *
-     * @return \YandexMarketApi\Model\ShipmentInfoDTO[]|null
+     * @return \YandexMarketApi\Model\ShipmentInfoDTO[]
      */
     public function getShipments()
     {
@@ -310,7 +313,7 @@ class SearchShipmentsResponseDTO implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets shipments
      *
-     * @param \YandexMarketApi\Model\ShipmentInfoDTO[]|null $shipments Список с информацией об отгрузках.
+     * @param \YandexMarketApi\Model\ShipmentInfoDTO[] $shipments Список с информацией об отгрузках.
      *
      * @return self
      */

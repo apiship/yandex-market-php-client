@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * OrderDeliveryDispatchType Class Doc Comment
  *
  * @category Class
- * @description Способ отгрузки:  * &#x60;BUYER&#x60; — доставка покупателю.  * &#x60;MARKET_PARTNER_OUTLET&#x60; — доставка в пункт выдачи партнера.  * &#x60;MARKET_BRANDED_OUTLET&#x60; — доставка в пункт выдачи заказов Маркета.  * &#x60;SHOP_OUTLET&#x60; — доставка в пункт выдачи заказов магазина.  * &#x60;DROPOFF&#x60; — доставка в пункт выдачи, который принимает заказы от продавцов и передает их курьерам.  * &#x60;UNKNOWN&#x60; — неизвестный тип.
+ * @description Способ отгрузки:  * &#x60;BUYER&#x60; — доставка покупателю.  * &#x60;MARKET_BRANDED_OUTLET&#x60; — доставка в пункт выдачи заказов Маркета.  * &#x60;SHOP_OUTLET&#x60; — доставка в пункт выдачи заказов магазина.  * &#x60;UNKNOWN&#x60; — неизвестный тип.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -47,13 +47,9 @@ class OrderDeliveryDispatchType
 
     public const BUYER = 'BUYER';
 
-    public const MARKET_PARTNER_OUTLET = 'MARKET_PARTNER_OUTLET';
-
     public const MARKET_BRANDED_OUTLET = 'MARKET_BRANDED_OUTLET';
 
     public const SHOP_OUTLET = 'SHOP_OUTLET';
-
-    public const DROPOFF = 'DROPOFF';
 
     /**
      * Gets allowable values of the enum
@@ -64,10 +60,8 @@ class OrderDeliveryDispatchType
         return [
             self::UNKNOWN,
             self::BUYER,
-            self::MARKET_PARTNER_OUTLET,
             self::MARKET_BRANDED_OUTLET,
-            self::SHOP_OUTLET,
-            self::DROPOFF
+            self::SHOP_OUTLET
         ];
     }
 }

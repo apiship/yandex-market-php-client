@@ -6,10 +6,10 @@ All URIs are relative to https://api.partner.market.yandex.ru, except if the ope
 | ------------- | ------------- | ------------- |
 | [**addOffersToArchive()**](BusinessOfferMappingsApi.md#addOffersToArchive) | **POST** /businesses/{businessId}/offer-mappings/archive | Добавление товаров в архив |
 | [**deleteOffers()**](BusinessOfferMappingsApi.md#deleteOffers) | **POST** /businesses/{businessId}/offer-mappings/delete | Удаление товаров из каталога |
-| [**deleteOffersFromArchive()**](BusinessOfferMappingsApi.md#deleteOffersFromArchive) | **POST** /businesses/{businessId}/offer-mappings/unarchive | Восстановление товаров из архива |
+| [**deleteOffersFromArchive()**](BusinessOfferMappingsApi.md#deleteOffersFromArchive) | **POST** /businesses/{businessId}/offer-mappings/unarchive | Удаление товаров из архива |
 | [**getOfferMappings()**](BusinessOfferMappingsApi.md#getOfferMappings) | **POST** /businesses/{businessId}/offer-mappings | Информация о товарах в каталоге |
-| [**getSuggestedOfferMappings()**](BusinessOfferMappingsApi.md#getSuggestedOfferMappings) | **POST** /businesses/{businessId}/offer-mappings/suggestions | Предварительный просмотр карточек на Маркете, соответствующих вашим товарам |
-| [**updateOfferMappings()**](BusinessOfferMappingsApi.md#updateOfferMappings) | **POST** /businesses/{businessId}/offer-mappings/update | Добавление товаров в каталог и редактирование информации о них |
+| [**getSuggestedOfferMappings()**](BusinessOfferMappingsApi.md#getSuggestedOfferMappings) | **POST** /businesses/{businessId}/offer-mappings/suggestions | Просмотр карточек на Маркете, которые подходят вашим товарам |
+| [**updateOfferMappings()**](BusinessOfferMappingsApi.md#updateOfferMappings) | **POST** /businesses/{businessId}/offer-mappings/update | Добавление товаров в каталог и изменение информации о них |
 
 
 ## `addOffersToArchive()`
@@ -20,7 +20,7 @@ addOffersToArchive($business_id, $add_offers_to_archive_request): \YandexMarketA
 
 Добавление товаров в архив
 
-Помещает товары в архив. Товары, помещенные в архив, скрыты с витрины во всех магазинах кабинета.  {% note warning \"В архив нельзя отправить товар, который хранится на складе Маркета\" %}  Вначале такой товар нужно распродать или вывезти.  {% endnote %}  |**⚙️ Лимит:** 5000 товаров в минуту, не более 200 товаров в одном запросе| |-|
+{% include notitle [access](../../_auto/method_scopes/addOffersToArchive.md) %}  Помещает товары в архив. Товары, помещенные в архив, скрыты с витрины во всех магазинах кабинета.  {% note warning \"В архив нельзя отправить товар, который хранится на складе Маркета\" %}  Вначале такой товар нужно распродать или вывезти.  {% endnote %}  |**⚙️ Лимит:** 5000 товаров в минуту, не более 200 товаров в одном запросе| |-|
 
 ### Example
 
@@ -28,6 +28,11 @@ addOffersToArchive($business_id, $add_offers_to_archive_request): \YandexMarketA
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: ApiKey
+$config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKey('Api-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Api-Key', 'Bearer');
 
 // Configure OAuth2 access token for authorization: OAuth
 $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -63,7 +68,7 @@ try {
 
 ### Authorization
 
-[OAuth](../../README.md#OAuth)
+[ApiKey](../../README.md#ApiKey), [OAuth](../../README.md#OAuth)
 
 ### HTTP request headers
 
@@ -82,7 +87,7 @@ deleteOffers($business_id, $delete_offers_request): \YandexMarketApi\Model\Delet
 
 Удаление товаров из каталога
 
-Удаляет товары из каталога.  |**⚙️ Лимит:** 5000 товаров в минуту, не более 200 товаров в одном запросе| |-|
+{% include notitle [access](../../_auto/method_scopes/deleteOffers.md) %}  Удаляет товары из каталога.  |**⚙️ Лимит:** 5000 товаров в минуту, не более 200 товаров в одном запросе| |-|
 
 ### Example
 
@@ -90,6 +95,11 @@ deleteOffers($business_id, $delete_offers_request): \YandexMarketApi\Model\Delet
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: ApiKey
+$config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKey('Api-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Api-Key', 'Bearer');
 
 // Configure OAuth2 access token for authorization: OAuth
 $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -125,7 +135,7 @@ try {
 
 ### Authorization
 
-[OAuth](../../README.md#OAuth)
+[ApiKey](../../README.md#ApiKey), [OAuth](../../README.md#OAuth)
 
 ### HTTP request headers
 
@@ -142,9 +152,9 @@ try {
 deleteOffersFromArchive($business_id, $delete_offers_from_archive_request): \YandexMarketApi\Model\DeleteOffersFromArchiveResponse
 ```
 
-Восстановление товаров из архива
+Удаление товаров из архива
 
-Восстанавливает товары из архива.  |**⚙️ Лимит:** 5000 товаров в минуту, не более 200 товаров в одном запросе| |-|
+{% include notitle [access](../../_auto/method_scopes/deleteOffersFromArchive.md) %}  Восстанавливает товары из архива.  |**⚙️ Лимит:** 5000 товаров в минуту, не более 200 товаров в одном запросе| |-|
 
 ### Example
 
@@ -152,6 +162,11 @@ deleteOffersFromArchive($business_id, $delete_offers_from_archive_request): \Yan
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: ApiKey
+$config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKey('Api-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Api-Key', 'Bearer');
 
 // Configure OAuth2 access token for authorization: OAuth
 $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -187,7 +202,7 @@ try {
 
 ### Authorization
 
-[OAuth](../../README.md#OAuth)
+[ApiKey](../../README.md#ApiKey), [OAuth](../../README.md#OAuth)
 
 ### HTTP request headers
 
@@ -201,12 +216,12 @@ try {
 ## `getOfferMappings()`
 
 ```php
-getOfferMappings($business_id, $page_token, $limit, $get_offer_mappings_request): \YandexMarketApi\Model\GetOfferMappingsResponse
+getOfferMappings($business_id, $page_token, $limit, $language, $get_offer_mappings_request): \YandexMarketApi\Model\GetOfferMappingsResponse
 ```
 
 Информация о товарах в каталоге
 
-Возвращает список товаров в каталоге с параметрами каждого товара.  Можно использовать тремя способами: * задать список интересующих SKU; * задать фильтр — в этом случае результаты возвращаются постранично; * не передавать тело запроса, чтобы получить список всех товаров в каталоге.  |**⚙️ Лимит:** 600 запросов в минуту, не более 200 товаров в одном запросе| |-|
+{% include notitle [access](../../_auto/method_scopes/getOfferMappings.md) %}  Возвращает список товаров в каталоге, их категории на Маркете и характеристики каждого товара.  Можно использовать тремя способами: * задать список интересующих SKU; * задать фильтр — в этом случае результаты возвращаются постранично; * не передавать тело запроса, чтобы получить список всех товаров в каталоге.  |**⚙️ Лимит:** 600 запросов в минуту, не более 200 товаров в одном запросе| |-|
 
 ### Example
 
@@ -214,6 +229,11 @@ getOfferMappings($business_id, $page_token, $limit, $get_offer_mappings_request)
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: ApiKey
+$config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKey('Api-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Api-Key', 'Bearer');
 
 // Configure OAuth2 access token for authorization: OAuth
 $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -226,12 +246,13 @@ $apiInstance = new YandexMarketApi\Api\BusinessOfferMappingsApi(
     $config
 );
 $business_id = 56; // int | Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html)
-$page_token = eyBuZXh0SWQ6IDIzNDIgfQ==; // string | Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра `nextPageToken`, полученное при последнем запросе.  Если задан `page_token`, параметры `offset`, `page_number` и `page_size` игнорируются.
-$limit = 20; // int | Количество товаров на одной странице.
+$page_token = eyBuZXh0SWQ6IDIzNDIgfQ==; // string | Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра `nextPageToken`, полученное при последнем запросе.  Если задан `page_token` и в запросе есть параметры `page_number` и `page_size`, они игнорируются.
+$limit = 20; // int | Количество значений на одной странице.
+$language = new \YandexMarketApi\Model\CatalogLanguageType(); // CatalogLanguageType | Язык, на котором принимаются и возвращаются значения в параметрах `name` и `description`.  Значение по умолчанию: `RU`.
 $get_offer_mappings_request = new \YandexMarketApi\Model\GetOfferMappingsRequest(); // \YandexMarketApi\Model\GetOfferMappingsRequest
 
 try {
-    $result = $apiInstance->getOfferMappings($business_id, $page_token, $limit, $get_offer_mappings_request);
+    $result = $apiInstance->getOfferMappings($business_id, $page_token, $limit, $language, $get_offer_mappings_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BusinessOfferMappingsApi->getOfferMappings: ', $e->getMessage(), PHP_EOL;
@@ -243,8 +264,9 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **business_id** | **int**| Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) | |
-| **page_token** | **string**| Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. | [optional] |
-| **limit** | **int**| Количество товаров на одной странице. | [optional] |
+| **page_token** | **string**| Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. | [optional] |
+| **limit** | **int**| Количество значений на одной странице. | [optional] |
+| **language** | [**CatalogLanguageType**](../Model/.md)| Язык, на котором принимаются и возвращаются значения в параметрах &#x60;name&#x60; и &#x60;description&#x60;.  Значение по умолчанию: &#x60;RU&#x60;. | [optional] |
 | **get_offer_mappings_request** | [**\YandexMarketApi\Model\GetOfferMappingsRequest**](../Model/GetOfferMappingsRequest.md)|  | [optional] |
 
 ### Return type
@@ -253,7 +275,7 @@ try {
 
 ### Authorization
 
-[OAuth](../../README.md#OAuth)
+[ApiKey](../../README.md#ApiKey), [OAuth](../../README.md#OAuth)
 
 ### HTTP request headers
 
@@ -270,9 +292,9 @@ try {
 getSuggestedOfferMappings($business_id, $get_suggested_offer_mappings_request): \YandexMarketApi\Model\GetSuggestedOfferMappingsResponse
 ```
 
-Предварительный просмотр карточек на Маркете, соответствующих вашим товарам
+Просмотр карточек на Маркете, которые подходят вашим товарам
 
-Возвращает идентификаторы карточек на Маркете, которые соответствуют товарам с заданными параметрами.  Пользоваться этим запросом необязательно: он просто помогает заранее убедиться, что Маркет верно определяет карточке по предоставленным вами данным.  **Как пользоваться запросом**  1. Передайте Маркету список товаров, которые нужно проверить. 2. В ответ вы получите список SKU на Маркете с расшифровкой: названием, идентификатором модели, категорией. 3. Если расшифровки мало, вы можете открыть карточку. Для этого перейдите по ссылке вида `https://market.yandex.ru/product/<marketModelId>?sku=<marketSku>`. 4. Если карточка соответствует товару, значит его можно добавлять в каталог с теми данными, что вы указали. Если карточка определилась неправильно — проверьте данные о товаре. Возможно, их нужно уточнить или дополнить. Кроме того, на этапе добавления товара вы можете указать `marketSKU`, который ему подходит по вашему мнению.  {% note info \"𝓠 Как определить `marketSku` товара, найденного на Маркете?\" %}  𝓐 Он есть в адресе страницы товара — расположен после `sku=`.  Например, `https://market.yandex.ru/product--yandex-kniga/484830016?sku=484830016`  {% endnote %}  |**⚙️ Лимит:** 100 000 товаров в час, не более 500 товаров в одном запросе| |-|
+{% include notitle [access](../../_auto/method_scopes/getSuggestedOfferMappings.md) %}  Возвращает идентификаторы карточек на Маркете, которые соответствуют товарам с заданными параметрами.  Пользоваться этим запросом необязательно: он просто помогает заранее убедиться, что Маркет верно определяет карточки по предоставленным вами данным.  **Как пользоваться запросом**  1. Передайте Маркету список товаров, которые нужно проверить. 2. В ответ вы получите список SKU на Маркете с расшифровкой: названием, идентификатором модели, категорией. 3. Если расшифровки мало, вы можете открыть карточку. Для этого перейдите по ссылке вида `https://market.yandex.ru/product/<marketModelId>?sku=<marketSku>`. 4. Если карточка соответствует товару, значит его можно добавлять в каталог с теми данными, что вы указали. Если карточка определилась неправильно — проверьте данные о товаре. Возможно, их нужно уточнить или дополнить. Кроме того, на этапе добавления товара вы можете указать `marketSKU`, который ему подходит по вашему мнению.  {% note info \"Как определить `marketSku` товара, найденного на Маркете?\" %}  Он есть в адресе страницы товара — расположен после `sku=`.  Например, `https://market.yandex.ru/product--yandex-kniga/484830016?sku=484830016`  {% endnote %}  |**⚙️ Лимит:** 100 000 товаров в час| |-|
 
 ### Example
 
@@ -280,6 +302,11 @@ getSuggestedOfferMappings($business_id, $get_suggested_offer_mappings_request): 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: ApiKey
+$config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKey('Api-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Api-Key', 'Bearer');
 
 // Configure OAuth2 access token for authorization: OAuth
 $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -307,7 +334,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **business_id** | **int**| Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) | |
-| **get_suggested_offer_mappings_request** | [**\YandexMarketApi\Model\GetSuggestedOfferMappingsRequest**](../Model/GetSuggestedOfferMappingsRequest.md)|  | |
+| **get_suggested_offer_mappings_request** | [**\YandexMarketApi\Model\GetSuggestedOfferMappingsRequest**](../Model/GetSuggestedOfferMappingsRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -315,7 +342,7 @@ try {
 
 ### Authorization
 
-[OAuth](../../README.md#OAuth)
+[ApiKey](../../README.md#ApiKey), [OAuth](../../README.md#OAuth)
 
 ### HTTP request headers
 
@@ -329,12 +356,12 @@ try {
 ## `updateOfferMappings()`
 
 ```php
-updateOfferMappings($business_id, $update_offer_mappings_request): \YandexMarketApi\Model\EmptyApiResponse
+updateOfferMappings($business_id, $update_offer_mappings_request, $language): \YandexMarketApi\Model\UpdateOfferMappingsResponse
 ```
 
-Добавление товаров в каталог и редактирование информации о них
+Добавление товаров в каталог и изменение информации о них
 
-Добавляет товары в каталог или редактирует информацию об уже имеющихся товарах.  Чтобы **добавить новый товар**, передайте его с новым идентификатором, который раньше никогда не использовался в каталоге. Старайтесь сразу передать как можно больше информации — она потребуется Маркету для подбора подходящей карточки или создания новой. Если известно, какой карточке на Маркете соответствует товар, можно сразу указать идентификатор этой карточки (**SKU на Маркете**) в поле `marketSKU`.  Для **новых товаров** обязательно укажите параметры: `offerId`, `name`, `category`, `pictures`, `vendor`, `description`.  Чтобы **отредактировать информацию о товаре**, передайте новые данные, указав в `offerId` соответствующий **ваш SKU**. Поля, в которых ничего не меняется, можно не передавать.  {% note warning \"Правила использования SKU\" %}  * У каждого товара SKU должен быть свой.  * SKU товара нельзя менять — можно только удалить товар и добавить заново с новым SKU.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  {% endnote %}  {% note info \"Данные в каталоге обновляются не мгновенно\" %}  Это занимает до нескольких минут.  {% endnote %}  |**⚙️ Лимит:** 5000 товаров в минуту, не более 500 товаров в одном запросе| |-|
+{% include notitle [access](../../_auto/method_scopes/updateOfferMappings.md) %}  Добавляет товары в каталог, передает их категории на Маркете и характеристики, необходимые для этих категории. Также редактирует информацию об уже имеющихся товарах.  Список категорий Маркета можно получить с помощью запроса [POST categories/tree](../../reference/categories/getCategoriesTree.md), а характеристики товаров по категориям с помощью [POST category/{categoryId}/parameters](../../reference/content/getCategoryContentParameters.md).  Чтобы **добавить новый товар**, передайте его с новым идентификатором, который раньше никогда не использовался в каталоге. Старайтесь сразу передать как можно больше информации — она потребуется Маркету для подбора подходящей карточки или создания новой. Если известно, какой карточке на Маркете соответствует товар, можно сразу указать идентификатор этой карточки (**SKU на Маркете**) в поле `marketSKU`.  Для **новых товаров** обязательно укажите параметры: `offerId`, `name`, `marketCategoryId`, `pictures`, `vendor`, `description`.  Чтобы **отредактировать информацию о товаре**, передайте новые данные, указав в `offerId` соответствующий **ваш SKU**. Поля, в которых ничего не меняется, можно не передавать.  Чтобы **удалить характеристики**, которые заданы в параметрах с типом `string`, передайте пустое значение.  Параметр `offerId` должен быть **уникальным** для всех товаров, которые вы передаете.  {% note warning \"Правила использования SKU\" %}  * У каждого товара SKU должен быть свой.  * Уже заданный SKU нельзя освободить и использовать заново для другого товара. Каждый товар должен получать новый идентификатор, до того никогда не использовавшийся в вашем каталоге.  SKU товара можно изменить в кабинете продавца на Маркете. О том, как это сделать, читайте [в Справке Маркета для продавцов](https://yandex.ru/support2/marketplace/ru/assortment/operations/edit-sku).  {% endnote %}  {% note info \"Данные в каталоге обновляются не мгновенно\" %}  Это занимает до нескольких минут.  {% endnote %}  |**⚙️ Лимит:** 5000 товаров в минуту, не более 500 товаров в одном запросе| |-|
 
 ### Example
 
@@ -342,6 +369,11 @@ updateOfferMappings($business_id, $update_offer_mappings_request): \YandexMarket
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: ApiKey
+$config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKey('Api-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Api-Key', 'Bearer');
 
 // Configure OAuth2 access token for authorization: OAuth
 $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -355,9 +387,10 @@ $apiInstance = new YandexMarketApi\Api\BusinessOfferMappingsApi(
 );
 $business_id = 56; // int | Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html)
 $update_offer_mappings_request = new \YandexMarketApi\Model\UpdateOfferMappingsRequest(); // \YandexMarketApi\Model\UpdateOfferMappingsRequest
+$language = new \YandexMarketApi\Model\CatalogLanguageType(); // CatalogLanguageType | Язык, на котором принимаются и возвращаются значения в параметрах `name` и `description`.  Значение по умолчанию: `RU`.
 
 try {
-    $result = $apiInstance->updateOfferMappings($business_id, $update_offer_mappings_request);
+    $result = $apiInstance->updateOfferMappings($business_id, $update_offer_mappings_request, $language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BusinessOfferMappingsApi->updateOfferMappings: ', $e->getMessage(), PHP_EOL;
@@ -370,14 +403,15 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **business_id** | **int**| Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) | |
 | **update_offer_mappings_request** | [**\YandexMarketApi\Model\UpdateOfferMappingsRequest**](../Model/UpdateOfferMappingsRequest.md)|  | |
+| **language** | [**CatalogLanguageType**](../Model/.md)| Язык, на котором принимаются и возвращаются значения в параметрах &#x60;name&#x60; и &#x60;description&#x60;.  Значение по умолчанию: &#x60;RU&#x60;. | [optional] |
 
 ### Return type
 
-[**\YandexMarketApi\Model\EmptyApiResponse**](../Model/EmptyApiResponse.md)
+[**\YandexMarketApi\Model\UpdateOfferMappingsResponse**](../Model/UpdateOfferMappingsResponse.md)
 
 ### Authorization
 
-[OAuth](../../README.md#OAuth)
+[ApiKey](../../README.md#ApiKey), [OAuth](../../README.md#OAuth)
 
 ### HTTP request headers
 

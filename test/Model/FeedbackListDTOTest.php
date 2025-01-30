@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * FeedbackListDTOTest Class Doc Comment
  *
  * @category    Class
- * @description Отзывы пользователей Яндекс.Маркета об указанном магазине.
+ * @description Отзывы пользователей Яндекс Маркета об указанном магазине.
  * @package     YandexMarketApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

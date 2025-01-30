@@ -289,6 +289,10 @@ class CalculateTariffsParametersDTO implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['campaign_id']) && ($this->container['campaign_id'] < 1)) {
+            $invalidProperties[] = "invalid value for 'campaign_id', must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -326,6 +330,11 @@ class CalculateTariffsParametersDTO implements ModelInterface, ArrayAccess, \Jso
         if (is_null($campaign_id)) {
             throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
         }
+
+        if (($campaign_id < 1)) {
+            throw new \InvalidArgumentException('invalid value for $campaign_id when calling CalculateTariffsParametersDTO., must be bigger than or equal to 1.');
+        }
+
         $this->container['campaign_id'] = $campaign_id;
 
         return $this;

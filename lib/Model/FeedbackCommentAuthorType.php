@@ -33,7 +33,7 @@ use \YandexMarketApi\ObjectSerializer;
  * FeedbackCommentAuthorType Class Doc Comment
  *
  * @category Class
- * @description Тип автора ответа:  * &#x60;USER&#x60; — пользователь. * &#x60;SHOP&#x60; — магазин.
+ * @description Тип автора:  * &#x60;USER&#x60; — пользователь. * &#x60;SHOP&#x60; — магазин.
  * @package  YandexMarketApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

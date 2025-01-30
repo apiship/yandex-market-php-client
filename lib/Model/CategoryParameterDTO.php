@@ -109,15 +109,15 @@ class CategoryParameterDTO implements ModelInterface, ArrayAccess, \JsonSerializ
 		'type' => false,
 		'unit' => false,
 		'description' => false,
-		'recommendation_types' => false,
+		'recommendation_types' => true,
 		'required' => false,
 		'filtering' => false,
 		'distinctive' => false,
 		'multivalue' => false,
 		'allow_custom_values' => false,
-		'values' => false,
+		'values' => true,
 		'constraints' => false,
-		'value_restrictions' => false
+		'value_restrictions' => true
     ];
 
     /**
@@ -369,6 +369,10 @@ class CategoryParameterDTO implements ModelInterface, ArrayAccess, \JsonSerializ
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
+        if (($this->container['id'] < 1)) {
+            $invalidProperties[] = "invalid value for 'id', must be bigger than or equal to 1.";
+        }
+
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
@@ -424,6 +428,11 @@ class CategoryParameterDTO implements ModelInterface, ArrayAccess, \JsonSerializ
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
+
+        if (($id < 1)) {
+            throw new \InvalidArgumentException('invalid value for $id when calling CategoryParameterDTO., must be bigger than or equal to 1.');
+        }
+
         $this->container['id'] = $id;
 
         return $this;
@@ -557,7 +566,14 @@ class CategoryParameterDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setRecommendationTypes($recommendation_types)
     {
         if (is_null($recommendation_types)) {
-            throw new \InvalidArgumentException('non-nullable recommendation_types cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'recommendation_types');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('recommendation_types', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['recommendation_types'] = $recommendation_types;
 
@@ -719,7 +735,14 @@ class CategoryParameterDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setValues($values)
     {
         if (is_null($values)) {
-            throw new \InvalidArgumentException('non-nullable values cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'values');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('values', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['values'] = $values;
 
@@ -773,7 +796,14 @@ class CategoryParameterDTO implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setValueRestrictions($value_restrictions)
     {
         if (is_null($value_restrictions)) {
-            throw new \InvalidArgumentException('non-nullable value_restrictions cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'value_restrictions');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('value_restrictions', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['value_restrictions'] = $value_restrictions;
 

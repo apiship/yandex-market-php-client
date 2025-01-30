@@ -282,6 +282,9 @@ class OrderTrackDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['delivery_service_id'] === null) {
+            $invalidProperties[] = "'delivery_service_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -327,7 +330,7 @@ class OrderTrackDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets delivery_service_id
      *
-     * @return int|null
+     * @return int
      */
     public function getDeliveryServiceId()
     {
@@ -337,7 +340,7 @@ class OrderTrackDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets delivery_service_id
      *
-     * @param int|null $delivery_service_id Идентификатор службы доставки. Информацию о службе доставки можно получить с помощью запроса [GET delivery/services](../../reference/orders/getDeliveryServices.md).
+     * @param int $delivery_service_id Идентификатор службы доставки. Информацию о службе доставки можно получить с помощью запроса [GET delivery/services](../../reference/orders/getDeliveryServices.md).
      *
      * @return self
      */

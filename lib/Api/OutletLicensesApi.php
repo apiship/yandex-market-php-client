@@ -134,14 +134,14 @@ class OutletLicensesApi
      * Удаление лицензий для точек продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int[] $ids Список идентификаторов лицензий. (optional)
+     * @param  int[] $ids Список идентификаторов лицензий для удаления. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutletLicenses'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \YandexMarketApi\Model\EmptyApiResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse
      */
-    public function deleteOutletLicenses($campaign_id, $ids = null, string $contentType = self::contentTypes['deleteOutletLicenses'][0])
+    public function deleteOutletLicenses($campaign_id, $ids, string $contentType = self::contentTypes['deleteOutletLicenses'][0])
     {
         list($response) = $this->deleteOutletLicensesWithHttpInfo($campaign_id, $ids, $contentType);
         return $response;
@@ -153,14 +153,14 @@ class OutletLicensesApi
      * Удаление лицензий для точек продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int[] $ids Список идентификаторов лицензий. (optional)
+     * @param  int[] $ids Список идентификаторов лицензий для удаления. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutletLicenses'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \YandexMarketApi\Model\EmptyApiResponse|\YandexMarketApi\Model\ApiClientDataErrorResponse|\YandexMarketApi\Model\ApiUnauthorizedErrorResponse|\YandexMarketApi\Model\ApiForbiddenErrorResponse|\YandexMarketApi\Model\ApiNotFoundErrorResponse|\YandexMarketApi\Model\ApiLimitErrorResponse|\YandexMarketApi\Model\ApiServerErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteOutletLicensesWithHttpInfo($campaign_id, $ids = null, string $contentType = self::contentTypes['deleteOutletLicenses'][0])
+    public function deleteOutletLicensesWithHttpInfo($campaign_id, $ids, string $contentType = self::contentTypes['deleteOutletLicenses'][0])
     {
         $request = $this->deleteOutletLicensesRequest($campaign_id, $ids, $contentType);
 
@@ -392,13 +392,13 @@ class OutletLicensesApi
      * Удаление лицензий для точек продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int[] $ids Список идентификаторов лицензий. (optional)
+     * @param  int[] $ids Список идентификаторов лицензий для удаления. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutletLicenses'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteOutletLicensesAsync($campaign_id, $ids = null, string $contentType = self::contentTypes['deleteOutletLicenses'][0])
+    public function deleteOutletLicensesAsync($campaign_id, $ids, string $contentType = self::contentTypes['deleteOutletLicenses'][0])
     {
         return $this->deleteOutletLicensesAsyncWithHttpInfo($campaign_id, $ids, $contentType)
             ->then(
@@ -414,13 +414,13 @@ class OutletLicensesApi
      * Удаление лицензий для точек продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int[] $ids Список идентификаторов лицензий. (optional)
+     * @param  int[] $ids Список идентификаторов лицензий для удаления. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutletLicenses'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteOutletLicensesAsyncWithHttpInfo($campaign_id, $ids = null, string $contentType = self::contentTypes['deleteOutletLicenses'][0])
+    public function deleteOutletLicensesAsyncWithHttpInfo($campaign_id, $ids, string $contentType = self::contentTypes['deleteOutletLicenses'][0])
     {
         $returnType = '\YandexMarketApi\Model\EmptyApiResponse';
         $request = $this->deleteOutletLicensesRequest($campaign_id, $ids, $contentType);
@@ -465,13 +465,13 @@ class OutletLicensesApi
      * Create request for operation 'deleteOutletLicenses'
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int[] $ids Список идентификаторов лицензий. (optional)
+     * @param  int[] $ids Список идентификаторов лицензий для удаления. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutletLicenses'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteOutletLicensesRequest($campaign_id, $ids = null, string $contentType = self::contentTypes['deleteOutletLicenses'][0])
+    public function deleteOutletLicensesRequest($campaign_id, $ids, string $contentType = self::contentTypes['deleteOutletLicenses'][0])
     {
 
         // verify the required parameter 'campaign_id' is set
@@ -480,7 +480,19 @@ class OutletLicensesApi
                 'Missing the required parameter $campaign_id when calling deleteOutletLicenses'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling OutletLicensesApi.deleteOutletLicenses, must be bigger than or equal to 1.');
+        }
+        
+        // verify the required parameter 'ids' is set
+        if ($ids === null || (is_array($ids) && count($ids) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ids when calling deleteOutletLicenses'
+            );
+        }
+        if (count($ids) < 1) {
+            throw new \InvalidArgumentException('invalid value for "$ids" when calling OutletLicensesApi.deleteOutletLicenses, number of items must be greater than or equal to 1.');
+        }
         
 
         $resourcePath = '/campaigns/{campaignId}/outlets/licenses';
@@ -497,7 +509,7 @@ class OutletLicensesApi
             'array', // openApiType
             '', // style
             false, // explode
-            false // required
+            true // required
         ) ?? []);
 
 
@@ -542,6 +554,11 @@ class OutletLicensesApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -574,7 +591,7 @@ class OutletLicensesApi
      * Информация о лицензиях для точек продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int[] $outlet_ids Список идентификаторов точек продаж, для которых нужно получить информацию о лицензиях. Идентификаторы указываются через запятую. В запросе должен быть либо параметр &#x60;outletIds&#x60;, либо параметр &#x60;ids&#x60;. Запрос с обоими параметрами или без них приведет к ошибке. (optional)
+     * @param  int[] $outlet_ids Список идентификаторов точек продаж, для которых нужно получить информацию о лицензиях. Идентификаторы указываются через запятую.  В запросе должен быть либо параметр &#x60;outletIds&#x60;, либо параметр &#x60;ids&#x60;. Запрос с обоими параметрами или без них приведет к ошибке. (optional)
      * @param  int[] $ids Список идентификаторов лицензий. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutletLicenses'] to see the possible values for this operation
      *
@@ -594,7 +611,7 @@ class OutletLicensesApi
      * Информация о лицензиях для точек продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int[] $outlet_ids Список идентификаторов точек продаж, для которых нужно получить информацию о лицензиях. Идентификаторы указываются через запятую. В запросе должен быть либо параметр &#x60;outletIds&#x60;, либо параметр &#x60;ids&#x60;. Запрос с обоими параметрами или без них приведет к ошибке. (optional)
+     * @param  int[] $outlet_ids Список идентификаторов точек продаж, для которых нужно получить информацию о лицензиях. Идентификаторы указываются через запятую.  В запросе должен быть либо параметр &#x60;outletIds&#x60;, либо параметр &#x60;ids&#x60;. Запрос с обоими параметрами или без них приведет к ошибке. (optional)
      * @param  int[] $ids Список идентификаторов лицензий. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutletLicenses'] to see the possible values for this operation
      *
@@ -834,7 +851,7 @@ class OutletLicensesApi
      * Информация о лицензиях для точек продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int[] $outlet_ids Список идентификаторов точек продаж, для которых нужно получить информацию о лицензиях. Идентификаторы указываются через запятую. В запросе должен быть либо параметр &#x60;outletIds&#x60;, либо параметр &#x60;ids&#x60;. Запрос с обоими параметрами или без них приведет к ошибке. (optional)
+     * @param  int[] $outlet_ids Список идентификаторов точек продаж, для которых нужно получить информацию о лицензиях. Идентификаторы указываются через запятую.  В запросе должен быть либо параметр &#x60;outletIds&#x60;, либо параметр &#x60;ids&#x60;. Запрос с обоими параметрами или без них приведет к ошибке. (optional)
      * @param  int[] $ids Список идентификаторов лицензий. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutletLicenses'] to see the possible values for this operation
      *
@@ -857,7 +874,7 @@ class OutletLicensesApi
      * Информация о лицензиях для точек продаж
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int[] $outlet_ids Список идентификаторов точек продаж, для которых нужно получить информацию о лицензиях. Идентификаторы указываются через запятую. В запросе должен быть либо параметр &#x60;outletIds&#x60;, либо параметр &#x60;ids&#x60;. Запрос с обоими параметрами или без них приведет к ошибке. (optional)
+     * @param  int[] $outlet_ids Список идентификаторов точек продаж, для которых нужно получить информацию о лицензиях. Идентификаторы указываются через запятую.  В запросе должен быть либо параметр &#x60;outletIds&#x60;, либо параметр &#x60;ids&#x60;. Запрос с обоими параметрами или без них приведет к ошибке. (optional)
      * @param  int[] $ids Список идентификаторов лицензий. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutletLicenses'] to see the possible values for this operation
      *
@@ -909,7 +926,7 @@ class OutletLicensesApi
      * Create request for operation 'getOutletLicenses'
      *
      * @param  int $campaign_id Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
-     * @param  int[] $outlet_ids Список идентификаторов точек продаж, для которых нужно получить информацию о лицензиях. Идентификаторы указываются через запятую. В запросе должен быть либо параметр &#x60;outletIds&#x60;, либо параметр &#x60;ids&#x60;. Запрос с обоими параметрами или без них приведет к ошибке. (optional)
+     * @param  int[] $outlet_ids Список идентификаторов точек продаж, для которых нужно получить информацию о лицензиях. Идентификаторы указываются через запятую.  В запросе должен быть либо параметр &#x60;outletIds&#x60;, либо параметр &#x60;ids&#x60;. Запрос с обоими параметрами или без них приведет к ошибке. (optional)
      * @param  int[] $ids Список идентификаторов лицензий. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutletLicenses'] to see the possible values for this operation
      *
@@ -925,7 +942,16 @@ class OutletLicensesApi
                 'Missing the required parameter $campaign_id when calling getOutletLicenses'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling OutletLicensesApi.getOutletLicenses, must be bigger than or equal to 1.');
+        }
+        
+        if ($outlet_ids !== null && count($outlet_ids) > 500) {
+            throw new \InvalidArgumentException('invalid value for "$outlet_ids" when calling OutletLicensesApi.getOutletLicenses, number of items must be less than or equal to 500.');
+        }
+        if ($outlet_ids !== null && count($outlet_ids) < 1) {
+            throw new \InvalidArgumentException('invalid value for "$outlet_ids" when calling OutletLicensesApi.getOutletLicenses, number of items must be greater than or equal to 1.');
+        }
         
         
 
@@ -997,6 +1023,11 @@ class OutletLicensesApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1375,7 +1406,10 @@ class OutletLicensesApi
                 'Missing the required parameter $campaign_id when calling updateOutletLicenses'
             );
         }
-
+        if ($campaign_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$campaign_id" when calling OutletLicensesApi.updateOutletLicenses, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'update_outlet_license_request' is set
         if ($update_outlet_license_request === null || (is_array($update_outlet_license_request) && count($update_outlet_license_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -1441,6 +1475,11 @@ class OutletLicensesApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();

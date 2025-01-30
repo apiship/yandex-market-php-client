@@ -4,9 +4,9 @@ All URIs are relative to https://api.partner.market.yandex.ru, except if the ope
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**generateOrderLabel()**](OrderLabelsApi.md#generateOrderLabel) | **GET** /campaigns/{campaignId}/orders/{orderId}/delivery/shipments/{shipmentId}/boxes/{boxId}/label | Ярлык‑наклейка для коробки в заказе |
-| [**generateOrderLabels()**](OrderLabelsApi.md#generateOrderLabels) | **GET** /campaigns/{campaignId}/orders/{orderId}/delivery/labels | Ярлыки‑наклейки на все грузовые места в заказе |
-| [**getOrderLabelsData()**](OrderLabelsApi.md#getOrderLabelsData) | **GET** /campaigns/{campaignId}/orders/{orderId}/delivery/labels/data | Информация на ярлыках‑наклейках |
+| [**generateOrderLabel()**](OrderLabelsApi.md#generateOrderLabel) | **GET** /campaigns/{campaignId}/orders/{orderId}/delivery/shipments/{shipmentId}/boxes/{boxId}/label | Готовый ярлык‑наклейка для коробки в заказе |
+| [**generateOrderLabels()**](OrderLabelsApi.md#generateOrderLabels) | **GET** /campaigns/{campaignId}/orders/{orderId}/delivery/labels | Готовые ярлыки‑наклейки на все коробки в одном заказе |
+| [**getOrderLabelsData()**](OrderLabelsApi.md#getOrderLabelsData) | **GET** /campaigns/{campaignId}/orders/{orderId}/delivery/labels/data | Данные для самостоятельного изготовления ярлыков |
 
 
 ## `generateOrderLabel()`
@@ -15,9 +15,9 @@ All URIs are relative to https://api.partner.market.yandex.ru, except if the ope
 generateOrderLabel($campaign_id, $order_id, $shipment_id, $box_id, $format): \SplFileObject
 ```
 
-Ярлык‑наклейка для коробки в заказе
+Готовый ярлык‑наклейка для коробки в заказе
 
-Формирует ярлык‑наклейку для коробки в заказе и возвращает ярлык в PDF‑файле.  |**⚙️ Лимит:** 1 000 000 запросов в час| |-|
+{% include notitle [access](../../_auto/method_scopes/generateOrderLabel.md) %}  Формирует ярлык‑наклейку для коробки в заказе и возвращает ярлык в PDF‑файле.  |**⚙️ Лимит:** 100 000 запросов в час| |-|
 
 ### Example
 
@@ -25,6 +25,11 @@ generateOrderLabel($campaign_id, $order_id, $shipment_id, $box_id, $format): \Sp
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: ApiKey
+$config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKey('Api-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Api-Key', 'Bearer');
 
 // Configure OAuth2 access token for authorization: OAuth
 $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -40,7 +45,7 @@ $campaign_id = 56; // int | Идентификатор кампании в API �
 $order_id = 56; // int | Идентификатор заказа.
 $shipment_id = 56; // int | Идентификатор грузоместа.
 $box_id = 56; // int | Идентификатор коробки.
-$format = new \YandexMarketApi\Model\PageFormatType(); // PageFormatType | Настройка размещения ярлыков на странице. Если параметра нет, возвращается PDF с ярлыками формата A6.
+$format = new \YandexMarketApi\Model\PageFormatType(); // PageFormatType | Настройка размещения ярлыков на странице. Если параметра нет, возвращается PDF с ярлыками формата A7.
 
 try {
     $result = $apiInstance->generateOrderLabel($campaign_id, $order_id, $shipment_id, $box_id, $format);
@@ -58,7 +63,7 @@ try {
 | **order_id** | **int**| Идентификатор заказа. | |
 | **shipment_id** | **int**| Идентификатор грузоместа. | |
 | **box_id** | **int**| Идентификатор коробки. | |
-| **format** | [**PageFormatType**](../Model/.md)| Настройка размещения ярлыков на странице. Если параметра нет, возвращается PDF с ярлыками формата A6. | [optional] |
+| **format** | [**PageFormatType**](../Model/.md)| Настройка размещения ярлыков на странице. Если параметра нет, возвращается PDF с ярлыками формата A7. | [optional] |
 
 ### Return type
 
@@ -66,7 +71,7 @@ try {
 
 ### Authorization
 
-[OAuth](../../README.md#OAuth)
+[ApiKey](../../README.md#ApiKey), [OAuth](../../README.md#OAuth)
 
 ### HTTP request headers
 
@@ -83,9 +88,9 @@ try {
 generateOrderLabels($campaign_id, $order_id, $format): \SplFileObject
 ```
 
-Ярлыки‑наклейки на все грузовые места в заказе
+Готовые ярлыки‑наклейки на все коробки в одном заказе
 
-Возвращает PDF-файл с ярлыками, которые нужно наклеить на посылки перед отгрузкой. Подробно о том, зачем они нужны и как выглядят, рассказано [в Справке](https://yandex.ru/support/marketplace/orders/fbs/packaging/marking.html).  На вход нужно передать идентификатор заказа и один необязательный параметр, который управляет версткой PDF-файла.  |**⚙️ Лимит:** 1 000 000 запросов в час| |-|
+{% include notitle [access](../../_auto/method_scopes/generateOrderLabels.md) %}  Возвращает PDF-файл с ярлыками, которые нужно наклеить на коробки перед отгрузкой. Подробно о том, зачем они нужны и как выглядят, рассказано [в Справке Маркета для продавцов](https://yandex.ru/support/marketplace/orders/fbs/packaging/marking.html).  На вход нужно передать идентификатор заказа и один необязательный параметр, который управляет версткой PDF-файла.  |**⚙️ Лимит:** 100 000 запросов в час| |-|
 
 ### Example
 
@@ -93,6 +98,11 @@ generateOrderLabels($campaign_id, $order_id, $format): \SplFileObject
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: ApiKey
+$config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKey('Api-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Api-Key', 'Bearer');
 
 // Configure OAuth2 access token for authorization: OAuth
 $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -106,7 +116,7 @@ $apiInstance = new YandexMarketApi\Api\OrderLabelsApi(
 );
 $campaign_id = 56; // int | Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html)
 $order_id = 56; // int | Идентификатор заказа.
-$format = new \YandexMarketApi\Model\PageFormatType(); // PageFormatType | Настройка размещения ярлыков на странице. Если параметра нет, возвращается PDF с ярлыками формата A6.
+$format = new \YandexMarketApi\Model\PageFormatType(); // PageFormatType | Настройка размещения ярлыков на странице. Если параметра нет, возвращается PDF с ярлыками формата A7.
 
 try {
     $result = $apiInstance->generateOrderLabels($campaign_id, $order_id, $format);
@@ -122,7 +132,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **campaign_id** | **int**| Идентификатор кампании в API и магазина в кабинете. Каждая кампания в API соответствует магазину в кабинете.  Чтобы узнать идентификаторы своих магазинов, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) | |
 | **order_id** | **int**| Идентификатор заказа. | |
-| **format** | [**PageFormatType**](../Model/.md)| Настройка размещения ярлыков на странице. Если параметра нет, возвращается PDF с ярлыками формата A6. | [optional] |
+| **format** | [**PageFormatType**](../Model/.md)| Настройка размещения ярлыков на странице. Если параметра нет, возвращается PDF с ярлыками формата A7. | [optional] |
 
 ### Return type
 
@@ -130,7 +140,7 @@ try {
 
 ### Authorization
 
-[OAuth](../../README.md#OAuth)
+[ApiKey](../../README.md#ApiKey), [OAuth](../../README.md#OAuth)
 
 ### HTTP request headers
 
@@ -147,9 +157,9 @@ try {
 getOrderLabelsData($campaign_id, $order_id): \YandexMarketApi\Model\GetOrderLabelsDataResponse
 ```
 
-Информация на ярлыках‑наклейках
+Данные для самостоятельного изготовления ярлыков
 
-Возвращает информацию на ярлыках, которые клеятся на коробки в заказе.  |**⚙️ Лимит:** 1 000 000 запросов в час| |-|
+{% include notitle [access](../../_auto/method_scopes/getOrderLabelsData.md) %}  Возвращает информацию на ярлыках, которые клеятся на коробки в заказе.  |**⚙️ Лимит:** 100 000 запросов в час| |-|
 
 ### Example
 
@@ -157,6 +167,11 @@ getOrderLabelsData($campaign_id, $order_id): \YandexMarketApi\Model\GetOrderLabe
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure API key authorization: ApiKey
+$config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKey('Api-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Api-Key', 'Bearer');
 
 // Configure OAuth2 access token for authorization: OAuth
 $config = YandexMarketApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -192,7 +207,7 @@ try {
 
 ### Authorization
 
-[OAuth](../../README.md#OAuth)
+[ApiKey](../../README.md#ApiKey), [OAuth](../../README.md#OAuth)
 
 ### HTTP request headers
 

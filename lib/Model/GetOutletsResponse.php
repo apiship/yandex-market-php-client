@@ -289,6 +289,9 @@ class GetOutletsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
+        if ($this->container['outlets'] === null) {
+            $invalidProperties[] = "'outlets' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -307,7 +310,7 @@ class GetOutletsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets outlets
      *
-     * @return \YandexMarketApi\Model\FullOutletDTO[]|null
+     * @return \YandexMarketApi\Model\FullOutletDTO[]
      */
     public function getOutlets()
     {
@@ -317,7 +320,7 @@ class GetOutletsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets outlets
      *
-     * @param \YandexMarketApi\Model\FullOutletDTO[]|null $outlets Информация о точках продаж.
+     * @param \YandexMarketApi\Model\FullOutletDTO[] $outlets Информация о точках продаж.
      *
      * @return self
      */

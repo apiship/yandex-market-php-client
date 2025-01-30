@@ -486,7 +486,10 @@ class ChatsApi
                 'Missing the required parameter $business_id when calling createChat'
             );
         }
-
+        if ($business_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$business_id" when calling ChatsApi.createChat, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'create_chat_request' is set
         if ($create_chat_request === null || (is_array($create_chat_request) && count($create_chat_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -552,6 +555,11 @@ class ChatsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -586,8 +594,8 @@ class ChatsApi
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $chat_id Идентификатор чата. (required)
      * @param  \YandexMarketApi\Model\GetChatHistoryRequest $get_chat_history_request description (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatHistory'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -608,8 +616,8 @@ class ChatsApi
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $chat_id Идентификатор чата. (required)
      * @param  \YandexMarketApi\Model\GetChatHistoryRequest $get_chat_history_request description (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatHistory'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -850,8 +858,8 @@ class ChatsApi
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $chat_id Идентификатор чата. (required)
      * @param  \YandexMarketApi\Model\GetChatHistoryRequest $get_chat_history_request description (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -875,8 +883,8 @@ class ChatsApi
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $chat_id Идентификатор чата. (required)
      * @param  \YandexMarketApi\Model\GetChatHistoryRequest $get_chat_history_request description (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -929,8 +937,8 @@ class ChatsApi
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  int $chat_id Идентификатор чата. (required)
      * @param  \YandexMarketApi\Model\GetChatHistoryRequest $get_chat_history_request description (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -945,14 +953,20 @@ class ChatsApi
                 'Missing the required parameter $business_id when calling getChatHistory'
             );
         }
-
+        if ($business_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$business_id" when calling ChatsApi.getChatHistory, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'chat_id' is set
         if ($chat_id === null || (is_array($chat_id) && count($chat_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $chat_id when calling getChatHistory'
             );
         }
-
+        if ($chat_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$chat_id" when calling ChatsApi.getChatHistory, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'get_chat_history_request' is set
         if ($get_chat_history_request === null || (is_array($get_chat_history_request) && count($get_chat_history_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -1047,6 +1061,11 @@ class ChatsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1080,8 +1099,8 @@ class ChatsApi
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetChatsRequest $get_chats_request description (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChats'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -1101,8 +1120,8 @@ class ChatsApi
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetChatsRequest $get_chats_request description (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChats'] to see the possible values for this operation
      *
      * @throws \YandexMarketApi\ApiException on non-2xx response
@@ -1342,8 +1361,8 @@ class ChatsApi
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetChatsRequest $get_chats_request description (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1366,8 +1385,8 @@ class ChatsApi
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetChatsRequest $get_chats_request description (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1419,8 +1438,8 @@ class ChatsApi
      *
      * @param  int $business_id Идентификатор кабинета. Чтобы узнать идентификатор, воспользуйтесь запросом [GET campaigns](../../reference/campaigns/getCampaigns.md#businessdto).  ℹ️ [Что такое кабинет и магазин на Маркете](https://yandex.ru/support/marketplace/account/introduction.html) (required)
      * @param  \YandexMarketApi\Model\GetChatsRequest $get_chats_request description (required)
-     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается самая старая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60;, параметры &#x60;offset&#x60;, &#x60;page_number&#x60; и &#x60;page_size&#x60; игнорируются. (optional)
-     * @param  int $limit Количество товаров на одной странице. (optional)
+     * @param  string $page_token Идентификатор страницы c результатами.  Если параметр не указан, возвращается первая страница.  Рекомендуется передавать значение выходного параметра &#x60;nextPageToken&#x60;, полученное при последнем запросе.  Если задан &#x60;page_token&#x60; и в запросе есть параметры &#x60;page_number&#x60; и &#x60;page_size&#x60;, они игнорируются. (optional)
+     * @param  int $limit Количество значений на одной странице. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1435,7 +1454,10 @@ class ChatsApi
                 'Missing the required parameter $business_id when calling getChats'
             );
         }
-
+        if ($business_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$business_id" when calling ChatsApi.getChats, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'get_chats_request' is set
         if ($get_chats_request === null || (is_array($get_chats_request) && count($get_chats_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -1521,6 +1543,11 @@ class ChatsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -1904,14 +1931,20 @@ class ChatsApi
                 'Missing the required parameter $business_id when calling sendFileToChat'
             );
         }
-
+        if ($business_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$business_id" when calling ChatsApi.sendFileToChat, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'chat_id' is set
         if ($chat_id === null || (is_array($chat_id) && count($chat_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $chat_id when calling sendFileToChat'
             );
         }
-
+        if ($chat_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$chat_id" when calling ChatsApi.sendFileToChat, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'file' is set
         if ($file === null || (is_array($file) && count($file) === 0)) {
             throw new \InvalidArgumentException(
@@ -1991,6 +2024,11 @@ class ChatsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
@@ -2374,14 +2412,20 @@ class ChatsApi
                 'Missing the required parameter $business_id when calling sendMessageToChat'
             );
         }
-
+        if ($business_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$business_id" when calling ChatsApi.sendMessageToChat, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'chat_id' is set
         if ($chat_id === null || (is_array($chat_id) && count($chat_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $chat_id when calling sendMessageToChat'
             );
         }
-
+        if ($chat_id < 1) {
+            throw new \InvalidArgumentException('invalid value for "$chat_id" when calling ChatsApi.sendMessageToChat, must be bigger than or equal to 1.');
+        }
+        
         // verify the required parameter 'send_message_to_chat_request' is set
         if ($send_message_to_chat_request === null || (is_array($send_message_to_chat_request) && count($send_message_to_chat_request) === 0)) {
             throw new \InvalidArgumentException(
@@ -2456,6 +2500,11 @@ class ChatsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Api-Key');
+        if ($apiKey !== null) {
+            $headers['Api-Key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (!empty($this->config->getAccessToken())) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
