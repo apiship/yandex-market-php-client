@@ -501,9 +501,7 @@ class MappingsOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'shop_sku', must be conform to the pattern /^(?=.*\\S.*)[^\\x00-\\x08\\x0A-\\x1f\\x7f]{1,255}$/.";
         }
 
-        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 6000)) {
-            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 6000.";
-        }
+
 
         if (!is_null($this->container['id']) && (mb_strlen($this->container['id']) > 255)) {
             $invalidProperties[] = "invalid value for 'id', the character length must be smaller than or equal to 255.";
@@ -704,9 +702,6 @@ class MappingsOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($description)) {
             throw new \InvalidArgumentException('non-nullable description cannot be null');
-        }
-        if ((mb_strlen($description) > 6000)) {
-            throw new \InvalidArgumentException('invalid length for $description when calling MappingsOfferDTO., must be smaller than or equal to 6000.');
         }
 
         $this->container['description'] = $description;

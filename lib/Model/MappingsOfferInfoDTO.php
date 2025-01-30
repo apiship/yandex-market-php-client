@@ -698,9 +698,7 @@ class MappingsOfferInfoDTO implements ModelInterface, ArrayAccess, \JsonSerializ
         if (is_null($description)) {
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
-        if ((mb_strlen($description) > 6000)) {
-            throw new \InvalidArgumentException('invalid length for $description when calling MappingsOfferInfoDTO., must be smaller than or equal to 6000.');
-        }
+
 
         $this->container['description'] = $description;
 

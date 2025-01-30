@@ -539,9 +539,6 @@ class SuggestedOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializabl
         if (is_null($description)) {
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
-        if ((mb_strlen($description) > 6000)) {
-            throw new \InvalidArgumentException('invalid length for $description when calling SuggestedOfferDTO., must be smaller than or equal to 6000.');
-        }
 
         $this->container['description'] = $description;
 

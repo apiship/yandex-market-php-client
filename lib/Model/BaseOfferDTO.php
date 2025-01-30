@@ -481,9 +481,7 @@ class BaseOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'manuals', number of items must be less than or equal to 6.";
         }
 
-        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 6000)) {
-            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 6000.";
-        }
+
 
         return $invalidProperties;
     }
@@ -817,9 +815,7 @@ class BaseOfferDTO implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($description)) {
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
-        if ((mb_strlen($description) > 6000)) {
-            throw new \InvalidArgumentException('invalid length for $description when calling BaseOfferDTO., must be smaller than or equal to 6000.');
-        }
+
 
         $this->container['description'] = $description;
 
