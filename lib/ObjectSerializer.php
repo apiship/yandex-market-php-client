@@ -534,6 +534,7 @@ class ObjectSerializer
                             $instance->$propertySetter(null);
                         } catch (\InvalidArgumentException $e) {
                             // См. комментарий ниже: контракт запроса не применяется к ответу.
+                            self::logSwallowedResponseValue(get_class($instance), $property, null, $e);
                         }
                     }
 
@@ -550,12 +551,69 @@ class ObjectSerializer
                         // такое поле не должно рушить разбор всего ответа. Поле остаётся дефолтным.
                         // Валидация исходящих запросов (сеттеры при ручной сборке DTO,
                         // listInvalidProperties()) продолжает работать как прежде.
+                        //
+                        // Сюда же попадает проверка enum: если Яндекс введёт новое значение
+                        // (например, новый тип доставки), поле останется пустым, а вызывающий
+                        // код тихо уйдёт не в ту ветку. Поэтому такой случай обязан быть виден
+                        // в логах — см. logSwallowedResponseValue().
+                        self::logSwallowedResponseValue(get_class($instance), $property, $propertyValue, $e);
                         continue;
                     }
                 }
             }
             return $instance;
         }
+    }
+
+    /**
+     * Диагностика проглоченного нарушения контракта при разборе ОТВЕТА.
+     *
+     * Пишем через error_log(), а НЕ через trigger_error(): фреймворки (в частности Yii)
+     * превращают E_USER_* в исключение, и мы вернулись бы ровно к той проблеме, ради
+     * которой правка делалась — падению разбора всего ответа из-за одного поля.
+     *
+     * @param string                     $modelClass
+     * @param string                     $property
+     * @param mixed                      $value
+     * @param \InvalidArgumentException  $e
+     *
+     * @return void
+     */
+    private static function logSwallowedResponseValue($modelClass, $property, $value, \InvalidArgumentException $e)
+    {
+        error_log(sprintf(
+            'YandexMarketApi\ObjectSerializer: значение вне контракта пропущено при разборе ответа.'
+            . ' Модель: %s; свойство: %s; значение: %s; причина: %s',
+            $modelClass,
+            $property,
+            self::describeSwallowedValue($value),
+            $e->getMessage()
+        ));
+    }
+
+    /**
+     * Короткое строковое представление значения для лога.
+     *
+     * @param mixed $value
+     *
+     * @return string
+     */
+    private static function describeSwallowedValue($value)
+    {
+        if ($value === null) {
+            return 'null';
+        }
+
+        if (is_scalar($value)) {
+            return var_export($value, true);
+        }
+
+        $encoded = json_encode($value, JSON_UNESCAPED_UNICODE);
+        if (!is_string($encoded)) {
+            return gettype($value);
+        }
+
+        return strlen($encoded) > 200 ? substr($encoded, 0, 200) . '...' : $encoded;
     }
 
     /**
