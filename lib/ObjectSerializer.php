@@ -530,7 +530,11 @@ class ObjectSerializer
 
                 if (!isset($data->{$instance::attributeMap()[$property]})) {
                     if ($instance::isNullable($property)) {
-                        $instance->$propertySetter(null);
+                        try {
+                            $instance->$propertySetter(null);
+                        } catch (\InvalidArgumentException $e) {
+                            // См. комментарий ниже: контракт запроса не применяется к ответу.
+                        }
                     }
 
                     continue;
@@ -538,7 +542,16 @@ class ObjectSerializer
 
                 if (isset($data->{$instance::attributeMap()[$property]})) {
                     $propertyValue = $data->{$instance::attributeMap()[$property]};
-                    $instance->$propertySetter(self::deserialize($propertyValue, $type, null));
+                    try {
+                        $instance->$propertySetter(self::deserialize($propertyValue, $type, null));
+                    } catch (\InvalidArgumentException $e) {
+                        // Ограничения из контракта ЗАПРОСА (диапазоны, nullable) не применяются
+                        // к разбору ОТВЕТА: сервер вправе вернуть значение вне контракта, и одно
+                        // такое поле не должно рушить разбор всего ответа. Поле остаётся дефолтным.
+                        // Валидация исходящих запросов (сеттеры при ручной сборке DTO,
+                        // listInvalidProperties()) продолжает работать как прежде.
+                        continue;
+                    }
                 }
             }
             return $instance;

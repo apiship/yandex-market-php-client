@@ -21,3 +21,7 @@
 #docs/*.md
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
+
+# Ручная правка APIS-6461: разбор ответа не должен падать на значениях,
+# нарушающих контракт запроса (Яндекс возвращает boxCount = 0).
+lib/ObjectSerializer.php
