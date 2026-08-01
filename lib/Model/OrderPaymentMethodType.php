@@ -73,6 +73,8 @@ class OrderPaymentMethodType
 
     public const B2_B_ACCOUNT_POSTPAYMENT = 'B2B_ACCOUNT_POSTPAYMENT';
 
+    public const MICROCREDIT = 'MICROCREDIT';
+    
     public const UNKNOWN = 'UNKNOWN';
 
     /**
@@ -97,6 +99,7 @@ class OrderPaymentMethodType
             self::TINKOFF_INSTALLMENTS,
             self::B2_B_ACCOUNT_PREPAYMENT,
             self::B2_B_ACCOUNT_POSTPAYMENT,
+            self::MICROCREDIT,
             self::UNKNOWN
         ];
     }
